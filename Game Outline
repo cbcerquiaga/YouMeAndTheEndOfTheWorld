@@ -1,0 +1,45 @@
+This is a basic overview of what the game will be like.
+
+BASIC GAME MECHANICS
+-2 players each control a character from the same computer, and can drop in/drop out at any time. If they drop out, their character simply follows the player who is still playing.
+-In a given area (building, city block, large field), everything is live action, but time holds still. If it is 3:00 in-game, it stays 3:00 in-game.
+-Players advance time by leaving their current area to advance to another one, or by choosing to camp until morning. In either case, they are given the chance to manage their inventory and maintain their characters' health.
+-Each time that time passes, there is a re-roll for a random encounter based on their location, the weather, and other undecided factors.
+-All actions in the game are either skill chacks or minigames, there is no live-action combat.
+-Players can acquire perks that improve their abilities in minigames, improve their chances in skill checks, or give them new abilities.
+-Like any open world RPG, the game is quest driven.
+-The game is partially designed, but certain elements are procedurally placed and may not appear in every playthrough.
+-Tile-based 2d isometric view.
+
+LORE
+-Earth was struck by an asteroid, which caused immediate and catastrophic damage to part of the world but also slowed its rotation.
+-The slowed rotation makes for extremely long, hot days, extremely long, cold nights, and a period of reasonable temperature inbetween. This causes famine, super-storms, and a long period of poor living conditions.
+-The players are born in a time at which their grandparents would remember the impact and their parents would have experienced the decay of society.
+-There are pockets of civilized but poor city-states, humble settlements, and areas of complete anarchy.
+-Probably base the game's location and landmarks off of Atlanta
+
+COMBAT
+-The focus of the game is exploration, not combat, so it should be very risky and difficult (just like real life)
+-If players have the right perk, they can attempt a first strike on the enemy, which is a skill check.
+-If both combatants have ranged weapons, combat is essentially the same as GunBlood.
+-If both combatants have melee weapons, combat is a simple affair of left-right movement, block, and attack
+-Players can pass a skill check to run away from combat, and enemies may attempt this too
+-If one combatant has a ranged weapon and the other doesn't, they can attempt a skill check to rush their enemy. If they pass, then combat becomes melee instead of ranged.
+-If one player dies, the game goes back to the last checkpoint
+
+SURVIVAL
+-Players need to be aware of injuries, body temperature, hygeine, hunger, and thirst, which can be modified by inventory items.
+-Having a low value in any of these categories negatively impacts some aspect of gameplay
+
+MINIGAME IDEAS
+-Driving/Sailing (undecided)
+-Cooking (combination of Breath of the Wild recipe concept with breakout game to make each item properly cooked)
+-Fishing (fish hook dodges obstacles as it goes deeper, if it touches a fish it goes back up and needs to avoid the obstacles again)
+-Hunting (maintaint proper distance from animal, pass skill check to see if they kill the animal)
+-Farming (plant as many seeds as possible in limited time, keep them watered but also remove pests/weeds for certain time to keep them from dying, harvest as many as possible in limited time)
+-Varoius kinds of gambling (betting on randomized animal races, card game?, dice game?, chess-like game?)
+-Drugs (something colorful, but undecided)
+-Tennis (pong)
+-Basketball (turn based strategy)
+-Hockey (2v2 air hockey)
+-Pool (8-ball pool)
