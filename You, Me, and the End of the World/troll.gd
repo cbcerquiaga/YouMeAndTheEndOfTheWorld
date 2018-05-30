@@ -4,7 +4,7 @@ extends KinematicBody2D
 # move_and_slide works.
 
 # Member variables
-const MOTION_SPEED = 9960 # Pixels/second
+const MOTION_SPEED = 160 # Pixels/second
 
 
 func _physics_process(delta):
