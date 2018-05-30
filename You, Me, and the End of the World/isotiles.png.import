@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/body.png-8a768ffbced62509d3858d9fd887a47c.stex"
+path="res://.import/isotiles.png-502434fe0d6c3fd8ce67cea5a960c208.stex"
 
 [deps]
 
-source_file="res://body.png"
-source_md5="e76fc4b6b913ad7e09352eada55fc124"
+source_file="res://isotiles.png"
+source_md5="497da3b55d87ebab4df56dba2a0804ed"
 
-dest_files=[ "res://.import/body.png-8a768ffbced62509d3858d9fd887a47c.stex" ]
-dest_md5="b65921b7af7d7cea3cb9567625d04d34"
+dest_files=[ "res://.import/isotiles.png-502434fe0d6c3fd8ce67cea5a960c208.stex" ]
+dest_md5="e81f39117efaa23b86988b64a3523f31"
 
 [params]
 
