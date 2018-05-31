@@ -18,6 +18,8 @@ func _physics_process(delta):
 			motion += Vector2(-1, 0)
 		if Input.is_action_pressed("move_right"):
 			motion += Vector2(1, 0)
+	else: #pathfinding algorithm
+		print("following player 2")
 	
 	motion = motion.normalized() * MOTION_SPEED
 

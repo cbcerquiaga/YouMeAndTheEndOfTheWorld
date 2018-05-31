@@ -34,7 +34,7 @@ _sections_unfolded = [ "Cell" ]
 
 [node name="Doors" type="TileMap" parent="floor" index="0"]
 
-position = Vector2( 1, 0 )
+position = Vector2( 2, 3 )
 mode = 0
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 64, 64 )
