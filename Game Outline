@@ -3,7 +3,7 @@ This is a basic overview of what the game will be like.
 BASIC GAME MECHANICS
 -2 players each control a character from the same computer, and can drop in/drop out at any time. If they drop out, their character simply follows the player who is still playing.
 -In a given area (building, city block, large field), everything is live action, but time holds still. If it is 3:00 in-game, it stays 3:00 in-game.
--Players advance time by leaving their current area to advance to another one, or by choosing to camp until morning. In either case, they are given the chance to manage their inventory and maintain their characters' health.
+-Players advance time by leaving their current area to advance to another one, or by choosing to camp until morning. In either case, they are given the chance to manage their inventory (from a pause, normally the game would not if they go into their inventory) and maintain their characters' health.
 -Each time that time passes, there is a re-roll for a random encounter based on their location, the weather, and other undecided factors.
 -All actions in the game are either skill chacks or minigames, there is no live-action combat.
 -Players can acquire perks that improve their abilities in minigames, improve their chances in skill checks, or give them new abilities.
@@ -33,13 +33,15 @@ SURVIVAL
 
 MINIGAME IDEAS
 -Driving/Sailing (undecided)
+-Speech
+-Lockpicking(there are 4 pins, each with a different height, that are hidden. The player "bends" a paper clip or bobby pin by guessing values for each of these 4 numbers, and finds out how many were correct and in the right place, and how many were correct but in the wrong place (like Mastermind). They then get to readjust their pick, but can only adjust it a certain amount before it is stuck and can't be changed again and need to use a new one)
 -Cooking (combination of Breath of the Wild recipe concept with breakout game to make each item properly cooked)
 -Fishing (fish hook dodges obstacles as it goes deeper, if it touches a fish it goes back up and needs to avoid the obstacles again)
--Hunting (maintaint proper distance from animal, pass skill check to see if they kill the animal)
+-Hunting (maintain proper distance from the animal which moves around randomly or in patterns, pass a skill check to see if they kill the animal or if the chase continues. If the player gets too close for too long, the animal is spooked off, and if they get too far for too long, it gets away)
 -Farming (plant as many seeds as possible in limited time, keep them watered but also remove pests/weeds for certain time to keep them from dying, harvest as many as possible in limited time)
 -Varoius kinds of gambling (betting on randomized animal races, card game?, dice game?, chess-like game?)
 -Drugs (something colorful, but undecided)
 -Tennis (pong)
 -Basketball (turn based strategy)
--Hockey (2v2 air hockey)
+-Hockey (2v2 air hockey or NES style arcade hockey)
 -Pool (8-ball pool)
