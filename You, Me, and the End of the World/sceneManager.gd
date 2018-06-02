@@ -35,6 +35,10 @@ func _on_timer_timeout():
 
 func _on_timer2_timeout():
 	cooldown2 = false
+	
+func _on_pause_button_pressed():
+    get_tree().paused = true
+    $pause_popup.show()
 
 func _process(delta):
 	if Input.is_action_pressed("p1_dropout") and !cooldown:
@@ -55,4 +59,6 @@ func _process(delta):
 			cooldown2 = true
 			isp2Playing = true
 			_start_timer2()
+	if Input.is_action_pressed("pause"):
+		_on_pause_button_pressed()
 	pass
