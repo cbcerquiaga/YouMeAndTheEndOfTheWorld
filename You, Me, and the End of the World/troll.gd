@@ -4,7 +4,7 @@ extends KinematicBody2D
 # move_and_slide works.
 
 # Member variables
-const MOTION_SPEED = 160 # Pixels/second
+const MOTION_SPEED = 3 # Pixels/second
 
 func _physics_process(delta):
 	var motion = Vector2()
@@ -22,5 +22,12 @@ func _physics_process(delta):
 		print("following player 2")
 	
 	motion = motion.normalized() * MOTION_SPEED
-
-	move_and_slide(motion)
+	var collision_info = move_and_collide(motion)
+	
+	#collision handling
+	if collision_info:
+		var collision_object = collision_info.collider
+		#Use handle_collide() on any object you wish to handle the collision with this KinematicBody2d
+		if collision_object.has_method('handle_collide'):
+			collision_object.handle_collide();
+	
