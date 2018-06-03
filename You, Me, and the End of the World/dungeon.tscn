@@ -76,6 +76,6 @@ position = Vector2( 67.1501, -111 )
 
 [node name="door3" parent="walls" index="4" instance=ExtResource( 6 )]
 
-position = Vector2( 807.15, 309 )
+position = Vector2( 857.15, 329 )
 
 
