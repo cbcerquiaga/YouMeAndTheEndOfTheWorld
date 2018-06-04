@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://sceneManager.gd" type="Script" id=1]
 [ext_resource path="res://tileset.tres" type="TileSet" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://door1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://KinematicBody2D.tscn" type="PackedScene" id=7]
 [ext_resource path="res://LightSaber.gd" type="Script" id=8]
+[ext_resource path="res://Piano.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Piano.gd" type="Script" id=10]
 
 [node name="dungeon" type="Node2D" index="0"]
 
@@ -84,5 +86,30 @@ position = Vector2( 857.15, 329 )
 
 position = Vector2( 157.15, -11 )
 script = ExtResource( 8 )
+
+[node name="LightSaber2" parent="walls" index="6" instance=ExtResource( 7 )]
+
+position = Vector2( 17.1501, 59 )
+script = ExtResource( 8 )
+
+[node name="LightSaber3" parent="walls" index="7" instance=ExtResource( 7 )]
+
+position = Vector2( 257.15, -1 )
+script = ExtResource( 8 )
+
+[node name="Piano" parent="walls" index="8" instance=ExtResource( 9 )]
+
+position = Vector2( -32.8499, -241 )
+script = ExtResource( 10 )
+
+[node name="Piano2" parent="walls" index="9" instance=ExtResource( 9 )]
+
+position = Vector2( 837.15, -91 )
+script = ExtResource( 10 )
+
+[node name="Piano3" parent="walls" index="10" instance=ExtResource( 9 )]
+
+position = Vector2( 627.15, 179 )
+script = ExtResource( 10 )
 
 

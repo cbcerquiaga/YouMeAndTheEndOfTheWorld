@@ -7,11 +7,8 @@ extends 'item.gd'
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
-	__init__('LightSaber', 10)
+	__init__('GrandPiano', 100)
 	pass
-	
-#func attack():
-#	swing()
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.

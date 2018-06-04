@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://grandPiano.png" type="Texture" id=1]
+
+[node name="Piano" type="KinematicBody2D"]
+
+position = Vector2( 1.15015, -6 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -31.1502, -34, -31.1502, 36, 28.8498, 36, 28.8498, -34 )
+
+[node name="Sprite" type="Sprite" parent="." index="1"]
+
+texture = ExtResource( 1 )
+normal_map = ExtResource( 1 )
+_sections_unfolded = [ "Material" ]
+
+
