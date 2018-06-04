@@ -17,14 +17,14 @@ func _ready():
 
 
 func _unpause():
-	$pause_popup.hide()
+	.hide()
 	get_tree().paused = false
 	print("Game unpaused")
 	
 func _popupMenuChoice(ID):
 	if ID == 1: #resume
 		print("Resume button pressed")
-		unpause()
+		_unpause()
 	elif ID == 2:
 		print("Save button pressed")
 	elif ID == 3:
