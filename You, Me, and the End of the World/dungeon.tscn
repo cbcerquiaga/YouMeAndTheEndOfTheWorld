@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://sceneManager.gd" type="Script" id=1]
 [ext_resource path="res://tileset.tres" type="TileSet" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://troll.gd" type="Script" id=4]
 [ext_resource path="res://player2.gd" type="Script" id=5]
 [ext_resource path="res://door1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://KinematicBody2D.tscn" type="PackedScene" id=7]
+[ext_resource path="res://LightSaber.gd" type="Script" id=8]
 
 [node name="dungeon" type="Node2D" index="0"]
 
@@ -63,7 +65,7 @@ script = ExtResource( 4 )
 
 [node name="troll2" parent="walls" index="1" instance=ExtResource( 3 )]
 
-position = Vector2( 497.142, 318.007 )
+position = Vector2( 496.142, 318.007 )
 script = ExtResource( 5 )
 
 [node name="door1" parent="walls" index="2" instance=ExtResource( 6 )]
@@ -77,5 +79,10 @@ position = Vector2( 67.1501, -111 )
 [node name="door3" parent="walls" index="4" instance=ExtResource( 6 )]
 
 position = Vector2( 857.15, 329 )
+
+[node name="LightSaber" parent="walls" index="5" instance=ExtResource( 7 )]
+
+position = Vector2( 157.15, -11 )
+script = ExtResource( 8 )
 
 

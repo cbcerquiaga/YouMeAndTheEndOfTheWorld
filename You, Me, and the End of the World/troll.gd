@@ -5,6 +5,7 @@ extends KinematicBody2D
 
 # Member variables
 const MOTION_SPEED = 3 # Pixels/second
+var itemList = []
 
 func _physics_process(delta):
 	var motion = Vector2()
@@ -21,6 +22,9 @@ func _physics_process(delta):
 	else: #pathfinding algorithm
 		print("following player 2")
 	
+#	if Input.is_action_pressed("p1_inventory"):
+#		Inventory.show()
+	
 	motion = motion.normalized() * MOTION_SPEED
 	var collision_info = move_and_collide(motion)
 	
@@ -29,5 +33,13 @@ func _physics_process(delta):
 		var collision_object = collision_info.collider
 		#Use handle_collide() on any object you wish to handle the collision with this KinematicBody2d
 		if collision_object.has_method('handle_collide'):
-			collision_object.handle_collide();
+			collision_object.handle_collide(self);
+	
+func addItem(item):
+	itemList.append(item);
+	print('Added item to p1\'s inventory')
+	
+	
+	
+	
 	
