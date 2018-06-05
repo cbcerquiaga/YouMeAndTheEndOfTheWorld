@@ -1,0 +1,32 @@
+Any ideas for perks go here. They should be realistic
+Name: effect
+*************************
+Cold blooded: lets the player attempt a first-strike skill check for combat
+Pack rat: improved carry capacity
+Did I say that?: can re-roll charisma checks
+Wild Wasteland (needs a different name): random encounters are much more likely
+Salty: lets the player sail wind-powered vehicles
+Scary: makes there a slight chance that enemies attempt to run away from combat even if they're properly equipped (and didn't bring a kinfe to a gunfight)
+Knife to a gunfight: increased chance of surviving (and succeeding) when attempting to rush an enemy equipped with a ranged weapon and getting into melee combat
+Speedy: increased movement speed when exploring
+Iron gut: risk on all foods reduced 20%
+Double damage potion: all damage done will be doubled
+Weakness debuff: all damage done will be halved
+Rabbies: all damage increased by 1.25, but food eatten will be halved
+StoneSkin: all damage decreased by 10% per hour, all food eatten will restore 100 - 10% * number of hours with the effect
+CementSocks: speed decreased
+
+
+Types of values we need to implement
+Name: value range
+*************************
+First-strike chance: 0 - 99
+Carry Capacity bonus: -9999 - 9999
+Reroll Charisma checks: 0 - 1
+RandomEncounter Bonus: 0 - 99
+Sail operator: 0 - 1
+Scare bonus: 0 - 99
+Knife fight change: 0 - 99
+Speed bonus: -99 - 99
+Hunger Bonus: -99 - 99
+Damage dealt: 0 - 100
