@@ -4,13 +4,13 @@ extends KinematicBody2D
 # move_and_slide works.
 
 # Member variables
-const MOTION_SPEED = 3 # Pixels/second
 const invWaitTime = 1
 var playerProperty = preload('res://PlayerProperties.gd').new()
 var invCooldown = true
 var invTimer = Timer.new()
 
 func _ready():
+	playerProperty.__init__(1,1,1,1)
 	invTimer.connect("timeout",self,"_on_invTimer_timeout")
 	add_child(invTimer)
 	invTimer.wait_time = invWaitTime
@@ -45,7 +45,7 @@ func _physics_process(delta):
 			_restart_invTimer()
 			playerProperty.str('p1')
 	
-	motion = motion.normalized() * MOTION_SPEED
+	motion = motion.normalized() * playerProperty.getSpeed()
 	var collision_info = move_and_collide(motion)
 	
 	#collision handling
