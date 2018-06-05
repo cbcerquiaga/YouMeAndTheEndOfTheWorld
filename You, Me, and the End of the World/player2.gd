@@ -6,7 +6,7 @@ extends KinematicBody2D
 # Member variables
 const MOTION_SPEED = 3 # Pixels/second
 const invWaitTime = 1
-var itemList = Dictionary()
+var playerProperty = preload('res://PlayerProperties.gd').new()
 var invCooldown = true
 var invTimer = Timer.new()
 
@@ -43,15 +43,7 @@ func _physics_process(delta):
 		if !invCooldown:
 			invCooldown = true
 			_restart_invTimer()
-			if len(itemList) == 0:
-				print("P2\'s inventory is empty")
-			else:
-				var itemListKeys = itemList.keys()
-				for i in range(0,itemListKeys.size()):
-					if(itemList[itemListKeys[i]] == 1):
-						print(itemList[itemListKeys[i]], ' ', itemListKeys[i])
-					else:
-						print(itemList[itemListKeys[i]], ' ', itemListKeys[i], 's')
+			playerProperty.str('p2')
 	
 	motion = motion.normalized() * MOTION_SPEED
 	var collision_info = move_and_collide(motion)
@@ -64,9 +56,5 @@ func _physics_process(delta):
 			collision_object.handle_collide(self)
 
 func addItem(item):
-	if(itemList.has(item.itemName)):
-		itemList[item.itemName] += 1
-	else:
-		itemList[item.itemName] = 1
-	print('Added 1 ' , item.itemName , ' to p2\'s inventory')
+	playerProperty.addItem(item, 'p2')
 	
