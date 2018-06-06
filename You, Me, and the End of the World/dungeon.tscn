@@ -65,6 +65,7 @@ _sections_unfolded = [ "Cell" ]
 
 [node name="walls" type="TileMap" parent="." index="2"]
 
+editor/display_folded = true
 position = Vector2( -1.15015, 6 )
 mode = 1
 tile_set = ExtResource( 3 )

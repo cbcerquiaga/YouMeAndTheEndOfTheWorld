@@ -1,7 +1,7 @@
 
 var itemList = Dictionary()
 var selectedItem = 0
-var moveSpeed = 3
+var moveSpeed = 200
 
 #TRAITS
 var strength = 1
