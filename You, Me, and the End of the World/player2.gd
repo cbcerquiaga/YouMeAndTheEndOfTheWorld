@@ -1,26 +1,26 @@
 extends KinematicBody2D
 
-# This is a demo showing how KinematicBody2D
-# move_and_slide works.
-
 # Member variables
 const invWaitTime = 1
 var playerProperty = preload('res://PlayerProperties.gd').new()
 var invCooldown = true
 var invTimer = Timer.new()
 
+#Called when the player is entered into the scene
 func _ready():
 	playerProperty.__init__(1,1,1,1)
 	invTimer.connect("timeout",self,"_on_invTimer_timeout")
 	add_child(invTimer)
 	invTimer.wait_time = invWaitTime
 	invTimer.start()
-	
+
+#Called to restart the invTimer, they will not set it if the timer is still active
 func _restart_invTimer():
 	if invTimer.wait_time <= 0:
 		invTimer.wait_time = invWaitTime
 		invTimer.start()
 
+#Called whenever invTimer hits 0
 func _on_invTimer_timeout():
 	invCooldown = false
 
@@ -63,6 +63,9 @@ func _physics_process(delta):
 		if collision_objects.keys()[i].has_method('handle_collide'):
 			collision_objects.keys()[i].handle_collide(self);
 
+#adds an item to the player inventory, it makes a call to playerProperty's addItem method
 func addItem(item):
 	playerProperty.addItem(item, 'p2')
 	
+
+
