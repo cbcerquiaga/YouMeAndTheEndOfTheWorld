@@ -11,8 +11,6 @@ func _ready():
 	self.add_item("Quit Game",6)
 	#self.set_position(Vector2(100,100))
 	self.connect("id_pressed", self, "_popupMenuChoice")
-	self.show()
-	print("popup is showing")
 	pass
 
 
