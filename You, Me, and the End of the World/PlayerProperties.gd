@@ -70,6 +70,7 @@ func str(name):
 	if len(itemList) == 0:
 		print(name, "\'s inventory is empty")
 	else:
+		print('Printing ', name, ' \'s inventory')
 		var itemListKeys = itemList.keys()
 		for i in range(0,itemListKeys.size()):
 			if(itemList[itemListKeys[i]] == 1):

@@ -45,17 +45,26 @@ func _physics_process(delta):
 			_restart_invTimer()
 			playerProperty.str('p1')
 	
+	#playerProperty.getSpeed() calculates the default speed times any perks or trait bonuses
 	motion = motion.normalized() * playerProperty.getSpeed()
 	move_and_slide(motion)
 	
-	#returns several collisions since the last move_and_slide call
-	for i in range(get_slide_count()):
-		var collision_object = get_slide_collision(i).collider
-		if collision_object.has_method('handle_collide'):
-			collision_object.handle_collide(self);
-		
 	
+	#Create a dictionary because there are no sets, and dictionaries can be used
+	#for their unique key generation
+	var collision_objects = Dictionary()
+	#to make sure there is no leftovers from the last list of collision_objects
+	collision_objects.clear()
+	for i in range(get_slide_count()):
+		#Set to 0 just as a placeholder, does not matter the value
+		collision_objects[get_slide_collision(i).collider] = 0
+	
+	#parses through each unique object and tried to call it's handle_collide() method
+	for i in range(len(collision_objects.keys())):
+		if collision_objects.keys()[i].has_method('handle_collide'):
+			collision_objects.keys()[i].handle_collide(self);
 
+#adds an item to the player inventory, it makes a call to playerProperty's addItem method
 func addItem(item):
 	playerProperty.addItem(item, 'p1')
 
