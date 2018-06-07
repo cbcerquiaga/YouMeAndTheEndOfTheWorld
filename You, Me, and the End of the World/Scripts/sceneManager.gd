@@ -5,7 +5,7 @@ var isp1Playing
 var isp2Playing
 var cooldown = true;
 var cooldown2 = true;
-var timer = Timer.new()
+var timer1 = Timer.new()
 var timer2 = Timer.new()
 onready var p1_Camera = get_node("walls/player1/Camera2D")
 onready var p2_Camera = get_node("walls/player2/Camera2D")
@@ -19,11 +19,11 @@ func _ready():
 	isp1Playing = true
 	isp2Playing = true
 	#Handling Timer
-	timer.connect("timeout",self,"_on_timer_timeout")
+	timer1.connect("timeout",self,"_on_timer_timeout")
 	timer2.connect("timeout", self, "_on_timer2_timeout")
-	add_child(timer)
+	add_child(timer1)
 	add_child(timer2)
-	_start_timer()
+	_start_timer1()
 	_start_timer2()
 	#Handling Camera
 	var canvas_transform = get_viewport().get_canvas_transform()
@@ -31,14 +31,17 @@ func _ready():
 	get_viewport().set_canvas_transform(canvas_transform)
 
 #Function to start the timer at 1 seconds
-func _start_timer():
-	timer.wait_time = 1
-	timer.start() #to start
+func _start_timer1():
+	if !timer1.time_left > 0:
+		timer1.wait_time = 1
+		timer1.start() #to start
 
 #Function to start the second timer at 1 seconds
 func _start_timer2():
-	timer2.wait_time = 1
-	timer2.start() #to start
+	if !timer2.time_left > 0:
+		timer2.wait_time = 1
+		timer2.start() #to start
+
 #The function to handle when the timer times out
 func _on_timer_timeout():
 	cooldown = false
@@ -49,37 +52,38 @@ func _on_timer2_timeout():
 func _pause():
 	print("Game paused")
 	get_tree().paused = true
+	$pause_popup.update()
 	$pause_popup.show()
 
 func _p1camera_current():
-	pass
 #	var canvas_transform = get_viewport().get_canvas_transform()
-#	canvas_transform[2] = last_player1_pos - screensize
+#	canvas_transform[2] = last_player1_pos - screensize / 2
 #	get_viewport().set_canvas_transform(canvas_transform)
+	pass
 	
 func _p2camera_current():
-	pass
 #	var canvas_transform = get_viewport().get_canvas_transform()
-#	canvas_transform[2] = last_player2_pos - screensize
+#	canvas_transform[2] = last_player2_pos - screensize / 2
 #	get_viewport().set_canvas_transform(canvas_transform)
+	pass
 
 func _both_players_current():
-	pass
 #	var canvas_transform = get_viewport().get_canvas_transform()
-#	canvas_transform[2] = (last_player1_pos - last_player2_pos)
+#	canvas_transform[2] = (player1.global_position - player2.global_position)
 #	get_viewport().set_canvas_transform(canvas_transform)
+	pass
 
 func _process(delta):
 	if Input.is_action_pressed("p1_dropout") and !cooldown:
 		if(isp1Playing && isp2Playing):
 			cooldown = true
 			isp1Playing = false
-			_start_timer()
+			_start_timer1()
 			_p2camera_current()
 		elif(!isp1Playing):
 			cooldown = true
 			isp1Playing = true
-			_start_timer()
+			_start_timer1()
 			_both_players_current()
 	if Input.is_action_pressed("p2_dropout") and !cooldown2:
 		if(isp1Playing && isp2Playing):

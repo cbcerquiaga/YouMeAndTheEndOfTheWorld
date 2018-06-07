@@ -53,7 +53,6 @@ func _physics_process(delta):
 	#If the player moved in this frame then emit the move signal
 	if motion != Vector2(0,0):
 		emit_signal("move")
-		
 	
 	#Create a dictionary because there are no sets, and dictionaries can be used
 	#for their unique key generation
@@ -72,5 +71,6 @@ func _physics_process(delta):
 #adds an item to the player inventory, it makes a call to playerProperty's addItem method
 func addItem(item):
 	playerProperty.addItem(item, 'p1')
+
 
 

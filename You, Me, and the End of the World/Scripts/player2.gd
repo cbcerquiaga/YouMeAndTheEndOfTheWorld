@@ -53,7 +53,7 @@ func _physics_process(delta):
 	#If the player moved in this frame then emit the move signal
 	if motion != Vector2(0,0):
 		emit_signal("move")
-		
+	
 	#Create a dictionary because there are no sets, and dictionaries can be used
 	#for their unique key generation
 	var collision_objects = Dictionary()

@@ -9,7 +9,10 @@ func _ready():
 	self.add_item("Settings",4)
 	self.add_item("Main Menu",5)
 	self.add_item("Quit Game",6)
-	#self.set_position(Vector2(100,100))
+	var vtrans = get_canvas_transform()
+	var top_left = -vtrans.get_origin() / vtrans.get_scale()
+	var vsize = get_viewport_rect().size
+	self.set_position(top_left + 0.5 * vsize / vtrans.get_scale())
 	self.connect("id_pressed", self, "_popupMenuChoice")
 	pass
 
@@ -18,7 +21,13 @@ func _unpause():
 	.hide()
 	get_tree().paused = false
 	print("Game unpaused")
-	
+
+func update():
+	var vtrans = get_canvas_transform()
+	var top_left = -vtrans.get_origin() / vtrans.get_scale()
+	var vsize = get_viewport_rect().size
+	self.set_position(top_left + 0.5 * vsize / vtrans.get_scale())
+
 func _popupMenuChoice(ID):
 	if ID == 1: #resume
 		print("Resume button pressed")
