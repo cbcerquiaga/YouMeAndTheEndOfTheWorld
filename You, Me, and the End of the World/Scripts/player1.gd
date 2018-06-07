@@ -2,12 +2,13 @@ extends KinematicBody2D
 
 # Member variables
 const invWaitTime = 1
-var playerProperty = preload('res://PlayerProperties.gd').new()
+var playerProperty = preload('res://Scripts/PlayerProperties.gd').new()
 var invCooldown = true
 var invTimer = Timer.new()
 
 #Called when the player is entered into the scene
 func _ready():
+#	set_safe_margin(100)
 	playerProperty.__init__(1,1,1,1)
 	invTimer.connect("timeout",self,"_on_invTimer_timeout")
 	add_child(invTimer)

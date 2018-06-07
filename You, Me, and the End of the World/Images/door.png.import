@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/troll.png-78efc50bfccaa17f54d40cfea3eef5f5.stex"
+path="res://.import/door.png-75a02b41f94f03559ebbe98109559dcb.stex"
 
 [deps]
 
-source_file="res://troll.png"
-source_md5="76a37c47b1f09115f714d6635ab50fb4"
+source_file="res://Images/door.png"
+source_md5="ad08a2a7c99eb78148777c0c2f1da9c4"
 
-dest_files=[ "res://.import/troll.png-78efc50bfccaa17f54d40cfea3eef5f5.stex" ]
-dest_md5="aded3a6d7973cb880144e84f0b3ec505"
+dest_files=[ "res://.import/door.png-75a02b41f94f03559ebbe98109559dcb.stex" ]
+dest_md5="c01363d9c56b57060de488b410dabc08"
 
 [params]
 

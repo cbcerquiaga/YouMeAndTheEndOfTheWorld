@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 # Member variables
 const invWaitTime = 1
-var playerProperty = preload('res://PlayerProperties.gd').new()
+var playerProperty = preload('res://Scripts/PlayerProperties.gd').new()
 var invCooldown = true
 var invTimer = Timer.new()
 
