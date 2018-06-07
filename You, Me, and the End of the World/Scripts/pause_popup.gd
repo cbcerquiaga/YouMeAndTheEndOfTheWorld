@@ -26,7 +26,7 @@ func update():
 	var vtrans = get_canvas_transform()
 	var top_left = -vtrans.get_origin() / vtrans.get_scale()
 	var vsize = get_viewport_rect().size
-	self.set_position(top_left + 0.5 * vsize / vtrans.get_scale())
+	self.set_position(top_left + 0.43 * vsize / vtrans.get_scale())
 
 func _popupMenuChoice(ID):
 	if ID == 1: #resume
