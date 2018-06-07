@@ -5,6 +5,7 @@ const invWaitTime = 1
 var playerProperty = preload('res://Scripts/PlayerProperties.gd').new()
 var invCooldown = true
 var invTimer = Timer.new()
+signal move
 
 #Called when the player is entered into the scene
 func _ready():
@@ -49,6 +50,10 @@ func _physics_process(delta):
 	motion = motion.normalized() * playerProperty.getSpeed()
 	move_and_slide(motion)
 	
+	#If the player moved in this frame then emit the move signal
+	if motion != Vector2(0,0):
+		emit_signal("move")
+		
 	#Create a dictionary because there are no sets, and dictionaries can be used
 	#for their unique key generation
 	var collision_objects = Dictionary()

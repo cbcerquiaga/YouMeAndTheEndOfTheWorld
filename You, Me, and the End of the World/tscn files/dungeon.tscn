@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/sceneManager.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/pause_popup.gd" type="Script" id=2]
@@ -9,11 +9,13 @@
 [ext_resource path="res://Scripts/LightSaber.gd" type="Script" id=7]
 [ext_resource path="res://tscn files/player1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://tscn files/player2.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scripts/BothPlayerCamera.gd" type="Script" id=10]
 
 [node name="dungeon" type="Node2D" index="0"]
 
 position = Vector2( 184, 5 )
 script = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
 
 [node name="pause_popup" type="PopupMenu" parent="." index="0"]
 
@@ -108,5 +110,13 @@ script = ExtResource( 7 )
 [node name="player1" parent="walls" index="5" instance=ExtResource( 8 )]
 
 [node name="player2" parent="walls" index="6" instance=ExtResource( 9 )]
+
+[node name="BothPlayerCamera" type="Node2D" parent="walls" index="7"]
+
+script = ExtResource( 10 )
+
+[connection signal="move" from="walls/player1" to="." method="update_camera"]
+
+[connection signal="move" from="walls/player2" to="." method="update_camera"]
 
 
