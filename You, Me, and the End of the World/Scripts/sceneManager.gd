@@ -1,5 +1,10 @@
 extends Node2D
 
+const marginForCameraToZoomOut = 300
+#const slowdownOfZoomOut = 5
+const maxZoomOutScale = 0.7
+const minZoomInScale = 1.0
+
 # class member variables go here, for example:
 var isp1Playing
 var isp2Playing
@@ -55,36 +60,16 @@ func _pause():
 	$pause_popup.update()
 	$pause_popup.show()
 
-func _p1camera_current():
-#	var canvas_transform = get_viewport().get_canvas_transform()
-#	canvas_transform[2] = last_player1_pos - screensize / 2
-#	get_viewport().set_canvas_transform(canvas_transform)
-	pass
-	
-func _p2camera_current():
-#	var canvas_transform = get_viewport().get_canvas_transform()
-#	canvas_transform[2] = last_player2_pos - screensize / 2
-#	get_viewport().set_canvas_transform(canvas_transform)
-	pass
-
-func _both_players_current():
-#	var canvas_transform = get_viewport().get_canvas_transform()
-#	canvas_transform[2] = (player1.global_position - player2.global_position)
-#	get_viewport().set_canvas_transform(canvas_transform)
-	pass
-
 func _process(delta):
 	if Input.is_action_pressed("p1_dropout") and !cooldown:
 		if(isp1Playing && isp2Playing):
 			cooldown = true
 			isp1Playing = false
 			_start_timer1()
-			_p2camera_current()
 		elif(!isp1Playing):
 			cooldown = true
 			isp1Playing = true
 			_start_timer1()
-			_both_players_current()
 	if Input.is_action_pressed("p2_dropout") and !cooldown2:
 		if(isp1Playing && isp2Playing):
 			cooldown2 = true
@@ -95,22 +80,39 @@ func _process(delta):
 			cooldown2 = true
 			isp2Playing = true
 			_start_timer2()
-			_both_players_current()
 	if Input.is_action_pressed("pause"):
 		_pause()
 	pass
 
+#func recenter_camera():
+#	var canvas_transform = get_viewport().get_canvas_transform()
+#	canvas_transform[2] = (player2.global_position - player1.global_position)
+#	get_viewport().set_canvas_transform(canvas_transform)
+
 func update_camera():
-	var player_offset
-#	if isp1Playing and isp2Playing:
-	player_offset = ((last_player1_pos - player1.global_position) + (last_player2_pos - player2.global_position)) / 2
-#	elif isp1Playing and !isp2Playing:
-#		player_offset = (last_player1_pos - player1.global_position)
-#	else:
-#		player_offset = (last_player2_pos - player2.global_position)
+	#Get the change of p1 and p2's location compared to last update_camera call
+	var player_offset = ((last_player1_pos - player1.global_position) + (last_player2_pos - player2.global_position)) / 2
+	var player_distance = (player1.global_position - player2.global_position)
+	var maxValue = (marginForCameraToZoomOut/((max(abs(player_distance.x), abs(player_distance.y)))))
+	if maxValue > minZoomInScale:
+		maxValue = minZoomInScale
+	elif maxValue < maxZoomOutScale:
+		maxValue = maxZoomOutScale
+	
+	#Update player's last positions to their current position
 	last_player1_pos = player1.global_position
 	last_player2_pos = player2.global_position
+	#Get the current canvas transform
 	var canvas_transform = get_viewport().get_canvas_transform()
+	#Update the canvas with the player's offset
+	canvas_transform[0] = Vector2(maxValue,0)
+	canvas_transform[1] = Vector2(0, maxValue)
 	canvas_transform[2] += player_offset
 	get_viewport().set_canvas_transform(canvas_transform)
+#	if(maxValue != 1):
+#		recenter_camera()
+	#DEBUG
+#	print(player_distance.x, ' ' , player_distance.y)
+#	print(canvas_transform.get_scale())
+#	print(maxValue)
 	

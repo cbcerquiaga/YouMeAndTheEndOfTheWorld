@@ -21,6 +21,7 @@ _sections_unfolded = [ "Visibility" ]
 [node name="pause_popup" type="PopupMenu" parent="." index="0"]
 
 pause_mode = 2
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -44,6 +45,7 @@ _sections_unfolded = [ "Anchor", "Margin", "Pause", "Popup" ]
 
 [node name="HUD" type="CanvasLayer" parent="." index="1"]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
