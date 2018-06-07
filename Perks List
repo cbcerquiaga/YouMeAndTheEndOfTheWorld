@@ -10,23 +10,37 @@ Scary: makes there a slight chance that enemies attempt to run away from combat 
 Knife to a gunfight: increased chance of surviving (and succeeding) when attempting to rush an enemy equipped with a ranged weapon and getting into melee combat
 Speedy: increased movement speed when exploring
 Iron gut: risk on all foods reduced 20%
-Double damage potion: all damage done will be doubled
+Double damage potion: all melee damage done will be doubled (it would make sense to be better at finding weak points on people or having good martial arts technique, but nobody shoots a bullet harder than anybody else)
+Medeival: increased damage and rate of fire with bow and throwing weapons, as well as increased first strike chance and hunting kill chance with them.
 Weakness debuff: all damage done will be halved
 Rabbies: all damage increased by 1.25, but food eatten will be halved
 StoneSkin: all damage decreased by 10% per hour, all food eatten will restore 100 - 10% * number of hours with the effect
 CementSocks: speed decreased
+Hangry: +2 charisma when over 50% fed, but -2 charisma when under 50% fed
+Red Pill: Enemy ranged weapon accuracy decreased by 20%
+It's a Dry Heat: improved heat resistance
+You should have been here last Winter: improved cold resistance
+Bear: If the player runs out of water in their inventory, they get their thirst meter refilled halfway
+An Apple a Day: The player's hygeine meter goes down 50% slower
+Sweet: improved charisma with females
+Charming: improved charisma with males
+Inquisitive: more EXP from everyday actions
 
 
 Types of values we need to implement
 Name: value range
 *************************
 First-strike chance: 0 - 99
+Hunting kill chance: 0 - 99
 Carry Capacity bonus: -9999 - 9999
 Reroll Charisma checks: 0 - 1
+Charisma Value: -20 - 20
 RandomEncounter Bonus: 0 - 99
 Sail operator: 0 - 1
 Scare bonus: 0 - 99
 Knife fight change: 0 - 99
 Speed bonus: -99 - 99
 Hunger Bonus: -99 - 99
-Damage dealt: 0 - 100
+Melee Damage dealt: 0 - 100
+Shooting Accuracy Bonus: 0 - 100
+Food sickness chance: -99 - 99
