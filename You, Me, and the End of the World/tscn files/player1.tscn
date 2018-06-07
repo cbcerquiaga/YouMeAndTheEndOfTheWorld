@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Scripts/door1.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/player1.gd" type="Script" id=1]
 [ext_resource path="res://Images/troll.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -8,8 +8,9 @@
 custom_solver_bias = 0.0
 radius = 5.39319
 
-[node name="troll" type="KinematicBody2D"]
+[node name="player1" type="KinematicBody2D"]
 
+position = Vector2( 370.142, 320.007 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1

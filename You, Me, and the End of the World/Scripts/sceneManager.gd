@@ -7,6 +7,8 @@ var cooldown = true;
 var cooldown2 = true;
 var timer = Timer.new()
 var timer2 = Timer.new()
+onready var p1_Camera = get_node("walls/player1/Camera2D")
+onready var p2_Camera = get_node("walls/player2/Camera2D")
 
 func _ready():
 	isp1Playing = true
@@ -41,25 +43,37 @@ func _pause():
 	get_tree().paused = true
 	$pause_popup.show()
 
+func _p1camera_current():
+	p2_Camera.clear_current()
+	p1_Camera.make_current()
+	
+func _p2camera_current():
+	p1_Camera.clear_current()
+	p2_Camera.make_current()
+
 func _process(delta):
 	if Input.is_action_pressed("p1_dropout") and !cooldown:
 		if(isp1Playing && isp2Playing):
 			cooldown = true
 			isp1Playing = false
 			_start_timer()
+			_p2camera_current()
 		elif(!isp1Playing):
 			cooldown = true
 			isp1Playing = true
 			_start_timer()
+			_p1camera_current()
 	if Input.is_action_pressed("p2_dropout") and !cooldown:
 		if(isp1Playing && isp2Playing):
 			cooldown2 = true
 			isp2Playing = false
 			_start_timer2()
+			_p1camera_current()
 		elif(!isp2Playing):
 			cooldown2 = true
 			isp2Playing = true
 			_start_timer2()
+			_p1camera_current()
 	if Input.is_action_pressed("pause"):
 		_pause()
 	pass
