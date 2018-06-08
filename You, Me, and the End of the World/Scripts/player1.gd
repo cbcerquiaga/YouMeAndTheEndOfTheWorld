@@ -5,6 +5,10 @@ const invWaitTime = 1
 var playerProperty = preload('res://Scripts/PlayerProperties.gd').new()
 var invCooldown = true
 var invTimer = Timer.new()
+var overallHealth = 100 #TODO:add a function to get a player health value based on damage, food, cold, etc
+var currentEXP = 99 #EXP is out of 100
+var carryWeight = 100
+var maxCarry = 200
 signal move
 
 #Called when the player is entered into the scene
