@@ -32,7 +32,7 @@ func _ready():
 	_start_timer2()
 	#Handling Camera
 	var canvas_transform = get_viewport().get_canvas_transform()
-	canvas_transform[2] = (last_player1_pos - last_player2_pos)
+	canvas_transform[2] = (player1.global_position - player2.global_position)/2
 	get_viewport().set_canvas_transform(canvas_transform)
 
 #Function to start the timer at 1 seconds
@@ -107,11 +107,18 @@ func update_camera():
 	#Update the canvas with the player's offset
 	canvas_transform[0] = Vector2(maxValue,0)
 	canvas_transform[1] = Vector2(0, maxValue)
+
+	player_offset = player_offset
 	canvas_transform[2] += player_offset
 	get_viewport().set_canvas_transform(canvas_transform)
 #	if(maxValue != 1):
 #		recenter_camera()
 	#DEBUG
+#	print('last_player1_pos: ', last_player1_pos)
+#	print('last_player2_pos: ', last_player2_pos)
+#	print('player1.global_position: ', player1.global_position)
+#	print('player2.global_position: ', player2.global_position)
+#	print('distance between players: ', (player1.global_position-player2.global_position))
 #	print(player_distance.x, ' ' , player_distance.y)
 #	print(canvas_transform.get_scale())
 #	print(maxValue)

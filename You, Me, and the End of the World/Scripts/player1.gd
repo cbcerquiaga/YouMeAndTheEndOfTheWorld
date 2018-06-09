@@ -45,15 +45,15 @@ func _physics_process(delta):
 			invCooldown = true
 			_restart_invTimer()
 			playerProperty.str('p1')
-	
+
 	#playerProperty.getSpeed() calculates the default speed times any perks or trait bonuses
 	motion = motion.normalized() * playerProperty.getSpeed()
 	move_and_slide(motion)
-	
+
 	#If the player moved in this frame then emit the move signal
 	if motion != Vector2(0,0):
 		emit_signal("move")
-	
+
 	#Create a dictionary because there are no sets, and dictionaries can be used
 	#for their unique key generation
 	var collision_objects = Dictionary()
@@ -62,7 +62,7 @@ func _physics_process(delta):
 	for i in range(get_slide_count()):
 		#Set to 0 just as a placeholder, does not matter the value
 		collision_objects[get_slide_collision(i).collider] = 0
-	
+
 	#parses through each unique object and tried to call it's handle_collide() method
 	for i in range(len(collision_objects.keys())):
 		if collision_objects.keys()[i].has_method('handle_collide'):
