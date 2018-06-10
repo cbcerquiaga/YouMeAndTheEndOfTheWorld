@@ -9,15 +9,12 @@ func _ready():
 	# Initialization here
 	pass
 
-func _process(delta):
+#func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
-	pass
+#	pass
 
-func handle_collide(player):
-#	self.remove_and_skip()
-#	self.remove_from_group('walls');
-#	self.visible = false;
-#	self.queue_free();
-	pass
-	
+func handle_door_unlock(player):
+	var parent = self.get_parent()
+	self.queue_free()
+	parent.queue_free()

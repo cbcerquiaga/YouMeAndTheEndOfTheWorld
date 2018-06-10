@@ -1,14 +1,15 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/door1.gd" type="Script" id=1]
 [ext_resource path="res://Images/door.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/itemCollision.gd" type="Script" id=3]
 
 [node name="door1" type="KinematicBody2D"]
 
 position = Vector2( 276.297, 217.937 )
 input_pickable = false
-collision_layer = 2
-collision_mask = 2
+collision_layer = 1
+collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
@@ -26,17 +27,13 @@ scale = Vector2( 1.31199, 1.72535 )
 build_mode = 0
 polygon = PoolVector2Array( -8.32874, 27.3333, 24.9864, 14.6667, 16.2192, 10, -15.3424, 22.6667 )
 
-[node name="Area2D" type="Area2D" parent="." index="2"]
+[node name="Area2D" type="KinematicBody2D" parent="." index="2"]
 
 input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
+collision/safe_margin = 0.08
+script = ExtResource( 3 )
 _sections_unfolded = [ "Collision" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" index="0"]

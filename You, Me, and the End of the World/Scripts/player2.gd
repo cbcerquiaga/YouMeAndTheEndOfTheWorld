@@ -53,8 +53,10 @@ func _physics_process(delta):
 		set_collision_mask_bit(1, true)
 		var collisionEvent = move_and_collide(Vector2(0,0))
 		if collisionEvent:
-			if collisionEvent.collider.has_method("handle_collide"):
-				collisionEvent.collider.handle_collide(self)
+			if collisionEvent.collider.has_method("handle_door_unlock"):
+				collisionEvent.collider.handle_door_unlock(self)
+			if collisionEvent.collider.has_method("handle_item_pickup"):
+				collisionEvent.collider.handle_item_pickup(self)
 		set_collision_mask_bit(1, false)
 	
 	#playerProperty.getSpeed() calculates the default speed times any perks or trait bonuses

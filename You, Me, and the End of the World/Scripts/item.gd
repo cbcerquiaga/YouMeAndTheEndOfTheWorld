@@ -13,7 +13,7 @@ func _getAttr(property):
 func _setAttr(property, value):
 	self.property = value
 
-func handle_collide(player):
+func handle_item_pickup(player):
 	if(player.has_method('addItem')):
 		player.addItem(self)
 		self.queue_free()
