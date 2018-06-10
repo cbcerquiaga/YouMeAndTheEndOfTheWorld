@@ -4,7 +4,7 @@
 [ext_resource path="res://Images/door.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/itemCollision.gd" type="Script" id=3]
 
-[node name="door1" type="KinematicBody2D"]
+[node name="door1" type="KinematicBody2D" index="0"]
 
 position = Vector2( 276.297, 217.937 )
 input_pickable = false
@@ -27,7 +27,7 @@ scale = Vector2( 1.31199, 1.72535 )
 build_mode = 0
 polygon = PoolVector2Array( -8.32874, 27.3333, 24.9864, 14.6667, 16.2192, 10, -15.3424, 22.6667 )
 
-[node name="Area2D" type="KinematicBody2D" parent="." index="2"]
+[node name="UnlockingDetection" type="KinematicBody2D" parent="." index="2"]
 
 input_pickable = true
 collision_layer = 2
@@ -36,7 +36,7 @@ collision/safe_margin = 0.08
 script = ExtResource( 3 )
 _sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" index="0"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="UnlockingDetection" index="0"]
 
 build_mode = 0
 polygon = PoolVector2Array( 3.703, 42.063, -66.297, -17.937, 3.703, -57.937, 73.703, 2.063 )
