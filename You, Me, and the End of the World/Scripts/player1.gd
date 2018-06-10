@@ -7,7 +7,7 @@ var invCooldown = true
 var invTimer = Timer.new()
 var overallHealth = 100 #TODO:add a function to get a player health value based on damage, food, cold, etc
 var currentEXP = 99 #EXP is out of 100
-var carryWeight = 100
+var carryWeight = 0
 var maxCarry = 200
 signal move
 
