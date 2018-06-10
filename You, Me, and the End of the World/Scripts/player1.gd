@@ -49,6 +49,15 @@ func _physics_process(delta):
 			invCooldown = true
 			_restart_invTimer()
 			playerProperty.str('p1')
+	
+	if Input.is_action_pressed("p1_action1"):
+		set_collision_mask_bit(1, true)
+		var collisionEvent = move_and_collide(Vector2(0,0))
+		if collisionEvent:
+			if collisionEvent.collider.has_method("handle_collide"):
+				collisionEvent.collider.handle_collide(self)
+		set_collision_mask_bit(1, false)
+	
 
 	#playerProperty.getSpeed() calculates the default speed times any perks or trait bonuses
 	motion = motion.normalized() * playerProperty.getSpeed()
@@ -71,6 +80,7 @@ func _physics_process(delta):
 	for i in range(len(collision_objects.keys())):
 		if collision_objects.keys()[i].has_method('handle_collide'):
 			collision_objects.keys()[i].handle_collide(self);
+	
 
 #adds an item to the player inventory, it makes a call to playerProperty's addItem method
 func addItem(item):

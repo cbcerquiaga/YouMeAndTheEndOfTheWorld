@@ -75,7 +75,6 @@ func _process(delta):
 			cooldown2 = true
 			isp2Playing = false
 			_start_timer2()
-			_p1camera_current()
 		elif(!isp2Playing):
 			cooldown2 = true
 			isp2Playing = true

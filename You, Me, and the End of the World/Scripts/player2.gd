@@ -45,6 +45,13 @@ func _physics_process(delta):
 			invCooldown = true
 			_restart_invTimer()
 			playerProperty.str('p2')
+	if Input.is_action_pressed("p2_action1"):
+		set_collision_mask_bit(1, true)
+		var collisionEvent = move_and_collide(Vector2(0,0))
+		if collisionEvent:
+			if collisionEvent.collider.has_method("handle_collide"):
+				collisionEvent.collider.handle_collide(self)
+		set_collision_mask_bit(1, false)
 	
 	#playerProperty.getSpeed() calculates the default speed times any perks or trait bonuses
 	motion = motion.normalized() * playerProperty.getSpeed()
