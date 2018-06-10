@@ -9,10 +9,12 @@ func _ready():
 	pass
 
 func _process(delta):
-	carryWeight = get_node("/root/dungeon/walls/player1").get("carryWeight")
-	maxCarry = get_node("/root/dungeon/walls/player1").get("maxCarry")
-	carryLeft = ((maxCarry - carryWeight)/maxCarry)*100
+	carryWeight = get_node("/root/dungeon/walls/player2").get("carryWeight")
+	maxCarry = get_node("/root/dungeon/walls/player2").get("maxCarry")
+	carryLeft = maxCarry - carryWeight
+	if(carryLeft >=100):
+		carryLeft = 100
 	self.set_value(carryLeft)
-	if(carryLeft >= 100):
+	if(carryLeft <= 0):
 		print("You are overloaded")
 	pass
