@@ -13,6 +13,10 @@ config_version=3
 config/name="Isometric Game"
 run/main_scene="res://tscn files/dungeon.tscn"
 
+[editor_plugins]
+
+enabled=PoolStringArray( "gut" )
+
 [gdnative]
 
 singletons=[  ]
