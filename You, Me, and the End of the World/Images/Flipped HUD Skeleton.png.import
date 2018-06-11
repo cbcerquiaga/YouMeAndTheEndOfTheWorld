@@ -7,10 +7,10 @@ path="res://.import/Flipped HUD Skeleton.png-c67cc3dbe939974353d249a8f6432ea5.st
 [deps]
 
 source_file="res://Images/Flipped HUD Skeleton.png"
-source_md5="7dd20e4772879a20011267a8696b9aee"
+source_md5="28b8565dfc535f203e616d36ecd6b02c"
 
 dest_files=[ "res://.import/Flipped HUD Skeleton.png-c67cc3dbe939974353d249a8f6432ea5.stex" ]
-dest_md5="9515a0e4a9fd30c837f074186a390d51"
+dest_md5="5b9c829d8ab4c9a90bbc689e2337d3ce"
 
 [params]
 
