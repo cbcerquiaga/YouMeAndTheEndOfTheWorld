@@ -315,6 +315,7 @@ _sections_unfolded = [ "Cell" ]
 
 [node name="walls" type="TileMap" parent="." index="3"]
 
+editor/display_folded = true
 position = Vector2( -1.15015, 6 )
 mode = 1
 tile_set = ExtResource( 17 )
@@ -404,10 +405,10 @@ _test_prefix = "test_"
 _file_prefix = "test_"
 _file_extension = ".gd"
 _inner_class_prefix = "Test"
-_show_console_ = false
+_show_console_ = true
 _temp_directory = "user://gut_temp_directory"
-_directory1 = "res://test/integration"
-_directory2 = "res://test/unit"
+_directory1 = "res://test/unit"
+_directory2 = "res://test/integration"
 _directory3 = ""
 _directory4 = ""
 _directory5 = ""

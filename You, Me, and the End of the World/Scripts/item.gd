@@ -29,4 +29,3 @@ func handle_item_pickup(player):
 		self.set_collision_mask_bit(1, false)
 		self.set_collision_layer_bit(1, false)
 		self.hide()
-		

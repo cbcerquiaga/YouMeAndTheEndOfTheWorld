@@ -10,7 +10,7 @@ func remove_item(item):
   if itemList.has(item):
     itemList[item] = itemList[item] - 1
     if(itemList[item] == 0):
-      itemList.clear(item)
+      itemList.erase(item)
     return true
   else:
     return false
@@ -24,6 +24,8 @@ func hasItem(item):
   return itemList.has(item)
 
 func getSelectedItem(numberSelected):
+	if numberSelected < 0 or numberSelected > numberOfItems()-1:
+		return -1
 	var keyList = itemList.keys()
 	return keyList[numberSelected]
 
@@ -33,6 +35,9 @@ func selectItemByName(name):
 		if(keyList[i].itemName == name):
 			return i
 	return -1
+
+func numberOfItems():
+	return len(itemList)
 
 #A string representation of the inventory
 func str(name):
