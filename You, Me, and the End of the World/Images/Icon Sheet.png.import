@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Icon Sheet.png-68530a166942f058aabe58cd34cf3c4e.stex"
+
+[deps]
+
+source_file="res://Images/Icon Sheet.png"
+source_md5="9e9ef82d6a151ade97c192d0ef71b515"
+
+dest_files=[ "res://.import/Icon Sheet.png-68530a166942f058aabe58cd34cf3c4e.stex" ]
+dest_md5="df81c35e28cbba32f1d501e5f3c118c5"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0
