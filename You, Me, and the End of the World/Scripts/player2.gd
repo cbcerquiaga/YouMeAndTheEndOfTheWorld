@@ -58,6 +58,19 @@ func _physics_process(delta):
 			if collisionEvent.collider.has_method("handle_item_pickup"):
 				collisionEvent.collider.handle_item_pickup(self)
 		set_collision_mask_bit(1, false)
+	if Input.is_action_pressed("p2_action2"):
+		if !playerProperty.isEmpty():
+			playerProperty.selectItemByIndex(0)
+			var item = playerProperty.getSelectedItem()
+			playerProperty.removeItem(item, "p2")
+			var node = load(item.getScenePath()).instance()
+			node.position = self.position
+			node.set_collision_mask_bit(0,false)
+			node.set_collision_layer_bit(0,false)
+			node.set_collision_layer_bit(1, true)
+			node.set_collision_mask_bit(1,true)
+			node.script = item.getScriptPath()
+			self.get_parent().add_child(node)
 	
 	#playerProperty.getSpeed() calculates the default speed times any perks or trait bonuses
 	motion = motion.normalized() * playerProperty.getSpeed()

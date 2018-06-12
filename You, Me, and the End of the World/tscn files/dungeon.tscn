@@ -59,6 +59,7 @@ _sections_unfolded = [ "Anchor", "Margin", "Pause", "Popup" ]
 
 [node name="HUD" type="CanvasLayer" parent="." index="1"]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0

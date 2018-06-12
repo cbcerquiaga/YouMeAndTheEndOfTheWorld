@@ -7,7 +7,7 @@ extends 'item.gd'
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
-	__init__('GrandPiano', 100)
+	__init__('GrandPiano', 100, "res://tscn files/Piano.tscn", "res://Scripts/Piano.gd")
 	pass
 
 #func _process(delta):

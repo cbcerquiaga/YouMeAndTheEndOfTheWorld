@@ -32,20 +32,25 @@ func __init__(strength, fortitude, agility, charisma):
 #Adds an item to inventory, if it is already in inventory then increment it's value by 1
 #name just allows the player's name to be passed in for debugging purposes
 func addItem(item, name):
-	if(itemList.has(item.itemName)):
-		itemList[item.itemName] += 1
+	if(itemList.has(item)):
+		itemList[item] += 1
 	else:
-		itemList[item.itemName] = 1
+		itemList[item] = 1
 	print('Added 1 ' , item.itemName , ' to ', name, '\'s inventory')
+
+func isEmpty():
+	if len(itemList.keys()) > 0:
+		return false
+	return true
 
 #Removes an item from the inventory, if it is not in the inventory then does nothing
 #Erases the item from inventory if the value is less than 1 as a result of the call
 #name just allows the player's name to be passed in for debugging purposes
 func removeItem(item, name):
-	if(itemList.has(item.itemName)):
-		itemList[item.itemName] -= 1
-		if itemList[item.itemName] < 1:
-			itemList.erase(item.itemName)
+	if(itemList.has(item)):
+		itemList[item] -= 1
+		if itemList[item] < 1:
+			itemList.erase(item)
 		print('Removed 1 ' , item.itemName , ' to ', name, '\'s inventory')
 
 #Calculates the speed the player should be moving at, this should take into account
