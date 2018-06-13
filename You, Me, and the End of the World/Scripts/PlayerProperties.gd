@@ -32,7 +32,7 @@ func __init__(strength, fortitude, agility, charisma):
 #name just allows the player's name to be passed in for debugging purposes
 func addItem(item, name):
 	Inventory.add_item(item)
-	print('Added 1 ' , item.itemName , ' to ', name, '\'s inventory')
+	print('Added 1 ' , item.getName() , ' to ', name, '\'s inventory')
 
 func isEmpty():
 	return Inventory.isEmpty()
@@ -42,9 +42,9 @@ func isEmpty():
 #name just allows the player's name to be passed in for debugging purposes
 func removeItem(item, name):
 	if(Inventory.remove_item(item)):
-		print('Removed 1 ' , item.itemName , ' from ', name, '\'s inventory')
+		print('Removed 1 ' , item.getName() , ' from ', name, '\'s inventory')
 	else:
-		print("ERROR removing", item.itemName, " from ", name, "\'s inventory'")
+		print("ERROR removing", item.getName(), " from ", name, "\'s inventory'")
 
 #Calculates the speed the player should be moving at, this should take into account
 #perks, traits and default move speed
@@ -68,7 +68,7 @@ func selectItemByName(item):
 	if(selectedValue != -1):
 		selectedItem = selectedValue
 	else:
-		print("Error, ", item.itemName , " is not in the inventory")
+		print("Error, ", item.getName() , " is not in the inventory")
 
 #Returns an item at the index of the inventory
 func selectItemByIndex(index):

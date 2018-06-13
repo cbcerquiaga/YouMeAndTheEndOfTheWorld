@@ -38,7 +38,7 @@ func getSelectedItem(numberSelected):
 func selectItemByName(name):
 	var keyList = itemList.keys()
 	for i in range(len(keyList)):
-		if(keyList[i].itemName == name):
+		if(keyList[i].getName() == name):
 			return i
 	return -1
 
@@ -56,6 +56,6 @@ func str(name):
 		var itemListKeys = itemList.keys()
 		for i in range(0,itemListKeys.size()):
 			if(itemList[itemListKeys[i]] == 1):
-				print(itemList[itemListKeys[i]], ' ', itemListKeys[i].itemName)
+				print(itemList[itemListKeys[i]], ' ', itemListKeys[i].getName())
 			else:
-				print(itemList[itemListKeys[i]], ' ', itemListKeys[i].itemName, 's')
+				print(itemList[itemListKeys[i]], ' ', itemListKeys[i].getName(), 's')
