@@ -60,7 +60,13 @@ func test_searching_methods():
 	assert_true(Inventory.getSelectedItem(5) == -1, "Index 5 should not contain any items")
 	assert_true(Inventory.getSelectedItem(-1) == -1, "Index -1 should not contain any items")
 	
-	
+	assert_true(Inventory.selectItemByName("GrandPiano") == 0, "The location of the GrandPiano in Inventory should be 0")
+	assert_true(Inventory.selectItemByName("Keyboard") == 1, "The location of the Keyboard in Inventory should be 1")
+	assert_true(Inventory.selectItemByName("Banana") == 2, "The location of the Banana in Inventory should be 2")
+	assert_true(Inventory.selectItemByName("VR Headset") == 3, "The location of the VR Headset in Inventory should be 3")
+	assert_true(Inventory.selectItemByName("Google Glass") == 4, "The location of the Google Glass in Inventory should be 4")
+	assert_true(Inventory.selectItemByName("grandPiano") == -1, "The name of objects should be case sensitive, so grandPiano is not in the Inventory")
+	assert_true(Inventory.selectItemByName("VRHeadset") == -1, "VRHeadset != VR Headset")
 
 func test_removing_items():
 	print("Testing removing items")
