@@ -30,6 +30,8 @@ func _on_invTimer_timeout():
 	invCooldown = false
 
 func _physics_process(delta):
+	#to set icon frame, use this line:
+	#get_node("/root/dungeon/HUD/P1A1 Icon")._setFrame(1)
 	var motion = Vector2()
 	var isPlaying = get_node("/root/dungeon").get("isp1Playing")
 	if (isPlaying):
