@@ -57,8 +57,6 @@ func _physics_process(delta):
 		var space = self.get_world_2d().direct_space_state
 		var collision = space.intersect_ray(self.global_position, self.position, [self], 2)
 		if collision.empty() == false:
-			print("Collision detected")
-			print(collision)
 			if collision.collider.has_method('handle_item_pickup'):
 				collision.collider.handle_item_pickup(self)
 		set_collision_layer_bit(0,true)
