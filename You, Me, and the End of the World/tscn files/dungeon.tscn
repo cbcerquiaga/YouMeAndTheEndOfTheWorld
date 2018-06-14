@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scripts/sceneManager.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/pause_popup.gd" type="Script" id=2]
@@ -21,13 +21,12 @@
 [ext_resource path="res://tscn files/tileset.tres" type="TileSet" id=19]
 [ext_resource path="res://tscn files/door1.tscn" type="PackedScene" id=20]
 [ext_resource path="res://tscn files/Piano.tscn" type="PackedScene" id=21]
-[ext_resource path="res://Scripts/Piano.gd" type="Script" id=22]
-[ext_resource path="res://tscn files/LightSaber.tscn" type="PackedScene" id=23]
-[ext_resource path="res://Scripts/LightSaber.gd" type="Script" id=24]
-[ext_resource path="res://tscn files/player1.tscn" type="PackedScene" id=25]
-[ext_resource path="res://tscn files/player2.tscn" type="PackedScene" id=26]
-[ext_resource path="res://addons/gut/gut.gd" type="Script" id=27]
-[ext_resource path="res://addons/gut/icon.png" type="Texture" id=28]
+[ext_resource path="res://tscn files/LightSaber.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Scripts/LightSaber.gd" type="Script" id=23]
+[ext_resource path="res://tscn files/player1.tscn" type="PackedScene" id=24]
+[ext_resource path="res://tscn files/player2.tscn" type="PackedScene" id=25]
+[ext_resource path="res://addons/gut/gut.gd" type="Script" id=26]
+[ext_resource path="res://addons/gut/icon.png" type="Texture" id=27]
 
 [node name="dungeon" type="Node2D" index="0"]
 
@@ -356,32 +355,26 @@ position = Vector2( 90.1501, -114 )
 
 position = Vector2( 807.15, 309 )
 
-[node name="Piano" type="StaticBody2D" parent="walls" index="3" instance=ExtResource( 21 )]
+[node name="Piano" parent="walls" index="3" instance=ExtResource( 21 )]
 
 position = Vector2( 147.15, -21 )
-input_pickable = true
 collision_layer = 2
 collision_mask = 2
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-script = ExtResource( 22 )
 _sections_unfolded = [ "Collision", "Material", "Pause", "Pickable", "Transform", "Visibility", "Z Index" ]
 
-[node name="LightSaber" parent="walls" index="4" instance=ExtResource( 23 )]
+[node name="LightSaber" parent="walls" index="4" instance=ExtResource( 22 )]
 
 collision_layer = 2
 collision_mask = 2
-script = ExtResource( 24 )
+script = ExtResource( 23 )
 _sections_unfolded = [ "Collision" ]
 
-[node name="player1" parent="walls" index="5" instance=ExtResource( 25 )]
+[node name="player1" parent="walls" index="5" instance=ExtResource( 24 )]
 
 position = Vector2( 367.15, 319 )
 _sections_unfolded = [ "Collision" ]
 
-[node name="player2" parent="walls" index="6" instance=ExtResource( 26 )]
+[node name="player2" parent="walls" index="6" instance=ExtResource( 25 )]
 
 _sections_unfolded = [ "Collision" ]
 
@@ -403,9 +396,9 @@ size_flags_vertical = 1
 popup_exclusive = false
 window_title = ""
 resizable = false
-script = ExtResource( 27 )
+script = ExtResource( 26 )
 __meta__ = {
-"_editor_icon": ExtResource( 28 )
+"_editor_icon": ExtResource( 27 )
 }
 _run_on_load = true
 _select_script = null

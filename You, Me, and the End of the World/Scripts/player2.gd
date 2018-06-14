@@ -44,27 +44,30 @@ func _physics_process(delta):
 	else: #pathfinding algorithm
 		#print("following player 1")
 		pass
+	
+	#Displays the inventory
+	#Currently just prints to console
 	if Input.is_action_pressed("p2_inventory"):
 		if !invCooldown:
 			invCooldown = true
 			_restart_invTimer()
 			playerProperty.inventoryStr('p1')
-	if Input.is_action_pressed("p2_action1"):
-		set_collision_layer_bit(1,true)
-		set_collision_mask_bit(1,true)
-		set_collision_layer_bit(0,false)
-		set_collision_mask_bit(0,false)
+	
+	#This method ray-casts to detect any collisions with the player
+	#https://godot.readthedocs.io/en/3.0/tutorials/physics/ray-casting.html
+	if Input.is_action_pressed("p1_action1"):
 		var space = self.get_world_2d().direct_space_state
-		var collision = space.intersect_ray(self.global_position, self.position, [self], 2)
+		var collision = space.intersect_ray(self.global_position, Vector2(0,0), [self], 2)
 		if collision.empty() == false:
 			if collision.collider.has_method('handle_item_pickup'):
 				collision.collider.handle_item_pickup(self)
-		set_collision_layer_bit(0,true)
-		set_collision_mask_bit(0,true)
-		set_collision_mask_bit(1,false)
-		set_collision_layer_bit(1,false)
+	
+	#This method will drop items from the inventory.
+	#This method can simply be modified to take into
+	#account the selectedItem, but for now I just used 0
 	if Input.is_action_pressed("p2_action2"):
 		if !playerProperty.isEmpty():
+			#TODO: changed the selected item to an appropriate value
 			playerProperty.selectItemByIndex(0)
 			var item = playerProperty.getSelectedItem()
 			playerProperty.removeItem(item, "p2")
