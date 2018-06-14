@@ -55,7 +55,7 @@ func _physics_process(delta):
 	
 	#This method ray-casts to detect any collisions with the player
 	#https://godot.readthedocs.io/en/3.0/tutorials/physics/ray-casting.html
-	if Input.is_action_pressed("p1_action1"):
+	if Input.is_action_pressed("p2_action1"):
 		var space = self.get_world_2d().direct_space_state
 		var collision = space.intersect_ray(self.global_position, Vector2(0,0), [self], 2)
 		if collision.empty() == false:
