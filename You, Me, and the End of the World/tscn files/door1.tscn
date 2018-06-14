@@ -4,13 +4,16 @@
 [ext_resource path="res://Images/door.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/itemCollision.gd" type="Script" id=3]
 
-[node name="door1" type="KinematicBody2D" index="0"]
+[node name="door1" type="StaticBody2D" index="0"]
 
 position = Vector2( 276.297, 217.937 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
-collision/safe_margin = 0.08
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
 

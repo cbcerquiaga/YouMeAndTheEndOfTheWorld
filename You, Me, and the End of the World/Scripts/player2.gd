@@ -50,14 +50,21 @@ func _physics_process(delta):
 			_restart_invTimer()
 			playerProperty.inventoryStr('p1')
 	if Input.is_action_pressed("p2_action1"):
-		set_collision_mask_bit(1, true)
-		var collisionEvent = move_and_collide(Vector2(0,0))
-		if collisionEvent:
-			if collisionEvent.collider.has_method("handle_door_unlock"):
-				collisionEvent.collider.handle_door_unlock(self)
-			if collisionEvent.collider.has_method("handle_item_pickup"):
-				collisionEvent.collider.handle_item_pickup(self)
-		set_collision_mask_bit(1, false)
+		set_collision_layer_bit(1,true)
+		set_collision_mask_bit(1,true)
+		set_collision_layer_bit(0,false)
+		set_collision_mask_bit(0,false)
+		var space = self.get_world_2d().direct_space_state
+		var collision = space.intersect_ray(self.global_position, self.position, [self], 2)
+		if collision.empty() == false:
+			print("Collision detected")
+			print(collision)
+			if collision.collider.has_method('handle_item_pickup'):
+				collision.collider.handle_item_pickup(self)
+		set_collision_layer_bit(0,true)
+		set_collision_mask_bit(0,true)
+		set_collision_mask_bit(1,false)
+		set_collision_layer_bit(1,false)
 	if Input.is_action_pressed("p2_action2"):
 		if !playerProperty.isEmpty():
 			playerProperty.selectItemByIndex(0)
