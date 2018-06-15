@@ -33,7 +33,7 @@ func _physics_process(delta):
 	#to set icon frame, use this line:
 	#get_node("/root/dungeon/HUD/P1A1 Icon")._setFrame(1)
 	var motion = Vector2()
-	var isPlaying = get_node("/root/dungeon").get("isp1Playing")
+	var isPlaying = get_node("/root/Root").get("isp1Playing")
 	if (isPlaying):
 		if Input.is_action_pressed("p1_move_up"):
 			motion += Vector2(0, -1)

@@ -7,7 +7,7 @@ func _ready():
 	pass
 
 func _process(delta):
-	health = get_node("/root/dungeon/walls/player2").get("overallHealth")
+	health = get_node("/root/Root/walls/player2").get("overallHealth")
 	self.set_value(health)
 	if(health <= 0):
 		print("GAME OVER")

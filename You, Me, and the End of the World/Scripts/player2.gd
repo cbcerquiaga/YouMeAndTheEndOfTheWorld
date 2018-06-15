@@ -31,7 +31,7 @@ func _on_invTimer_timeout():
 
 func _physics_process(delta):
 	var motion = Vector2()
-	var isPlaying = get_node("/root/dungeon").get("isp2Playing")
+	var isPlaying = get_node("/root/Root").get("isp2Playing")
 	if (isPlaying):
 		if Input.is_action_pressed("p2_move_up"):
 			motion += Vector2(0, -1)

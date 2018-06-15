@@ -9,8 +9,8 @@ func _ready():
 	pass
 
 func _process(delta):
-	carryWeight = get_node("/root/dungeon/walls/player2").get("carryWeight")
-	maxCarry = get_node("/root/dungeon/walls/player2").get("maxCarry")
+	carryWeight = get_node("/root/Root/walls/player2").get("carryWeight")
+	maxCarry = get_node("/root/Root/walls/player2").get("maxCarry")
 	carryLeft = maxCarry - carryWeight
 	if(carryLeft >=100):
 		carryLeft = 100

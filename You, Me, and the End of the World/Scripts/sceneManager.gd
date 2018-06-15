@@ -80,34 +80,30 @@ func _process(delta):
 	pass
 
 #func recenter_camera():
+#	Working camera focusing on two players
 #	var canvas_transform = get_viewport().get_canvas_transform()
-#	canvas_transform[2] = (player2.global_position - player1.global_position)
+#	canvas_transform[2] = (-(player1.global_position + player2.global_position)/2 + (screensize/2))
 #	get_viewport().set_canvas_transform(canvas_transform)
 
 func update_camera():
 #	#Get the change of p1 and p2's location compared to last update_camera call
-	var player_distance = (screensize/4)/(player2.global_position - player1.global_position)
+#	var player_distance = (screensize/4)/(player2.position - player1.position)
 #	var maxValue = max(abs(player_distance.y), abs(player_distance.x))
 #	print(maxValue)
 #	if maxValue > minZoomInScale:
 #		maxValue = minZoomInScale
 #	elif maxValue < maxZoomOutScale:
 #		maxValue = maxZoomOutScale
-	var maxValue = 1
 #	
 #	#Update player's last positions to their current position
 #	#Get the current canvas transform
 	var canvas_transform = get_viewport().get_canvas_transform()
 #	#Update the canvas with the player's offset
-	canvas_transform[0] = Vector2(maxValue,0)
-	canvas_transform[1] = Vector2(0, maxValue)
-#
-	canvas_transform[2] = (-(player1.global_position + player2.global_position)/(2*maxValue) + (screensize/(2*maxValue)))
+#	canvas_transform[0] = Vector2(maxValue,0)
+#	canvas_transform[1] = Vector2(0, maxValue)
+	canvas_transform[2] = (-(player1.global_position + player2.global_position)/(2) + (screensize/(2)))
 	get_viewport().set_canvas_transform(canvas_transform)
-#	get_viewport().set_canvas_transform(canvas_transform)
-	
-#	if(maxValue != 1):
-#		recenter_camera()
+
 	
 	#DEBUG
 #	print('last_player1_pos: ', last_player1_pos)
@@ -167,3 +163,6 @@ func update_camera():
 #                continue
 #            new_object.set(i, current_line[i])
 #    save_game.close()
+
+func _on_player1_move():
+	pass # replace with function body

@@ -7,7 +7,7 @@ func _ready():
 	pass
 
 func _process(delta):
-	currentEXP = get_node("/root/dungeon/walls/player2").get("currentEXP")
+	currentEXP = get_node("/root/Root/walls/player2").get("currentEXP")
 	self.set_value(currentEXP)
 	if(currentEXP >= 100):
 		print("LEVEL UP")
