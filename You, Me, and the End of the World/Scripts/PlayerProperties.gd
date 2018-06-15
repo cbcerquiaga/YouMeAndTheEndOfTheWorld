@@ -66,7 +66,7 @@ func getSelectedIndex():
 func selectItemByName(item):
 	var selectedValue = Inventory.selectItemByName(item)
 	if(selectedValue != -1):
-		selectedItem = selectedValue
+		self.selectedItem = selectedValue
 	else:
 		print("Error, ", item.getName() , " is not in the inventory")
 

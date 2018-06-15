@@ -1,6 +1,6 @@
 extends "res://addons/gut/test.gd"
 
-var Inventory = preload("res://Scripts/Inventory.gd").new()
+var Inventory = load("res://Scripts/Inventory.gd").new()
 var item1 = load("res://Scripts/item.gd").new()
 var item2 = load("res://Scripts/item.gd").new()
 var item3 = load("res://Scripts/item.gd").new()

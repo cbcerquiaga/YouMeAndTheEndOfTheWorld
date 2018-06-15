@@ -29,7 +29,7 @@
 [ext_resource path="res://addons/gut/gut.gd" type="Script" id=27]
 [ext_resource path="res://addons/gut/icon.png" type="Texture" id=28]
 
-[node name="dungeon" type="Node2D"]
+[node name="dungeon" type="Node2D" index="0"]
 
 position = Vector2( 184, 5 )
 script = ExtResource( 1 )
