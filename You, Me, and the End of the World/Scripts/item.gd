@@ -3,12 +3,14 @@ extends Node
 #Initializing
 var __itemName = 'Unknown'
 var __worth = 0
+var __weight = 0
 var __packedScenePath = ""
 var __scriptPath = ""
 
-func __init__(itemName, worth, scenePath, scriptPath):
+func __init__(itemName, worth, weight, scenePath, scriptPath):
 	self.__itemName = itemName
 	self.__worth = worth
+	self.__weight = weight
 	self.__packedScenePath = scenePath
 	self.__scriptPath = scriptPath
 
@@ -30,6 +32,9 @@ func getName():
 	
 func getWorth():
 	return self.__worth
+
+func getWeight():
+	return self.__weight
 	
 func getScriptPath():
 	return self.__scriptPath

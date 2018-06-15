@@ -46,6 +46,12 @@ func selectItemByName(name):
 func numberOfItems():
 	return len(itemList)
 
+func getTotalWeight():
+	var sum = 0
+	for i in itemList:
+		sum = sum + i.getWeight()
+	return sum
+
 #A string representation of the inventory
 #Not really testable, can easily change. 
 func str(name):
@@ -53,6 +59,7 @@ func str(name):
 		print(name, "\'s inventory is empty")
 	else:
 		print('Printing ', name, ' \'s inventory')
+		print('Total weight: ' , getTotalWeight())
 		var itemListKeys = itemList.keys()
 		for i in range(0,itemListKeys.size()):
 			if(itemList[itemListKeys[i]] == 1):

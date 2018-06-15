@@ -6,14 +6,17 @@ var item2 = load("res://Scripts/item.gd").new()
 var item3 = load("res://Scripts/item.gd").new()
 var item4 = load("res://Scripts/item.gd").new()
 var item5 = load("res://Scripts/item.gd").new()
-
+var item6 = load("res://Scripts/item.gd").new()
+var item7 = load("res://Scripts/item.gd").new()
+var item8 = load("res://Scripts/item.gd").new()
+var item9 = load("res://Scripts/item.gd").new()
 
 func test_loading_items():
-	item1.__init__('GrandPiano', 100, "res://tscn files/Piano.tscn", "res://Scripts/Piano.gd")
-	item2.__init__('Keyboard', 50, "", "")
-	item3.__init__('Banana', 5, "", "")
-	item4.__init__('VR Headset', 500, "", "")
-	item5.__init__('Google Glass', 5000, "", "")
+	item1.__init__('GrandPiano', 100, 1, "res://tscn files/Piano.tscn", "res://Scripts/Piano.gd")
+	item2.__init__('Keyboard', 50, 2, "", "")
+	item3.__init__('Banana', 5, 1, "", "")
+	item4.__init__('VR Headset', 500, 1, "", "")
+	item5.__init__('Google Glass', 5000, 5, "", "")
 	#print("Testing loading items")
 	#Adding items to the inventory
 	Inventory.add_item(item1)
@@ -21,6 +24,10 @@ func test_loading_items():
 	Inventory.add_item(item3)
 	Inventory.add_item(item4)
 	Inventory.add_item(item5)
+	item6.__init__("Piano", 0, 0, "", "")
+	item7.__init__("banana", 0, 0, "", "")
+	item8.__init__("Google Glass", 500, 0, "", "")
+	item9.__init__("keyboard", 50, 0, "", "")
 	
 	#Test the inventory
 	assert_true(!Inventory.isEmpty(), "Inventory should be not empty")
@@ -33,14 +40,6 @@ func test_loading_items():
 
 
 func test_searching_methods():
-	var item6 = load("res://Scripts/item.gd").new()
-	item6.__init__("Piano", 0, "", "")
-	var item7 = load("res://Scripts/item.gd").new()
-	item7.__init__("banana", 0, "", "")
-	var item8 = load("res://Scripts/item.gd").new()
-	item8.__init__("Google Glass", 500, "", "")
-	var item9 = load("res://Scripts/item.gd").new()
-	item9.__init__("keyboard", 50, "", "")
 	assert_true(Inventory.hasItem(item1), "Inventory should have item1")
 	assert_true(Inventory.hasItem(item2), "Inventory should have item2")
 	assert_true(Inventory.hasItem(item3), "Inventory should have item3")
@@ -68,6 +67,10 @@ func test_searching_methods():
 	assert_true(Inventory.selectItemByName("Google Glass") == 4, "The location of the Google Glass in Inventory should be 4")
 	assert_true(Inventory.selectItemByName("grandPiano") == -1, "The name of objects should be case sensitive, so grandPiano is not in the Inventory")
 	assert_true(Inventory.selectItemByName("VRHeadset") == -1, "VRHeadset != VR Headset")
+
+func test_total_weight():
+	assert_true(Inventory.getTotalWeight() == 10, "The inventory's total weight should be 10")
+	assert_true(Inventory.getTotalWeight() != 1, "The inventory's total weight should not be 1")
 
 func test_removing_items():
 	#print("Testing removing items")

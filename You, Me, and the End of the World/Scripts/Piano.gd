@@ -10,7 +10,7 @@ func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
 #	self.mode = MODE_STATIC
-	__init__('GrandPiano', 100, "res://tscn files/Piano.tscn", "res://Scripts/Piano.gd")
+	__init__('GrandPiano', 100, 3, "res://tscn files/Piano.tscn", "res://Scripts/Piano.gd")
 	pass
 
 #func _process(delta):
