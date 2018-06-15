@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Images/lightsabericonblue.png" type="Texture" id=1]
 
-[node name="LightSaber" type="StaticBody2D" index="0"]
+[node name="LightSaber" type="StaticBody2D"]
 
 input_pickable = false
 collision_layer = 1

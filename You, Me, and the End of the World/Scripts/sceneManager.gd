@@ -17,8 +17,6 @@ onready var p2_Camera = get_node("walls/player2/Camera2D")
 onready var player1 = get_node("walls/player1")
 onready var player2 = get_node("walls/player2")
 onready var screensize = Vector2(get_viewport().size.x, get_viewport().size.y)
-onready var last_player1_pos = player1.global_position
-onready var last_player2_pos = player2.global_position
 
 func _ready():
 	isp1Playing = true
@@ -31,9 +29,7 @@ func _ready():
 	_start_timer1()
 	_start_timer2()
 	#Handling Camera
-	var canvas_transform = get_viewport().get_canvas_transform()
-	canvas_transform[2] = (player1.global_position - player2.global_position)/2
-	get_viewport().set_canvas_transform(canvas_transform)
+	update_camera()
 
 #Function to start the timer at 1 seconds
 func _start_timer1():
@@ -89,29 +85,30 @@ func _process(delta):
 #	get_viewport().set_canvas_transform(canvas_transform)
 
 func update_camera():
-	#Get the change of p1 and p2's location compared to last update_camera call
-	var player_offset = ((last_player1_pos - player1.global_position) + (last_player2_pos - player2.global_position)) / 2
-	var player_distance = (player1.global_position - player2.global_position)
-	var maxValue = (marginForCameraToZoomOut/((max(abs(player_distance.x), abs(player_distance.y)))))
-	if maxValue > minZoomInScale:
-		maxValue = minZoomInScale
-	elif maxValue < maxZoomOutScale:
-		maxValue = maxZoomOutScale
-	
-	#Update player's last positions to their current position
-	last_player1_pos = player1.global_position
-	last_player2_pos = player2.global_position
-	#Get the current canvas transform
+#	#Get the change of p1 and p2's location compared to last update_camera call
+	var player_distance = (screensize/4)/(player2.global_position - player1.global_position)
+#	var maxValue = max(abs(player_distance.y), abs(player_distance.x))
+#	print(maxValue)
+#	if maxValue > minZoomInScale:
+#		maxValue = minZoomInScale
+#	elif maxValue < maxZoomOutScale:
+#		maxValue = maxZoomOutScale
+	var maxValue = 1
+#	
+#	#Update player's last positions to their current position
+#	#Get the current canvas transform
 	var canvas_transform = get_viewport().get_canvas_transform()
-	#Update the canvas with the player's offset
+#	#Update the canvas with the player's offset
 	canvas_transform[0] = Vector2(maxValue,0)
 	canvas_transform[1] = Vector2(0, maxValue)
-
-	player_offset = player_offset
-	canvas_transform[2] += player_offset
+#
+	canvas_transform[2] = (-(player1.global_position + player2.global_position)/(2*maxValue) + (screensize/(2*maxValue)))
 	get_viewport().set_canvas_transform(canvas_transform)
+#	get_viewport().set_canvas_transform(canvas_transform)
+	
 #	if(maxValue != 1):
 #		recenter_camera()
+	
 	#DEBUG
 #	print('last_player1_pos: ', last_player1_pos)
 #	print('last_player2_pos: ', last_player2_pos)
@@ -170,10 +167,3 @@ func update_camera():
 #                continue
 #            new_object.set(i, current_line[i])
 #    save_game.close()
-
-
-
-
-
-
-
