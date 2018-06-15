@@ -31,7 +31,7 @@ func hasItem(item):
 
 #Tests completed
 func getSelectedItem(numberSelected):
-	if numberSelected < 0 or numberSelected > numberOfItems()-1:
+	if numberSelected < 0 or numberSelected > len(itemList) - 1:
 		return -1
 	var keyList = itemList.keys()
 	return keyList[numberSelected]
@@ -46,7 +46,10 @@ func selectItemByName(name):
 
 #Tests Completed
 func numberOfItems():
-	return len(itemList)
+	var sum = 0
+	for i in itemList:
+		sum = sum + itemList[i]
+	return sum
 
 func getTotalWeight():
 	var sum = 0
