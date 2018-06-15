@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Scripts/sceneManager.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/pause_popup.gd" type="Script" id=2]
@@ -25,8 +25,9 @@
 [ext_resource path="res://Scripts/LightSaber.gd" type="Script" id=23]
 [ext_resource path="res://tscn files/player1.tscn" type="PackedScene" id=24]
 [ext_resource path="res://tscn files/player2.tscn" type="PackedScene" id=25]
-[ext_resource path="res://addons/gut/gut.gd" type="Script" id=26]
-[ext_resource path="res://addons/gut/icon.png" type="Texture" id=27]
+[ext_resource path="res://tscn files/coins.tscn" type="PackedScene" id=26]
+[ext_resource path="res://addons/gut/gut.gd" type="Script" id=27]
+[ext_resource path="res://addons/gut/icon.png" type="Texture" id=28]
 
 [node name="dungeon" type="Node2D" index="0"]
 
@@ -378,6 +379,10 @@ _sections_unfolded = [ "Collision" ]
 
 _sections_unfolded = [ "Collision" ]
 
+[node name="coins" parent="walls" index="7" instance=ExtResource( 26 )]
+
+position = Vector2( 297.15, 9 )
+
 [node name="Gut" type="WindowDialog" parent="." index="4"]
 
 visible = false
@@ -396,9 +401,9 @@ size_flags_vertical = 1
 popup_exclusive = false
 window_title = ""
 resizable = false
-script = ExtResource( 26 )
+script = ExtResource( 27 )
 __meta__ = {
-"_editor_icon": ExtResource( 27 )
+"_editor_icon": ExtResource( 28 )
 }
 _run_on_load = true
 _select_script = null

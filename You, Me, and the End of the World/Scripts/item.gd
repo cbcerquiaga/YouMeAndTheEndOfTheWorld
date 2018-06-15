@@ -7,6 +7,12 @@ var __weight = 0
 var __packedScenePath = ""
 var __scriptPath = ""
 
+#itemName will be the identifying variable for the item
+#worth TODO
+#weight is the value that will contribute to the player's carry cap
+#numberInStack is the number that is in this item, IE 43 dollars
+#scenePath, path to the tscn file for this item, this will be assigned to the object if dropped from inventory
+#scriptPath, path to this object's script, this will be assigned to the object if dropped from inventory
 func __init__(itemName, worth, weight, scenePath, scriptPath):
 	self.__itemName = itemName
 	self.__worth = worth
@@ -21,12 +27,13 @@ func __init__(itemName, worth, weight, scenePath, scriptPath):
 #TODO If we free the item this will not allow the player to drop it later, could be done better?
 func handle_item_pickup(player):
 	if(player.has_method('addItem')):
-		player.addItem(self)
+		player.addItem(self, 1)
 		self.set_collision_mask_bit(1, false)
 		self.set_collision_layer_bit(1, false)
 		self.hide()
 
 #Getters and Setters
+
 func getName():
 	return self.__itemName
 	

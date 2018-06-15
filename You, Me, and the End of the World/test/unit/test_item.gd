@@ -5,7 +5,7 @@ var item2 = load("res://Scripts/item.gd").new()
 
 func setup():
 	item1.__init__("Coins", 50, 0, "", "")
-	item2.__init__("coins", 40, 0, "", "")
+	item2.__init__("coins", 42, 0, "", "")
 
 func test_equality():
 	assert_true(item1.getName() != item2.getName(), "item1 and item2 do not have the same name")

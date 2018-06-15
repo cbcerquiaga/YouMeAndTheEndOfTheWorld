@@ -106,5 +106,5 @@ func _physics_process(delta):
 
 
 #adds an item to the player inventory, it makes a call to playerProperty's addItem method
-func addItem(item):
-	playerProperty.addItem(item, 'p1')
+func addItem(item, numToAdd):
+	playerProperty.addItem(item, numToAdd, 'p1')

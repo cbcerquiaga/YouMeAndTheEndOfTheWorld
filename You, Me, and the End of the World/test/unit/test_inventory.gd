@@ -11,7 +11,7 @@ var item7 = load("res://Scripts/item.gd").new()
 var item8 = load("res://Scripts/item.gd").new()
 var item9 = load("res://Scripts/item.gd").new()
 
-func test_loading_items():
+func setup():
 	item1.__init__('GrandPiano', 100, 1, "res://tscn files/Piano.tscn", "res://Scripts/Piano.gd")
 	item2.__init__('Keyboard', 50, 2, "", "")
 	item3.__init__('Banana', 5, 1, "", "")
@@ -19,16 +19,17 @@ func test_loading_items():
 	item5.__init__('Google Glass', 5000, 5, "", "")
 	#print("Testing loading items")
 	#Adding items to the inventory
-	Inventory.add_item(item1)
-	Inventory.add_item(item2)
-	Inventory.add_item(item3)
-	Inventory.add_item(item4)
-	Inventory.add_item(item5)
 	item6.__init__("Piano", 0, 0, "", "")
 	item7.__init__("banana", 0, 0, "", "")
 	item8.__init__("Google Glass", 500, 0, "", "")
 	item9.__init__("keyboard", 50, 0, "", "")
-	
+
+func test_loading_items():
+	Inventory.add_item(item1, 1)
+	Inventory.add_item(item2, 1)
+	Inventory.add_item(item3, 1)
+	Inventory.add_item(item4, 1)
+	Inventory.add_item(item5, 1)
 	#Test the inventory
 	assert_true(!Inventory.isEmpty(), "Inventory should be not empty")
 	assert_true(Inventory.hasItem(item1), "Item1 should be in inventory")
@@ -76,11 +77,11 @@ func test_removing_items():
 	#print("Testing removing items")
 	
 	#Removing items from the inventory
-	Inventory.remove_item(item1)
-	Inventory.remove_item(item2)
-	Inventory.remove_item(item3)
-	Inventory.remove_item(item4)
-	Inventory.remove_item(item5)
+	Inventory.remove_item(item1, 1)
+	Inventory.remove_item(item2, 1)
+	Inventory.remove_item(item3, 1)
+	Inventory.remove_item(item4, 1)
+	Inventory.remove_item(item5, 1)
 	
 	#Test the inventory
 	assert_true(Inventory.isEmpty(), "Inventory should be empty")

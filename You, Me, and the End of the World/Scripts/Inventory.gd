@@ -1,21 +1,23 @@
 var itemList = Dictionary()
 
 #Tests completed
-func add_item(item):
-  if itemList.has(item):
-    itemList[item] = itemList[item] + 1
-  else:
-    itemList[item] = 1
+func add_item(item, numberToAdd):
+	#Gets the number in this stack
+	#Sets the items number in stack to 1 so that it would be identical to other items of the same type
+	if itemList.has(item):
+		itemList[item] = itemList[item] + numberToAdd
+	else:
+		itemList[item] = numberToAdd
 
 #Tests completed
-func remove_item(item):
-  if itemList.has(item):
-    itemList[item] = itemList[item] - 1
-    if(itemList[item] == 0):
-      itemList.erase(item)
-    return true
-  else:
-    return false
+func remove_item(item, numberToRemove):
+	if itemList.has(item) and itemList[item] >= numberToRemove:
+		itemList[item] = itemList[item] - numberToRemove
+		if(itemList[item] == 0):
+			itemList.erase(item)
+		return true
+	else:
+		return false
 
 #Tests completed
 func isEmpty():
@@ -25,7 +27,7 @@ func isEmpty():
 
 #Tests completed
 func hasItem(item):
-  return itemList.has(item)
+	return itemList.has(item)
 
 #Tests completed
 func getSelectedItem(numberSelected):
