@@ -46,8 +46,10 @@ func _physics_process(delta):
 			motion += Vector2(1, 0)
 	else: #pathfinding algorithm
 		#print("following player 2")
-		move_and_slide(otherPlayer.position - self.position)
-		if(otherPlayer.position - self.position != Vector2(0,0)):
+		var distance = otherPlayer.position - self.position
+		var farEnough = (abs(distance.x) > 100 or abs(distance.y) > 100)
+		if farEnough:
+			move_and_slide(distance)
 			emit_signal("move")
 	
 	#Displays the inventory
