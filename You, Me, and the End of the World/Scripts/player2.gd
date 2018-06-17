@@ -9,6 +9,7 @@ var overallHealth = 100 #TODO:add a function to get a player health value based 
 var currentEXP = 99 #EXP is out of 100
 var carryWeight = 0
 var maxCarry = 200
+onready var otherPlayer = get_node("../player1")
 signal move
 
 #Called when the player is entered into the scene
@@ -43,7 +44,9 @@ func _physics_process(delta):
 			motion += Vector2(1, 0)
 	else: #pathfinding algorithm
 		#print("following player 1")
-		pass
+		move_and_slide(otherPlayer.position - self.position)
+		if(otherPlayer.position - self.position != Vector2(0,0)):
+			emit_signal("move")
 	
 	#Displays the inventory
 	#Currently just prints to console
