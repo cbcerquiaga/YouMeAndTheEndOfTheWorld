@@ -46,11 +46,16 @@ func _physics_process(delta):
 			motion += Vector2(1, 0)
 	else: #pathfinding algorithm
 		#print("following player 2")
-		var distance = otherPlayer.position - self.position
+		var distance = (otherPlayer.position - self.position)
 		var farEnough = (abs(distance.x) > 100 or abs(distance.y) > 100)
 		if farEnough:
-			move_and_slide(distance)
 			emit_signal("move")
+			if get_slide_count() > 0:
+				var right = Vector2(-distance.y, distance.x)
+				print("moving right")
+				move_and_slide(right)
+			else:
+				move_and_slide(distance)
 	
 	#Displays the inventory
 	#Currently just prints to console
@@ -89,10 +94,10 @@ func _physics_process(delta):
 	
 	#playerProperty.getSpeed() calculates the default speed times any perks or trait bonuses
 	motion = motion.normalized() * playerProperty.getSpeed()
-	move_and_slide(motion)
 
 	#If the player moved in this frame then emit the move signal
 	if motion != Vector2(0,0):
+		move_and_slide(motion)
 		emit_signal("move")
 	
 	#Create a dictionary because there are no sets, and dictionaries can be used
@@ -100,12 +105,12 @@ func _physics_process(delta):
 	var collision_objects = Dictionary()
 	#to make sure there is no leftovers from the last list of collision_objects
 	collision_objects.clear()
-	for i in range(get_slide_count()):
+	for i in range(get_slide_count()-1):
 		#Set to 0 just as a placeholder, does not matter the value
 		collision_objects[get_slide_collision(i).collider] = 0
 
 	#parses through each unique object and tried to call it's handle_collide() method
-	for i in range(len(collision_objects.keys())):
+	for i in range(len(collision_objects.keys())-1):
 		if collision_objects.keys()[i].has_method('handle_collide'):
 			collision_objects.keys()[i].handle_collide(self);
 
