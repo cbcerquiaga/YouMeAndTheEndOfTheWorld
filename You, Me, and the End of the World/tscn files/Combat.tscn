@@ -29,10 +29,15 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="Player Skeleton" type="Sprite" parent="CombatHUD" index="0"]
 
+visible = false
+
 [node name="Enemy Skeleton" type="Sprite" parent="CombatHUD" index="1"]
+
+visible = false
 
 [node name="PlayerAmmo-R" type="Sprite" parent="CombatHUD" index="2"]
 
+visible = false
 texture = ExtResource( 1 )
 hframes = 6
 _sections_unfolded = [ "Animation" ]
@@ -47,6 +52,7 @@ visible = false
 
 [node name="EnemyAmmo-R" type="Sprite" parent="CombatHUD" index="5"]
 
+visible = false
 texture = ExtResource( 1 )
 hframes = 6
 _sections_unfolded = [ "Animation" ]
@@ -61,6 +67,7 @@ visible = false
 
 [node name="PlayerHealth" type="TextureProgress" parent="CombatHUD" index="8"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -89,6 +96,7 @@ nine_patch_stretch = false
 
 [node name="EnemyHealth" type="TextureProgress" parent="CombatHUD" index="9"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0

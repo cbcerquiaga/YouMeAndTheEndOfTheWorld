@@ -10,10 +10,11 @@ func _ready():
 	pass
 
 func _process(delta):
+	var motion = Vector2()
 	if Input.is_action_pressed("p1_move_up"):
-		motion += Vector2(0, -1)
+		print("jump")
 	if Input.is_action_pressed("p1_move_bottom"):
-		motion += Vector2(0, 1)
+		print("crouch")
 	if Input.is_action_pressed("p1_move_left"):
 		motion += Vector2(-1, 0)
 	if Input.is_action_pressed("p1_move_right"):
