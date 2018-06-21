@@ -5,7 +5,6 @@
 [node name="pause_popup" type="PopupMenu"]
 
 pause_mode = 2
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
