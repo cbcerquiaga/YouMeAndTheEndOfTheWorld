@@ -23,7 +23,8 @@ extents = Vector2( 10, 10 )
 
 [node name="Enemy" type="KinematicBody2D" parent="." index="0"]
 
-position = Vector2( 866.272, 310.895 )
+editor/display_folded = true
+position = Vector2( 173.343, 376.097 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -235,6 +236,7 @@ script = ExtResource( 7 )
 
 position = Vector2( 12.7851, -38.3542 )
 texture = ExtResource( 8 )
+_sections_unfolded = [ "Animation", "Region", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CombatPlayer" index="1"]
 

@@ -9,7 +9,7 @@ func _ready():
 	var vsize = get_viewport_rect().size
 	self.set_position(top_left + 0.5 * vsize / vtrans.get_scale())
 	self.connect("id_pressed", self, "_popupMenuChoice")
-	
+
 func load_Dialog(options):
 	self.clear()
 	for i in options:
@@ -24,7 +24,7 @@ func update():
 	self.set_position(top_left + 0.43 * vsize / vtrans.get_scale())
 
 func _popupMenuChoice(ID):
-	if ID == 0: #resume
+	if ID == 0:
 		print("Text 0")
 	elif ID == 1:
 		print("Text 1")
