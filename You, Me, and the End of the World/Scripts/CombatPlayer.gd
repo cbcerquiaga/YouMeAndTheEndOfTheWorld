@@ -9,7 +9,7 @@ func _ready():
 	# Initialization here
 	pass
 
-func _process(delta):
+func _physics_process(delta):
 	var motion = Vector2()
 	if Input.is_action_pressed("p1_move_up"):
 		print("jump")
@@ -33,4 +33,5 @@ func _process(delta):
 		print("heavy melee attack")
 	if Input.is_action_pressed("F key"):#F
 		print("lunge attack")
+	self.move_and_slide(motion * 200)
 	pass

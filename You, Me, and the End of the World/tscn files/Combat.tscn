@@ -19,11 +19,11 @@ extents = Vector2( 10, 276.254 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Combat" type="Node2D"]
+[node name="Combat" type="Node2D" index="0"]
 
 [node name="Enemy" type="KinematicBody2D" parent="." index="0"]
 
-position = Vector2( 173.343, 376.097 )
+position = Vector2( 866.272, 310.895 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -31,11 +31,13 @@ collision/safe_margin = 0.08
 
 [node name="Sprite" type="Sprite" parent="Enemy" index="0"]
 
+position = Vector2( -16.6201, 2.55695 )
 texture = ExtResource( 1 )
 normal_map = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy" index="1"]
 
+position = Vector2( -14.0631, -7.67078 )
 shape = SubResource( 1 )
 
 [node name="CombatHUD" type="CanvasLayer" parent="." index="1"]
@@ -54,7 +56,7 @@ _sections_unfolded = [ "Z Index" ]
 
 [node name="Enemy Skeleton" type="Sprite" parent="CombatHUD" index="1"]
 
-position = Vector2( 913.336, 20.9885 )
+position = Vector2( 903.108, 20.9885 )
 texture = ExtResource( 3 )
 
 [node name="PlayerAmmo-R" type="Sprite" parent="CombatHUD" index="2"]
@@ -172,7 +174,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 40.0
+margin_right = 218.0
 margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -222,7 +224,7 @@ editor_draw_drag_margin = false
 
 [node name="CombatPlayer" type="KinematicBody2D" parent="." index="3"]
 
-position = Vector2( 173.343, 376.097 )
+position = Vector2( 283.291, 316.009 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -231,7 +233,7 @@ script = ExtResource( 7 )
 
 [node name="Sprite" type="Sprite" parent="CombatPlayer" index="0"]
 
-position = Vector2( 207.112, -259.529 )
+position = Vector2( 12.7851, -38.3542 )
 texture = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CombatPlayer" index="1"]
