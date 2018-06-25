@@ -19,10 +19,11 @@ extents = Vector2( 10, 276.254 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Combat" type="Node2D"]
+[node name="Combat" type="Node2D" index="0"]
 
 [node name="Enemy" type="KinematicBody2D" parent="." index="0"]
 
+editor/display_folded = true
 position = Vector2( 173.343, 376.097 )
 input_pickable = false
 collision_layer = 1
@@ -233,6 +234,7 @@ script = ExtResource( 7 )
 
 position = Vector2( 207.112, -259.529 )
 texture = ExtResource( 8 )
+_sections_unfolded = [ "Animation", "Region", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CombatPlayer" index="1"]
 
