@@ -1,6 +1,8 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://tscn files/Inventory.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Inventory.gd" type="Script" id=1]
+
+
 
 [node name="Inventory" type="CanvasLayer" index="0"]
 

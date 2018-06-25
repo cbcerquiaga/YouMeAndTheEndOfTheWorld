@@ -14,12 +14,12 @@
 [ext_resource path="res://tscn files/player1.tscn" type="PackedScene" id=12]
 [ext_resource path="res://tscn files/player2.tscn" type="PackedScene" id=13]
 [ext_resource path="res://tscn files/NPC.tscn" type="PackedScene" id=14]
-[ext_resource path="res://tscn files/NPC.gd" type="Script" id=15]
+[ext_resource path="res://Scripts/NPC.gd" type="Script" id=15]
 [ext_resource path="res://tscn files/coins.tscn" type="PackedScene" id=16]
 [ext_resource path="res://tscn files/AreaDoor.tscn" type="PackedScene" id=17]
 [ext_resource path="res://tscn files/Gut.tscn" type="PackedScene" id=18]
 
-[node name="Root" type="Node2D"]
+[node name="Root" type="Node2D" index="0"]
 
 position = Vector2( 184, 5 )
 script = ExtResource( 1 )

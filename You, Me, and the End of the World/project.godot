@@ -11,7 +11,7 @@ config_version=3
 [application]
 
 config/name="Isometric Game"
-run/main_scene="res://tscn files/World1.tscn"
+run/main_scene="res://tscn files/Combat.tscn"
 
 [editor_plugins]
 
@@ -62,7 +62,7 @@ p1_inventory=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_na
  ]
 pause=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"unicode":0,"echo":false,"script":null)
  ]
-F key=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":70,"unicode":0,"echo":false,"script":null)
+Fkey=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":70,"unicode":0,"echo":false,"script":null)
  ]
 
 [rasterizer]
