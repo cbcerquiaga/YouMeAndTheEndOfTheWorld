@@ -1,48 +1,73 @@
 extends KinematicBody2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+#jump variables and constants
+const JUMP_VELOCITY = 4.5
+const JUMP_CUT_VAL = 1
+const GRAVITY = 0.1
+const CROUCH_GRAVITY = 2.5
+var timeHeld = 0
+var timeForFullJump = 0.1
+var motion = Vector2()
 
-func _ready():
-	var isCrouched = false
-	var isInAir = false
-	var isGrappling = false #if the player and enemy are grappling,
+#combat-affecting variables
+var isCrouched = false
+var isInAir = false
+var isGrappling = false #if the player and enemy are grappling,
 	#the player and enemy are stuck together with whoever has more
 	#strength having greater control over movement. In this situation,
 	# both can maneuver for a body slam, and the lunge, heavy, and
 	# ranged attacks won't work anymore
-	var stamina
-	var staminaRegen
-	var agility
-	var strength
-	var meleeDamageBonus #based on perks
-	var rangedSpreadBonus #based on perks
-	var headHealth = 100
-	var torsoHealth = 100
-	var armHealth = 100
-	var legHealth = 100
-	var totalHealth #heavily weights head and torso health
-	var bleedRate
-	var ammoLeft
-	var rangedWeapon #check the player's inventory for an equipped
+var meleeDamageBonus #based on perks
+var rangedSpreadBonus #based on perks
+var rangedWeapon #check the player's inventory for an equipped
 	#ranged weapon. This affects fire rate, spread, projectile speed,
 	#how many shots can be fired, damage, and bonus affects
-	var meleeWeapon #check the player's inventory for an equipped
+var meleeWeapon #check the player's inventory for an equipped
 	#melee weapon. This affects reach, damage, grappling, blocking,
 	#speed, and bonus affects
+var ammoLeft
+	
+#player status variables
+var headHealth = 100
+var torsoHealth = 100
+var armHealth = 100
+var legHealth = 100
+var totalHealth #heavily weights head and torso health
+var bleedRate
+var stamina
+var staminaRegen
+var agility
+var strength
+
+
+func _ready():
+	#ready stuff
+	pass
+
+func jump(motion):
+	#increase jump height depending on duration of jump hold and player's agility
+	#play jump animation
+	#stop jump if player releases button or max height reached
+	#accelerate towards the ground
+	#if isCrouched, increase groundward acceleration
+	#stop upon reaching the ground
+	motion.y = -JUMP_VELOCITY #negative because the velocity is going up
+	return motion
+	pass 
+	
+func jump_cut(motion):
+	if motion.y < -JUMP_CUT_VAL:
+		 motion.y = -JUMP_CUT_VAL
+	return motion
 	pass
 
 func _physics_process(delta):
-	var motion = Vector2()
-	if Input.is_action_pressed("p1_move_up"):#up arrow
-		#increase jump height depending on duration of jump hold and player's agility
-		#play jump animation
-		#stop jump if player releases button or max height reached
-		#accelerate towards the ground
-		#if isCrouched, increase groundward acceleration
-		#stop upon reaching the ground
+	if Input.is_action_just_pressed("p1_move_up"):#up arrow
+		motion = jump(motion)
 		print("jump")
+		
+	 #if Input.is_action_just_released("p1_move_up"):
+    	#motion = jump_cut(motion)
 
 	if Input.is_action_pressed("p1_move_bottom"):#down arrow
 		#play crouch animation
@@ -116,6 +141,8 @@ func _physics_process(delta):
 		#make player stuck until a timer goes off
 		print("lunge attack")
 
+	#apply movement and gravity
+	motion.y+= GRAVITY
 	self.move_and_slide(motion * 200)
 
 	pass
