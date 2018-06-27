@@ -44,26 +44,25 @@ func _ready():
 	#ready stuff
 	pass
 
-func jump(motion):
-	#increase jump height depending on duration of jump hold and player's agility
-	#play jump animation
-	#stop jump if player releases button or max height reached
-	#accelerate towards the ground
-	#if isCrouched, increase groundward acceleration
-	#stop upon reaching the ground
-	motion.y = -JUMP_VELOCITY #negative because the velocity is going up
-	return motion
-	pass 
+#func jump(motion):
+#	#increase jump height depending on duration of jump hold and player's agility
+#	#play jump animation
+#	#stop jump if player releases button or max height reached
+#	#accelerate towards the ground
+#	#if isCrouched, increase groundward acceleration
+#	#stop upon reaching the ground
+#	motion.y = -JUMP_VELOCITY #negative because the velocity is going up
+#	return motion
 	
-func jump_cut(motion):
-	if motion.y < -JUMP_CUT_VAL:
-		 motion.y = -JUMP_CUT_VAL
-	return motion
-	pass
+#func jump_cut(motion):
+#	if motion.y < -JUMP_CUT_VAL:
+#		 motion.y = -JUMP_CUT_VAL
+#	return motion
 
 func _physics_process(delta):
+#	var motion = Vector2(0,0)
 	if Input.is_action_just_pressed("p1_move_up"):#up arrow
-		motion = jump(motion)
+		motion.y = -JUMP_VELOCITY
 		print("jump")
 		
 	 #if Input.is_action_just_released("p1_move_up"):
@@ -142,7 +141,7 @@ func _physics_process(delta):
 		print("lunge attack")
 
 	#apply movement and gravity
-	motion.y+= GRAVITY
-	self.move_and_slide(motion * 200)
+	motion.y += GRAVITY
+	self.move_and_collide(motion)
 
 	pass

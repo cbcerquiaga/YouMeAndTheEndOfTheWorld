@@ -175,8 +175,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 218.0
-margin_bottom = 40.0
+margin_left = 1.0
+margin_top = -1.0
+margin_right = 219.0
+margin_bottom = 39.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -225,22 +227,56 @@ editor_draw_drag_margin = false
 
 [node name="CombatPlayer" type="KinematicBody2D" parent="." index="3"]
 
-position = Vector2( 283.291, 316.009 )
+position = Vector2( 427.076, 349.132 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 7 )
+_sections_unfolded = [ "Collision" ]
 
 [node name="Sprite" type="Sprite" parent="CombatPlayer" index="0"]
 
-position = Vector2( 12.7851, -38.3542 )
+position = Vector2( -2.27094, -4.47815 )
 texture = ExtResource( 8 )
 _sections_unfolded = [ "Animation", "Region", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CombatPlayer" index="1"]
 
-position = Vector2( 11.5062, -38.354 )
+position = Vector2( 2.83984, 0.497463 )
+scale = Vector2( 3.18493, 3.82191 )
 shape = SubResource( 2 )
+
+[node name="Node2D" type="KinematicBody2D" parent="." index="4"]
+
+position = Vector2( 508.14, 494.59 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+_sections_unfolded = [ "Collision", "Pickable" ]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Node2D" index="0"]
+
+position = Vector2( -8.36646, 71.0219 )
+scale = Vector2( 5.03905, -2.19619 )
+build_mode = 0
+polygon = PoolVector2Array( 104.606, -14.155, -98.42, -13.4695, -98.5694, 6.06879, 104.307, 5.04047 )
+
+[node name="Node2D2" type="KinematicBody2D" parent="." index="5"]
+
+position = Vector2( 502.118, -64.8914 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+_sections_unfolded = [ "Collision", "Pickable" ]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Node2D2" index="0"]
+
+position = Vector2( -6.10803, 114.684 )
+scale = Vector2( 5.03905, -2.19619 )
+build_mode = 0
+polygon = PoolVector2Array( 104.606, -14.155, -98.42, -13.4695, -98.5694, 6.06879, 104.307, 5.04047 )
 
 
