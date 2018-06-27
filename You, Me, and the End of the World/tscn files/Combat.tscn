@@ -23,7 +23,6 @@ extents = Vector2( 10, 10 )
 
 [node name="Enemy" type="KinematicBody2D" parent="." index="0"]
 
-editor/display_folded = true
 position = Vector2( 173.343, 376.097 )
 input_pickable = false
 collision_layer = 1
@@ -32,13 +31,13 @@ collision/safe_margin = 0.08
 
 [node name="Sprite" type="Sprite" parent="Enemy" index="0"]
 
-position = Vector2( -16.6201, 2.55695 )
+position = Vector2( -236.438, -59.1729 )
 texture = ExtResource( 1 )
 normal_map = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy" index="1"]
 
-position = Vector2( -14.0631, -7.67078 )
+position = Vector2( -236.893, -36.2773 )
 shape = SubResource( 1 )
 
 [node name="CombatHUD" type="CanvasLayer" parent="." index="1"]
@@ -247,7 +246,7 @@ position = Vector2( 2.83984, 0.497463 )
 scale = Vector2( 3.18493, 3.82191 )
 shape = SubResource( 2 )
 
-[node name="Node2D" type="KinematicBody2D" parent="." index="4"]
+[node name="Floor" type="KinematicBody2D" parent="." index="4"]
 
 position = Vector2( 508.14, 494.59 )
 input_pickable = false
@@ -256,14 +255,14 @@ collision_mask = 1
 collision/safe_margin = 0.08
 _sections_unfolded = [ "Collision", "Pickable" ]
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Node2D" index="0"]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Floor" index="0"]
 
 position = Vector2( -8.36646, 71.0219 )
 scale = Vector2( 5.03905, -2.19619 )
 build_mode = 0
 polygon = PoolVector2Array( 104.606, -14.155, -98.42, -13.4695, -98.5694, 6.06879, 104.307, 5.04047 )
 
-[node name="Node2D2" type="KinematicBody2D" parent="." index="5"]
+[node name="Ceiling" type="KinematicBody2D" parent="." index="5"]
 
 position = Vector2( 502.118, -64.8914 )
 input_pickable = false
@@ -272,11 +271,43 @@ collision_mask = 1
 collision/safe_margin = 0.08
 _sections_unfolded = [ "Collision", "Pickable" ]
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Node2D2" index="0"]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Ceiling" index="0"]
 
 position = Vector2( -6.10803, 114.684 )
 scale = Vector2( 5.03905, -2.19619 )
 build_mode = 0
 polygon = PoolVector2Array( 104.606, -14.155, -98.42, -13.4695, -98.5694, 6.06879, 104.307, 5.04047 )
+
+[node name="Left Wall" type="KinematicBody2D" parent="." index="6"]
+
+position = Vector2( 32.3694, 315.274 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+_sections_unfolded = [ "Collision", "Pickable" ]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Left Wall" index="0"]
+
+position = Vector2( -6.10803, 114.684 )
+scale = Vector2( 5.03905, -2.19619 )
+build_mode = 0
+polygon = PoolVector2Array( 4.81117, -76.1979, -4.83966, -75.4438, -5.28785, 178.211, 4.36299, 178.142 )
+
+[node name="Right Wall" type="KinematicBody2D" parent="." index="7"]
+
+position = Vector2( 1009.66, 317.683 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+_sections_unfolded = [ "Collision", "Pickable" ]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Right Wall" index="0"]
+
+position = Vector2( -6.10803, 114.684 )
+scale = Vector2( 5.03905, -2.19619 )
+build_mode = 0
+polygon = PoolVector2Array( 4.81117, -76.1979, -4.83966, -75.4438, -5.28785, 178.211, 4.36299, 178.142 )
 
 
