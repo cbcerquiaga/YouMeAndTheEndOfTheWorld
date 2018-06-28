@@ -66,9 +66,16 @@ func calculateHealth():
 	elif torsoHealth == 0: #if the torso is gone, the player is dead
 		return 0
 	else: #weight head and torso health more than limb health
-		var tempHealth = (headHealth + torsoHealth)*2
-		tempHealth = tempHealth + armHealth + legHealth
-		tempHealth = tempHealth/6
+		var tempHealth = (headHealth + torsoHealth)*3 + (armHealth + legHealth)*2
+		tempHealth = tempHealth/10
+		if tempHealth < 100:
+			tempHealth = tempHealth - 5
+		if tempHealth < 75:
+			tempHealth = tempHealth - 5
+		if tempHealth < 50:
+			tempHealth = tempHealth - 5
+		if tempHealth < 25:
+			tempHealth = tempHealth - 5
 		return tempHealth
 	pass
 
