@@ -94,6 +94,8 @@ func _physics_process(delta):
 		#play crouch animation
 		#isCrouched = true #check this before doing other movements
 		#reset isCrouched upon release
+		motion.y += CROUCH_GRAVITY #accelerate downwards if in the air
+		stamina -= staminaRegen #don't regain stamina while crouching
 		print("crouch")
 
 	if Input.is_action_pressed("p1_move_left"):#left arrow
