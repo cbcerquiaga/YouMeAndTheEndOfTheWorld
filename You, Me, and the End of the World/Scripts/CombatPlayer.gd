@@ -34,8 +34,9 @@ var armHealth = 100
 var legHealth = 100
 var totalHealth = 100 #heavily weights head and torso health
 var bleedRate
-var stamina = 100
-var staminaRegen = .25
+var stamina = 100 #the player's current stamina level
+var maxStamina = 100 #the maximum stamina the player can have with their current fitness
+var staminaRegen = .25 #how quickly the player's stamina regenerates
 var agility
 var strength
 
@@ -74,9 +75,10 @@ func calculateHealth():
 func _physics_process(delta):
 #	var motion = Vector2(0,0)
 	if Input.is_action_just_pressed("p1_move_up"):#up arrow
-		motion.y = -JUMP_VELOCITY
-		stamina -= 20
-		print("jump")
+		if stamina >=20:
+			motion.y = -JUMP_VELOCITY
+			stamina -= 20
+			print("jump")
 		
 	 #if Input.is_action_just_released("p1_move_up"):
     	#motion = jump_cut(motion)
@@ -157,6 +159,8 @@ func _physics_process(delta):
 		stamina += staminaRegen
 	if (stamina < 0):
 		stamina = 0
+	if (stamina > maxStamina):
+		stamina = maxStamina
 	
 	totalHealth = calculateHealth()
 	#apply movement and gravity
