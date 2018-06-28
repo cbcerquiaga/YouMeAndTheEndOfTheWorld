@@ -32,10 +32,10 @@ var headHealth = 100
 var torsoHealth = 100
 var armHealth = 100
 var legHealth = 100
-var totalHealth #heavily weights head and torso health
+var totalHealth = 100 #heavily weights head and torso health
 var bleedRate
-var stamina
-var staminaRegen
+var stamina = 100
+var staminaRegen = .25
 var agility
 var strength
 
@@ -59,10 +59,23 @@ func _ready():
 #		 motion.y = -JUMP_CUT_VAL
 #	return motion
 
+func calculateHealth():
+	if headHealth == 0: #if the head is gone, the player is dead
+		return 0
+	elif torsoHealth == 0: #if the torso is gone, the player is dead
+		return 0
+	else: #weight head and torso health more than limb health
+		var tempHealth = (headHealth + torsoHealth)*2
+		tempHealth = tempHealth + armHealth + legHealth
+		tempHealth = tempHealth/6
+		return tempHealth
+	pass
+
 func _physics_process(delta):
 #	var motion = Vector2(0,0)
 	if Input.is_action_just_pressed("p1_move_up"):#up arrow
 		motion.y = -JUMP_VELOCITY
+		stamina -= 20
 		print("jump")
 		
 	 #if Input.is_action_just_released("p1_move_up"):
@@ -140,6 +153,12 @@ func _physics_process(delta):
 		#make player stuck until a timer goes off
 		print("lunge attack")
 
+	if (stamina < 100):
+		stamina += staminaRegen
+	if (stamina < 0):
+		stamina = 0
+	
+	totalHealth = calculateHealth()
 	#apply movement and gravity
 	motion.y += GRAVITY
 	self.move_and_collide(motion)
