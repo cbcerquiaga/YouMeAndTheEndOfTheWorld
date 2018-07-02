@@ -1,16 +1,18 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://tscn files/CombatEnemy.gd" type="Script" id=1]
-[ext_resource path="res://Images/grandPiano.png" type="Texture" id=2]
-[ext_resource path="res://Images/combatHud.png" type="Texture" id=3]
-[ext_resource path="res://Images/flippedCombatHud.png" type="Texture" id=4]
-[ext_resource path="res://Images/RevolverAmmo.png" type="Texture" id=5]
-[ext_resource path="res://Images/combatHealthBar.png" type="Texture" id=6]
-[ext_resource path="res://tscn files/CombatPlayerHealth.gd" type="Script" id=7]
-[ext_resource path="res://Images/combatStaminaBar.png" type="Texture" id=8]
-[ext_resource path="res://tscn files/PlayerStamina.gd" type="Script" id=9]
-[ext_resource path="res://Scripts/CombatPlayer.gd" type="Script" id=10]
-[ext_resource path="res://Images/troll.png" type="Texture" id=11]
+[ext_resource path="res://Scripts/CombatSceneManager.gd" type="Script" id=1]
+[ext_resource path="res://tscn files/combat_pause.gd" type="Script" id=2]
+[ext_resource path="res://tscn files/CombatEnemy.gd" type="Script" id=3]
+[ext_resource path="res://Images/grandPiano.png" type="Texture" id=4]
+[ext_resource path="res://Images/combatHud.png" type="Texture" id=5]
+[ext_resource path="res://Images/flippedCombatHud.png" type="Texture" id=6]
+[ext_resource path="res://Images/RevolverAmmo.png" type="Texture" id=7]
+[ext_resource path="res://Images/combatHealthBar.png" type="Texture" id=8]
+[ext_resource path="res://tscn files/CombatPlayerHealth.gd" type="Script" id=9]
+[ext_resource path="res://Images/combatStaminaBar.png" type="Texture" id=10]
+[ext_resource path="res://tscn files/PlayerStamina.gd" type="Script" id=11]
+[ext_resource path="res://Scripts/CombatPlayer.gd" type="Script" id=12]
+[ext_resource path="res://Images/troll.png" type="Texture" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -24,21 +26,44 @@ extents = Vector2( 10, 10 )
 
 [node name="Combat" type="Node2D" index="0"]
 
-[node name="Enemy" type="KinematicBody2D" parent="." index="0"]
+script = ExtResource( 1 )
+
+[node name="combat_pause" type="PopupMenu" parent="." index="0"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 20.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+items = [  ]
+hide_on_state_item_selection = false
+script = ExtResource( 2 )
+
+[node name="Enemy" type="KinematicBody2D" parent="." index="1"]
 
 position = Vector2( 529.125, 381.025 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = ExtResource( 1 )
+script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="Enemy" index="0"]
 
 position = Vector2( 9.51061, -2.50641 )
 scale = Vector2( 0.97444, 1 )
-texture = ExtResource( 2 )
-normal_map = ExtResource( 2 )
+texture = ExtResource( 4 )
+normal_map = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy" index="1"]
 
@@ -46,7 +71,7 @@ position = Vector2( 16.4343, 0.123352 )
 scale = Vector2( 2.369, 0.158808 )
 shape = SubResource( 1 )
 
-[node name="CombatHUD" type="CanvasLayer" parent="." index="1"]
+[node name="CombatHUD" type="CanvasLayer" parent="." index="2"]
 
 editor/display_folded = true
 layer = 1
@@ -58,18 +83,18 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 [node name="Player Skeleton" type="Sprite" parent="CombatHUD" index="0"]
 
 position = Vector2( 119.492, 19.2463 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 _sections_unfolded = [ "Z Index" ]
 
 [node name="Enemy Skeleton" type="Sprite" parent="CombatHUD" index="1"]
 
 position = Vector2( 903.108, 20.9885 )
-texture = ExtResource( 4 )
+texture = ExtResource( 6 )
 
 [node name="PlayerAmmo-R5" type="Sprite" parent="CombatHUD" index="2"]
 
 position = Vector2( 62.2234, 543.419 )
-texture = ExtResource( 5 )
+texture = ExtResource( 7 )
 hframes = 6
 _sections_unfolded = [ "Animation" ]
 
@@ -80,7 +105,7 @@ _sections_unfolded = [ "Animation" ]
 [node name="EnemyAmmo-R5" type="Sprite" parent="CombatHUD" index="5"]
 
 position = Vector2( 965.186, 542.955 )
-texture = ExtResource( 5 )
+texture = ExtResource( 7 )
 hframes = 6
 _sections_unfolded = [ "Animation" ]
 
@@ -113,11 +138,11 @@ exp_edit = false
 rounded = false
 texture_under = null
 texture_over = null
-texture_progress = ExtResource( 6 )
+texture_progress = ExtResource( 8 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
-script = ExtResource( 7 )
+script = ExtResource( 9 )
 
 [node name="EnemyHealth" type="TextureProgress" parent="CombatHUD" index="9"]
 
@@ -142,7 +167,7 @@ exp_edit = false
 rounded = false
 texture_under = null
 texture_over = null
-texture_progress = ExtResource( 6 )
+texture_progress = ExtResource( 8 )
 fill_mode = 1
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
@@ -174,11 +199,11 @@ exp_edit = false
 rounded = false
 texture_under = null
 texture_over = null
-texture_progress = ExtResource( 8 )
+texture_progress = ExtResource( 10 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
-script = ExtResource( 9 )
+script = ExtResource( 11 )
 _sections_unfolded = [ "Textures" ]
 
 [node name="EnemyStamina" type="TextureProgress" parent="CombatHUD" index="11"]
@@ -206,13 +231,13 @@ exp_edit = false
 rounded = false
 texture_under = null
 texture_over = null
-texture_progress = ExtResource( 8 )
+texture_progress = ExtResource( 10 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
 _sections_unfolded = [ "Textures" ]
 
-[node name="Camera" type="Camera2D" parent="." index="2"]
+[node name="Camera" type="Camera2D" parent="." index="3"]
 
 anchor_mode = 1
 rotating = false
@@ -237,20 +262,20 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 
-[node name="CombatPlayer" type="KinematicBody2D" parent="." index="3"]
+[node name="CombatPlayer" type="KinematicBody2D" parent="." index="4"]
 
 position = Vector2( 427.076, 349.132 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = ExtResource( 10 )
+script = ExtResource( 12 )
 _sections_unfolded = [ "Collision" ]
 
 [node name="Sprite" type="Sprite" parent="CombatPlayer" index="0"]
 
 position = Vector2( -2.27094, -4.47815 )
-texture = ExtResource( 11 )
+texture = ExtResource( 13 )
 _sections_unfolded = [ "Animation", "Region", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CombatPlayer" index="1"]
@@ -259,7 +284,7 @@ position = Vector2( 2.83984, 0.497463 )
 scale = Vector2( 3.18493, 3.82191 )
 shape = SubResource( 2 )
 
-[node name="Floor" type="KinematicBody2D" parent="." index="4"]
+[node name="Floor" type="KinematicBody2D" parent="." index="5"]
 
 editor/display_folded = true
 position = Vector2( 508.14, 494.59 )
@@ -276,7 +301,7 @@ scale = Vector2( 5.03905, -2.19619 )
 build_mode = 0
 polygon = PoolVector2Array( 104.606, -14.155, -98.42, -13.4695, -98.5694, 6.06879, 104.307, 5.04047 )
 
-[node name="Ceiling" type="KinematicBody2D" parent="." index="5"]
+[node name="Ceiling" type="KinematicBody2D" parent="." index="6"]
 
 editor/display_folded = true
 position = Vector2( 502.118, -64.8914 )
@@ -293,7 +318,7 @@ scale = Vector2( 5.03905, -2.19619 )
 build_mode = 0
 polygon = PoolVector2Array( 104.606, -14.155, -98.42, -13.4695, -98.5694, 6.06879, 104.307, 5.04047 )
 
-[node name="Left Wall" type="KinematicBody2D" parent="." index="6"]
+[node name="Left Wall" type="KinematicBody2D" parent="." index="7"]
 
 position = Vector2( 32.3694, 315.274 )
 input_pickable = false
@@ -309,7 +334,7 @@ scale = Vector2( 5.03905, -2.19619 )
 build_mode = 0
 polygon = PoolVector2Array( 4.81117, -76.1979, -4.83966, -75.4438, -5.28785, 178.211, 4.36299, 178.142 )
 
-[node name="Right Wall" type="KinematicBody2D" parent="." index="7"]
+[node name="Right Wall" type="KinematicBody2D" parent="." index="8"]
 
 editor/display_folded = true
 position = Vector2( 1009.66, 317.683 )

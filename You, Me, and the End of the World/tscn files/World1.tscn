@@ -151,3 +151,5 @@ position = Vector2( 297.15, 9 )
 [connection signal="move" from="walls/player1" to="." method="update_camera"]
 
 [connection signal="move" from="walls/player2" to="." method="update_camera"]
+
+
