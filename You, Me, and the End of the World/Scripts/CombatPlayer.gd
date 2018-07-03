@@ -115,22 +115,27 @@ func _physics_process(delta):
 		#if this is passed, set isGrappling to true for the player and enemy
 		print("grab")
 
-	if Input.is_action_pressed("p2_action2"):#E
+	if Input.is_action_just_pressed("p2_action2"):#E
+		if stamina >= 10:
 		#check to see if the player is in the air or crouched
 		#play appropriate animation
 		#check to see if the enemy is hit, where, and apply damage
 		#reduce stamina
+			stamina -= 10
 		print("head melee attack")
 
-	if Input.is_action_pressed("p2_move_right"):#D
+	if Input.is_action_just_pressed("p2_move_right"):#D
+		if stamina >= 10:
 		#check to see if the player is in the air or crouched
 		#play appropriate animation
 		#check to see if the enemy is hit, where, and apply damage
 		#reduce stamina
+			stamina -= 10
 		print("body melee attack")
 
 	if Input.is_action_pressed("p2_move_up"):#W
 		#reduce stamina slightly
+		stamina -= staminaRegen
 		#check weapon block speed, apply delay
 		#play head block animation
 		#if the enemy attacks and it would have hit the head, check block value to see if it gets through
@@ -139,6 +144,7 @@ func _physics_process(delta):
 
 	if Input.is_action_pressed("p2_move_down"):#S
 		#reduce stamina slightly
+		stamina -= staminaRegen
 		#check weapon block speed, apply delay
 		#play body block animation
 		#if the enemy attacks and it would have hit the torso, check block value to see if it gets through
@@ -146,21 +152,26 @@ func _physics_process(delta):
 		print("body block")
 
 	if Input.is_action_pressed("ui_select"):#spacebar
+		if stamina >= 50:
 		#charge heavy attack value depending on how long spacebar is held
+			var holdTime = 0
 		#play heavy attack animation
 		#change damage based on charge value
 		#check to see if the enemy is hit, where, and apply damage
 		#reduce stamina 50%
+			stamina -= 50
 		#make player stuck until a timer goes off
 		print("heavy melee attack")
 
 	if Input.is_action_pressed("Fkey"):#F
+		if stamina >= 50:
 		#play the lunge animation
 		#slight delay
 		#quickly move in the direction facing
 		#attack with higher damage than normal
 		#check to see if the enemy is hit, where, and apply damage
 		#drastically reduce stamina
+			stamina -= 50
 		#make player stuck until a timer goes off
 		print("lunge attack")
 
