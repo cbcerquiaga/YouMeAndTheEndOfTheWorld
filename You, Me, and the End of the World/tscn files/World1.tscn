@@ -30,6 +30,7 @@ _sections_unfolded = [ "Visibility" ]
 [node name="pause_popup" parent="." index="1" instance=ExtResource( 3 )]
 
 visible = false
+_sections_unfolded = [ "Anchor", "Margin", "Mouse", "Pause", "Popup" ]
 
 [node name="dialog_popup" type="PopupMenu" parent="." index="2"]
 
@@ -80,6 +81,7 @@ _sections_unfolded = [ "Cell" ]
 
 [node name="walls" type="TileMap" parent="." index="6"]
 
+editor/display_folded = true
 position = Vector2( 6, -65 )
 mode = 1
 tile_set = ExtResource( 7 )
