@@ -27,6 +27,7 @@ extents = Vector2( 10, 10 )
 [node name="Combat" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
+_sections_unfolded = [ "Pause" ]
 
 [node name="combat_pause" type="PopupMenu" parent="." index="0"]
 

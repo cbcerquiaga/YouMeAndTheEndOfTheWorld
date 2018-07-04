@@ -39,6 +39,7 @@ var maxStamina = 100 #the maximum stamina the player can have with their current
 var staminaRegen = .25 #how quickly the player's stamina regenerates
 var agility
 var strength
+var canJump = false
 
 
 func _ready():
@@ -81,7 +82,8 @@ func calculateHealth():
 
 func _physics_process(delta):
 #	var motion = Vector2(0,0)
-	if Input.is_action_just_pressed("p1_move_up"):#up arrow
+	if Input.is_action_just_pressed("p1_move_up") and canJump:#up arrow
+		canJump = false
 		if stamina >=20:
 			motion.y = -JUMP_VELOCITY
 			stamina -= 20
@@ -185,6 +187,9 @@ func _physics_process(delta):
 	totalHealth = calculateHealth()
 	#apply movement and gravity
 	motion.y += GRAVITY
-	self.move_and_collide(motion)
-
+	var collision = self.move_and_collide(motion)
+	if collision:
+		if collision.collider.name == "Floor":
+			canJump = true
+		
 	pass
