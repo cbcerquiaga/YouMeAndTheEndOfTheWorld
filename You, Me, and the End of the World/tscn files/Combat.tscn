@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/CombatSceneManager.gd" type="Script" id=1]
 [ext_resource path="res://tscn files/combat_pause.gd" type="Script" id=2]
@@ -6,13 +6,15 @@
 [ext_resource path="res://Images/grandPiano.png" type="Texture" id=4]
 [ext_resource path="res://Images/combatHud.png" type="Texture" id=5]
 [ext_resource path="res://Images/flippedCombatHud.png" type="Texture" id=6]
-[ext_resource path="res://Images/RevolverAmmo.png" type="Texture" id=7]
-[ext_resource path="res://Images/combatHealthBar.png" type="Texture" id=8]
-[ext_resource path="res://tscn files/CombatPlayerHealth.gd" type="Script" id=9]
-[ext_resource path="res://Images/combatStaminaBar.png" type="Texture" id=10]
-[ext_resource path="res://tscn files/PlayerStamina.gd" type="Script" id=11]
-[ext_resource path="res://Scripts/CombatPlayer.gd" type="Script" id=12]
-[ext_resource path="res://Images/troll.png" type="Texture" id=13]
+[ext_resource path="res://Images/ammoCounterIcon.png" type="Texture" id=7]
+[ext_resource path="res://Scripts/PlayerAmmoNum.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/EnemyAmmoNum.gd" type="Script" id=9]
+[ext_resource path="res://Images/combatHealthBar.png" type="Texture" id=10]
+[ext_resource path="res://tscn files/CombatPlayerHealth.gd" type="Script" id=11]
+[ext_resource path="res://Images/combatStaminaBar.png" type="Texture" id=12]
+[ext_resource path="res://tscn files/PlayerStamina.gd" type="Script" id=13]
+[ext_resource path="res://Scripts/CombatPlayer.gd" type="Script" id=14]
+[ext_resource path="res://Images/troll.png" type="Texture" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -76,7 +78,6 @@ shape = SubResource( 1 )
 
 [node name="CombatHUD" type="CanvasLayer" parent="." index="2"]
 
-editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -94,29 +95,63 @@ _sections_unfolded = [ "Z Index" ]
 position = Vector2( 903.108, 20.9885 )
 texture = ExtResource( 6 )
 
-[node name="PlayerAmmo-R5" type="Sprite" parent="CombatHUD" index="2"]
+[node name="PlayerAmmoCounter" type="Sprite" parent="CombatHUD" index="2"]
 
 position = Vector2( 62.2234, 543.419 )
 texture = ExtResource( 7 )
 hframes = 6
 _sections_unfolded = [ "Animation" ]
 
-[node name="PlayerAmmo-A" type="Sprite" parent="CombatHUD" index="3"]
+[node name="PlayerAmmoNum" type="Label" parent="CombatHUD" index="3"]
 
-[node name="PlayerAmmoMisc" type="Sprite" parent="CombatHUD" index="4"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 92.0
+margin_top = 537.0
+margin_right = 141.0
+margin_bottom = 551.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script = ExtResource( 8 )
 
-[node name="EnemyAmmo-R5" type="Sprite" parent="CombatHUD" index="5"]
+[node name="EnemyAmmoCounter" type="Sprite" parent="CombatHUD" index="4"]
 
 position = Vector2( 965.186, 542.955 )
 texture = ExtResource( 7 )
 hframes = 6
 _sections_unfolded = [ "Animation" ]
 
-[node name="EnemyAmmo-A" type="Sprite" parent="CombatHUD" index="6"]
+[node name="EnemyAmmoNum" type="Label" parent="CombatHUD" index="5"]
 
-[node name="EnemyAmmoMisc" type="Sprite" parent="CombatHUD" index="7"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 860.0
+margin_top = 533.0
+margin_right = 900.0
+margin_bottom = 547.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script = ExtResource( 9 )
 
-[node name="PlayerHealth" type="TextureProgress" parent="CombatHUD" index="8"]
+[node name="PlayerHealth" type="TextureProgress" parent="CombatHUD" index="6"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -141,13 +176,13 @@ exp_edit = false
 rounded = false
 texture_under = null
 texture_over = null
-texture_progress = ExtResource( 8 )
+texture_progress = ExtResource( 10 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
-script = ExtResource( 9 )
+script = ExtResource( 11 )
 
-[node name="EnemyHealth" type="TextureProgress" parent="CombatHUD" index="9"]
+[node name="EnemyHealth" type="TextureProgress" parent="CombatHUD" index="7"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -170,14 +205,14 @@ exp_edit = false
 rounded = false
 texture_under = null
 texture_over = null
-texture_progress = ExtResource( 8 )
+texture_progress = ExtResource( 10 )
 fill_mode = 1
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
 _sections_unfolded = [ "Textures" ]
 
-[node name="PlayerStamina" type="TextureProgress" parent="CombatHUD" index="10"]
+[node name="PlayerStamina" type="TextureProgress" parent="CombatHUD" index="8"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -202,14 +237,14 @@ exp_edit = false
 rounded = false
 texture_under = null
 texture_over = null
-texture_progress = ExtResource( 10 )
+texture_progress = ExtResource( 12 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
-script = ExtResource( 11 )
+script = ExtResource( 13 )
 _sections_unfolded = [ "Textures" ]
 
-[node name="EnemyStamina" type="TextureProgress" parent="CombatHUD" index="11"]
+[node name="EnemyStamina" type="TextureProgress" parent="CombatHUD" index="9"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -234,7 +269,7 @@ exp_edit = false
 rounded = false
 texture_under = null
 texture_over = null
-texture_progress = ExtResource( 10 )
+texture_progress = ExtResource( 12 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
@@ -272,13 +307,13 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = ExtResource( 12 )
+script = ExtResource( 14 )
 _sections_unfolded = [ "Collision" ]
 
 [node name="Sprite" type="Sprite" parent="CombatPlayer" index="0"]
 
 position = Vector2( -2.27094, -4.47815 )
-texture = ExtResource( 13 )
+texture = ExtResource( 15 )
 _sections_unfolded = [ "Animation", "Region", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CombatPlayer" index="1"]
@@ -289,7 +324,6 @@ shape = SubResource( 2 )
 
 [node name="Floor" type="KinematicBody2D" parent="." index="5"]
 
-editor/display_folded = true
 position = Vector2( 508.14, 494.59 )
 input_pickable = false
 collision_layer = 1

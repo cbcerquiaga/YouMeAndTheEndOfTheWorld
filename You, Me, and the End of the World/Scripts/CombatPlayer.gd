@@ -25,7 +25,8 @@ var rangedWeapon #check the player's inventory for an equipped
 var meleeWeapon #check the player's inventory for an equipped
 	#melee weapon. This affects reach, damage, grappling, blocking,
 	#speed, and bonus affects
-var ammoLeft
+var ammoLeft = 6
+var ammoVal = str(ammoLeft)
 	
 #player status variables
 var headHealth = 100
