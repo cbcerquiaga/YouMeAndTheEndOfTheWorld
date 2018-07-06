@@ -188,9 +188,16 @@ func _physics_process(delta):
 	totalHealth = calculateHealth()
 	#apply movement and gravity
 	motion.y += GRAVITY
-	var collision = self.move_and_collide(motion)
-	if collision:
-		if collision.collider.name == "Floor":
+	#MOVE AND COLLIDE METHOD
+#	var collision = self.move_and_collide(motion)
+#	if collision:
+#		if collision.collider.name == "Floor":
+#			canJump = true
+	
+	#MOVE AND SLIDE METHOD
+	self.move_and_slide(motion * 100)
+	for i in range(self.get_slide_count()):
+		if get_slide_collision(i).collider.name == "Floor":
 			canJump = true
 		
 	pass

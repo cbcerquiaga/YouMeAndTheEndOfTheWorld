@@ -73,8 +73,8 @@ normal_map = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy" index="1"]
 
-position = Vector2( 16.4343, 0.123352 )
-scale = Vector2( 2.369, 0.158808 )
+position = Vector2( 9.54395, 0.123352 )
+scale = Vector2( 2.89903, 0.158808 )
 shape = SubResource( 1 )
 
 [node name="CombatHUD" type="CanvasLayer" parent="." index="2"]
