@@ -3,8 +3,8 @@ extends KinematicBody2D
 #jump variables and constants
 const JUMP_VELOCITY = 4.5
 const JUMP_CUT_VAL = 1
-const GRAVITY = 0.1
-const CROUCH_GRAVITY = 2.5
+const GRAVITY = Vector2(0,0.1)
+const CROUCH_GRAVITY = Vector2(0,2.5)
 var timeHeld = 0
 var timeForFullJump = 0.1
 var motion = Vector2()
@@ -97,7 +97,7 @@ func _physics_process(delta):
 		#play crouch animation
 		#isCrouched = true #check this before doing other movements
 		#reset isCrouched upon release
-		motion.y += CROUCH_GRAVITY #accelerate downwards if in the air
+		motion += CROUCH_GRAVITY #accelerate downwards if in the air
 		stamina -= staminaRegen #don't regain stamina while crouching
 		print("crouch")
 
@@ -187,15 +187,15 @@ func _physics_process(delta):
 	
 	totalHealth = calculateHealth()
 	#apply movement and gravity
-	motion.y += GRAVITY
+	motion += GRAVITY
 	#MOVE AND COLLIDE METHOD
-#	var collision = self.move_and_collide(motion)
+#	var collision = self.move_and_collide(GRAVITY * delta)
 #	if collision:
 #		if collision.collider.name == "Floor":
 #			canJump = true
 	
 	#MOVE AND SLIDE METHOD
-	self.move_and_slide(motion * 100)
+	self.move_and_slide(motion, Vector2(0,1))
 	for i in range(self.get_slide_count()):
 		if get_slide_collision(i).collider.name == "Floor":
 			canJump = true

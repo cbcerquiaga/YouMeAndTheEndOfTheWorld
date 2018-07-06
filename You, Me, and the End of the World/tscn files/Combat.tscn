@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scripts/CombatSceneManager.gd" type="Script" id=1]
 [ext_resource path="res://tscn files/combat_pause.gd" type="Script" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://tscn files/PlayerStamina.gd" type="Script" id=14]
 [ext_resource path="res://Scripts/CombatPlayer.gd" type="Script" id=15]
 [ext_resource path="res://Images/troll.png" type="Texture" id=16]
+[ext_resource path="res://Images/myTiles.tres" type="TileSet" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -325,70 +326,25 @@ position = Vector2( 2.83984, 0.497463 )
 scale = Vector2( 3.18493, 3.82191 )
 shape = SubResource( 2 )
 
-[node name="Floor" type="KinematicBody2D" parent="." index="5"]
+[node name="TileMap" type="TileMap" parent="." index="5"]
 
-position = Vector2( 508.14, 494.59 )
-input_pickable = false
+mode = 0
+tile_set = ExtResource( 17 )
+cell_size = Vector2( 50, 50 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = true
+collision_friction = 1.0
+collision_bounce = 0.0
 collision_layer = 1
 collision_mask = 1
-collision/safe_margin = 0.08
-_sections_unfolded = [ "Collision", "Pickable" ]
-
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Floor" index="0"]
-
-position = Vector2( -8.36646, 71.0219 )
-scale = Vector2( 5.03905, -2.19619 )
-build_mode = 0
-polygon = PoolVector2Array( 104.606, -14.155, -98.42, -13.4695, -98.5694, 6.06879, 104.307, 5.04047 )
-
-[node name="Ceiling" type="KinematicBody2D" parent="." index="6"]
-
-editor/display_folded = true
-position = Vector2( 502.118, -64.8914 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
-_sections_unfolded = [ "Collision", "Pickable" ]
-
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Ceiling" index="0"]
-
-position = Vector2( -6.10803, 114.684 )
-scale = Vector2( 5.03905, -2.19619 )
-build_mode = 0
-polygon = PoolVector2Array( 104.606, -14.155, -98.42, -13.4695, -98.5694, 6.06879, 104.307, 5.04047 )
-
-[node name="Left Wall" type="KinematicBody2D" parent="." index="7"]
-
-position = Vector2( 32.3694, 315.274 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
-_sections_unfolded = [ "Collision", "Pickable" ]
-
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Left Wall" index="0"]
-
-position = Vector2( -6.10803, 114.684 )
-scale = Vector2( 5.03905, -2.19619 )
-build_mode = 0
-polygon = PoolVector2Array( 4.81117, -76.1979, -4.83966, -75.4438, -5.28785, 178.211, 4.36299, 178.142 )
-
-[node name="Right Wall" type="KinematicBody2D" parent="." index="8"]
-
-editor/display_folded = true
-position = Vector2( 1009.66, 317.683 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
-_sections_unfolded = [ "Collision", "Pickable" ]
-
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Right Wall" index="0"]
-
-position = Vector2( -6.10803, 114.684 )
-scale = Vector2( 5.03905, -2.19619 )
-build_mode = 0
-polygon = PoolVector2Array( 4.81117, -76.1979, -4.83966, -75.4438, -5.28785, 178.211, 4.36299, 178.142 )
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 65536, 0, 0, 65556, 0, 0, 131072, 0, 0, 131092, 0, 0, 196608, 0, 0, 196628, 0, 0, 262144, 0, 0, 262164, 0, 0, 327680, 0, 0, 327700, 0, 0, 393216, 0, 0, 393236, 0, 0, 458752, 0, 0, 458772, 0, 0, 524288, 0, 0, 524308, 0, 0, 589824, 0, 0, 589844, 0, 0, 655360, 0, 0, 655380, 0, 0, 720896, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 720915, 0, 0, 720916, 0, 0 )
+_sections_unfolded = [ "Cell", "Collision" ]
 
 
