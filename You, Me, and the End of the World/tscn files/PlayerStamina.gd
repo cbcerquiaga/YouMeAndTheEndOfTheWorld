@@ -7,7 +7,7 @@ func _ready():
 	pass
 
 func _process(delta):
-	energy = get_node("/root/Combat/CombatPlayer").get("stamina")
+	energy = get_node("/root/Combat/TileMap/CombatPlayer").get("stamina")
 	self.set_value(energy)
 	if(energy <= 0):
 		print("Tired AF")

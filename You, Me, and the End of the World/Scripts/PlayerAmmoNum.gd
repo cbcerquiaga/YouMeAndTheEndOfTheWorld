@@ -5,7 +5,7 @@ extends Label
 # var b = "textvar"
 
 func _ready():
-	text = get_node("/root/Combat/CombatPlayer").get("ammoVal")
+	text = get_node("/root/Combat/TileMap/CombatPlayer").get("ammoVal")
 	pass
 
 #func _process(delta):

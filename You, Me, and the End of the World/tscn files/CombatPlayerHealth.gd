@@ -7,7 +7,7 @@ func _ready():
 	pass
 
 func _process(delta):
-	health = get_node("/root/Combat/CombatPlayer").get("totalHealth")
+	health = get_node("/root/Combat/TileMap/CombatPlayer").get("totalHealth")
 	self.set_value(health)
 	if(health <= 0):
 		print("GAME OVER")
