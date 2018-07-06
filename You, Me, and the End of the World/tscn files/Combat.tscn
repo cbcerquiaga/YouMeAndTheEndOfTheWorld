@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scripts/CombatSceneManager.gd" type="Script" id=1]
-[ext_resource path="res://tscn files/combat_pause.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/combat_pause.gd" type="Script" id=2]
 [ext_resource path="res://Images/combatHud.png" type="Texture" id=3]
 [ext_resource path="res://Images/flippedCombatHud.png" type="Texture" id=4]
 [ext_resource path="res://Images/ammoCounterIcon.png" type="Texture" id=5]
@@ -9,21 +9,21 @@
 [ext_resource path="res://Scripts/PlayerAmmoNum.gd" type="Script" id=7]
 [ext_resource path="res://Scripts/EnemyAmmoNum.gd" type="Script" id=8]
 [ext_resource path="res://Images/combatHealthBar.png" type="Texture" id=9]
-[ext_resource path="res://tscn files/CombatPlayerHealth.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/CombatPlayerHealth.gd" type="Script" id=10]
 [ext_resource path="res://Images/combatStaminaBar.png" type="Texture" id=11]
-[ext_resource path="res://tscn files/PlayerStamina.gd" type="Script" id=12]
+[ext_resource path="res://Scripts/PlayerStamina.gd" type="Script" id=12]
 [ext_resource path="res://Images/myTiles.tres" type="TileSet" id=13]
 [ext_resource path="res://Scripts/CombatPlayer.gd" type="Script" id=14]
 [ext_resource path="res://Images/troll.png" type="Texture" id=15]
-[ext_resource path="res://tscn files/CombatEnemy.gd" type="Script" id=16]
+[ext_resource path="res://Scripts/CombatEnemy.gd" type="Script" id=16]
 [ext_resource path="res://Images/grandPiano.png" type="Texture" id=17]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 276.254 )
@@ -323,7 +323,7 @@ _sections_unfolded = [ "Animation", "Region", "Visibility" ]
 
 position = Vector2( 2.83984, 0.497463 )
 scale = Vector2( 3.18493, 3.82191 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Enemy" type="KinematicBody2D" parent="TileMap" index="1"]
 
@@ -345,6 +345,6 @@ normal_map = ExtResource( 17 )
 
 position = Vector2( 9.54395, 0.123352 )
 scale = Vector2( 2.89903, 0.158808 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 
