@@ -1,13 +1,26 @@
 extends KinematicBody2D
 
-#jump variables and constants
-const JUMP_VELOCITY = 4.5
-const JUMP_CUT_VAL = 1
-const GRAVITY = Vector2(0,0.1)
-const CROUCH_GRAVITY = Vector2(0,2.5)
-var timeHeld = 0
-var timeForFullJump = 0.1
-var motion = Vector2()
+# Member variables
+const GRAVITY = 500.0 # pixels/second/second
+const CROUCH_SPEED = Vector2(0,2.5) #TODO
+
+# Angle in degrees towards either side that the player can consider "floor"
+const FLOOR_ANGLE_TOLERANCE = 40
+const WALK_FORCE = 600
+const WALK_MIN_SPEED = 10
+const WALK_MAX_SPEED = 200
+const STOP_FORCE = 1300
+const JUMP_SPEED = 400
+const JUMP_MAX_AIRBORNE_TIME = .4
+
+const SLIDE_STOP_VELOCITY = 1.0 # one pixel/second
+const SLIDE_STOP_MIN_TRAVEL = 1.0 # one pixel
+
+var velocity = Vector2()
+var on_air_time = 100
+var jumping = false
+
+var prev_jump_pressed = false
 
 #combat-affecting variables
 var isCrouched = false
@@ -27,7 +40,7 @@ var meleeWeapon #check the player's inventory for an equipped
 	#speed, and bonus affects
 var ammoLeft = 6
 var ammoVal = str(ammoLeft)
-	
+
 #player status variables
 var headHealth = 100
 var torsoHealth = 100
@@ -46,21 +59,6 @@ var canJump = false
 func _ready():
 	#ready stuff
 	pass
-
-#func jump(motion):
-#	#increase jump height depending on duration of jump hold and player's agility
-#	#play jump animation
-#	#stop jump if player releases button or max height reached
-#	#accelerate towards the ground
-#	#if isCrouched, increase groundward acceleration
-#	#stop upon reaching the ground
-#	motion.y = -JUMP_VELOCITY #negative because the velocity is going up
-#	return motion
-	
-#func jump_cut(motion):
-#	if motion.y < -JUMP_CUT_VAL:
-#		 motion.y = -JUMP_CUT_VAL
-#	return motion
 
 func calculateHealth():
 	if headHealth == 0: #if the head is gone, the player is dead
@@ -82,122 +80,51 @@ func calculateHealth():
 	pass
 
 func _physics_process(delta):
-#	var motion = Vector2(0,0)
-	if Input.is_action_just_pressed("p1_move_up") and canJump:#up arrow
-		canJump = false
-		if stamina >=20:
-			motion.y = -JUMP_VELOCITY
-			stamina -= 20
-			print("jump")
-		
-	 #if Input.is_action_just_released("p1_move_up"):
-    	#motion = jump_cut(motion)
+	# Create forces
+	var force = Vector2(0, GRAVITY)
 
-	if Input.is_action_pressed("p1_move_bottom"):#down arrow
-		#play crouch animation
-		#isCrouched = true #check this before doing other movements
-		#reset isCrouched upon release
-		motion += CROUCH_GRAVITY #accelerate downwards if in the air
-		stamina -= staminaRegen #don't regain stamina while crouching
-		print("crouch")
+	var walk_left = Input.is_action_pressed("p1_move_left")
+	var walk_right = Input.is_action_pressed("p1_move_right")
+	var jump = Input.is_action_pressed("p1_move_up")
 
-	if Input.is_action_pressed("p1_move_left"):#left arrow
-		#if isInAir or isCrouched, reduce amount the player can affect motion
-		motion += Vector2(-1, 0)
+	var stop = true
 
-	if Input.is_action_pressed("p1_move_right"):#right arrow
-		#if isInAir or isCrouched, reduce amount the player can affect motion
-		motion += Vector2(1, 0)
+	if walk_left:
+		if velocity.x <= WALK_MIN_SPEED and velocity.x > -WALK_MAX_SPEED:
+			force.x -= WALK_FORCE
+			stop = false
+	elif walk_right:
+		if velocity.x >= -WALK_MIN_SPEED and velocity.x < WALK_MAX_SPEED:
+			force.x += WALK_FORCE
+			stop = false
 
-	if Input.is_action_pressed("p2_move_left"):#A
-		#if isCrouched, use crouch grab animation
-		#if isInAir, use tackle animation
-		#else use regular animation
-		#check if the enemy is reached
-		#if yes, check the player's grapple skill and apply chance
-		#if this is passed, set isGrappling to true for the player and enemy
-		print("grab")
+	if stop:
+		var vsign = sign(velocity.x)
+		var vlen = abs(velocity.x)
 
-	if Input.is_action_just_pressed("p2_action2"):#E
-		if stamina >= 10:
-		#check to see if the player is in the air or crouched
-		#play appropriate animation
-		#check to see if the enemy is hit, where, and apply damage
-		#reduce stamina
-			stamina -= 10
-		print("head melee attack")
+		vlen -= STOP_FORCE * delta
+		if vlen < 0:
+			vlen = 0
 
-	if Input.is_action_just_pressed("p2_move_right"):#D
-		if stamina >= 10:
-		#check to see if the player is in the air or crouched
-		#play appropriate animation
-		#check to see if the enemy is hit, where, and apply damage
-		#reduce stamina
-			stamina -= 10
-		print("body melee attack")
+		velocity.x = vlen * vsign
 
-	if Input.is_action_pressed("p2_move_up"):#W
-		#reduce stamina slightly
-		stamina -= staminaRegen
-		#check weapon block speed, apply delay
-		#play head block animation
-		#if the enemy attacks and it would have hit the head, check block value to see if it gets through
-		#reduce stamina slightly when hit and blocked
-		print("head block")
+	# Integrate forces to velocity
+	velocity += force * delta
+	# Integrate velocity into motion and move
+	velocity = move_and_slide(velocity, Vector2(0, -1))
 
-	if Input.is_action_pressed("p2_move_down"):#S
-		#reduce stamina slightly
-		stamina -= staminaRegen
-		#check weapon block speed, apply delay
-		#play body block animation
-		#if the enemy attacks and it would have hit the torso, check block value to see if it gets through
-		#reduce stamina slightly when hit and blocked
-		print("body block")
+	if is_on_floor():
+		on_air_time = 0
 
-	if Input.is_action_pressed("ui_select"):#spacebar
-		if stamina >= 50:
-		#charge heavy attack value depending on how long spacebar is held
-			var holdTime = 0
-		#play heavy attack animation
-		#change damage based on charge value
-		#check to see if the enemy is hit, where, and apply damage
-		#reduce stamina 50%
-			stamina -= 50
-		#make player stuck until a timer goes off
-		print("heavy melee attack")
+	if jumping and velocity.y > 0:
+		# If falling, no longer jumping
+		jumping = false
 
-	if Input.is_action_pressed("Fkey"):#F
-		if stamina >= 50:
-		#play the lunge animation
-		#slight delay
-		#quickly move in the direction facing
-		#attack with higher damage than normal
-		#check to see if the enemy is hit, where, and apply damage
-		#drastically reduce stamina
-			stamina -= 50
-		#make player stuck until a timer goes off
-		print("lunge attack")
+	if on_air_time < JUMP_MAX_AIRBORNE_TIME and jump and not prev_jump_pressed and not jumping:
+		# Jump must also be allowed to happen if the character left the floor a little bit ago.
+		# Makes controls more snappy.
+		velocity.y = -JUMP_SPEED
+		jumping = true
 
-	if (stamina < 100):
-		stamina += staminaRegen
-	if (stamina < 0):
-		stamina = 0
-	if (stamina > maxStamina):
-		stamina = maxStamina
-	
-	totalHealth = calculateHealth()
-	#apply movement and gravity
-	motion += GRAVITY
-	#MOVE AND COLLIDE METHOD
-#	var collision = self.move_and_collide(GRAVITY * delta)
-#	if collision:
-#		if collision.collider.name == "Floor":
-#			canJump = true
-	
-	#MOVE AND SLIDE METHOD
-	self.move_and_slide(motion, Vector2(0,1))
-	for i in range(self.get_slide_count()):
-		if get_slide_collision(i).collider.name == "Floor":
-			canJump = true
-		
-	pass
+	on_air_time += delta
+	prev_jump_pressed = jump
