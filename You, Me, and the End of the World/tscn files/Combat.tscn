@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Scripts/CombatSceneManager.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/combat_pause.gd" type="Script" id=2]
@@ -6,17 +6,34 @@
 [ext_resource path="res://Images/flippedCombatHud.png" type="Texture" id=4]
 [ext_resource path="res://Images/ammoCounterIcon.png" type="Texture" id=5]
 [ext_resource path="res://Scripts/Icon.gd" type="Script" id=6]
-[ext_resource path="res://Scripts/PlayerAmmoNum.gd" type="Script" id=7]
-[ext_resource path="res://Scripts/EnemyAmmoNum.gd" type="Script" id=8]
-[ext_resource path="res://Images/combatHealthBar.png" type="Texture" id=9]
-[ext_resource path="res://Scripts/CombatPlayerHealth.gd" type="Script" id=10]
-[ext_resource path="res://Images/combatStaminaBar.png" type="Texture" id=11]
-[ext_resource path="res://Scripts/PlayerStamina.gd" type="Script" id=12]
-[ext_resource path="res://Images/myTiles.tres" type="TileSet" id=13]
-[ext_resource path="res://Scripts/CombatPlayer.gd" type="Script" id=14]
-[ext_resource path="res://Images/troll.png" type="Texture" id=15]
-[ext_resource path="res://Scripts/CombatEnemy.gd" type="Script" id=16]
-[ext_resource path="res://Images/grandPiano.png" type="Texture" id=17]
+[ext_resource path="res://Telex-Regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Scripts/PlayerAmmoNum.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/EnemyAmmoNum.gd" type="Script" id=9]
+[ext_resource path="res://Images/combatHealthBar.png" type="Texture" id=10]
+[ext_resource path="res://Scripts/CombatPlayerHealth.gd" type="Script" id=11]
+[ext_resource path="res://Images/combatStaminaBar.png" type="Texture" id=12]
+[ext_resource path="res://Scripts/PlayerStamina.gd" type="Script" id=13]
+[ext_resource path="res://Images/myTiles.tres" type="TileSet" id=14]
+[ext_resource path="res://Scripts/CombatPlayer.gd" type="Script" id=15]
+[ext_resource path="res://Images/troll.png" type="Texture" id=16]
+[ext_resource path="res://Scripts/CombatEnemy.gd" type="Script" id=17]
+[ext_resource path="res://Images/grandPiano.png" type="Texture" id=18]
+
+[sub_resource type="DynamicFont" id=3]
+
+size = 24
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 7 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=4]
+
+size = 25
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 7 )
+_sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -83,26 +100,63 @@ hframes = 6
 script = ExtResource( 6 )
 _sections_unfolded = [ "Animation" ]
 
-[node name="PlayerAmmoNum" type="Label" parent="CombatHUD" index="3"]
+[node name="PlayerAmmoNum" type="RichTextLabel" parent="CombatHUD" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 92.0
-margin_top = 537.0
-margin_right = 141.0
-margin_bottom = 551.0
+margin_left = 75.0
+margin_top = 521.0
+margin_right = 124.0
+margin_bottom = 535.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/normal_font = SubResource( 3 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
 percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-script = ExtResource( 7 )
+meta_underlined = true
+tab_size = 4
+text = ""
+scroll_active = false
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+script = ExtResource( 8 )
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="Outline1" type="RichTextLabel" parent="CombatHUD/PlayerAmmoNum" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = ""
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
 
 [node name="EnemyAmmoCounter" type="Sprite" parent="CombatHUD" index="4"]
 
@@ -112,26 +166,63 @@ hframes = 6
 script = ExtResource( 6 )
 _sections_unfolded = [ "Animation" ]
 
-[node name="EnemyAmmoNum" type="Label" parent="CombatHUD" index="5"]
+[node name="EnemyAmmoNum" type="RichTextLabel" parent="CombatHUD" index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 860.0
-margin_top = 533.0
-margin_right = 900.0
-margin_bottom = 547.0
+margin_left = 922.0
+margin_top = 521.0
+margin_right = 962.0
+margin_bottom = 535.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/normal_font = SubResource( 4 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
 percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-script = ExtResource( 8 )
+meta_underlined = true
+tab_size = 4
+text = ""
+scroll_active = false
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+script = ExtResource( 9 )
+_sections_unfolded = [ "Theme" ]
+
+[node name="Outline2" type="RichTextLabel" parent="CombatHUD/EnemyAmmoNum" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = ""
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
 
 [node name="PlayerHealth" type="TextureProgress" parent="CombatHUD" index="6"]
 
@@ -158,11 +249,11 @@ exp_edit = false
 rounded = false
 texture_under = null
 texture_over = null
-texture_progress = ExtResource( 9 )
+texture_progress = ExtResource( 10 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
-script = ExtResource( 10 )
+script = ExtResource( 11 )
 
 [node name="EnemyHealth" type="TextureProgress" parent="CombatHUD" index="7"]
 
@@ -187,7 +278,7 @@ exp_edit = false
 rounded = false
 texture_under = null
 texture_over = null
-texture_progress = ExtResource( 9 )
+texture_progress = ExtResource( 10 )
 fill_mode = 1
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
@@ -219,11 +310,11 @@ exp_edit = false
 rounded = false
 texture_under = null
 texture_over = null
-texture_progress = ExtResource( 11 )
+texture_progress = ExtResource( 12 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
-script = ExtResource( 12 )
+script = ExtResource( 13 )
 _sections_unfolded = [ "Textures" ]
 
 [node name="EnemyStamina" type="TextureProgress" parent="CombatHUD" index="9"]
@@ -251,7 +342,7 @@ exp_edit = false
 rounded = false
 texture_under = null
 texture_over = null
-texture_progress = ExtResource( 11 )
+texture_progress = ExtResource( 12 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
@@ -285,7 +376,7 @@ editor_draw_drag_margin = false
 [node name="TileMap" type="TileMap" parent="." index="3"]
 
 mode = 0
-tile_set = ExtResource( 13 )
+tile_set = ExtResource( 14 )
 cell_size = Vector2( 50, 50 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -310,13 +401,13 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = ExtResource( 14 )
+script = ExtResource( 15 )
 _sections_unfolded = [ "Collision" ]
 
 [node name="Sprite" type="Sprite" parent="TileMap/CombatPlayer" index="0"]
 
 position = Vector2( -2.27094, -4.47815 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 _sections_unfolded = [ "Animation", "Region", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/CombatPlayer" index="1"]
@@ -332,14 +423,14 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = ExtResource( 16 )
+script = ExtResource( 17 )
 
 [node name="Sprite" type="Sprite" parent="TileMap/Enemy" index="0"]
 
 position = Vector2( 9.51061, -2.50641 )
 scale = Vector2( 0.97444, 1 )
-texture = ExtResource( 17 )
-normal_map = ExtResource( 17 )
+texture = ExtResource( 18 )
+normal_map = ExtResource( 18 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Enemy" index="1"]
 

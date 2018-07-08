@@ -93,7 +93,6 @@ func _physics_process(delta):
 	var head_block = Input.is_action_pressed("p2_move_up")
 	var body_block = Input.is_action_pressed("p2_move_down")
 	var grab = Input.is_action_just_pressed("ui_select")
-	
 
 	var stop = true
 
@@ -154,7 +153,9 @@ func _physics_process(delta):
 			#TODO: damage more based on how long the button is charged
 			
 	if crouch:
+		print("crouch pressed")
 		if jumping:
+			print("cannonball!")
 			velocity.y += CROUCH_SPEED
 		else:
 			print("DUCK!")
