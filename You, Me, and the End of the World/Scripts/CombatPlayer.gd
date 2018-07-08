@@ -50,7 +50,7 @@ var totalHealth = 100 #heavily weights head and torso health
 var bleedRate
 var stamina = 100 #the player's current stamina level
 var maxStamina = 100 #the maximum stamina the player can have with their current fitness
-var staminaRegen = .25 #how quickly the player's stamina regenerates
+var staminaRegen = .15 #how quickly the player's stamina regenerates
 var agility
 var strength
 var canJump = false
@@ -86,6 +86,14 @@ func _physics_process(delta):
 	var walk_left = Input.is_action_pressed("p1_move_left")
 	var walk_right = Input.is_action_pressed("p1_move_right")
 	var jump = Input.is_action_pressed("p1_move_up")
+	var crouch = Input.is_action_pressed("p1_move_down")
+	var head_attack = Input.is_action_just_pressed("p2_action2")
+	var body_attack = Input.is_action_just_pressed("p2_move_right")
+	var heavy_attack = Input.is_action_pressed("Fkey")
+	var head_block = Input.is_action_pressed("p2_move_up")
+	var body_block = Input.is_action_pressed("p2_move_down")
+	var grab = Input.is_action_just_pressed("ui_select")
+	
 
 	var stop = true
 
@@ -107,6 +115,52 @@ func _physics_process(delta):
 			vlen = 0
 
 		velocity.x = vlen * vsign
+		
+	if head_attack:
+		if stamina > 10: #enough for a head attack
+			stamina -= 10
+			#TODO: raycast to see what enemy body part is damaged
+			#TODO: head attack animation
+	
+	if body_attack:
+		if stamina > 10: #enough for a body attack
+			stamina -= 10
+			#TODO: raycast to see what enemy body part is damaged
+			#TODO: body attack animation
+			
+	if head_block:
+		stamina -= staminaRegen #stamina stops regenerating
+		#TODO: move to block
+		#TODO: reduce damage taken, apply it to blocking body part
+		
+	if body_block:
+		stamina -= staminaRegen #stamina stops regenerating
+		#TODO: move to block
+		#TODO: reduce damage taken, apply it to blocking body part
+		
+	if grab:
+		if stamina > 20: #enough stamina for a grab
+			stamina -= 20
+			#TODO: check to see if enemy is within range
+			#TODO: pull enemy off balance
+			#TODO: immobilize enemy more depending on the player's strength
+			
+	if heavy_attack:
+		if stamina > 30:
+			stamina -=30
+			#TODO: check to see how long the button is held
+			#TODO: play charge-up animation
+			#TODO: check to see if enemy is in range
+			#TODO: damage more based on how long the button is charged
+			
+	if crouch:
+		if jumping:
+			velocity.y += CROUCH_SPEED
+		else:
+			print("DUCK!")
+			stamina -= staminaRegen/2 #stamina regenerates at half speed
+			#TODO: play crouch animation
+			#TODO: reduce hitbox size
 
 	# Integrate forces to velocity
 	velocity += force * delta
@@ -120,11 +174,14 @@ func _physics_process(delta):
 		# If falling, no longer jumping
 		jumping = false
 
-	if on_air_time < JUMP_MAX_AIRBORNE_TIME and jump and not prev_jump_pressed and not jumping:
+	if on_air_time < JUMP_MAX_AIRBORNE_TIME and jump and not prev_jump_pressed and not jumping and stamina > 20:
 		# Jump must also be allowed to happen if the character left the floor a little bit ago.
 		# Makes controls more snappy.
 		velocity.y = -JUMP_SPEED
 		jumping = true
+		stamina -= 20
 
 	on_air_time += delta
 	prev_jump_pressed = jump
+	if stamina < maxStamina:
+		stamina += staminaRegen
