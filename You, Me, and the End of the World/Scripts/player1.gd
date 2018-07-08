@@ -5,7 +5,7 @@ const invWaitTime = 1
 var playerProperty = preload('res://Scripts/PlayerProperties.gd').new()
 var invCooldown = true
 var invTimer = Timer.new()
-var overallHealth = 100 #TODO:add a function to get a player health value based on damage, food, cold, etc
+var overallHealth = 100
 var currentEXP = 99 #EXP is out of 100
 var carryWeight = 0
 var maxCarry = 200
@@ -118,3 +118,19 @@ func _physics_process(delta):
 #adds an item to the player inventory, it makes a call to playerProperty's addItem method
 func addItem(item, numToAdd):
 	playerProperty.addItem(item, numToAdd, 'p1')
+	
+# takes the minimum value of each of the player's statuses and returns it
+func calculateHealth():
+	var combatHealth = 100 #TODO: import health from CombatPlayer
+	var food = 100 #TODO: reduce food value as time progresses
+	var water = 100 #TODO: reduce water value as time progresses and when in heat
+	var hot = 100 #TODO: reduce heat resistance value as time progresses in heat and when improperly dressed
+	var cold = 100 #TODO: reduce cold resistance value as time progresses in cold and when improperly dressed
+	var illness = 100 #TODO: reduce when posoned or sick
+	var hygeine = 100 #TODO: reduce once a day
+	array = [combatHealth,food,water,hot,cold,illness,hygeine]
+	var minVal = array[0]
+	#min() only takes 2 arguments, need to go through the whole array to get min value
+	for i in range (1, array.size()):
+		minVal = min(minVal, array[i])
+	return minVal
