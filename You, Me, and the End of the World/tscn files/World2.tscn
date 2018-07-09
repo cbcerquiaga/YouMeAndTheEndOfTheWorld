@@ -10,11 +10,13 @@
 [ext_resource path="res://tscn files/player2.tscn" type="PackedScene" id=8]
 [ext_resource path="res://tscn files/Gut.tscn" type="PackedScene" id=9]
 
-[node name="Root" type="Node2D"]
+[node name="Root" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
 [node name="pause_popup" parent="." index="0" instance=ExtResource( 2 )]
+
+visible = false
 
 [node name="Inventory" parent="." index="1" instance=ExtResource( 3 )]
 

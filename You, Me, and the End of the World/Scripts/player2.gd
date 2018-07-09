@@ -125,7 +125,7 @@ func calculateHealth():
 	var cold = 100 #TODO: reduce cold resistance value as time progresses in cold and when improperly dressed
 	var illness = 100 #TODO: reduce when posoned or sick
 	var hygeine = 100 #TODO: reduce once a day
-	array = [combatHealth,food,water,hot,cold,illness,hygeine]
+	var array = [combatHealth,food,water,hot,cold,illness,hygeine]
 	var minVal = array[0]
 	#min() only takes 2 arguments, need to go through the whole array to get min value
 	for i in range (1, array.size()):
