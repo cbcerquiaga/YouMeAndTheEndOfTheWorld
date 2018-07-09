@@ -93,6 +93,7 @@ func _physics_process(delta):
 	var head_block = Input.is_action_pressed("p2_move_up")
 	var body_block = Input.is_action_pressed("p2_move_down")
 	var grab = Input.is_action_just_pressed("ui_select")
+	var shoot = Input.is_action_just_pressed("click")
 
 	var stop = true
 
@@ -162,6 +163,16 @@ func _physics_process(delta):
 			stamina -= staminaRegen/2 #stamina regenerates at half speed
 			#TODO: play crouch animation
 			#TODO: reduce hitbox size
+			
+	if shoot:
+		print("bang bang " + ammoVal)
+		if ammoLeft > 0: #there is ammo to shoot
+			ammoLeft -= 1
+			ammoVal = str(ammoLeft)
+			#TODO: check coordinates
+			#TODO: apply spread based on weapon & skills
+			#TODO: fire projectile
+			#TODO: check where the enemy is hit and apply damage
 
 	# Integrate forces to velocity
 	velocity += force * delta

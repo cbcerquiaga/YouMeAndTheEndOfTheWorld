@@ -5,10 +5,9 @@ extends RichTextLabel
 # var b = "textvar"
 
 func _ready():
-	text = get_node("/root/Combat/TileMap/CombatPlayer").get("ammoVal")
+	#text = get_node("/root/Combat/TileMap/CombatPlayer").get("ammoVal")
 	pass
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+func _process(delta):
+	text = get_node("/root/Combat/TileMap/CombatPlayer").get("ammoVal")
+	pass
