@@ -2,11 +2,12 @@ extends Node2D
 
 # class member variables go here, for example:
 # var a = 2
-# var b = "textvar"
+var crosshair = load("res://Images/Crosshair.png")
 
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
+	Input.set_custom_mouse_cursor(crosshair)
 	pass
 
 func _pause():
