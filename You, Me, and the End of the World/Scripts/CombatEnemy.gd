@@ -12,11 +12,6 @@ var motion = Vector2()
 #combat-affecting variables
 var isCrouched = false
 var isInAir = false
-var isGrappling = false #if the player and enemy are grappling,
-	#the player and enemy are stuck together with whoever has more
-	#strength having greater control over movement. In this situation,
-	# both can maneuver for a body slam, and the lunge, heavy, and
-	# ranged attacks won't work anymore
 var meleeDamageBonus #based on perks
 var rangedSpreadBonus #based on perks
 var rangedWeapon #check the player's inventory for an equipped
@@ -25,7 +20,8 @@ var rangedWeapon #check the player's inventory for an equipped
 var meleeWeapon #check the player's inventory for an equipped
 	#melee weapon. This affects reach, damage, grappling, blocking,
 	#speed, and bonus affects
-var ammoLeft
+var ammoLeft = 6
+var ammoVal = str(ammoLeft)
 	
 #player status variables
 var headHealth = 100

@@ -170,6 +170,7 @@ func _physics_process(delta):
 			ammoLeft -= 1
 			ammoVal = str(ammoLeft)
 			#TODO: check coordinates
+			var mousePosition = get_viewport().get_mouse_position()
 			#TODO: apply spread based on weapon & skills
 			#TODO: fire projectile
 			#TODO: check where the enemy is hit and apply damage
