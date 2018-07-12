@@ -169,7 +169,7 @@ func _physics_process(delta):
 		if ammoLeft > 0: #there is ammo to shoot
 			ammoLeft -= 1
 			ammoVal = str(ammoLeft)
-			#TODO: check coordinates
+			#check coordinates, spawn a bullet
 			var mousePosition = get_viewport().get_mouse_position()
 			#TODO: apply spread based on weapon & skills
 			#TODO: fire projectile
