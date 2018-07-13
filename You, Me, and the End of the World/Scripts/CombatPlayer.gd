@@ -3,6 +3,7 @@ extends KinematicBody2D
 # Member variables
 const GRAVITY = 500.0 # pixels/second/second
 const CROUCH_SPEED = Vector2(0,2.5) #TODO
+const BULLET = preload("res://tscn files/Bullet.tscn")
 
 # Angle in degrees towards either side that the player can consider "floor"
 const FLOOR_ANGLE_TOLERANCE = 40
@@ -171,6 +172,9 @@ func _physics_process(delta):
 			ammoVal = str(ammoLeft)
 			#check coordinates, spawn a bullet
 			var mousePosition = get_viewport().get_mouse_position()
+			var playerPosition = self.get_global_position() #TODO: translate to actual gun position
+			create_bullet(playerPosition)
+			#TODO: point bullet at mouse instead of just right
 			#TODO: apply spread based on weapon & skills
 			#TODO: fire projectile
 			#TODO: check where the enemy is hit and apply damage
@@ -198,3 +202,10 @@ func _physics_process(delta):
 	prev_jump_pressed = jump
 	if stamina < maxStamina:
 		stamina += staminaRegen
+	pass
+	
+func create_bullet(position):
+	var bullet = BULLET.instance()
+	bullet.set_position(position)
+	self.add_child(bullet)
+	pass
