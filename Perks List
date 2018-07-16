@@ -25,7 +25,11 @@ An Apple a Day: The player's hygeine meter goes down 50% slower
 Sweet: improved charisma with females
 Charming: improved charisma with males
 Inquisitive: more EXP from everyday actions
-
+Quick Parry: improved block speed in combat
+Shields for Arms: blocks absorb a higher percentage of damage in combat
+Barter Beater: sell items for an increased cost
+Senior Discount: get a reduced price on items, only if the character is old
+Safe Driver Discount: Reduced chance of being attacked by bandits or wrecking the car when fast travelling in a vehicle
 
 Types of values we need to implement
 Name: value range
@@ -44,3 +48,5 @@ Hunger Bonus: -99 - 99
 Melee Damage dealt: 0 - 100
 Shooting Accuracy Bonus: 0 - 100
 Food sickness chance: -99 - 99
+Block speed: -10 - 10
+Block effectiveness: 0 - 100
