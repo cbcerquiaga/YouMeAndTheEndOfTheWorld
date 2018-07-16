@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/status icons C.png-591c3b8f71decf3116d7067eb9b40038.stex"
+
+[deps]
+
+source_file="res://Images/status icons C.png"
+source_md5="288c567f51a55123d4318ee22da453ab"
+
+dest_files=[ "res://.import/status icons C.png-591c3b8f71decf3116d7067eb9b40038.stex" ]
+dest_md5="71979298cfc1d1a8f1b511a52cb2cf07"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

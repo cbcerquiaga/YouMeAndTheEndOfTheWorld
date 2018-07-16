@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Inventory.gd" type="Script" id=1]
-
-
+[ext_resource path="res://Images/RightButton.png" type="Texture" id=2]
+[ext_resource path="res://Images/LeftButton.png" type="Texture" id=3]
+[ext_resource path="res://Images/status icons L.png" type="Texture" id=4]
+[ext_resource path="res://Images/status icons C.png" type="Texture" id=5]
+[ext_resource path="res://Images/status icons R.png" type="Texture" id=6]
 
 [node name="Inventory" type="CanvasLayer" index="0"]
 
@@ -33,7 +36,6 @@ stretch_mode = 0
 
 [node name="Status Box" type="HBoxContainer" parent="." index="1"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -54,8 +56,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 12.0
-margin_bottom = 40.0
+margin_left = 626.0
+margin_top = 41.0
+margin_right = 652.0
+margin_bottom = 81.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -67,6 +71,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
+icon = ExtResource( 2 )
 flat = false
 align = 1
 
@@ -76,9 +81,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 16.0
-margin_right = 28.0
-margin_bottom = 40.0
+margin_left = 239.0
+margin_top = 52.0
+margin_right = 265.0
+margin_bottom = 92.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -90,10 +96,16 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
+icon = ExtResource( 3 )
 flat = false
 align = 1
 
 [node name="Left Icon" type="Sprite" parent="Status Box" index="2"]
+
+position = Vector2( 328.924, 70.4809 )
+texture = ExtResource( 4 )
+hframes = 3
+_sections_unfolded = [ "Animation" ]
 
 [node name="Left Bar" type="TextureProgress" parent="Status Box" index="3"]
 
@@ -101,8 +113,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 32.0
-margin_right = 33.0
+margin_left = 60.0
+margin_right = 61.0
 margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -126,14 +138,19 @@ nine_patch_stretch = false
 
 [node name="Center Icon" type="Sprite" parent="Status Box" index="4"]
 
+position = Vector2( 442.352, 67.1247 )
+texture = ExtResource( 5 )
+hframes = 3
+_sections_unfolded = [ "Animation" ]
+
 [node name="Center Bar" type="TextureProgress" parent="Status Box" index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 37.0
-margin_right = 38.0
+margin_left = 65.0
+margin_right = 66.0
 margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -157,14 +174,19 @@ nine_patch_stretch = false
 
 [node name="Right Icon" type="Sprite" parent="Status Box" index="6"]
 
+position = Vector2( 563.847, 67.7959 )
+texture = ExtResource( 6 )
+hframes = 3
+_sections_unfolded = [ "Animation" ]
+
 [node name="Right Bar" type="TextureProgress" parent="Status Box" index="7"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 42.0
-margin_right = 43.0
+margin_left = 70.0
+margin_right = 71.0
 margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -188,13 +210,14 @@ nine_patch_stretch = false
 
 [node name="Info Box" type="HBoxContainer" parent="." index="2"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = -3.0
+margin_top = 61.0
+margin_right = 37.0
+margin_bottom = 101.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -305,9 +328,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 16.0
-margin_right = 16.0
-margin_bottom = 40.0
+margin_left = 97.0
+margin_top = 35.0
+margin_right = 97.0
+margin_bottom = 75.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
