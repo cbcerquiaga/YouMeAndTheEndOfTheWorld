@@ -95,6 +95,8 @@ func _physics_process(delta):
 	var body_block = Input.is_action_pressed("p2_move_down")
 	var grab = Input.is_action_just_pressed("ui_select")
 	var shoot = Input.is_action_just_pressed("click")
+	var taunt = Input.is_action_pressed("p2_move_left")
+	var doneTaunting = Input.is_action_just_released("p2_move_left")
 
 	var stop = true
 
@@ -178,6 +180,16 @@ func _physics_process(delta):
 			#TODO: apply spread based on weapon & skills
 			#TODO: fire projectile
 			#TODO: check where the enemy is hit and apply damage
+			
+	if taunt:
+		#make taunt gesture
+		print("U wot m8?")
+		#apply taunt effect to enemy
+		#emit_signal(taunt)
+		
+	if doneTaunting:
+		#return to regular animation frames
+		print("Ur mum")
 
 	# Integrate forces to velocity
 	velocity += force * delta

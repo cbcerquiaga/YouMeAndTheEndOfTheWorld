@@ -7,7 +7,7 @@
 [ext_resource path="res://Images/status icons C.png" type="Texture" id=5]
 [ext_resource path="res://Images/status icons R.png" type="Texture" id=6]
 
-[node name="Inventory" type="CanvasLayer" index="0"]
+[node name="Inventory" type="CanvasLayer"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -185,9 +185,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 70.0
-margin_right = 71.0
-margin_bottom = 40.0
+margin_left = 562.0
+margin_top = 47.0
+margin_right = 563.0
+margin_bottom = 87.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -204,6 +205,7 @@ rounded = false
 texture_under = null
 texture_over = null
 texture_progress = null
+fill_mode = 3
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false

@@ -22,6 +22,7 @@ var meleeWeapon #check the player's inventory for an equipped
 	#speed, and bonus affects
 var ammoLeft = 6
 var ammoVal = str(ammoLeft)
+var tauntEffect = 0 #0 no effect, 1 taunt back, 2 rage
 	
 #player status variables
 var headHealth = 100
