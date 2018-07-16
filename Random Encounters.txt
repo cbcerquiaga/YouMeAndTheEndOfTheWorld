@@ -1,0 +1,25 @@
+RANDOM ENCOUNTERS
+Every time the players enter a new area, or wait, or sleep, a new chance is rolled to see if a) they get a random encounter and b) what it is if they get one.
+
+We need to figure out how often they should happen, and what we do with them once they go their separate ways from the players.
+
+Common encounters
+1. Travelling merchant
+2. Scavengers- people who are scraping by and either haven't found a permanent home or just squat nearby
+3. Stray dog(s)
+4. Gangs
+5. Grifters- appear friendly, and maybe even pose as a merchant or scavenger, but really want to rob you.
+6. Drug atticts
+7. Fishermen/hunters- from a nearby town
+8. Monsters- mean animals
+
+Medium encounters
+1. Soldiers- from a nearby town
+2. Sports team- after certain quests, you may run into sports teams travelling to and from events, potentially with escorts
+3. Trade Shipments- once certain settlements get developed enough, they start to trade what they have for what they need. One settlement may have wood but not enough farmland, so they trade it to someplace with not enough buildings but better soil.
+4.
+
+Rare encounters
+1. Working car- just sitting there. Who would leave a working car just sitting there?
+2. Screwdriver Man- not the superhero we deserve, and not the one we needed either. He just runs up and stabs you with s screwdriver and leaves
+3. 
