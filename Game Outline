@@ -24,7 +24,7 @@ COMBAT
 -If both combatants have ranged weapons, combat is essentially the same as GunBlood.
 -If both combatants have melee weapons, combat is a simple affair of left-right movement, block, and attack
 -Players can pass a skill check to run away from combat, and enemies may attempt this too
--If one combatant has a ranged weapon and the other doesn't, they can attempt a skill check to rush their enemy. If they pass, then combat becomes melee instead of ranged.
+-If one combatant has a ranged weapon and the other doesn't, they can try to fight them anyway, they can surrender, or they can throw their melee weapon in a last ditch effort
 -If one player dies, the game goes back to the last checkpoint
 
 SURVIVAL
