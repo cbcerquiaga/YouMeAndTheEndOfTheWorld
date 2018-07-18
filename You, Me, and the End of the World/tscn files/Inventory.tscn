@@ -1,11 +1,11 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scripts/Inventory.gd" type="Script" id=1]
 [ext_resource path="res://Images/inventoryStatusBox.png" type="Texture" id=2]
-[ext_resource path="res://Images/RightButton.png" type="Texture" id=3]
-[ext_resource path="res://Scripts/Right Button.gd" type="Script" id=4]
-[ext_resource path="res://Images/LeftButton.png" type="Texture" id=5]
-[ext_resource path="res://Scripts/Left Button.gd" type="Script" id=6]
+[ext_resource path="res://Images/LeftButton.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Left Button.gd" type="Script" id=4]
+[ext_resource path="res://Images/RightButton.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/Right Button.gd" type="Script" id=6]
 [ext_resource path="res://Images/status icons L.png" type="Texture" id=7]
 [ext_resource path="res://Images/inventoryStatusBarTexture.png" type="Texture" id=8]
 [ext_resource path="res://Scripts/Left Bar.gd" type="Script" id=9]
@@ -13,6 +13,13 @@
 [ext_resource path="res://Scripts/Center Bar.gd" type="Script" id=11]
 [ext_resource path="res://Images/status icons R.png" type="Texture" id=12]
 [ext_resource path="res://Scripts/Right Bar.gd" type="Script" id=13]
+[ext_resource path="res://Images/equippedTab.png" type="Texture" id=14]
+[ext_resource path="res://Images/weaponTab.png" type="Texture" id=15]
+[ext_resource path="res://Images/equippableTab.png" type="Texture" id=16]
+[ext_resource path="res://Images/consumableTab.png" type="Texture" id=17]
+[ext_resource path="res://Images/miscTab.png" type="Texture" id=18]
+[ext_resource path="res://Images/questTab.png" type="Texture" id=19]
+[ext_resource path="res://Images/inventoryHighlight.png" type="Texture" id=20]
 
 [node name="Inventory" type="CanvasLayer" index="0"]
 
@@ -43,19 +50,26 @@ stretch_mode = 0
 
 [node name="Status Box" type="Sprite" parent="." index="1"]
 
+editor/display_folded = true
 position = Vector2( 501.42, 57.0558 )
 texture = ExtResource( 2 )
 
-[node name="Right Button" type="Button" parent="Status Box" index="0"]
+[node name="Left Button Spritete" type="Sprite" parent="Status Box" index="0"]
 
+position = Vector2( -151.42, 2.94421 )
+texture = ExtResource( 3 )
+
+[node name="Left Button" type="Button" parent="Status Box/Left Button Spritete" index="0"]
+
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 135.0
-margin_top = -17.0
-margin_right = 161.0
-margin_bottom = 23.0
+margin_left = -13.0
+margin_top = -20.0
+margin_right = 13.0
+margin_bottom = 20.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -71,17 +85,22 @@ icon = ExtResource( 3 )
 flat = false
 align = 1
 script = ExtResource( 4 )
-_sections_unfolded = [ "Material", "Visibility" ]
 
-[node name="Left Button" type="Button" parent="Status Box" index="1"]
+[node name="Right Button Sprite" type="Sprite" parent="Status Box" index="1"]
 
+position = Vector2( 148, 0 )
+texture = ExtResource( 5 )
+
+[node name="Right Button" type="Button" parent="Status Box/Right Button Sprite" index="0"]
+
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -162.0
+margin_left = -13.0
 margin_top = -20.0
-margin_right = -136.0
+margin_right = 13.0
 margin_bottom = 20.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -98,6 +117,7 @@ icon = ExtResource( 5 )
 flat = false
 align = 1
 script = ExtResource( 6 )
+_sections_unfolded = [ "Material", "Visibility" ]
 
 [node name="Left Icon" type="Sprite" parent="Status Box" index="2"]
 
@@ -221,6 +241,7 @@ _sections_unfolded = [ "Textures" ]
 
 [node name="Info Box" type="HBoxContainer" parent="." index="2"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -243,7 +264,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_bottom = 40.0
+margin_left = 364.0
+margin_top = 175.0
+margin_right = 364.0
+margin_bottom = 215.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
@@ -268,9 +292,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 4.0
-margin_right = 4.0
-margin_bottom = 40.0
+margin_left = 573.0
+margin_top = 59.0
+margin_right = 742.0
+margin_bottom = 99.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -350,185 +375,212 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 stretch_mode = 0
 
-[node name="TabContainer" type="TabContainer" parent="." index="3"]
+[node name="Tabs" type="Node" parent="." index="3"]
 
 editor/display_folded = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 496.0
-margin_top = 111.0
-margin_right = 504.0
-margin_bottom = 147.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-tab_align = 1
-tabs_visible = true
 
-[node name="Weapons" type="ScrollContainer" parent="TabContainer" index="0"]
+[node name="equipped" type="Sprite" parent="Tabs" index="0"]
 
-editor/display_folded = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-scroll_horizontal_enabled = true
-scroll_horizontal = 0
-scroll_vertical_enabled = true
-scroll_vertical = 0
+position = Vector2( 364, 236 )
+texture = ExtResource( 14 )
 
-[node name="WeaponBox" type="VBoxContainer" parent="TabContainer/Weapons" index="0"]
+[node name="equippedButton" type="Button" parent="Tabs/equipped" index="0"]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-alignment = 0
-
-[node name="Consumable" type="ScrollContainer" parent="TabContainer" index="1"]
-
-editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -25.0
+margin_top = -18.0
+margin_right = 25.0
+margin_bottom = 17.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
+rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-scroll_horizontal_enabled = true
-scroll_horizontal = 0
-scroll_vertical_enabled = true
-scroll_vertical = 0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+_sections_unfolded = [ "Rect" ]
 
-[node name="ConsumeBox" type="VBoxContainer" parent="TabContainer/Consumable" index="0"]
+[node name="weapons" type="Sprite" parent="Tabs" index="1"]
 
+position = Vector2( 419, 236 )
+texture = ExtResource( 15 )
+
+[node name="weaponButton" type="Button" parent="Tabs/weapons" index="0"]
+
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_left = -25.0
+margin_top = -17.0
+margin_right = 25.0
+margin_bottom = 18.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-alignment = 0
-
-[node name="Equippable" type="ScrollContainer" parent="TabContainer" index="2"]
-
-editor/display_folded = true
-visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
+focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-scroll_horizontal_enabled = true
-scroll_horizontal = 0
-scroll_vertical_enabled = true
-scroll_vertical = 0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+_sections_unfolded = [ "Rect" ]
 
-[node name="EquipBox" type="VBoxContainer" parent="TabContainer/Equippable" index="0"]
+[node name="equippable" type="Sprite" parent="Tabs" index="2"]
 
+position = Vector2( 474, 236 )
+texture = ExtResource( 16 )
+
+[node name="equippableButton" type="Button" parent="Tabs/equippable" index="0"]
+
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_left = -25.0
+margin_top = -17.0
+margin_right = 25.0
+margin_bottom = 18.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-alignment = 0
-
-[node name="Misc" type="ScrollContainer" parent="TabContainer" index="3"]
-
-editor/display_folded = true
-visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
+focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-scroll_horizontal_enabled = true
-scroll_horizontal = 0
-scroll_vertical_enabled = true
-scroll_vertical = 0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+_sections_unfolded = [ "Rect" ]
 
-[node name="MiscBox" type="VBoxContainer" parent="TabContainer/Misc" index="0"]
+[node name="consumable" type="Sprite" parent="Tabs" index="3"]
 
+position = Vector2( 529, 236 )
+texture = ExtResource( 17 )
+
+[node name="consumableButton" type="Button" parent="Tabs/consumable" index="0"]
+
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_left = -25.0
+margin_top = -17.0
+margin_right = 25.0
+margin_bottom = 18.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-mouse_filter = 1
+focus_mode = 2
+mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-alignment = 0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+_sections_unfolded = [ "Rect" ]
 
-[node name="Equipped" type="ScrollContainer" parent="TabContainer" index="4"]
+[node name="misc" type="Sprite" parent="Tabs" index="4"]
 
-editor/display_folded = true
+position = Vector2( 584, 236 )
+texture = ExtResource( 18 )
+
+[node name="miscButton" type="Button" parent="Tabs/misc" index="0"]
+
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -25.0
+margin_top = -17.0
+margin_right = 25.0
+margin_bottom = 18.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="quests" type="Sprite" parent="Tabs" index="5"]
+
+position = Vector2( 638, 236 )
+texture = ExtResource( 19 )
+
+[node name="Button" type="Button" parent="Tabs/quests" index="0"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -25.0
+margin_top = -17.0
+margin_right = 25.0
+margin_bottom = 18.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Highlight" type="Sprite" parent="Tabs" index="6"]
+
+position = Vector2( 364, 236 )
+texture = ExtResource( 20 )
+
+[node name="Inventory Box" type="ScrollContainer" parent="." index="4"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 345.0
+margin_top = 257.0
+margin_right = 357.0
+margin_bottom = 269.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
@@ -540,7 +592,7 @@ scroll_horizontal = 0
 scroll_vertical_enabled = true
 scroll_vertical = 0
 
-[node name="EquippedBox" type="VBoxContainer" parent="TabContainer/Equipped" index="0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Inventory Box" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
