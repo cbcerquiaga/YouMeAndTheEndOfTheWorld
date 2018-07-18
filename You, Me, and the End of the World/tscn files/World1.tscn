@@ -19,8 +19,6 @@
 [ext_resource path="res://tscn files/AreaDoor.tscn" type="PackedScene" id=17]
 [ext_resource path="res://tscn files/Gut.tscn" type="PackedScene" id=18]
 
-
-
 [node name="Root" type="Node2D"]
 
 position = Vector2( 184, 5 )
@@ -83,7 +81,6 @@ _sections_unfolded = [ "Cell" ]
 
 [node name="walls" type="TileMap" parent="." index="6"]
 
-editor/display_folded = true
 position = Vector2( 6, -65 )
 mode = 1
 tile_set = ExtResource( 7 )
