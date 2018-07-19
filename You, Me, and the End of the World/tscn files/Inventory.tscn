@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scripts/Inventory.gd" type="Script" id=1]
 [ext_resource path="res://Images/inventoryStatusBox.png" type="Texture" id=2]
@@ -13,13 +13,14 @@
 [ext_resource path="res://Scripts/Center Bar.gd" type="Script" id=11]
 [ext_resource path="res://Images/status icons R.png" type="Texture" id=12]
 [ext_resource path="res://Scripts/Right Bar.gd" type="Script" id=13]
-[ext_resource path="res://Images/equippedTab.png" type="Texture" id=14]
-[ext_resource path="res://Images/weaponTab.png" type="Texture" id=15]
-[ext_resource path="res://Images/equippableTab.png" type="Texture" id=16]
-[ext_resource path="res://Images/consumableTab.png" type="Texture" id=17]
-[ext_resource path="res://Images/miscTab.png" type="Texture" id=18]
-[ext_resource path="res://Images/questTab.png" type="Texture" id=19]
-[ext_resource path="res://Images/inventoryHighlight.png" type="Texture" id=20]
+[ext_resource path="res://Images/itemDetailBox.png" type="Texture" id=14]
+[ext_resource path="res://Images/questsTab.png" type="Texture" id=15]
+[ext_resource path="res://Images/weaponTab.png" type="Texture" id=16]
+[ext_resource path="res://Images/equippableTab.png" type="Texture" id=17]
+[ext_resource path="res://Images/consumableTab.png" type="Texture" id=18]
+[ext_resource path="res://Images/miscTab.png" type="Texture" id=19]
+[ext_resource path="res://Images/questTab.png" type="Texture" id=20]
+[ext_resource path="res://Images/inventoryHighlight.png" type="Texture" id=21]
 
 [node name="Inventory" type="CanvasLayer" index="0"]
 
@@ -241,15 +242,14 @@ _sections_unfolded = [ "Textures" ]
 
 [node name="Info Box" type="HBoxContainer" parent="." index="2"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -3.0
-margin_top = 61.0
-margin_right = 37.0
-margin_bottom = 101.0
+margin_left = 330.0
+margin_top = 120.0
+margin_right = 370.0
+margin_bottom = 160.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -264,54 +264,6 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 364.0
-margin_top = 175.0
-margin_right = 364.0
-margin_bottom = 215.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-bbcode_enabled = false
-bbcode_text = ""
-visible_characters = -1
-percent_visible = 1.0
-meta_underlined = true
-tab_size = 4
-text = ""
-scroll_active = true
-scroll_following = false
-selection_enabled = false
-override_selected_font_color = false
-
-[node name="Picture" type="TextureRect" parent="Info Box" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 573.0
-margin_top = 59.0
-margin_right = 742.0
-margin_bottom = 99.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-stretch_mode = 0
-
-[node name="Item Info" type="RichTextLabel" parent="Info Box" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 8.0
-margin_right = 8.0
 margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
@@ -330,8 +282,56 @@ scroll_active = true
 scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
+_sections_unfolded = [ "Rect" ]
 
-[node name="Item Description" type="RichTextLabel" parent="Info Box" index="3"]
+[node name="Picture" type="TextureRect" parent="Info Box" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 4.0
+margin_right = 4.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Item Description" type="RichTextLabel" parent="Info Box" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 147.0
+margin_top = 74.0
+margin_right = 327.0
+margin_bottom = 169.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = ""
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "Rect" ]
+
+[node name="Spacer Label" type="TextureRect" parent="Info Box" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -341,33 +341,6 @@ margin_left = 12.0
 margin_right = 12.0
 margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-bbcode_enabled = false
-bbcode_text = ""
-visible_characters = -1
-percent_visible = 1.0
-meta_underlined = true
-tab_size = 4
-text = ""
-scroll_active = true
-scroll_following = false
-selection_enabled = false
-override_selected_font_color = false
-
-[node name="Spacer Label" type="TextureRect" parent="Info Box" index="4"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 16.0
-margin_right = 16.0
-margin_bottom = 40.0
-rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
@@ -375,16 +348,21 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 stretch_mode = 0
 
+[node name="Sprite" type="Sprite" parent="Info Box" index="4"]
+
+position = Vector2( 171, 109 )
+z_index = 1
+texture = ExtResource( 14 )
+_sections_unfolded = [ "Z Index" ]
+
 [node name="Tabs" type="Node" parent="." index="3"]
 
-editor/display_folded = true
+[node name="quests" type="Sprite" parent="Tabs" index="0"]
 
-[node name="equipped" type="Sprite" parent="Tabs" index="0"]
+position = Vector2( 364, 137 )
+texture = ExtResource( 15 )
 
-position = Vector2( 364, 236 )
-texture = ExtResource( 14 )
-
-[node name="equippedButton" type="Button" parent="Tabs/equipped" index="0"]
+[node name="equippedButton" type="Button" parent="Tabs/quests" index="0"]
 
 visible = false
 anchor_left = 0.0
@@ -412,8 +390,8 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="weapons" type="Sprite" parent="Tabs" index="1"]
 
-position = Vector2( 419, 236 )
-texture = ExtResource( 15 )
+position = Vector2( 419, 137 )
+texture = ExtResource( 16 )
 
 [node name="weaponButton" type="Button" parent="Tabs/weapons" index="0"]
 
@@ -443,8 +421,8 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="equippable" type="Sprite" parent="Tabs" index="2"]
 
-position = Vector2( 474, 236 )
-texture = ExtResource( 16 )
+position = Vector2( 474, 137 )
+texture = ExtResource( 17 )
 
 [node name="equippableButton" type="Button" parent="Tabs/equippable" index="0"]
 
@@ -474,8 +452,8 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="consumable" type="Sprite" parent="Tabs" index="3"]
 
-position = Vector2( 529, 236 )
-texture = ExtResource( 17 )
+position = Vector2( 529, 137 )
+texture = ExtResource( 18 )
 
 [node name="consumableButton" type="Button" parent="Tabs/consumable" index="0"]
 
@@ -505,8 +483,8 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="misc" type="Sprite" parent="Tabs" index="4"]
 
-position = Vector2( 584, 236 )
-texture = ExtResource( 18 )
+position = Vector2( 584, 137 )
+texture = ExtResource( 19 )
 
 [node name="miscButton" type="Button" parent="Tabs/misc" index="0"]
 
@@ -534,12 +512,12 @@ flat = false
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="quests" type="Sprite" parent="Tabs" index="5"]
+[node name="map" type="Sprite" parent="Tabs" index="5"]
 
-position = Vector2( 638, 236 )
-texture = ExtResource( 19 )
+position = Vector2( 638, 137 )
+texture = ExtResource( 20 )
 
-[node name="Button" type="Button" parent="Tabs/quests" index="0"]
+[node name="Button" type="Button" parent="Tabs/map" index="0"]
 
 visible = false
 anchor_left = 0.0
@@ -567,8 +545,8 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="Highlight" type="Sprite" parent="Tabs" index="6"]
 
-position = Vector2( 364, 236 )
-texture = ExtResource( 20 )
+position = Vector2( 364, 137 )
+texture = ExtResource( 21 )
 
 [node name="Inventory Box" type="ScrollContainer" parent="." index="4"]
 
@@ -578,9 +556,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 345.0
-margin_top = 257.0
+margin_top = 158.0
 margin_right = 357.0
-margin_bottom = 269.0
+margin_bottom = 170.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
