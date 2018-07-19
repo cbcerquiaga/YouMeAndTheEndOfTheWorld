@@ -7,3 +7,7 @@ func _ready():
 func _setFrame(value):
 	frame = value
 	pass
+	
+func getFrame():
+	return frame
+	pass
