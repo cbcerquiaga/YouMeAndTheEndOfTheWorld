@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/pause_popup.gd" type="Script" id=1]
 
-[node name="pause_popup" type="PopupMenu"]
+[node name="pause_popup" type="PopupMenu" index="0"]
 
 pause_mode = 2
 anchor_left = 0.0
