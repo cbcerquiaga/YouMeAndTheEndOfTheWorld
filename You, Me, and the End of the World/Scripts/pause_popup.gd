@@ -9,7 +9,7 @@ func _ready():
 	self.add_item("Settings",4)
 	self.add_item("Help",5)
 	self.add_item("Main Menu",6)
-	self.add_item("Quit Game",7)
+	#self.add_item("Quit Game",7)
 	var vtrans = get_canvas_transform()
 	var top_left = -vtrans.get_origin() / vtrans.get_scale()
 	var vsize = get_viewport_rect().size
@@ -43,6 +43,6 @@ func _popupMenuChoice(ID):
 		print("Help button pressed")
 	elif ID == 6:
 		print("Main Menu button pressed")
-	elif ID == 7:
-		print("Quit Game button pressed")
+	#elif ID == 7:
+		#print("Quit Game button pressed")
 		
