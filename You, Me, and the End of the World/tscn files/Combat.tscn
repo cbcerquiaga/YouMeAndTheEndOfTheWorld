@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Scripts/CombatSceneManager.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/combat_pause.gd" type="Script" id=2]
@@ -15,11 +15,13 @@
 [ext_resource path="res://Images/combatStaminaBar.png" type="Texture" id=13]
 [ext_resource path="res://Scripts/PlayerStamina.gd" type="Script" id=14]
 [ext_resource path="res://Scripts/EnemyStamina.gd" type="Script" id=15]
-[ext_resource path="res://Images/myTiles.tres" type="TileSet" id=16]
-[ext_resource path="res://Scripts/CombatPlayer.gd" type="Script" id=17]
-[ext_resource path="res://Images/troll.png" type="Texture" id=18]
-[ext_resource path="res://Scripts/CombatEnemy.gd" type="Script" id=19]
-[ext_resource path="res://Images/grandPiano.png" type="Texture" id=20]
+[ext_resource path="res://Images/runAwayButton.png" type="Texture" id=16]
+[ext_resource path="res://Images/surrenderButton.png" type="Texture" id=17]
+[ext_resource path="res://Images/myTiles.tres" type="TileSet" id=18]
+[ext_resource path="res://Scripts/CombatPlayer.gd" type="Script" id=19]
+[ext_resource path="res://Images/troll.png" type="Texture" id=20]
+[ext_resource path="res://Scripts/CombatEnemy.gd" type="Script" id=21]
+[ext_resource path="res://Images/grandPiano.png" type="Texture" id=22]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -47,7 +49,7 @@ extents = Vector2( 10, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 276.254 )
 
-[node name="Combat" type="Node2D"]
+[node name="Combat" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
@@ -356,6 +358,68 @@ nine_patch_stretch = false
 script = ExtResource( 15 )
 _sections_unfolded = [ "Textures" ]
 
+[node name="Run Away" type="Sprite" parent="CombatHUD" index="10"]
+
+position = Vector2( 284, 19 )
+texture = ExtResource( 16 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Run Away Button" type="Button" parent="CombatHUD/Run Away" index="0"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -43.0
+margin_top = -17.0
+margin_right = 42.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+
+[node name="Surrender" type="Sprite" parent="CombatHUD" index="11"]
+
+position = Vector2( 381, 19 )
+texture = ExtResource( 17 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Surrender Button" type="Button" parent="CombatHUD/Surrender" index="0"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -43.0
+margin_top = -17.0
+margin_right = 45.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+
 [node name="Camera" type="Camera2D" parent="." index="2"]
 
 anchor_mode = 1
@@ -384,7 +448,7 @@ editor_draw_drag_margin = false
 [node name="TileMap" type="TileMap" parent="." index="3"]
 
 mode = 0
-tile_set = ExtResource( 16 )
+tile_set = ExtResource( 18 )
 cell_size = Vector2( 50, 50 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -409,13 +473,13 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = ExtResource( 17 )
+script = ExtResource( 19 )
 _sections_unfolded = [ "Collision" ]
 
 [node name="Sprite" type="Sprite" parent="TileMap/CombatPlayer" index="0"]
 
 position = Vector2( -2.27094, -4.47815 )
-texture = ExtResource( 18 )
+texture = ExtResource( 20 )
 _sections_unfolded = [ "Animation", "Region", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/CombatPlayer" index="1"]
@@ -431,14 +495,14 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = ExtResource( 19 )
+script = ExtResource( 21 )
 
 [node name="Sprite" type="Sprite" parent="TileMap/Enemy" index="0"]
 
 position = Vector2( 9.51061, -2.50641 )
 scale = Vector2( 0.97444, 1 )
-texture = ExtResource( 20 )
-normal_map = ExtResource( 20 )
+texture = ExtResource( 22 )
+normal_map = ExtResource( 22 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Enemy" index="1"]
 

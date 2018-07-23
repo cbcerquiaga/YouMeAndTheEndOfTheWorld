@@ -4,13 +4,14 @@ func _ready():
 	print("popup is up")
 	self.clear()
 	self.add_item("Resume", 1)
-	self.add_item("Surrender", 2)
-	self.add_item("Run Away", 3)
-	self.add_item("Save", 4)
-	self.add_item("Load", 5)
-	self.add_item("Settings", 6)
-	self.add_item("Main Menu", 7)
-	self.add_item("Quit Game", 8)
+	#self.add_item("Surrender", 2)
+	#self.add_item("Run Away", 3)
+	self.add_item("Save", 2)
+	self.add_item("Load", 3)
+	self.add_item("Settings", 4)
+	self.add_item("Help", 5)
+	self.add_item("Main Menu", 6)
+	#self.add_item("Quit Game", 7)
 	var vtrans = get_canvas_transform()
 	var top_left = -vtrans.get_origin() / vtrans.get_scale()
 	var vsize = get_viewport_rect().size
@@ -35,16 +36,14 @@ func _popupMenuChoice(ID):
 		print("Resume button pressed")
 		_unpause()
 	elif ID == 2:
-		print("Surrender button pressed")
-	elif ID == 3:
-		print("Run Away button pressed")
-	elif ID == 4:
 		print("Save button pressed")
-	elif ID == 5:
+	elif ID == 3:
 		print("Load button pressed")
-	elif ID == 6:
+	elif ID == 4:
 		print("Settings button pressed")
-	elif ID == 7:
+	elif ID == 5:
+		print("Help button pressed")
+	elif ID == 6:
 		print("Main Menu button pressed")
-	elif ID == 8:
+	elif ID == 7:
 		print("Quit Game button pressed")
