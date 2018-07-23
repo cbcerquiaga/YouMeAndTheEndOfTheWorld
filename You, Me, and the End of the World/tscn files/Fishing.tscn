@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/FishingPlayer1.gd" type="Script" id=1]
+[ext_resource path="res://Images/p1Hook.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/FishingPlayer2.gd" type="Script" id=3]
+[ext_resource path="res://Images/p2Hook.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="Fishing" type="Node2D" index="0"]
+
+[node name="TileMap" type="TileMap" parent="." index="0"]
+
+mode = 0
+tile_set = null
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray(  )
+
+[node name="ObstacleEmitter" type="Node2D" parent="TileMap" index="0"]
+
+[node name="FishEmitter" type="Node2D" parent="TileMap" index="1"]
+
+[node name="Player1" type="KinematicBody2D" parent="TileMap" index="2"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="TileMap/Player1" index="0"]
+
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Player1" index="1"]
+
+shape = SubResource( 1 )
+
+[node name="Player2" type="KinematicBody2D" parent="TileMap" index="3"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="TileMap/Player2" index="0"]
+
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Player2" index="1"]
+
+shape = SubResource( 2 )
+
+
