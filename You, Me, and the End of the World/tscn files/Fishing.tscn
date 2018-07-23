@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Scripts/FishingPlayer1.gd" type="Script" id=1]
-[ext_resource path="res://Images/p1Hook.png" type="Texture" id=2]
-[ext_resource path="res://Scripts/FishingPlayer2.gd" type="Script" id=3]
-[ext_resource path="res://Images/p2Hook.png" type="Texture" id=4]
+[ext_resource path="res://Images/myTiles.tres" type="TileSet" id=1]
+[ext_resource path="res://Scripts/FishingPlayer1.gd" type="Script" id=2]
+[ext_resource path="res://Images/p1Hook.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/FishingPlayer2.gd" type="Script" id=4]
+[ext_resource path="res://Images/p2Hook.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -15,12 +16,12 @@ extents = Vector2( 10, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Fishing" type="Node2D" index="0"]
+[node name="Fishing" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
 
 mode = 0
-tile_set = null
+tile_set = ExtResource( 1 )
 cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -35,7 +36,7 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray(  )
+tile_data = PoolIntArray( -1, 1, 0, -65536, 1, 0, -65535, 1, 0, -65534, 1, 0, -65533, 1, 0, -65532, 1, 0, -65531, 1, 0, -65530, 1, 0, -65529, 1, 0, -65528, 1, 0, -65527, 1, 0, -65526, 1, 0, -65525, 1, 0, -65524, 1, 0, -65523, 1, 0, -65522, 1, 0, -65521, 1, 0, -65520, 1, 0, 65535, 1, 0, 16, 1, 0, 131071, 1, 0, 65552, 1, 0, 196607, 1, 0, 131088, 1, 0, 262143, 1, 0, 196624, 1, 0, 327679, 1, 0, 262160, 1, 0, 393215, 1, 0, 327696, 1, 0, 458751, 1, 0, 393232, 1, 0, 524287, 1, 0, 458768, 1, 0, 589823, 1, 0, 524304, 1, 0, 655359, 1, 0, 589840, 1, 0, 720895, 1, 0, 655360, 1, 0, 655361, 1, 0, 655362, 1, 0, 655363, 1, 0, 655364, 1, 0, 655365, 1, 0, 655366, 1, 0, 655367, 1, 0, 655368, 1, 0, 655369, 1, 0, 655370, 1, 0, 655371, 1, 0, 655372, 1, 0, 655373, 1, 0, 655374, 1, 0, 655375, 1, 0, 655376, 1, 0 )
 
 [node name="ObstacleEmitter" type="Node2D" parent="TileMap" index="0"]
 
@@ -43,15 +44,16 @@ tile_data = PoolIntArray(  )
 
 [node name="Player1" type="KinematicBody2D" parent="TileMap" index="2"]
 
+position = Vector2( 318.054, 147.932 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="TileMap/Player1" index="0"]
 
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Player1" index="1"]
 
@@ -59,15 +61,16 @@ shape = SubResource( 1 )
 
 [node name="Player2" type="KinematicBody2D" parent="TileMap" index="3"]
 
+position = Vector2( 621.316, 162.726 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="TileMap/Player2" index="0"]
 
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Player2" index="1"]
 
