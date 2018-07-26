@@ -11,7 +11,7 @@ func _ready():
 	#set mouse cursor to combat crosshairs
 	Input.set_custom_mouse_cursor(crosshair)
 	#connect button signals
-	surrenderButton.connect(" pressed",self, "on_surrender_pressed")
+	surrenderButton.connect("pressed",self, "on_surrender_pressed")
 	runButton.connect("pressed",self, "on_run_pressed")
 	pass
 
