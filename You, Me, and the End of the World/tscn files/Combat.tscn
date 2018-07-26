@@ -15,8 +15,8 @@
 [ext_resource path="res://Images/combatStaminaBar.png" type="Texture" id=13]
 [ext_resource path="res://Scripts/PlayerStamina.gd" type="Script" id=14]
 [ext_resource path="res://Scripts/EnemyStamina.gd" type="Script" id=15]
-[ext_resource path="res://Images/runAwayButton.png" type="Texture" id=16]
-[ext_resource path="res://Images/surrenderButton.png" type="Texture" id=17]
+[ext_resource path="res://Images/surrenderButton.png" type="Texture" id=16]
+[ext_resource path="res://Images/runAwayButton.png" type="Texture" id=17]
 [ext_resource path="res://Images/myTiles.tres" type="TileSet" id=18]
 [ext_resource path="res://Scripts/CombatPlayer.gd" type="Script" id=19]
 [ext_resource path="res://Images/troll.png" type="Texture" id=20]
@@ -358,23 +358,16 @@ nine_patch_stretch = false
 script = ExtResource( 15 )
 _sections_unfolded = [ "Textures" ]
 
-[node name="Run Away" type="Sprite" parent="CombatHUD" index="10"]
+[node name="Surrender Button" type="Button" parent="CombatHUD" index="10"]
 
-position = Vector2( 284, 19 )
-texture = ExtResource( 16 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Run Away Button" type="Button" parent="CombatHUD/Run Away" index="0"]
-
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -43.0
-margin_top = -17.0
-margin_right = 42.0
-margin_bottom = 20.0
+margin_left = 325.0
+margin_top = -9.0
+margin_right = 437.0
+margin_bottom = 47.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -386,26 +379,21 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-flat = false
+icon = ExtResource( 16 )
+flat = true
 align = 1
+_sections_unfolded = [ "Visibility" ]
 
-[node name="Surrender" type="Sprite" parent="CombatHUD" index="11"]
+[node name="Run Away Button" type="Button" parent="CombatHUD" index="11"]
 
-position = Vector2( 381, 19 )
-texture = ExtResource( 17 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Surrender Button" type="Button" parent="CombatHUD/Surrender" index="0"]
-
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -43.0
-margin_top = -17.0
-margin_right = 45.0
-margin_bottom = 20.0
+margin_left = 228.0
+margin_top = -9.0
+margin_right = 340.0
+margin_bottom = 47.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -417,7 +405,8 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-flat = false
+icon = ExtResource( 17 )
+flat = true
 align = 1
 
 [node name="Camera" type="Camera2D" parent="." index="2"]
