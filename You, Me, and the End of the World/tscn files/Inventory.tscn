@@ -21,7 +21,7 @@
 [ext_resource path="res://Images/inventoryHighlight.png" type="Texture" id=19]
 [ext_resource path="res://Images/inventoryMain.png" type="Texture" id=20]
 
-[node name="Inventory" type="CanvasLayer"]
+[node name="Inventory" type="CanvasLayer" index="0"]
 
 layer = 1
 offset = Vector2( 0, 0 )
