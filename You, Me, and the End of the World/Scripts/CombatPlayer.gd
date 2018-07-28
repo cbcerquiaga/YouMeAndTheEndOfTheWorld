@@ -225,5 +225,6 @@ func create_bullet(position):
 #	print(bullet.position)
 	var tempBullet = load("res://tscn files/Bullet.tscn").instance()
 	tempBullet.set_position(self.position)
+	tempBullet.motion = get_local_mouse_position().normalized()
 	self.get_parent().add_child(tempBullet)
 
