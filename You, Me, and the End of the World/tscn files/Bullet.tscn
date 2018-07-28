@@ -8,35 +8,26 @@
 custom_solver_bias = 0.0
 extents = Vector2( 3, 2 )
 
-[node name="Bullet" type="RigidBody2D"]
+[node name="Bullet" type="KinematicBody2D" index="0"]
 
+position = Vector2( 0.010025, 0 )
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
-mode = 0
-mass = 1.0
-friction = 1.0
-bounce = 0.0
-gravity_scale = 1.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = true
-linear_velocity = Vector2( 0, 0 )
-linear_damp = -1.0
-angular_velocity = 0.0
-angular_damp = -1.0
+collision_layer = 4
+collision_mask = 4
+collision/safe_margin = 0.08
 script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
+position = Vector2( 0.00611272, 0.00061265 )
+scale = Vector2( 1.00204, 1.00031 )
 texture = ExtResource( 2 )
 normal_map = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
+position = Vector2( 2.42144e-08, 0 )
 shape = SubResource( 1 )
 
 

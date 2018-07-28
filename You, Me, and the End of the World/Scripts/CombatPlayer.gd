@@ -112,42 +112,42 @@ func _physics_process(delta):
 	if stop:
 		var vsign = sign(velocity.x)
 		var vlen = abs(velocity.x)
-
+		
 		vlen -= STOP_FORCE * delta
 		if vlen < 0:
 			vlen = 0
-
-		velocity.x = vlen * vsign
 		
+		velocity.x = vlen * vsign
+
 	if head_attack:
 		if stamina > 10: #enough for a head attack
 			stamina -= 10
 			#TODO: raycast to see what enemy body part is damaged
 			#TODO: head attack animation
-	
+
 	if body_attack:
 		if stamina > 10: #enough for a body attack
 			stamina -= 10
 			#TODO: raycast to see what enemy body part is damaged
 			#TODO: body attack animation
-			
+
 	if head_block:
 		stamina -= staminaRegen #stamina stops regenerating
 		#TODO: move to block
 		#TODO: reduce damage taken, apply it to blocking body part
-		
+
 	if body_block:
 		stamina -= staminaRegen #stamina stops regenerating
 		#TODO: move to block
 		#TODO: reduce damage taken, apply it to blocking body part
-		
+
 	if grab:
 		if stamina > 20: #enough stamina for a grab
 			stamina -= 20
 			#TODO: check to see if enemy is within range
 			#TODO: pull enemy off balance
 			#TODO: immobilize enemy more depending on the player's strength
-			
+
 	if heavy_attack:
 		if stamina > 30:
 			stamina -=30
@@ -155,7 +155,7 @@ func _physics_process(delta):
 			#TODO: play charge-up animation
 			#TODO: check to see if enemy is in range
 			#TODO: damage more based on how long the button is charged
-			
+
 	if crouch:
 		print("crouch pressed")
 		if jumping:
@@ -166,10 +166,10 @@ func _physics_process(delta):
 			stamina -= staminaRegen/2 #stamina regenerates at half speed
 			#TODO: play crouch animation
 			#TODO: reduce hitbox size
-			
+
 	if shoot:
 		print("bang bang " + ammoVal)
-		if ammoLeft > 0: #there is ammo to shoot
+		if ammoLeft > -100: #there is ammo to shoot
 			ammoLeft -= 1
 			ammoVal = str(ammoLeft)
 			#check coordinates, spawn a bullet
@@ -180,13 +180,13 @@ func _physics_process(delta):
 			#TODO: apply spread based on weapon & skills
 			#TODO: fire projectile
 			#TODO: check where the enemy is hit and apply damage
-			
+
 	if taunt:
 		#make taunt gesture
 		print("U wot m8?")
 		#apply taunt effect to enemy
 		#emit_signal(taunt)
-		
+
 	if doneTaunting:
 		#return to regular animation frames
 		print("Ur mum")
@@ -215,9 +215,15 @@ func _physics_process(delta):
 	if stamina < maxStamina:
 		stamina += staminaRegen
 	pass
-	
+
 func create_bullet(position):
-	var bullet = BULLET.instance()
-	bullet.set_position(position)
-	self.add_child(bullet)
-	pass
+#	var bullet = BULLET.instance(1)
+#	bullet.set_position(self.global_position)
+#	self.add_child(bullet)
+#	bullet.show()
+#	print("Created Bullet")
+#	print(bullet.position)
+	var tempBullet = load("res://tscn files/Bullet.tscn").instance()
+	tempBullet.set_position(self.position)
+	self.get_parent().add_child(tempBullet)
+

@@ -13,21 +13,18 @@ func _ready():
 	#connect button signals
 	surrenderButton.connect("pressed",self, "on_surrender_pressed")
 	runButton.connect("pressed",self, "on_run_pressed")
-	pass
 
 func on_surrender_pressed():
 	#TODO:
 	#check how badly the enemy robs the player
 	#check how badly the enemy maims the player and whether or not they kill them
 	print("Uncle, uncle, uncle")
-	pass
 	
 func on_run_pressed():
 	#TODO:
 	#check whether or not the player gets away
 	#check whether or not the player takes damage, and how bad the damage is
 	print("Ruuuun, Forrest, ruuuun")
-	pass
 
 func _pause():
 	print("Game paused")
@@ -38,4 +35,3 @@ func _pause():
 func _process(delta):
 	if Input.is_action_pressed("pause"):
 		_pause()
-	pass

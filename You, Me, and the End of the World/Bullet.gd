@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends KinematicBody2D
 
 var damage = 10 #default damage
 var spread = 5 #default spread
@@ -11,7 +11,6 @@ var motion = Vector2(2,0)
 	
 func _ready():
 	set_process(true)
-	queue_free()
 	pass
 
 func _process(delta):

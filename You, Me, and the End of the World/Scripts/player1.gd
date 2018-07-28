@@ -15,7 +15,7 @@ signal move
 #Called when the player is entered into the scene
 func _ready():
 	playerProperty.__init__(1,1,1,1)
-	invTimer.connect("timeout",self,"_on_invTimer_timeout")
+	invTimer.connect("timeout", self, "_on_invTimer_timeout")
 	add_child(invTimer)
 	invTimer.wait_time = invWaitTime
 	invTimer.start()

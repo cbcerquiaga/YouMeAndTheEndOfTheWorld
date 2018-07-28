@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scripts/CombatSceneManager.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/combat_pause.gd" type="Script" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://Images/troll.png" type="Texture" id=20]
 [ext_resource path="res://Scripts/CombatEnemy.gd" type="Script" id=21]
 [ext_resource path="res://Images/grandPiano.png" type="Texture" id=22]
+[ext_resource path="res://tscn files/Bullet.tscn" type="PackedScene" id=23]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -49,7 +50,7 @@ extents = Vector2( 10, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 276.254 )
 
-[node name="Combat" type="Node2D" index="0"]
+[node name="Combat" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
@@ -79,6 +80,7 @@ _sections_unfolded = [ "Mouse", "Pause", "Popup" ]
 
 [node name="CombatHUD" type="CanvasLayer" parent="." index="1"]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -498,5 +500,9 @@ normal_map = ExtResource( 22 )
 position = Vector2( 9.54395, 0.123352 )
 scale = Vector2( 2.89903, 0.158808 )
 shape = SubResource( 4 )
+
+[node name="Bullet" parent="TileMap" index="2" instance=ExtResource( 23 )]
+
+position = Vector2( 307.153, 191.212 )
 
 
