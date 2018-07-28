@@ -29,8 +29,8 @@ func on_run_pressed():
 func _pause():
 	print("Game paused")
 	get_tree().paused = true
-	$combat_pause.update()
-	$combat_pause.show()
+	#$pause_popup.update()
+	$pause_popup.show()
 	
 func _process(delta):
 	if Input.is_action_pressed("pause"):

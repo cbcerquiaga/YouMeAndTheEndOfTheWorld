@@ -10,41 +10,39 @@
 [ext_resource path="res://Images/quitTile.png" type="Texture" id=8]
 [ext_resource path="res://Images/pausedText.png" type="Texture" id=9]
 
-[node name="pause_popup" type="PopupMenu"]
+[node name="pause_popup" type="Popup" index="0"]
 
 pause_mode = 2
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 406.0
-margin_top = 188.0
-margin_right = 530.0
-margin_bottom = 309.0
+margin_left = 706.0
+margin_top = 252.0
+margin_right = 706.0
+margin_bottom = 252.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 popup_exclusive = true
-items = [  ]
-hide_on_state_item_selection = false
 script = ExtResource( 1 )
-_sections_unfolded = [ "Anchor", "Margin", "Pause", "Popup" ]
+_sections_unfolded = [ "Anchor", "Margin", "Material", "Pause", "Popup", "Visibility" ]
 
-[node name="Resume Button" type="Button" parent="." index="0"]
+[node name="Resume Button" type="Button" parent="." index="1"]
 
+pause_mode = 2
 editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -337.0
+margin_left = -343.0
 margin_top = -118.0
-margin_right = -67.0
-margin_bottom = -68.0
+margin_right = -61.0
+margin_bottom = -62.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -56,27 +54,29 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-flat = false
+icon = ExtResource( 2 )
+flat = true
 align = 1
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Pause", "Rect" ]
 
 [node name="Resume Tile" type="Sprite" parent="Resume Button" index="0"]
 
+visible = false
 position = Vector2( 135, 25 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Save Button" type="Button" parent="." index="1"]
+[node name="Save Button" type="Button" parent="." index="2"]
 
+pause_mode = 2
 editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -338.0
-margin_top = -54.0
-margin_right = -68.0
-margin_bottom = -4.0
+margin_left = -343.0
+margin_top = -56.0
+margin_right = -61.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -88,27 +88,30 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-flat = false
+icon = ExtResource( 3 )
+flat = true
 align = 1
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Pause", "Rect" ]
 
 [node name="Save Tile" type="Sprite" parent="Save Button" index="0"]
 
+visible = false
 position = Vector2( 135, 25 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Load button" type="Button" parent="." index="2"]
+[node name="Load button" type="Button" parent="." index="3"]
 
+pause_mode = 2
 editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -337.0
-margin_top = 9.0
-margin_right = -67.0
-margin_bottom = 59.0
+margin_left = -343.0
+margin_top = 6.0
+margin_right = -61.0
+margin_bottom = 62.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -120,27 +123,30 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-flat = false
+icon = ExtResource( 4 )
+flat = true
 align = 1
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Pause", "Rect" ]
 
 [node name="Load Tile" type="Sprite" parent="Load button" index="0"]
 
+visible = false
 position = Vector2( 135, 25 )
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Settings Button" type="Button" parent="." index="3"]
+[node name="Settings Button" type="Button" parent="." index="4"]
 
+pause_mode = 2
 editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -337.0
-margin_top = 71.0
-margin_right = -67.0
-margin_bottom = 121.0
+margin_left = -343.0
+margin_top = 68.0
+margin_right = -61.0
+margin_bottom = 124.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -152,27 +158,30 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-flat = false
+icon = ExtResource( 5 )
+flat = true
 align = 1
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Pause", "Rect" ]
 
 [node name="Settings Tile" type="Sprite" parent="Settings Button" index="0"]
 
+visible = false
 position = Vector2( 135, 25 )
 texture = ExtResource( 5 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Help Button" type="Button" parent="." index="4"]
+[node name="Help Button" type="Button" parent="." index="5"]
 
+pause_mode = 2
 editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -337.0
-margin_top = 133.0
-margin_right = -67.0
-margin_bottom = 183.0
+margin_left = -343.0
+margin_top = 130.0
+margin_right = -73.0
+margin_bottom = 180.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -184,27 +193,30 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-flat = false
+icon = ExtResource( 6 )
+flat = true
 align = 1
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Pause", "Rect" ]
 
 [node name="Help Tile" type="Sprite" parent="Help Button" index="0"]
 
+visible = false
 position = Vector2( 135, 25 )
 texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Main Menu Button" type="Button" parent="." index="5"]
+[node name="Main Menu Button" type="Button" parent="." index="6"]
 
+pause_mode = 2
 editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -337.0
-margin_top = 195.0
-margin_right = -67.0
-margin_bottom = 245.0
+margin_left = -343.0
+margin_top = 192.0
+margin_right = -61.0
+margin_bottom = 248.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -216,24 +228,26 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-flat = false
+icon = ExtResource( 7 )
+flat = true
 align = 1
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Pause", "Rect" ]
 
 [node name="Main Menu Tile" type="Sprite" parent="Main Menu Button" index="0"]
 
+visible = false
 position = Vector2( 135, 25 )
 texture = ExtResource( 7 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Quit Tile" type="Sprite" parent="." index="6"]
+[node name="Quit Tile" type="Sprite" parent="." index="7"]
 
 visible = false
 position = Vector2( -202, 282 )
 texture = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Text" type="Sprite" parent="." index="8"]
+[node name="Text" type="Sprite" parent="." index="9"]
 
 position = Vector2( -202, -154 )
 texture = ExtResource( 9 )

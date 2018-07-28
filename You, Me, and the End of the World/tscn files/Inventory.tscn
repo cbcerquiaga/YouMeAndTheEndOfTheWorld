@@ -1,27 +1,25 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scripts/Inventory.gd" type="Script" id=1]
 [ext_resource path="res://Images/inventoryStatusBox.png" type="Texture" id=2]
 [ext_resource path="res://Images/LeftButton.png" type="Texture" id=3]
-[ext_resource path="res://Scripts/Left Button.gd" type="Script" id=4]
-[ext_resource path="res://Images/RightButton.png" type="Texture" id=5]
-[ext_resource path="res://Scripts/Right Button.gd" type="Script" id=6]
-[ext_resource path="res://Images/status icons L.png" type="Texture" id=7]
-[ext_resource path="res://Images/inventoryStatusBarTexture.png" type="Texture" id=8]
-[ext_resource path="res://Scripts/Left Bar.gd" type="Script" id=9]
-[ext_resource path="res://Images/status icons C.png" type="Texture" id=10]
-[ext_resource path="res://Scripts/Center Bar.gd" type="Script" id=11]
-[ext_resource path="res://Images/status icons R.png" type="Texture" id=12]
-[ext_resource path="res://Scripts/Right Bar.gd" type="Script" id=13]
-[ext_resource path="res://Images/itemDetailBox.png" type="Texture" id=14]
-[ext_resource path="res://Images/questsTab.png" type="Texture" id=15]
-[ext_resource path="res://Images/weaponTab.png" type="Texture" id=16]
-[ext_resource path="res://Images/equippableTab.png" type="Texture" id=17]
-[ext_resource path="res://Images/consumableTab.png" type="Texture" id=18]
-[ext_resource path="res://Images/miscTab.png" type="Texture" id=19]
-[ext_resource path="res://Images/questTab.png" type="Texture" id=20]
-[ext_resource path="res://Images/inventoryHighlight.png" type="Texture" id=21]
-[ext_resource path="res://Images/inventoryMain.png" type="Texture" id=22]
+[ext_resource path="res://Images/RightButton.png" type="Texture" id=4]
+[ext_resource path="res://Images/status icons L.png" type="Texture" id=5]
+[ext_resource path="res://Images/inventoryStatusBarTexture.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/Left Bar.gd" type="Script" id=7]
+[ext_resource path="res://Images/status icons C.png" type="Texture" id=8]
+[ext_resource path="res://Scripts/Center Bar.gd" type="Script" id=9]
+[ext_resource path="res://Images/status icons R.png" type="Texture" id=10]
+[ext_resource path="res://Scripts/Right Bar.gd" type="Script" id=11]
+[ext_resource path="res://Images/itemDetailBox.png" type="Texture" id=12]
+[ext_resource path="res://Images/questsTab.png" type="Texture" id=13]
+[ext_resource path="res://Images/weaponTab.png" type="Texture" id=14]
+[ext_resource path="res://Images/equippableTab.png" type="Texture" id=15]
+[ext_resource path="res://Images/consumableTab.png" type="Texture" id=16]
+[ext_resource path="res://Images/miscTab.png" type="Texture" id=17]
+[ext_resource path="res://Images/questTab.png" type="Texture" id=18]
+[ext_resource path="res://Images/inventoryHighlight.png" type="Texture" id=19]
+[ext_resource path="res://Images/inventoryMain.png" type="Texture" id=20]
 
 [node name="Inventory" type="CanvasLayer" index="0"]
 
@@ -55,22 +53,16 @@ stretch_mode = 0
 position = Vector2( 501.42, 57.0558 )
 texture = ExtResource( 2 )
 
-[node name="Left Button Spritete" type="Sprite" parent="Status Box" index="0"]
+[node name="Left Button" type="Button" parent="Status Box" index="0"]
 
-position = Vector2( -151.42, 2.94421 )
-texture = ExtResource( 3 )
-
-[node name="Left Button" type="Button" parent="Status Box/Left Button Spritete" index="0"]
-
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -13.0
-margin_top = -20.0
-margin_right = 13.0
-margin_bottom = 20.0
+margin_left = -164.0
+margin_top = -17.0
+margin_right = -138.0
+margin_bottom = 23.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -83,25 +75,24 @@ enabled_focus_mode = 2
 shortcut = null
 group = null
 icon = ExtResource( 3 )
-flat = false
+flat = true
 align = 1
-script = ExtResource( 4 )
 
-[node name="Right Button Sprite" type="Sprite" parent="Status Box" index="1"]
-
-position = Vector2( 148, 0 )
-texture = ExtResource( 5 )
-
-[node name="Right Button" type="Button" parent="Status Box/Right Button Sprite" index="0"]
+[node name="Left Button Spritete" type="Sprite" parent="Status Box/Left Button" index="0"]
 
 visible = false
+position = Vector2( 12.58, 19.9442 )
+texture = ExtResource( 3 )
+
+[node name="Right Button" type="Button" parent="Status Box" index="1"]
+
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -13.0
+margin_left = 135.0
 margin_top = -20.0
-margin_right = 13.0
+margin_right = 161.0
 margin_bottom = 20.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -114,16 +105,21 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-icon = ExtResource( 5 )
-flat = false
+icon = ExtResource( 4 )
+flat = true
 align = 1
-script = ExtResource( 6 )
 _sections_unfolded = [ "Material", "Visibility" ]
+
+[node name="Right Button Sprite" type="Sprite" parent="Status Box/Right Button" index="0"]
+
+visible = false
+position = Vector2( 13, 20 )
+texture = ExtResource( 4 )
 
 [node name="Left Icon" type="Sprite" parent="Status Box" index="2"]
 
 position = Vector2( -90.2352, -0.480492 )
-texture = ExtResource( 7 )
+texture = ExtResource( 5 )
 hframes = 3
 _sections_unfolded = [ "Animation" ]
 
@@ -152,18 +148,18 @@ exp_edit = false
 rounded = false
 texture_under = null
 texture_over = null
-texture_progress = ExtResource( 8 )
+texture_progress = ExtResource( 6 )
 fill_mode = 3
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
-script = ExtResource( 9 )
+script = ExtResource( 7 )
 _sections_unfolded = [ "Textures" ]
 
 [node name="Center Icon" type="Sprite" parent="Status Box" index="4"]
 
 position = Vector2( 0.548523, -0.480469 )
-texture = ExtResource( 10 )
+texture = ExtResource( 8 )
 hframes = 3
 _sections_unfolded = [ "Animation" ]
 
@@ -192,18 +188,18 @@ exp_edit = false
 rounded = false
 texture_under = null
 texture_over = null
-texture_progress = ExtResource( 8 )
+texture_progress = ExtResource( 6 )
 fill_mode = 3
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
-script = ExtResource( 11 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Textures" ]
 
 [node name="Right Icon" type="Sprite" parent="Status Box" index="6"]
 
 position = Vector2( 90.066, -0.551659 )
-texture = ExtResource( 12 )
+texture = ExtResource( 10 )
 hframes = 3
 _sections_unfolded = [ "Animation" ]
 
@@ -232,12 +228,12 @@ exp_edit = false
 rounded = false
 texture_under = null
 texture_over = null
-texture_progress = ExtResource( 8 )
+texture_progress = ExtResource( 6 )
 fill_mode = 3
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
-script = ExtResource( 13 )
+script = ExtResource( 11 )
 _sections_unfolded = [ "Textures" ]
 
 [node name="Info Box" type="HBoxContainer" parent="." index="2"]
@@ -352,7 +348,7 @@ stretch_mode = 0
 
 position = Vector2( 170, 110 )
 z_index = 1
-texture = ExtResource( 14 )
+texture = ExtResource( 12 )
 _sections_unfolded = [ "Z Index" ]
 
 [node name="Tabs" type="Node" parent="." index="3"]
@@ -362,7 +358,7 @@ editor/display_folded = true
 [node name="quests" type="Sprite" parent="Tabs" index="0"]
 
 position = Vector2( 364, 137 )
-texture = ExtResource( 15 )
+texture = ExtResource( 13 )
 
 [node name="equippedButton" type="Button" parent="Tabs/quests" index="0"]
 
@@ -393,7 +389,7 @@ _sections_unfolded = [ "Rect" ]
 [node name="weapons" type="Sprite" parent="Tabs" index="1"]
 
 position = Vector2( 419, 137 )
-texture = ExtResource( 16 )
+texture = ExtResource( 14 )
 
 [node name="weaponButton" type="Button" parent="Tabs/weapons" index="0"]
 
@@ -424,7 +420,7 @@ _sections_unfolded = [ "Rect" ]
 [node name="equippable" type="Sprite" parent="Tabs" index="2"]
 
 position = Vector2( 474, 137 )
-texture = ExtResource( 17 )
+texture = ExtResource( 15 )
 
 [node name="equippableButton" type="Button" parent="Tabs/equippable" index="0"]
 
@@ -455,7 +451,7 @@ _sections_unfolded = [ "Rect" ]
 [node name="consumable" type="Sprite" parent="Tabs" index="3"]
 
 position = Vector2( 529, 137 )
-texture = ExtResource( 18 )
+texture = ExtResource( 16 )
 
 [node name="consumableButton" type="Button" parent="Tabs/consumable" index="0"]
 
@@ -486,7 +482,7 @@ _sections_unfolded = [ "Rect" ]
 [node name="misc" type="Sprite" parent="Tabs" index="4"]
 
 position = Vector2( 584, 137 )
-texture = ExtResource( 19 )
+texture = ExtResource( 17 )
 
 [node name="miscButton" type="Button" parent="Tabs/misc" index="0"]
 
@@ -517,7 +513,7 @@ _sections_unfolded = [ "Rect" ]
 [node name="map" type="Sprite" parent="Tabs" index="5"]
 
 position = Vector2( 638, 137 )
-texture = ExtResource( 20 )
+texture = ExtResource( 18 )
 
 [node name="Button" type="Button" parent="Tabs/map" index="0"]
 
@@ -548,12 +544,12 @@ _sections_unfolded = [ "Rect" ]
 [node name="Highlight" type="Sprite" parent="Tabs" index="6"]
 
 position = Vector2( 364, 137 )
-texture = ExtResource( 21 )
+texture = ExtResource( 19 )
 
 [node name="Inventory Main" type="Sprite" parent="." index="4"]
 
 position = Vector2( 500, 495 )
-texture = ExtResource( 22 )
+texture = ExtResource( 20 )
 
 [node name="Inventory Box" type="ScrollContainer" parent="." index="5"]
 

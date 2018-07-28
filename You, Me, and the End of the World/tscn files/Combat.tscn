@@ -1,7 +1,7 @@
 [gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scripts/CombatSceneManager.gd" type="Script" id=1]
-[ext_resource path="res://Scripts/combat_pause.gd" type="Script" id=2]
+[ext_resource path="res://tscn files/pause_popup.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Images/combatHud.png" type="Texture" id=3]
 [ext_resource path="res://Images/flippedCombatHud.png" type="Texture" id=4]
 [ext_resource path="res://Images/ammoCounterIcon.png" type="Texture" id=5]
@@ -55,28 +55,9 @@ extents = Vector2( 10, 276.254 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
 
-[node name="combat_pause" type="PopupMenu" parent="." index="0"]
+[node name="pause_popup" parent="." index="0" instance=ExtResource( 2 )]
 
-pause_mode = 2
 visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 20.0
-margin_bottom = 20.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-popup_exclusive = true
-items = [  ]
-hide_on_state_item_selection = false
-script = ExtResource( 2 )
-_sections_unfolded = [ "Mouse", "Pause", "Popup" ]
 
 [node name="CombatHUD" type="CanvasLayer" parent="." index="1"]
 
@@ -384,7 +365,7 @@ group = null
 icon = ExtResource( 16 )
 flat = true
 align = 1
-_sections_unfolded = [ "Visibility" ]
+_sections_unfolded = [ "Rect", "Visibility" ]
 
 [node name="Run Away Button" type="Button" parent="CombatHUD" index="11"]
 
