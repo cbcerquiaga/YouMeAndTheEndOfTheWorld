@@ -173,12 +173,9 @@ func _physics_process(delta):
 			ammoLeft -= 1
 			ammoVal = str(ammoLeft)
 			#check coordinates, spawn a bullet
-			var mousePosition = get_viewport().get_mouse_position()
-			var playerPosition = self.get_global_position() #TODO: translate to actual gun position
+			var playerPosition = self.get_global_position()
 			create_bullet(playerPosition)
-			#TODO: point bullet at mouse instead of just right
 			#TODO: apply spread based on weapon & skills
-			#TODO: fire projectile
 			#TODO: check where the enemy is hit and apply damage
 
 	if taunt:
@@ -225,6 +222,9 @@ func create_bullet(position):
 #	print(bullet.position)
 	var tempBullet = load("res://tscn files/Bullet.tscn").instance()
 	tempBullet.set_position(self.position)
-	tempBullet.motion = get_local_mouse_position().normalized()
+	var truePosition = get_local_mouse_position()
+	truePosition.x += 15
+	truePosition.y += 15
+	tempBullet.motion = truePosition.normalized()
 	self.get_parent().add_child(tempBullet)
 
