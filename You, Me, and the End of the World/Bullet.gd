@@ -15,6 +15,11 @@ func _ready():
 
 func _process(delta):
 	translate(speed * motion * delta)
+	var collideCheck = move_and_collide(motion)
+	if(collideCheck != null):
+		print("Ouch!")
+		#var enemy = get_node("/root/TileMap/Enemy")
+		queue_free()
 	pass
 	
 func contact(body):
