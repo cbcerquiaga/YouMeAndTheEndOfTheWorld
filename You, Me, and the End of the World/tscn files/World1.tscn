@@ -1,9 +1,9 @@
 [gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/sceneManager.gd" type="Script" id=1]
-[ext_resource path="res://tscn files/pause_popup.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scripts/dialog_popup.gd" type="Script" id=3]
-[ext_resource path="res://tscn files/Inventory.tscn" type="PackedScene" id=4]
+[ext_resource path="res://tscn files/Inventory.tscn" type="PackedScene" id=2]
+[ext_resource path="res://tscn files/pause_popup.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/dialog_popup.gd" type="Script" id=4]
 [ext_resource path="res://tscn files/HUD.tscn" type="PackedScene" id=5]
 [ext_resource path="res://tscn files/tileset.tres" type="TileSet" id=6]
 [ext_resource path="res://tscn files/door1.tscn" type="PackedScene" id=7]
@@ -24,12 +24,19 @@ position = Vector2( 184.751, 4.24893 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="pause_popup" parent="." index="0" instance=ExtResource( 2 )]
+[node name="InventoryScreen" parent="." index="0" instance=ExtResource( 2 )]
 
 visible = false
+
+[node name="pause_popup" parent="." index="1" instance=ExtResource( 3 )]
+
+visible = false
+margin_left = -185.0
+margin_right = 776.0
+margin_bottom = 533.0
 _sections_unfolded = [ "Anchor", "Margin", "Material", "Mouse", "Pause", "Popup", "Visibility" ]
 
-[node name="dialog_popup" type="PopupMenu" parent="." index="1"]
+[node name="dialog_popup" type="PopupMenu" parent="." index="2"]
 
 visible = false
 anchor_left = 0.0
@@ -48,9 +55,7 @@ size_flags_vertical = 1
 popup_exclusive = false
 items = [  ]
 hide_on_state_item_selection = false
-script = ExtResource( 3 )
-
-[node name="InventoryScreen" parent="." index="2" instance=ExtResource( 4 )]
+script = ExtResource( 4 )
 
 [node name="HUD" parent="." index="3" instance=ExtResource( 5 )]
 
@@ -79,7 +84,7 @@ _sections_unfolded = [ "Cell" ]
 [node name="walls" type="TileMap" parent="." index="5"]
 
 editor/display_folded = true
-position = Vector2( 6, -65 )
+position = Vector2( -192.283, -64.249 )
 mode = 1
 tile_set = ExtResource( 6 )
 cell_size = Vector2( 128, 64 )

@@ -20,13 +20,19 @@
 [ext_resource path="res://Images/inventoryHighlight.png" type="Texture" id=18]
 [ext_resource path="res://Images/inventoryMain.png" type="Texture" id=19]
 
-[node name="Inventory" type="CanvasLayer"]
+[node name="InventoryScreen" type="Popup"]
 
-layer = 1
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
 script = ExtResource( 1 )
 
 [node name="Background" type="TextureRect" parent="." index="0"]
@@ -49,6 +55,7 @@ stretch_mode = 0
 
 [node name="Status Box" type="Sprite" parent="." index="1"]
 
+editor/display_folded = true
 position = Vector2( 501.42, 57.0558 )
 texture = ExtResource( 2 )
 
@@ -79,7 +86,6 @@ align = 1
 
 [node name="Left Button Spritete" type="Sprite" parent="Status Box/Left Button" index="0"]
 
-visible = false
 position = Vector2( 12.58, 19.9442 )
 texture = ExtResource( 3 )
 
@@ -111,7 +117,6 @@ _sections_unfolded = [ "Material", "Visibility" ]
 
 [node name="Right Button Sprite" type="Sprite" parent="Status Box/Right Button" index="0"]
 
-visible = false
 position = Vector2( 13, 20 )
 texture = ExtResource( 4 )
 
@@ -350,18 +355,28 @@ z_index = 1
 texture = ExtResource( 12 )
 _sections_unfolded = [ "Z Index" ]
 
-[node name="Tabs" type="Node" parent="." index="3"]
+[node name="Tabs" type="Control" parent="." index="3"]
 
 editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
 
 [node name="quests" type="Sprite" parent="Tabs" index="0"]
 
+editor/display_folded = true
 position = Vector2( 364, 137 )
 texture = ExtResource( 13 )
 
 [node name="equippedButton" type="Button" parent="Tabs/quests" index="0"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -387,12 +402,12 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="weapons" type="Sprite" parent="Tabs" index="1"]
 
+editor/display_folded = true
 position = Vector2( 419, 137 )
 texture = ExtResource( 14 )
 
 [node name="weaponButton" type="Button" parent="Tabs/weapons" index="0"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -418,12 +433,12 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="equippable" type="Sprite" parent="Tabs" index="2"]
 
+editor/display_folded = true
 position = Vector2( 474, 137 )
 texture = ExtResource( 15 )
 
 [node name="equippableButton" type="Button" parent="Tabs/equippable" index="0"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -449,12 +464,12 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="consumable" type="Sprite" parent="Tabs" index="3"]
 
+editor/display_folded = true
 position = Vector2( 529, 137 )
 texture = ExtResource( 16 )
 
 [node name="consumableButton" type="Button" parent="Tabs/consumable" index="0"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -480,12 +495,12 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="misc" type="Sprite" parent="Tabs" index="4"]
 
+editor/display_folded = true
 position = Vector2( 584, 137 )
 texture = ExtResource( 17 )
 
 [node name="miscButton" type="Button" parent="Tabs/misc" index="0"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -511,12 +526,12 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="map" type="Sprite" parent="Tabs" index="5"]
 
+editor/display_folded = true
 position = Vector2( 638, 137 )
 texture = ExtResource( 13 )
 
 [node name="Button" type="Button" parent="Tabs/map" index="0"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -552,6 +567,7 @@ texture = ExtResource( 19 )
 
 [node name="Inventory Box" type="ScrollContainer" parent="." index="5"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0

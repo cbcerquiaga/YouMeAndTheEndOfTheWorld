@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Popup
 
 var L
 var C
