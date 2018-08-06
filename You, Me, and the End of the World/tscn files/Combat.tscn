@@ -50,7 +50,7 @@ extents = Vector2( 9.35056, 11.6324 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 246.407 )
 
-[node name="Combat" type="Node2D"]
+[node name="Combat" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
@@ -394,6 +394,8 @@ align = 1
 
 [node name="Camera" type="Camera2D" parent="." index="2"]
 
+position = Vector2( 524.728, 299.767 )
+scale = Vector2( 16.522, 9.45495 )
 anchor_mode = 1
 rotating = false
 current = false
@@ -419,6 +421,7 @@ editor_draw_drag_margin = false
 
 [node name="TileMap" type="TileMap" parent="." index="3"]
 
+editor/display_folded = true
 mode = 0
 tile_set = ExtResource( 18 )
 cell_size = Vector2( 50, 50 )
