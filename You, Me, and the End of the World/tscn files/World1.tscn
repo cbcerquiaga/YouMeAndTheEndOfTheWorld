@@ -18,7 +18,7 @@
 [ext_resource path="res://tscn files/AreaDoor.tscn" type="PackedScene" id=16]
 [ext_resource path="res://tscn files/Gut.tscn" type="PackedScene" id=17]
 
-[node name="Root" type="Node2D" index="0"]
+[node name="Root" type="Node2D"]
 
 position = Vector2( 184.751, 4.24893 )
 script = ExtResource( 1 )
