@@ -1,51 +1,73 @@
-extends CanvasLayer
+var itemList = Dictionary()
 
-var L
-var C
-var R
-onready var leftButton = get_node("Status Box/Left Button")
-onready var rightButton = get_node("Status Box/Right Button")
+#Tests completed
+func add_item(item, numberToAdd):
+	#Gets the number in this stack
+	#Sets the items number in stack to 1 so that it would be identical to other items of the same type
+	if itemList.has(item):
+		itemList[item] = itemList[item] + numberToAdd
+	else:
+		itemList[item] = numberToAdd
 
-func _ready():
-	self.queue_free()
-	L = get_node("/root/Inventory/Status Box/Left Icon")
-	C = get_node("/root/Inventory/Status Box/Center Icon")
-	R = get_node("/root/Inventory/Status Box/Right Icon")
-	leftButton.connect("pressed",self,"leftButtonPressed")
-	rightButton.connect("pressed",self,"rightButtonPressed")
-	pass
+#Tests completed
+func remove_item(item, numberToRemove):
+	if itemList.has(item) and itemList[item] >= numberToRemove:
+		itemList[item] = itemList[item] - numberToRemove
+		if(itemList[item] == 0):
+			itemList.erase(item)
+		return true
+	else:
+		return false
 
-func leftButtonPressed():
-	var currentFrame = L.getFrame()
-	if currentFrame < 1: #currentFrame == 0
-		L.setFrame(2)
-		C.setFrame(2)
-		R.setFrame(2)
-	elif currentFrame == 1:
-		L.setFrame(0)
-		C.setFrame(0)
-		R.setFrame(0)
-	else: #currentFrame == 2 or there's a problem
-		L.setFrame(1)
-		C.setFrame(1)
-		R.setFrame(1)
-	pass
-	
-func rightButtonPressed():
-	var currentFrame = L.getFrame()
-	if currentFrame < 1: #currentFrame == 0
-		L.setFrame(1)
-		C.setFrame(1)
-		R.setFrame(1)
-	elif currentFrame == 1:
-		L.setFrame(2)
-		C.setFrame(2)
-		R.setFrame(2)
-	else: #currentFrame == 2 or there's a problem
-		L.setFrame(0)
-		C.setFrame(0)
-		R.setFrame(0)
+#Tests completed
+func isEmpty():
+  if(len(itemList.keys()) == 0):
+    return true
+  return false
 
-func _process(delta):
-	#process stuff
-	pass
+#Tests completed
+func hasItem(item):
+	return itemList.has(item)
+
+#Tests completed
+func getSelectedItem(numberSelected):
+	if numberSelected < 0 or numberSelected > len(itemList) - 1:
+		return -1
+	var keyList = itemList.keys()
+	return keyList[numberSelected]
+
+#Tests completed
+func selectItemByName(name):
+	var keyList = itemList.keys()
+	for i in range(len(keyList)):
+		if(keyList[i].getName() == name):
+			return i
+	return -1
+
+#Tests Completed
+func numberOfItems():
+	var sum = 0
+	for i in itemList:
+		sum = sum + itemList[i]
+	return sum
+
+func getTotalWeight():
+	var sum = 0
+	for i in itemList:
+		sum = sum + i.getWeight()
+	return sum
+
+#A string representation of the inventory
+#Not really testable, can easily change. 
+func str(name):
+	if len(itemList) == 0:
+		print(name, "\'s inventory is empty")
+	else:
+		print('Printing ', name, ' \'s inventory')
+		print('Total weight: ' , getTotalWeight())
+		var itemListKeys = itemList.keys()
+		for i in range(0,itemListKeys.size()):
+			if(itemList[itemListKeys[i]] == 1):
+				print(itemList[itemListKeys[i]], ' ', itemListKeys[i].getName())
+			else:
+				print(itemList[itemListKeys[i]], ' ', itemListKeys[i].getName(), 's')

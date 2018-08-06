@@ -22,13 +22,6 @@ func _ready():
 	#var vsize = get_viewport_rect().size
 	#self.set_position(top_left + 0.5 * vsize / vtrans.get_scale())
 	#self.connect("id_pressed", self, "_popupMenuChoice")
-	self.connect("resumeButton",self,"_unpause")
-	self.connect("saveButton",self,"saveMenu")
-	self.connect("loadButton",self,"loadMenu")
-	self.connect("settingsButton",self,"settingsMenu")
-	self.connect("helpButton",self,"helpMenu")
-	self.connect("mainMenuButton",self,"mainMenuOptions")
-	pass
 
 
 func _unpause():
@@ -62,6 +55,9 @@ func mainMenuOptions():
 	#TODO: add an options screen asking whether the player would like to
 	#save and quit, quit without saving, or not quit
 	print("Who would ever want to leave such a fun game?")
+
+func quitGame():
+	get_tree().quit()
 
 #func update():
 #	var vtrans = get_canvas_transform()
