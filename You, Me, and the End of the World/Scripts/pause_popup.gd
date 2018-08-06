@@ -40,7 +40,8 @@ func helpMenu():
 func mainMenuOptions():
 	#TODO: add an options screen asking whether the player would like to
 	#save and quit, quit without saving, or not quit
-	print("Who would ever want to leave such a fun game?")
+	get_tree().paused = false
+	get_tree().change_scene("res://tscn files/Combat.tscn")
 
 func quitGame():
 	get_tree().quit()

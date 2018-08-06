@@ -10,7 +10,7 @@
 [ext_resource path="res://Images/quitTile.png" type="Texture" id=8]
 [ext_resource path="res://Images/pausedText.png" type="Texture" id=9]
 
-[node name="pause_popup" type="Popup"]
+[node name="pause_popup" type="Popup" index="0"]
 
 pause_mode = 2
 anchor_left = 0.0
