@@ -222,6 +222,8 @@ position = Vector2( 500, 50 )
 scale = Vector2( 1.05556, 1 )
 texture = ExtResource( 9 )
 
+[connection signal="popup_hide" from="." to="." method="_unpause"]
+
 [connection signal="pressed" from="Resume Button" to="." method="_unpause"]
 
 [connection signal="pressed" from="Save Button" to="." method="saveMenu"]

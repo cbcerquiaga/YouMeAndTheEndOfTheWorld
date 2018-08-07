@@ -41,7 +41,7 @@ func mainMenuOptions():
 	#TODO: add an options screen asking whether the player would like to
 	#save and quit, quit without saving, or not quit
 	get_tree().paused = false
-	get_tree().change_scene("res://tscn files/Combat.tscn")
+	get_tree().change_scene("res://tscn files/MainMenu.tscn")
 
 func quitGame():
 	get_tree().quit()

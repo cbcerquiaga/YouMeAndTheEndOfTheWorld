@@ -58,6 +58,8 @@ _sections_unfolded = [ "Pause" ]
 [node name="pause_popup" parent="." index="0" instance=ExtResource( 2 )]
 
 visible = false
+margin_right = 986.0
+margin_bottom = 539.0
 
 [node name="CombatHUD" type="CanvasLayer" parent="." index="1"]
 

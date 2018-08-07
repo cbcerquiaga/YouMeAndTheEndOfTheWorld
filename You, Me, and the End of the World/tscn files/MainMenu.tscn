@@ -2,8 +2,9 @@
 
 [ext_resource path="res://MainMenu.gd" type="Script" id=1]
 
-[node name="MainMenu" type="PopupMenu" index="0"]
+[node name="MainMenu" type="Control"]
 
+pause_mode = 2
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -17,20 +18,18 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-popup_exclusive = false
-items = [  ]
-hide_on_state_item_selection = false
 script = ExtResource( 1 )
+_sections_unfolded = [ "Material", "Pause", "Popup" ]
 
-[node name="Combat" type="Button" parent="." index="1"]
+[node name="Combat" type="Button" parent="." index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 340.0
+margin_left = 310.0
 margin_top = 70.0
-margin_right = 750.0
+margin_right = 720.0
 margin_bottom = 134.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -47,15 +46,15 @@ text = "Combat"
 flat = false
 align = 1
 
-[node name="World1" type="Button" parent="." index="2"]
+[node name="World1" type="Button" parent="." index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 340.0
+margin_left = 310.0
 margin_top = 150.0
-margin_right = 750.0
+margin_right = 720.0
 margin_bottom = 212.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -72,15 +71,15 @@ text = "World1"
 flat = false
 align = 1
 
-[node name="World2" type="Button" parent="." index="3"]
+[node name="World2" type="Button" parent="." index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 340.0
+margin_left = 310.0
 margin_top = 230.0
-margin_right = 750.0
+margin_right = 720.0
 margin_bottom = 290.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -96,6 +95,34 @@ group = null
 text = "World2"
 flat = false
 align = 1
+
+[node name="Camera2D" type="Camera2D" parent="." index="3"]
+
+visible = false
+position = Vector2( 510, 300 )
+scale = Vector2( 16.9062, 10.3438 )
+anchor_mode = 1
+rotating = false
+current = false
+zoom = Vector2( 1, 1 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = false
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
 
 [connection signal="pressed" from="Combat" to="." method="_on_Combat_pressed"]
 

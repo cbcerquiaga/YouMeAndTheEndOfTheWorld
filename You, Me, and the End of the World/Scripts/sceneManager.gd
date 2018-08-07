@@ -51,8 +51,11 @@ func _on_timer2_timeout():
 func _pause():
 	print("Game paused")
 	get_tree().paused = true
+	$pause_popup.rect_global_position = (-(player1.global_position + player2.global_position)/(2) + (screensize/(2)))
 	$pause_popup.update()
+
 	$pause_popup.show()
+	
 
 func _process(delta):
 	if Input.is_action_pressed("p1_dropout") and !cooldown:
