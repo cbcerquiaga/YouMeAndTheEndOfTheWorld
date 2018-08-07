@@ -17,7 +17,7 @@ const JUMP_MAX_AIRBORNE_TIME = .4
 const SLIDE_STOP_VELOCITY = 1.0 # one pixel/second
 const SLIDE_STOP_MIN_TRAVEL = 1.0 # one pixel
 
-
+var isMouseNull = false
 
 var velocity = Vector2()
 var on_air_time = 100
@@ -169,7 +169,7 @@ func _physics_process(delta):
 			#TODO: play crouch animation
 			#TODO: reduce hitbox size
 
-	if shoot:
+	if shoot and !isMouseNull:
 		print("bang bang " + ammoVal)
 		if ammoLeft > -100: #there is ammo to shoot
 			ammoLeft -= 1
@@ -230,3 +230,13 @@ func create_bullet(position):
 	tempBullet.motion = truePosition.normalized()
 	self.get_parent().add_child(tempBullet)
 
+
+
+func _on_Border_mouse_entered():
+	isMouseNull = false
+#	print("Mouse is not null")
+
+
+func _on_Border_mouse_exited():
+	isMouseNull = true
+#	print("Mouse is null")

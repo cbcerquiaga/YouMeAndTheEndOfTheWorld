@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Scripts/CombatSceneManager.gd" type="Script" id=1]
 [ext_resource path="res://tscn files/pause_popup.tscn" type="PackedScene" id=2]
@@ -18,11 +18,14 @@
 [ext_resource path="res://Images/surrenderButton.png" type="Texture" id=16]
 [ext_resource path="res://Images/runAwayButton.png" type="Texture" id=17]
 [ext_resource path="res://Images/myTiles.tres" type="TileSet" id=18]
-[ext_resource path="res://Scripts/CombatPlayer.gd" type="Script" id=19]
-[ext_resource path="res://Images/troll.png" type="Texture" id=20]
-[ext_resource path="res://Scripts/CombatEnemy.gd" type="Script" id=21]
-[ext_resource path="res://Images/grandPiano.png" type="Texture" id=22]
-[ext_resource path="res://tscn files/Bullet.tscn" type="PackedScene" id=23]
+[ext_resource path="res://tscn files/CombatPlayer.tscn" type="PackedScene" id=19]
+[ext_resource path="res://tscn files/Bullet.tscn" type="PackedScene" id=20]
+[ext_resource path="res://tscn files/CombatEnemy.tscn" type="PackedScene" id=21]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -40,16 +43,6 @@ use_filter = false
 font_data = ExtResource( 7 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="RectangleShape2D" id=3]
-
-custom_solver_bias = 0.0
-extents = Vector2( 9.35056, 11.6324 )
-
-[sub_resource type="RectangleShape2D" id=4]
-
-custom_solver_bias = 0.0
-extents = Vector2( 10, 246.407 )
-
 [node name="Combat" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
@@ -61,7 +54,28 @@ visible = false
 margin_right = 986.0
 margin_bottom = 539.0
 
-[node name="CombatHUD" type="CanvasLayer" parent="." index="1"]
+[node name="Inside" type="StaticBody2D" parent="." index="1"]
+
+editor/display_folded = true
+input_pickable = true
+collision_layer = 16384
+collision_mask = 16384
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision", "Pickable" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inside" index="0"]
+
+position = Vector2( 523.028, 299.742 )
+scale = Vector2( -47.4316, -24.9991 )
+shape = SubResource( 3 )
+
+[node name="CombatHUD" type="CanvasLayer" parent="." index="2"]
 
 editor/display_folded = true
 layer = 1
@@ -394,10 +408,10 @@ icon = ExtResource( 17 )
 flat = true
 align = 1
 
-[node name="Camera" type="Camera2D" parent="." index="2"]
+[node name="Camera" type="Camera2D" parent="." index="3"]
 
-position = Vector2( 524.728, 299.767 )
-scale = Vector2( 16.522, 9.45495 )
+position = Vector2( 525.496, 297.796 )
+scale = Vector2( 19.1919, 9.60345 )
 anchor_mode = 1
 rotating = false
 current = false
@@ -420,8 +434,11 @@ drag_margin_bottom = 0.2
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="TileMap" type="TileMap" parent="." index="3"]
+[node name="TileMap" type="TileMap" parent="." index="4"]
 
 mode = 0
 tile_set = ExtResource( 18 )
@@ -445,53 +462,18 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CombatPlayer" type="KinematicBody2D" parent="TileMap" index="0"]
+[node name="CombatPlayer" parent="TileMap" index="0" instance=ExtResource( 19 )]
 
-position = Vector2( 427.076, 349.132 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
-script = ExtResource( 19 )
-_sections_unfolded = [ "Collision" ]
+position = Vector2( 337.906, 509.419 )
 
-[node name="Sprite" type="Sprite" parent="TileMap/CombatPlayer" index="0"]
+[node name="Bullet" parent="TileMap" index="1" instance=ExtResource( 20 )]
 
-position = Vector2( -2.27094, -4.47815 )
-texture = ExtResource( 20 )
-_sections_unfolded = [ "Animation", "Region", "Visibility" ]
+[node name="Enemy" parent="TileMap" index="2" instance=ExtResource( 21 )]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/CombatPlayer" index="1"]
+position = Vector2( 530.766, 505.754 )
 
-position = Vector2( -0.257632, -4.513 )
-scale = Vector2( 3.42758, 3.47949 )
-shape = SubResource( 3 )
+[connection signal="mouse_entered" from="Inside" to="TileMap/CombatPlayer" method="_on_Border_mouse_entered"]
 
-[node name="Enemy" type="KinematicBody2D" parent="TileMap" index="1"]
-
-position = Vector2( 529.125, 381.025 )
-input_pickable = false
-collision_layer = 5
-collision_mask = 5
-collision/safe_margin = 0.08
-script = ExtResource( 21 )
-_sections_unfolded = [ "Collision", "Pickable" ]
-
-[node name="Sprite" type="Sprite" parent="TileMap/Enemy" index="0"]
-
-position = Vector2( 9.51061, -2.50641 )
-scale = Vector2( 0.97444, 1 )
-texture = ExtResource( 22 )
-normal_map = ExtResource( 22 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Enemy" index="1"]
-
-position = Vector2( 10.3945, -2.47718 )
-scale = Vector2( 2.76638, 0.150495 )
-shape = SubResource( 4 )
-
-[node name="Bullet" parent="." index="4" instance=ExtResource( 23 )]
-
-[connection signal="hit" from="Bullet" to="TileMap/Enemy" method="_on_Bullet_hit"]
+[connection signal="mouse_exited" from="Inside" to="TileMap/CombatPlayer" method="_on_Border_mouse_exited"]
 
 
