@@ -423,7 +423,6 @@ editor_draw_drag_margin = false
 
 [node name="TileMap" type="TileMap" parent="." index="3"]
 
-editor/display_folded = true
 mode = 0
 tile_set = ExtResource( 18 )
 cell_size = Vector2( 50, 50 )
@@ -491,8 +490,6 @@ position = Vector2( 10.3945, -2.47718 )
 scale = Vector2( 2.76638, 0.150495 )
 shape = SubResource( 4 )
 
-[node name="Bullet" parent="TileMap" index="2" instance=ExtResource( 23 )]
-
-position = Vector2( 307.153, 191.212 )
+[node name="Bullet" parent="." index="4" instance=ExtResource( 23 )]
 
 

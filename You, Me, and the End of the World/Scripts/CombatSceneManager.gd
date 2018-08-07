@@ -36,3 +36,6 @@ func _pause():
 func _process(delta):
 	if Input.is_action_pressed("pause"):
 		_pause()
+
+func _on_Bullet_hit():
+	pass # replace with function body

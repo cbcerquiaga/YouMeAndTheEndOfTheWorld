@@ -8,6 +8,8 @@ var ricochet = 0 #the number of times the bullet ricochets before destroying
 var explosion = false #default explosiveness
 var poison = false #default poison value
 var motion = Vector2(2,0)
+
+onready var enemy = self.get_parent().get_node("Enemy")
 	
 func _ready():
 	set_process(true)
@@ -17,14 +19,17 @@ func _process(delta):
 	translate(speed * motion * delta)
 	var collideCheck = move_and_collide(motion)
 	if(collideCheck != null):
-		print("Ouch!")
-		#var enemy = get_node("/root/TileMap/Enemy")
-		queue_free()
+		if(collideCheck.collider.name != "Enemy"):
+			print("Ouch!")
+			#var enemy = get_node("/root/TileMap/Enemy")
+			queue_free()
+		else:
+			contact(collideCheck.collider)
 	pass
 	
 func contact(body):
-	if body.is_in_group("Enemy"):
-		emit_signal("hit", body, damage)
+	print("Hit enemy")
+	enemy._on_Bullet_hit(body, damage)
 	#if ricochet < 1:
 	destroy()
 

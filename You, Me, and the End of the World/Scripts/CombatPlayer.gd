@@ -17,6 +17,8 @@ const JUMP_MAX_AIRBORNE_TIME = .4
 const SLIDE_STOP_VELOCITY = 1.0 # one pixel/second
 const SLIDE_STOP_MIN_TRAVEL = 1.0 # one pixel
 
+
+
 var velocity = Vector2()
 var on_air_time = 100
 var jumping = false
