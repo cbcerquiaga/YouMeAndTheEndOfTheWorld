@@ -178,6 +178,9 @@ func _physics_process(delta):
 
 
 func _on_Bullet_hit(body, damage):
-	torsoHealth = torsoHealth - damage
-	print("Torso health is: ", torsoHealth)
+	if(body == "torso"):
+		torsoHealth = torsoHealth - damage
+	elif(body == "head"):
+		print("Headshot")
+		headHealth = (headHealth - (damage*2))
 	pass # replace with function body

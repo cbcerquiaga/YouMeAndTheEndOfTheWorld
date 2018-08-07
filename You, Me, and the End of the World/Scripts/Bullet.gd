@@ -16,24 +16,24 @@ signal hit
 func _ready():
 	set_process(true)
 	if(!self.is_connected("hit", enemy, "_on_Bullet_hit")):
-		self.connect("hit", enemy, "_on_Bullet_hit", ["torso", damage])
+		self.connect("hit", enemy, "_on_Bullet_hit", [])
 	pass
 
 func _process(delta):
 	translate(speed * motion * delta)
 	var collideCheck = move_and_collide(motion)
 	if(collideCheck != null):
-		if(collideCheck.collider.name != "Enemy"):
+		if(collideCheck.collider.name != "head" and collideCheck.collider.name != "torso"):
 			print("Ouch!")
 			#var enemy = get_node("/root/TileMap/Enemy")
 			queue_free()
 		else:
-			contact(collideCheck.collider)
+			contact(collideCheck.collider);
 	pass
 	
 func contact(body):
 	print("Hit enemy")
-	emit_signal("hit")
+	emit_signal("hit", body.name, 10)
 	#if ricochet < 1:
 	destroy()
 

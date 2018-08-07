@@ -22,12 +22,7 @@
 [ext_resource path="res://tscn files/Bullet.tscn" type="PackedScene" id=20]
 [ext_resource path="res://tscn files/CombatEnemy.tscn" type="PackedScene" id=21]
 
-[sub_resource type="RectangleShape2D" id=3]
-
-custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
-
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 
 size = 24
 use_mipmaps = false
@@ -35,13 +30,18 @@ use_filter = false
 font_data = ExtResource( 7 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 
 size = 25
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 7 )
 _sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 9.76202, 9.58755 )
 
 [node name="Combat" type="Node2D" index="0"]
 
@@ -54,28 +54,7 @@ visible = false
 margin_right = 986.0
 margin_bottom = 539.0
 
-[node name="Inside" type="StaticBody2D" parent="." index="1"]
-
-editor/display_folded = true
-input_pickable = true
-collision_layer = 16384
-collision_mask = 16384
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-_sections_unfolded = [ "Collision", "Pickable" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Inside" index="0"]
-
-position = Vector2( 523.028, 299.742 )
-scale = Vector2( -47.4316, -24.9991 )
-shape = SubResource( 3 )
-
-[node name="CombatHUD" type="CanvasLayer" parent="." index="2"]
+[node name="CombatHUD" type="CanvasLayer" parent="." index="1"]
 
 editor/display_folded = true
 layer = 1
@@ -120,7 +99,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/normal_font = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 2 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 bbcode_enabled = false
 bbcode_text = ""
@@ -187,7 +166,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 3 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 bbcode_enabled = false
 bbcode_text = ""
@@ -408,7 +387,7 @@ icon = ExtResource( 17 )
 flat = true
 align = 1
 
-[node name="Camera" type="Camera2D" parent="." index="3"]
+[node name="Camera" type="Camera2D" parent="." index="2"]
 
 position = Vector2( 525.496, 297.796 )
 scale = Vector2( 19.1919, 9.60345 )
@@ -438,7 +417,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap" type="TileMap" parent="." index="4"]
+[node name="TileMap" type="TileMap" parent="." index="3"]
 
 mode = 0
 tile_set = ExtResource( 18 )
@@ -470,7 +449,29 @@ position = Vector2( 337.906, 509.419 )
 
 [node name="Enemy" parent="TileMap" index="2" instance=ExtResource( 21 )]
 
-position = Vector2( 530.766, 505.754 )
+position = Vector2( 532.556, 510.357 )
+
+[node name="Inside" type="StaticBody2D" parent="." index="4"]
+
+editor/display_folded = true
+visible = false
+input_pickable = true
+collision_layer = 16384
+collision_mask = 16384
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision", "Pickable" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inside" index="0"]
+
+position = Vector2( 517.385, 289.739 )
+scale = Vector2( -47.8738, -25.1606 )
+shape = SubResource( 1 )
 
 [connection signal="mouse_entered" from="Inside" to="TileMap/CombatPlayer" method="_on_Border_mouse_entered"]
 
