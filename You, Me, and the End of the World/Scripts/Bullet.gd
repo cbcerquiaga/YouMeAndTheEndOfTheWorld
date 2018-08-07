@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var damage = 10 #default damage
 var spread = 5 #default spread
-var speed = 500 #default speed
+var speed = 50 #default speed
 var bleed = 0 #default bleed damage
 var ricochet = 0 #the number of times the bullet ricochets before destroying
 var explosion = false #default explosiveness
@@ -17,6 +17,7 @@ func _ready():
 	set_process(true)
 	if(!self.is_connected("hit", enemy, "_on_Bullet_hit")):
 		self.connect("hit", enemy, "_on_Bullet_hit", [])
+	self.look_at(get_viewport().get_mouse_position())
 	pass
 
 func _process(delta):

@@ -22,7 +22,7 @@
 [ext_resource path="res://tscn files/Bullet.tscn" type="PackedScene" id=20]
 [ext_resource path="res://tscn files/CombatEnemy.tscn" type="PackedScene" id=21]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 
 size = 24
 use_mipmaps = false
@@ -30,7 +30,7 @@ use_filter = false
 font_data = ExtResource( 7 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 
 size = 25
 use_mipmaps = false
@@ -38,12 +38,12 @@ use_filter = false
 font_data = ExtResource( 7 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 9.76202, 9.58755 )
 
-[node name="Combat" type="Node2D" index="0"]
+[node name="Combat" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
@@ -99,7 +99,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 1 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 bbcode_enabled = false
 bbcode_text = ""
@@ -166,7 +166,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/normal_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 2 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 bbcode_enabled = false
 bbcode_text = ""
@@ -471,7 +471,7 @@ __meta__ = {
 
 position = Vector2( 517.385, 289.739 )
 scale = Vector2( -47.8738, -25.1606 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [connection signal="mouse_entered" from="Inside" to="TileMap/CombatPlayer" method="_on_Border_mouse_entered"]
 
