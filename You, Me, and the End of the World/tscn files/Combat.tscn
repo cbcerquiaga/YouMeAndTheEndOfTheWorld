@@ -492,4 +492,6 @@ shape = SubResource( 4 )
 
 [node name="Bullet" parent="." index="4" instance=ExtResource( 23 )]
 
+[connection signal="hit" from="Bullet" to="TileMap/Enemy" method="_on_Bullet_hit"]
+
 

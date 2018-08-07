@@ -11,8 +11,12 @@ var motion = Vector2(2,0)
 
 onready var enemy = self.get_parent().get_node("Enemy")
 	
+signal hit
+
 func _ready():
 	set_process(true)
+	if(!self.is_connected("hit", enemy, "_on_Bullet_hit")):
+		self.connect("hit", enemy, "_on_Bullet_hit", ["torso", damage])
 	pass
 
 func _process(delta):
@@ -29,7 +33,7 @@ func _process(delta):
 	
 func contact(body):
 	print("Hit enemy")
-	enemy._on_Bullet_hit(body, damage)
+	emit_signal("hit")
 	#if ricochet < 1:
 	destroy()
 
