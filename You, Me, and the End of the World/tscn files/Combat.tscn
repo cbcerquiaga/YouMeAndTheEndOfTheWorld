@@ -43,7 +43,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 custom_solver_bias = 0.0
 extents = Vector2( 9.76202, 9.58755 )
 
-[node name="Combat" type="Node2D"]
+[node name="Combat" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
@@ -56,7 +56,6 @@ margin_bottom = 539.0
 
 [node name="CombatHUD" type="CanvasLayer" parent="." index="1"]
 
-editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -68,11 +67,17 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 position = Vector2( 119.492, 19.2463 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Z Index" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Enemy Skeleton" type="Sprite" parent="CombatHUD" index="1"]
 
 position = Vector2( 903.108, 20.9885 )
 texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="PlayerAmmoCounter" type="Sprite" parent="CombatHUD" index="2"]
 
@@ -81,6 +86,9 @@ texture = ExtResource( 5 )
 hframes = 6
 script = ExtResource( 6 )
 _sections_unfolded = [ "Animation" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="PlayerAmmoNum" type="RichTextLabel" parent="CombatHUD" index="3"]
 
@@ -114,6 +122,9 @@ selection_enabled = false
 override_selected_font_color = false
 script = ExtResource( 8 )
 _sections_unfolded = [ "custom_colors", "custom_fonts" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Outline1" type="RichTextLabel" parent="CombatHUD/PlayerAmmoNum" index="1"]
 
@@ -148,6 +159,9 @@ texture = ExtResource( 5 )
 hframes = 6
 script = ExtResource( 6 )
 _sections_unfolded = [ "Animation" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="EnemyAmmoNum" type="RichTextLabel" parent="CombatHUD" index="5"]
 
@@ -181,6 +195,9 @@ selection_enabled = false
 override_selected_font_color = false
 script = ExtResource( 9 )
 _sections_unfolded = [ "Theme" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Outline2" type="RichTextLabel" parent="CombatHUD/EnemyAmmoNum" index="1"]
 
@@ -238,6 +255,9 @@ radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
 script = ExtResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="EnemyHealth" type="TextureProgress" parent="CombatHUD" index="7"]
 
@@ -271,6 +291,9 @@ radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
 script = ExtResource( 12 )
 _sections_unfolded = [ "Textures" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="PlayerStamina" type="TextureProgress" parent="CombatHUD" index="8"]
 
@@ -303,6 +326,9 @@ radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
 script = ExtResource( 14 )
 _sections_unfolded = [ "Textures" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="EnemyStamina" type="TextureProgress" parent="CombatHUD" index="9"]
 
@@ -335,6 +361,9 @@ radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
 script = ExtResource( 15 )
 _sections_unfolded = [ "Textures" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Surrender Button" type="Button" parent="CombatHUD" index="10"]
 
@@ -361,6 +390,9 @@ icon = ExtResource( 16 )
 flat = true
 align = 1
 _sections_unfolded = [ "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Run Away Button" type="Button" parent="CombatHUD" index="11"]
 
@@ -386,6 +418,9 @@ group = null
 icon = ExtResource( 17 )
 flat = true
 align = 1
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Camera" type="Camera2D" parent="." index="2"]
 

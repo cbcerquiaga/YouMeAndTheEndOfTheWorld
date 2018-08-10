@@ -1,34 +1,58 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scripts/sceneManager.gd" type="Script" id=1]
-[ext_resource path="res://tscn files/Inventory.tscn" type="PackedScene" id=2]
-[ext_resource path="res://tscn files/pause_popup.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scripts/dialog_popup.gd" type="Script" id=4]
-[ext_resource path="res://tscn files/HUD.tscn" type="PackedScene" id=5]
-[ext_resource path="res://tscn files/tileset.tres" type="TileSet" id=6]
-[ext_resource path="res://tscn files/door1.tscn" type="PackedScene" id=7]
-[ext_resource path="res://tscn files/Piano.tscn" type="PackedScene" id=8]
-[ext_resource path="res://tscn files/LightSaber.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scripts/LightSaber.gd" type="Script" id=10]
-[ext_resource path="res://tscn files/player1.tscn" type="PackedScene" id=11]
-[ext_resource path="res://tscn files/player2.tscn" type="PackedScene" id=12]
-[ext_resource path="res://tscn files/NPC.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Scripts/NPC.gd" type="Script" id=14]
-[ext_resource path="res://tscn files/coins.tscn" type="PackedScene" id=15]
-[ext_resource path="res://tscn files/AreaDoor.tscn" type="PackedScene" id=16]
-[ext_resource path="res://tscn files/Gut.tscn" type="PackedScene" id=17]
+[ext_resource path="res://tscn files/Item_popup.tscn" type="PackedScene" id=2]
+[ext_resource path="res://tscn files/Item_popup.gd" type="Script" id=3]
+[ext_resource path="res://tscn files/Inventory.tscn" type="PackedScene" id=4]
+[ext_resource path="res://tscn files/pause_popup.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/dialog_popup.gd" type="Script" id=6]
+[ext_resource path="res://tscn files/HUD.tscn" type="PackedScene" id=7]
+[ext_resource path="res://tscn files/tileset.tres" type="TileSet" id=8]
+[ext_resource path="res://tscn files/door1.tscn" type="PackedScene" id=9]
+[ext_resource path="res://tscn files/Piano.tscn" type="PackedScene" id=10]
+[ext_resource path="res://tscn files/LightSaber.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scripts/LightSaber.gd" type="Script" id=12]
+[ext_resource path="res://tscn files/player1.tscn" type="PackedScene" id=13]
+[ext_resource path="res://tscn files/player2.tscn" type="PackedScene" id=14]
+[ext_resource path="res://tscn files/NPC.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scripts/NPC.gd" type="Script" id=16]
+[ext_resource path="res://tscn files/coins.tscn" type="PackedScene" id=17]
+[ext_resource path="res://tscn files/AreaDoor.tscn" type="PackedScene" id=18]
+[ext_resource path="res://tscn files/Gut.tscn" type="PackedScene" id=19]
 
-[node name="Root" type="Node2D"]
+[node name="Root" type="Node2D" index="0"]
 
 position = Vector2( 184.751, 4.24893 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="InventoryScreen" parent="." index="0" instance=ExtResource( 2 )]
+[node name="Item_popup" type="PopupMenu" parent="." index="0" instance=ExtResource( 2 )]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -15.0
+margin_top = -59.0
+margin_right = 25.0
+margin_bottom = -19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+items = [  ]
+hide_on_state_item_selection = false
+script = ExtResource( 3 )
+
+[node name="InventoryScreen" parent="." index="1" instance=ExtResource( 4 )]
 
 visible = false
 
-[node name="pause_popup" parent="." index="1" instance=ExtResource( 3 )]
+[node name="pause_popup" parent="." index="2" instance=ExtResource( 5 )]
 
 visible = false
 margin_left = 185.0
@@ -37,7 +61,7 @@ margin_right = 1071.0
 margin_bottom = 732.0
 _sections_unfolded = [ "Anchor", "Margin", "Material", "Mouse", "Pause", "Popup", "Visibility" ]
 
-[node name="dialog_popup" type="PopupMenu" parent="." index="2"]
+[node name="dialog_popup" type="PopupMenu" parent="." index="3"]
 
 visible = false
 anchor_left = 0.0
@@ -56,15 +80,16 @@ size_flags_vertical = 1
 popup_exclusive = false
 items = [  ]
 hide_on_state_item_selection = false
-script = ExtResource( 4 )
+script = ExtResource( 6 )
+_sections_unfolded = [ "Anchor" ]
 
-[node name="HUD" parent="." index="3" instance=ExtResource( 5 )]
+[node name="HUD" parent="." index="4" instance=ExtResource( 7 )]
 
-[node name="floor" type="TileMap" parent="." index="4"]
+[node name="floor" type="TileMap" parent="." index="5"]
 
 position = Vector2( -1, 0 )
 mode = 1
-tile_set = ExtResource( 6 )
+tile_set = ExtResource( 8 )
 cell_size = Vector2( 128, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -85,12 +110,11 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="walls" type="TileMap" parent="." index="5"]
+[node name="walls" type="TileMap" parent="." index="6"]
 
-editor/display_folded = true
 position = Vector2( -61.8035, -39.091 )
 mode = 1
-tile_set = ExtResource( 6 )
+tile_set = ExtResource( 8 )
 cell_size = Vector2( 128, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -111,54 +135,58 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="door1" parent="walls" index="0" instance=ExtResource( 7 )]
+[node name="door1" parent="walls" index="0" instance=ExtResource( 9 )]
 
 position = Vector2( 218.339, 206.834 )
 
-[node name="door2" parent="walls" index="1" instance=ExtResource( 7 )]
+[node name="door2" parent="walls" index="1" instance=ExtResource( 9 )]
 
 position = Vector2( 90.1501, -114 )
 
-[node name="door3" parent="walls" index="2" instance=ExtResource( 7 )]
+[node name="door3" parent="walls" index="2" instance=ExtResource( 9 )]
 
 position = Vector2( 807.15, 309 )
 
-[node name="Piano" parent="walls" index="3" instance=ExtResource( 8 )]
+[node name="Piano" parent="walls" index="3" instance=ExtResource( 10 )]
 
 position = Vector2( 147.15, -21 )
 collision_layer = 2
 collision_mask = 2
 _sections_unfolded = [ "Collision", "Material", "Pause", "Pickable", "Transform", "Visibility", "Z Index" ]
 
-[node name="LightSaber" parent="walls" index="4" instance=ExtResource( 9 )]
+[node name="LightSaber" parent="walls" index="4" instance=ExtResource( 11 )]
 
 position = Vector2( 10, 10 )
 collision_layer = 2
 collision_mask = 2
-script = ExtResource( 10 )
+script = ExtResource( 12 )
 _sections_unfolded = [ "Collision" ]
 
-[node name="player1" parent="walls" index="5" instance=ExtResource( 11 )]
+[node name="player1" parent="walls" index="5" instance=ExtResource( 13 )]
 
 position = Vector2( 380, 320 )
 _sections_unfolded = [ "Collision", "collision" ]
 
-[node name="player2" parent="walls" index="6" instance=ExtResource( 12 )]
+[node name="player2" parent="walls" index="6" instance=ExtResource( 14 )]
 
 _sections_unfolded = [ "Collision", "Pause", "collision" ]
 
-[node name="NPC" parent="walls" index="7" instance=ExtResource( 13 )]
+[node name="NPC" parent="walls" index="7" instance=ExtResource( 15 )]
 
 position = Vector2( -122.425, -298.176 )
-script = ExtResource( 14 )
+script = ExtResource( 16 )
 
-[node name="coins" parent="walls" index="8" instance=ExtResource( 15 )]
+[node name="coins" parent="walls" index="8" instance=ExtResource( 17 )]
 
 position = Vector2( 297.15, 9 )
 
-[node name="AreaDoor" parent="walls" index="9" instance=ExtResource( 16 )]
+[node name="AreaDoor" parent="walls" index="9" instance=ExtResource( 18 )]
 
-[node name="Gut" parent="." index="6" instance=ExtResource( 17 )]
+[node name="Gut" parent="." index="7" instance=ExtResource( 19 )]
+
+[connection signal="mouse_entered" from="walls/Piano" to="Item_popup" method="_on_Piano_mouse_entered"]
+
+[connection signal="mouse_exited" from="walls/Piano" to="Item_popup" method="_on_Piano_mouse_exited"]
 
 [connection signal="move" from="walls/player1" to="." method="update_camera"]
 

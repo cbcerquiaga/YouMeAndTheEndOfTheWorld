@@ -7,6 +7,7 @@ var __weight = 0
 var __packedScenePath = ""
 var __scriptPath = ""
 
+
 #itemName will be the identifying variable for the item
 #worth TODO
 #weight is the value that will contribute to the player's carry cap
@@ -19,6 +20,7 @@ func __init__(itemName, worth, weight, scenePath, scriptPath):
 	self.__weight = weight
 	self.__packedScenePath = scenePath
 	self.__scriptPath = scriptPath
+	
 
 #Fuctions
 #This is the function called when the player picks up the item
