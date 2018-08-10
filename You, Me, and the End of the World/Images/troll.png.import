@@ -7,10 +7,10 @@ path="res://.import/troll.png-2b1a0ca17b160d5e7756b8ddf885a1f7.stex"
 [deps]
 
 source_file="res://Images/troll.png"
-source_md5="76a37c47b1f09115f714d6635ab50fb4"
+source_md5="c609cf199de6112bf135dd66b6e22f25"
 
 dest_files=[ "res://.import/troll.png-2b1a0ca17b160d5e7756b8ddf885a1f7.stex" ]
-dest_md5="aded3a6d7973cb880144e84f0b3ec505"
+dest_md5="435396bbb18f319f95d2832d182d6611"
 
 [params]
 

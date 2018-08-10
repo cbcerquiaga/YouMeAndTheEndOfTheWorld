@@ -7,7 +7,7 @@ var __weight = 0
 var __packedScenePath = ""
 var __scriptPath = ""
 
-
+onready var itemPopup = self.get_parent().get_parent().get_node("Item_popup")
 #itemName will be the identifying variable for the item
 #worth TODO
 #weight is the value that will contribute to the player's carry cap
@@ -20,6 +20,11 @@ func __init__(itemName, worth, weight, scenePath, scriptPath):
 	self.__weight = weight
 	self.__packedScenePath = scenePath
 	self.__scriptPath = scriptPath
+	if(itemPopup != null):
+		print("Found item popup")
+	else:
+		pass
+#		print("item dialog not found, is this a test of the abstract class?")
 	
 
 #Fuctions
