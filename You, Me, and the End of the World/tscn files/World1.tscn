@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/sceneManager.gd" type="Script" id=1]
 [ext_resource path="res://tscn files/Item_popup.tscn" type="PackedScene" id=2]
-[ext_resource path="res://tscn files/Item_popup.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Item_popup.gd" type="Script" id=3]
 [ext_resource path="res://tscn files/Inventory.tscn" type="PackedScene" id=4]
 [ext_resource path="res://tscn files/pause_popup.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/dialog_popup.gd" type="Script" id=6]
@@ -19,6 +19,8 @@
 [ext_resource path="res://tscn files/coins.tscn" type="PackedScene" id=17]
 [ext_resource path="res://tscn files/AreaDoor.tscn" type="PackedScene" id=18]
 [ext_resource path="res://tscn files/Gut.tscn" type="PackedScene" id=19]
+
+
 
 [node name="Root" type="Node2D" index="0"]
 
