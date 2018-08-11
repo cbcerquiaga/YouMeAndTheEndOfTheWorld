@@ -7,10 +7,7 @@ path="res://.import/helpTile.png-2955999dea3b44044b2a466dff6973b6.stex"
 [deps]
 
 source_file="res://Images/helpTile.png"
-source_md5="eed6643747fb7f35275c735ba91366dc"
-
 dest_files=[ "res://.import/helpTile.png-2955999dea3b44044b2a466dff6973b6.stex" ]
-dest_md5="7d6cd3df9aa80b8042c42abb15cd1cdb"
 
 [params]
 

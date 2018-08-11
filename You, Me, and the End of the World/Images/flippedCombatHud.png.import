@@ -7,10 +7,7 @@ path="res://.import/flippedCombatHud.png-661a15a3d2bbd2aa35700aeab6d976d6.stex"
 [deps]
 
 source_file="res://Images/flippedCombatHud.png"
-source_md5="0d45d11d575e65fe453b5d8801a1a479"
-
 dest_files=[ "res://.import/flippedCombatHud.png-661a15a3d2bbd2aa35700aeab6d976d6.stex" ]
-dest_md5="99481b983280084f33825bc3c9d180d4"
 
 [params]
 

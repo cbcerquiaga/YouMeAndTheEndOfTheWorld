@@ -7,10 +7,7 @@ path="res://.import/quitTile.png-0fb514379736910c65b9d8a65a3c11a8.stex"
 [deps]
 
 source_file="res://Images/quitTile.png"
-source_md5="c2d508fad635569dae770f97ad26706d"
-
 dest_files=[ "res://.import/quitTile.png-0fb514379736910c65b9d8a65a3c11a8.stex" ]
-dest_md5="18a7c19ffd4c4085b8782dcba9362561"
 
 [params]
 

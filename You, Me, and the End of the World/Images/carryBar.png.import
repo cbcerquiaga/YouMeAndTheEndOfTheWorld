@@ -7,10 +7,7 @@ path="res://.import/carryBar.png-1c66d5dd9dbdf43df789891df638975b.stex"
 [deps]
 
 source_file="res://Images/carryBar.png"
-source_md5="fa4320f63063f1b964b8094d0b189f50"
-
 dest_files=[ "res://.import/carryBar.png-1c66d5dd9dbdf43df789891df638975b.stex" ]
-dest_md5="c5b28f011d8b0f0a648baf2a581a2fe2"
 
 [params]
 

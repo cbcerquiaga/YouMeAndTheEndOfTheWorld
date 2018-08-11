@@ -7,10 +7,7 @@ path="res://.import/flippedEXPBar.png-469f8105459ad6a90ac40980f2cceb91.stex"
 [deps]
 
 source_file="res://Images/flippedEXPBar.png"
-source_md5="39899dc2c066a875485b407768b14cfd"
-
 dest_files=[ "res://.import/flippedEXPBar.png-469f8105459ad6a90ac40980f2cceb91.stex" ]
-dest_md5="95f074dbc59afd44e5760e0020f7a8b2"
 
 [params]
 

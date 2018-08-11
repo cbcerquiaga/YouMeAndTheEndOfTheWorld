@@ -7,10 +7,7 @@ path="res://.import/ExploreCursor.png-469380af519d698cd0c198178c9a0625.stex"
 [deps]
 
 source_file="res://Images/ExploreCursor.png"
-source_md5="5c9681b81e4dbd9583d2344e0d027e5b"
-
 dest_files=[ "res://.import/ExploreCursor.png-469380af519d698cd0c198178c9a0625.stex" ]
-dest_md5="e14089abe3a817782b905c98785999da"
 
 [params]
 

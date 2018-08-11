@@ -7,10 +7,7 @@ path="res://.import/LeftButton.png-a520091670b1dd6de4ecde427b99c206.stex"
 [deps]
 
 source_file="res://Images/LeftButton.png"
-source_md5="33ce81c02375bd355c10675c531d26ee"
-
 dest_files=[ "res://.import/LeftButton.png-a520091670b1dd6de4ecde427b99c206.stex" ]
-dest_md5="1219eb2d926b6764ade865f5aef9ceb9"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/flippedCarryBar.png-9725436e0a0cdaa01a58b67a74e4d4b9.stex"
 [deps]
 
 source_file="res://Images/flippedCarryBar.png"
-source_md5="1e57cd480cffff302f89041ca30127ef"
-
 dest_files=[ "res://.import/flippedCarryBar.png-9725436e0a0cdaa01a58b67a74e4d4b9.stex" ]
-dest_md5="a741714875e1f481ae57f08f7ace87f4"
 
 [params]
 

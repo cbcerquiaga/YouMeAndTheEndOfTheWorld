@@ -7,10 +7,7 @@ path="res://.import/inventoryStatusBox.png-98cbda483b1c60a5205c903fd4a9ab50.stex
 [deps]
 
 source_file="res://Images/inventoryStatusBox.png"
-source_md5="c4947711e8adcfe5ee6d3b96b4f3fd42"
-
 dest_files=[ "res://.import/inventoryStatusBox.png-98cbda483b1c60a5205c903fd4a9ab50.stex" ]
-dest_md5="a571c348051b2b864722591e6fdcef1a"
 
 [params]
 

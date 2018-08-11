@@ -7,10 +7,7 @@ path="res://.import/flippedHealthBar.png-3c2547ac91e8f8db40d78f6eb71987ea.stex"
 [deps]
 
 source_file="res://Images/flippedHealthBar.png"
-source_md5="65176d86eb8d26df2f21a277dd240140"
-
 dest_files=[ "res://.import/flippedHealthBar.png-3c2547ac91e8f8db40d78f6eb71987ea.stex" ]
-dest_md5="5caa5b9d2f729a89753da85cddfd604d"
 
 [params]
 

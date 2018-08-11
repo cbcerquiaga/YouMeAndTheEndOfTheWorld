@@ -7,10 +7,7 @@ path="res://.import/saveTile.png-4f339de33ebc643eec202cf21497cbbc.stex"
 [deps]
 
 source_file="res://Images/saveTile.png"
-source_md5="8cc4e600cff095b2c571d71f9b304cf1"
-
 dest_files=[ "res://.import/saveTile.png-4f339de33ebc643eec202cf21497cbbc.stex" ]
-dest_md5="7a322e972879c1eb65c67b3aae8ee23b"
 
 [params]
 

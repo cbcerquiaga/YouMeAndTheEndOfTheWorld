@@ -7,10 +7,7 @@ path="res://.import/pausedText.png-9ccfbd72155c431213811d293102af35.stex"
 [deps]
 
 source_file="res://Images/pausedText.png"
-source_md5="a9988dae8d23d446f2f678c0ecb47a2c"
-
 dest_files=[ "res://.import/pausedText.png-9ccfbd72155c431213811d293102af35.stex" ]
-dest_md5="e24b4941d9b7c3692225d9603286e02b"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/combatHealthBar.png-30ddc6bb0ef58729410d3fe1a6780ff9.stex"
 [deps]
 
 source_file="res://Images/combatHealthBar.png"
-source_md5="67f10fcb250d5bb2a5b8f82bf01a8e0d"
-
 dest_files=[ "res://.import/combatHealthBar.png-30ddc6bb0ef58729410d3fe1a6780ff9.stex" ]
-dest_md5="5a2c8d069ac817870b41144020d23acf"
 
 [params]
 

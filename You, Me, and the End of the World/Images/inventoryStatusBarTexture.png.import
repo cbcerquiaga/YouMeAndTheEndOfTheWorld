@@ -7,10 +7,7 @@ path="res://.import/inventoryStatusBarTexture.png-a12f063dc9e0fb3032871b3c66885f
 [deps]
 
 source_file="res://Images/inventoryStatusBarTexture.png"
-source_md5="d185bee2c6738cbaa1eda4686c0a3e69"
-
 dest_files=[ "res://.import/inventoryStatusBarTexture.png-a12f063dc9e0fb3032871b3c66885fa1.stex" ]
-dest_md5="eb9e7c1751492fa1f0172a23a51fc266"
 
 [params]
 

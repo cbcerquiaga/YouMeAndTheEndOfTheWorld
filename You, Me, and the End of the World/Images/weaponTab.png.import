@@ -7,10 +7,7 @@ path="res://.import/weaponTab.png-669b9deb32076e3a7d88687637f30c06.stex"
 [deps]
 
 source_file="res://Images/weaponTab.png"
-source_md5="520dd222784c5f1f57d18a706f03bdee"
-
 dest_files=[ "res://.import/weaponTab.png-669b9deb32076e3a7d88687637f30c06.stex" ]
-dest_md5="2542d372a50fa9da965480f45ecc7e0d"
 
 [params]
 

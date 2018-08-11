@@ -7,10 +7,7 @@ path="res://.import/miscTab.png-77f628d9154133040abc3aaefb1f8c43.stex"
 [deps]
 
 source_file="res://Images/miscTab.png"
-source_md5="96d482b61d586ac69f7250de85c395fc"
-
 dest_files=[ "res://.import/miscTab.png-77f628d9154133040abc3aaefb1f8c43.stex" ]
-dest_md5="eb06b4be484e9e40d0002bb6da5f8d7a"
 
 [params]
 

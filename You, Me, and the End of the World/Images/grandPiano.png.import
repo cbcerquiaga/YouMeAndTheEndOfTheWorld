@@ -7,10 +7,7 @@ path="res://.import/grandPiano.png-4ba29c368b0e04428613d2cf99c52efc.stex"
 [deps]
 
 source_file="res://Images/grandPiano.png"
-source_md5="c6ca0b3ea71219e4fb8343cede8cff64"
-
 dest_files=[ "res://.import/grandPiano.png-4ba29c368b0e04428613d2cf99c52efc.stex" ]
-dest_md5="732b90aca227753a3cb61049a1e0a593"
 
 [params]
 

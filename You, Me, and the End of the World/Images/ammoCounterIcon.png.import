@@ -7,10 +7,7 @@ path="res://.import/ammoCounterIcon.png-22504a16835a5254e24ca549a69157d6.stex"
 [deps]
 
 source_file="res://Images/ammoCounterIcon.png"
-source_md5="b0af8197e01b9a82beba864889679213"
-
 dest_files=[ "res://.import/ammoCounterIcon.png-22504a16835a5254e24ca549a69157d6.stex" ]
-dest_md5="a3421e42e646618be9d70c71211b2d19"
 
 [params]
 

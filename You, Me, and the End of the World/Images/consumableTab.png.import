@@ -7,10 +7,7 @@ path="res://.import/consumableTab.png-c9b7b006ad72569dd5700f213097d9e6.stex"
 [deps]
 
 source_file="res://Images/consumableTab.png"
-source_md5="0dbacf1c9ddf60ac0dacd1dbd425b07b"
-
 dest_files=[ "res://.import/consumableTab.png-c9b7b006ad72569dd5700f213097d9e6.stex" ]
-dest_md5="d4e6bacebb1e8f9586f6dd3426d6215a"
 
 [params]
 

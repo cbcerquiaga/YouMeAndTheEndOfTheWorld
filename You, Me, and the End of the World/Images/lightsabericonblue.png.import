@@ -7,10 +7,7 @@ path="res://.import/lightsabericonblue.png-6e6bed3023662bac471365103059a3c2.stex
 [deps]
 
 source_file="res://Images/lightsabericonblue.png"
-source_md5="8c20bbb71dfbacdfd6d1b258a7ac0580"
-
 dest_files=[ "res://.import/lightsabericonblue.png-6e6bed3023662bac471365103059a3c2.stex" ]
-dest_md5="c2d7316dc5000a953b7b7ce0706060eb"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/combatStaminaBar.png-094d9ae273ed8f72ab40d486cb92d338.stex"
 [deps]
 
 source_file="res://Images/combatStaminaBar.png"
-source_md5="bcc0ac70d8ab82398eff001c5cd56816"
-
 dest_files=[ "res://.import/combatStaminaBar.png-094d9ae273ed8f72ab40d486cb92d338.stex" ]
-dest_md5="697fcf5d2f3b54e9bd85b10cc5549f03"
 
 [params]
 

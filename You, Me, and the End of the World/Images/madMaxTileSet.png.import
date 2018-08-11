@@ -7,10 +7,7 @@ path="res://.import/madMaxTileSet.png-1839fe7fb2db24e68ac936cea1ad22f7.stex"
 [deps]
 
 source_file="res://Images/madMaxTileSet.png"
-source_md5="44c8183b7b6693c937ddfbb90c04a183"
-
 dest_files=[ "res://.import/madMaxTileSet.png-1839fe7fb2db24e68ac936cea1ad22f7.stex" ]
-dest_md5="f85819a7daf6f9b9d23bac0fa2c52f0b"
 
 [params]
 

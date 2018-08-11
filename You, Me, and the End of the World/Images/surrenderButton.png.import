@@ -7,10 +7,7 @@ path="res://.import/surrenderButton.png-98dbb4934ec63a1cc4d7c188e7f90cf0.stex"
 [deps]
 
 source_file="res://Images/surrenderButton.png"
-source_md5="5e9b4c82f52d637ef38bd6bc5b49b35f"
-
 dest_files=[ "res://.import/surrenderButton.png-98dbb4934ec63a1cc4d7c188e7f90cf0.stex" ]
-dest_md5="c9ec49e653bca814aa4af2dd81aa7f79"
 
 [params]
 

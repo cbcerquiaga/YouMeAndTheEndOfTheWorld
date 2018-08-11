@@ -7,10 +7,7 @@ path="res://.import/iur-2.png-222c0e3ada21e5b8ecf1d8ff3b8ceb5b.stex"
 [deps]
 
 source_file="res://Images/iur-2.png"
-source_md5="ca0a5a193b379d6bba88e0a353d531d9"
-
 dest_files=[ "res://.import/iur-2.png-222c0e3ada21e5b8ecf1d8ff3b8ceb5b.stex" ]
-dest_md5="f0ca71d818401720630d090e3b8cc19d"
 
 [params]
 

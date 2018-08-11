@@ -7,10 +7,7 @@ path="res://.import/status icons L.png-38652d35a539ce692a9dcdebe458959d.stex"
 [deps]
 
 source_file="res://Images/status icons L.png"
-source_md5="99f76a4c5f467731371ad8ec01788f40"
-
 dest_files=[ "res://.import/status icons L.png-38652d35a539ce692a9dcdebe458959d.stex" ]
-dest_md5="ac4b9e47df29e52e419b634a5962bec5"
 
 [params]
 

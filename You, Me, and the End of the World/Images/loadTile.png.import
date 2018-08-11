@@ -7,10 +7,7 @@ path="res://.import/loadTile.png-a939b47a3f325e1b02eaf3afd149a3ea.stex"
 [deps]
 
 source_file="res://Images/loadTile.png"
-source_md5="939c1e81095f385a6db5adb2e45958c6"
-
 dest_files=[ "res://.import/loadTile.png-a939b47a3f325e1b02eaf3afd149a3ea.stex" ]
-dest_md5="01a7f841c23e3f9265d94e707ed1e6a4"
 
 [params]
 

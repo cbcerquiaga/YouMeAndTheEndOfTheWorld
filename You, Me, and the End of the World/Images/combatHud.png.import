@@ -7,10 +7,7 @@ path="res://.import/combatHud.png-cc23e037c1da3484e2704d7565b2ade2.stex"
 [deps]
 
 source_file="res://Images/combatHud.png"
-source_md5="37a898931e5cdbb46db1c346ffb7d83c"
-
 dest_files=[ "res://.import/combatHud.png-cc23e037c1da3484e2704d7565b2ade2.stex" ]
-dest_md5="401bbeafdca4b03b292e42b7a791216e"
 
 [params]
 

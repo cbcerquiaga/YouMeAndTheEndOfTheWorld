@@ -7,10 +7,7 @@ path="res://.import/runAwayButton.png-315d4c8e8e1ba0544d8678bf227d9683.stex"
 [deps]
 
 source_file="res://Images/runAwayButton.png"
-source_md5="8daaaee4edc6e61455d761bc5651bcc0"
-
 dest_files=[ "res://.import/runAwayButton.png-315d4c8e8e1ba0544d8678bf227d9683.stex" ]
-dest_md5="e7a126a25cdfa1230d7448b22861c0a1"
 
 [params]
 

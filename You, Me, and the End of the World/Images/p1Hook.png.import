@@ -7,10 +7,7 @@ path="res://.import/p1Hook.png-5ef8cee8496d07b18514ab93bf52f3ff.stex"
 [deps]
 
 source_file="res://Images/p1Hook.png"
-source_md5="c602e8c9fdfdf87aa5d0d5b015b42a74"
-
 dest_files=[ "res://.import/p1Hook.png-5ef8cee8496d07b18514ab93bf52f3ff.stex" ]
-dest_md5="9689a5da073c2e5fe8bdd640cf504d7b"
 
 [params]
 

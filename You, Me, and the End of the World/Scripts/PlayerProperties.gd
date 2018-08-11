@@ -41,7 +41,7 @@ func isEmpty():
 #Erases the item from inventory if the value is less than 1 as a result of the call
 #name just allows the player's name to be passed in for debugging purposes
 func removeItem(item, name):
-	if(Inventory.remove_item(item)):
+	if(Inventory.remove_item(item, 1)):
 		print('Removed 1 ' , item.getName() , ' from ', name, '\'s inventory')
 	else:
 		print("ERROR removing", item.getName(), " from ", name, "\'s inventory'")

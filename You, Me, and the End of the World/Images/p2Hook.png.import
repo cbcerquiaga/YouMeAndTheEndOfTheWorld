@@ -7,10 +7,7 @@ path="res://.import/p2Hook.png-3f39ff5bc474f46528fa50ffdacda492.stex"
 [deps]
 
 source_file="res://Images/p2Hook.png"
-source_md5="699c5301e31115292499dd48d1bfc48e"
-
 dest_files=[ "res://.import/p2Hook.png-3f39ff5bc474f46528fa50ffdacda492.stex" ]
-dest_md5="c9c64b924f98106ae3440bb0eaa9d040"
 
 [params]
 

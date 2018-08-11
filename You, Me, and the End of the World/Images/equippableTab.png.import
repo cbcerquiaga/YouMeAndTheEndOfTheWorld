@@ -7,10 +7,7 @@ path="res://.import/equippableTab.png-4114b86e2f0e462b5cd9e71e506ff386.stex"
 [deps]
 
 source_file="res://Images/equippableTab.png"
-source_md5="4d6f430ca3cc677ec9f5341722f4d0bb"
-
 dest_files=[ "res://.import/equippableTab.png-4114b86e2f0e462b5cd9e71e506ff386.stex" ]
-dest_md5="e9ba8881e59afbe929bf4b0af1676032"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/expBar.png-f75fcf539284cf90dbb6bb99ed474a1a.stex"
 [deps]
 
 source_file="res://Images/expBar.png"
-source_md5="517eebd21eced64e6944f66bc1100bd6"
-
 dest_files=[ "res://.import/expBar.png-f75fcf539284cf90dbb6bb99ed474a1a.stex" ]
-dest_md5="32b2b0fe0adcaaf66df49a685b33877d"
 
 [params]
 

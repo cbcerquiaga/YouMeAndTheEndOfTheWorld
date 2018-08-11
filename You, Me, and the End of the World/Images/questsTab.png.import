@@ -7,10 +7,7 @@ path="res://.import/questsTab.png-a4561d1b52fccad8f5e2a208dc761411.stex"
 [deps]
 
 source_file="res://Images/questsTab.png"
-source_md5="7f7c464f9c32f5dcb6bfd12a0dc90e50"
-
 dest_files=[ "res://.import/questsTab.png-a4561d1b52fccad8f5e2a208dc761411.stex" ]
-dest_md5="39a42901415344a4d64d86542dd6d68b"
 
 [params]
 

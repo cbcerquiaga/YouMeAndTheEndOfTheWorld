@@ -7,10 +7,7 @@ path="res://.import/Icon Sheet.png-68530a166942f058aabe58cd34cf3c4e.stex"
 [deps]
 
 source_file="res://Images/Icon Sheet.png"
-source_md5="9e9ef82d6a151ade97c192d0ef71b515"
-
 dest_files=[ "res://.import/Icon Sheet.png-68530a166942f058aabe58cd34cf3c4e.stex" ]
-dest_md5="df81c35e28cbba32f1d501e5f3c118c5"
 
 [params]
 

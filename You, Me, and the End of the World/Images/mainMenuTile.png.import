@@ -7,10 +7,7 @@ path="res://.import/mainMenuTile.png-4185c39d7757693944f6298afce30372.stex"
 [deps]
 
 source_file="res://Images/mainMenuTile.png"
-source_md5="088935b260cf73db5c9f457f2bad46a3"
-
 dest_files=[ "res://.import/mainMenuTile.png-4185c39d7757693944f6298afce30372.stex" ]
-dest_md5="2e17411f3801ccb22a25a46c5f3b2dee"
 
 [params]
 
