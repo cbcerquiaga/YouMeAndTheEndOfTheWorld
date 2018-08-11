@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/player1.gd" type="Script" id=1]
-[ext_resource path="res://Images/troll.png" type="Texture" id=2]
+[ext_resource path="res://Images/Player.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 5.39319
 
-[node name="player1" type="KinematicBody2D"]
+[node name="player1" type="KinematicBody2D" index="0"]
 
 position = Vector2( 370.142, 320.007 )
 input_pickable = false
@@ -26,7 +26,7 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( -0.141998, -10.007 )
+position = Vector2( -10.142, -10.007 )
 scale = Vector2( 2.53743, 1.96534 )
 shape = SubResource( 1 )
 
