@@ -1,4 +1,4 @@
-extends Node
+extends StaticBody2D
 
 #Initializing
 var __itemName = 'Unknown'
@@ -7,7 +7,7 @@ var __weight = 0
 var __packedScenePath = ""
 var __scriptPath = ""
 
-onready var itemPopup = self.get_parent().get_parent().get_node("Item_popup")
+onready var itemPopup = get_parent().get_parent().get_node("Item_popup")
 #itemName will be the identifying variable for the item
 #worth TODO
 #weight is the value that will contribute to the player's carry cap
@@ -22,10 +22,13 @@ func __init__(itemName, worth, weight, scenePath, scriptPath):
 	self.__scriptPath = scriptPath
 	if(itemPopup != null):
 		print("Found item popup")
-	else:
-		pass
+		self.connect("mouse_entered", itemPopup, "_mouse_entered", [itemName])
+		print("Connected mouse entered with ", itemName)
+		self.connect("mouse_exited", itemPopup, "_mouse_exited", [itemName])
+		print("Connected mouse exited with ", itemName)
+#	else:
+#		pass
 #		print("item dialog not found, is this a test of the abstract class?")
-	
 
 #Fuctions
 #This is the function called when the player picks up the item

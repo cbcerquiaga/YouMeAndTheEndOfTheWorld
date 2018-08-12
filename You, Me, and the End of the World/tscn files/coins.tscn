@@ -10,7 +10,7 @@ radius = 10.0
 
 [node name="coins" type="StaticBody2D"]
 
-input_pickable = false
+input_pickable = true
 collision_layer = 2
 collision_mask = 2
 constant_linear_velocity = Vector2( 0, 0 )
@@ -18,7 +18,7 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision" ]
+_sections_unfolded = [ "Collision", "Pickable" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 

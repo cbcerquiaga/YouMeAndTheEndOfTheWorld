@@ -7,6 +7,7 @@ extends PopupMenu
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
+#	mouse_filter = MOUSE_FILTER_IGNORE 
 	pass
 
 func _process(delta):
@@ -16,14 +17,17 @@ func _process(delta):
 	pass
 
 
-func _on_Piano_mouse_entered():
-	clear()
-	add_item("Piano")
+func _mouse_entered(name):
+#	print(get_incoming_connections())
+#	print("En ", name)
+	add_item(name)
 	rect_position = get_global_mouse_position()
 	show()
 	pass # replace with function body
 
 
-func _on_Piano_mouse_exited():
+func _mouse_exited(name):
+#	print("Ex ", name)
+	clear()
 	hide()
 	pass # replace with function body

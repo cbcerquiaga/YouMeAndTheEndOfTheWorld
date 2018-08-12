@@ -16,6 +16,7 @@ onready var player1 = get_node("walls/player1")
 onready var player2 = get_node("walls/player2")
 onready var screensize = Vector2(get_viewport().size.x, get_viewport().size.y)
 
+
 func _ready():
 	isp1Playing = true
 	isp2Playing = true

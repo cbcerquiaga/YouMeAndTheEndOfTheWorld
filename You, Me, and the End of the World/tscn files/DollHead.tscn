@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://tscn files/DollHead.gd" type="Script" id=1]
+[ext_resource path="res://Images/head.png" type="Texture" id=2]
+
+[node name="DollHead" type="StaticBody2D" index="0"]
+
+input_pickable = true
+collision_layer = 2
+collision_mask = 2
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Pause", "Pickable" ]
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+position = Vector2( 0.881725, 0.43224 )
+scale = Vector2( 0.0857467, 0.099042 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="." index="1"]
+
+position = Vector2( 0.612891, 0.124936 )
+scale = Vector2( 1.36445, 1.90403 )
+build_mode = 0
+polygon = PoolVector2Array( -9.37704, -6.37002, -9.17134, 8.4442, -0.0692284, 10.1762, 9.59854, 8.25995, 10.2671, -0.1053, 7.74727, -7.62297, 0.0336197, -9.42868 )
+
+
