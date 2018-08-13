@@ -3,7 +3,7 @@
 [ext_resource path="res://tscn files/DollHead.gd" type="Script" id=1]
 [ext_resource path="res://Images/head.png" type="Texture" id=2]
 
-[node name="DollHead" type="StaticBody2D" index="0"]
+[node name="DollHead" type="StaticBody2D"]
 
 input_pickable = true
 collision_layer = 2
