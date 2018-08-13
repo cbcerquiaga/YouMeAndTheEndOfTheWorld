@@ -26,9 +26,6 @@ func __init__(itemName, worth, weight, scenePath, scriptPath):
 		print("Connected mouse entered with ", itemName)
 		self.connect("mouse_exited", itemPopup, "_mouse_exited", [itemName])
 		print("Connected mouse exited with ", itemName)
-#	else:
-#		pass
-#		print("item dialog not found, is this a test of the abstract class?")
 
 #Fuctions
 #This is the function called when the player picks up the item
@@ -38,23 +35,4 @@ func __init__(itemName, worth, weight, scenePath, scriptPath):
 func handle_item_pickup(player):
 	if(player.has_method('addItem')):
 		player.addItem(self, 1)
-		self.set_collision_mask_bit(1, false)
-		self.set_collision_layer_bit(1, false)
 		self.hide()
-
-#Getters and Setters
-
-func getName():
-	return self.__itemName
-	
-func getWorth():
-	return self.__worth
-
-func getWeight():
-	return self.__weight
-	
-func getScriptPath():
-	return self.__scriptPath
-
-func getScenePath():
-	return self.__packedScenePath

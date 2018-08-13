@@ -40,7 +40,7 @@ func getSelectedItem(numberSelected):
 func selectItemByName(name):
 	var keyList = itemList.keys()
 	for i in range(len(keyList)):
-		if(keyList[i].getName() == name):
+		if(keyList[i].__itemName == name):
 			return i
 	return -1
 
@@ -54,7 +54,7 @@ func numberOfItems():
 func getTotalWeight():
 	var sum = 0
 	for i in itemList:
-		sum = sum + i.getWeight()
+		sum = sum + i.__weight
 	return sum
 
 #A string representation of the inventory
