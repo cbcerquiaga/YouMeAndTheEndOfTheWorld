@@ -86,11 +86,6 @@ func _physics_process(delta):
 				playerProperty.removeItem(item, "p2")
 				var node = load(item.__packedScenePath).instance()
 				node.position = self.position
-				node.set_collision_mask_bit(0,false)
-				node.set_collision_layer_bit(0,false)
-				node.set_collision_layer_bit(1, true)
-				node.set_collision_mask_bit(1,true)
-				node.script = item.__scriptPath
 				self.get_parent().add_child(node)
 			else:
 				print("ERROR, did not specify the tscn location properly")
