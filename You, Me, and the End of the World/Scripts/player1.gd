@@ -82,13 +82,8 @@ func _physics_process(delta):
 			#TODO: changed the selected item to an appropriate value
 			playerProperty.selectItemByIndex(0)
 			var item = playerProperty.getSelectedItem()
-			if(item.__packedScenePath != "" && item.__packedScenePath != null):
-				playerProperty.removeItem(item, "p2")
-				var node = load(item.__packedScenePath).instance()
-				node.position = self.position
-				self.get_parent().add_child(node)
-			else:
-				print("ERROR, did not specify the tscn location properly")
+			playerProperty.removeItem(item, "p1")
+			item.activate(self.position)
 	
 	#playerProperty.getSpeed() calculates the default speed times any perks or trait bonuses
 	motion = motion.normalized() * playerProperty.getSpeed()

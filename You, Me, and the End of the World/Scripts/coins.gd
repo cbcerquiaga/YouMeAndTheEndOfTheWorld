@@ -9,4 +9,4 @@ func _ready():
 	for i in children:
 		if i.name == 'Label':
 			i.text = str(numberInStack)
-	
+

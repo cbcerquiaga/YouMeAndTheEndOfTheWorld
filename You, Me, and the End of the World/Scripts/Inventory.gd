@@ -68,6 +68,6 @@ func str(name):
 		var itemListKeys = itemList.keys()
 		for i in range(0,itemListKeys.size()):
 			if(itemList[itemListKeys[i]] == 1):
-				print(itemList[itemListKeys[i]], ' ', itemListKeys[i].getName())
+				print(itemList[itemListKeys[i]], ' ', itemListKeys[i].__itemName)
 			else:
-				print(itemList[itemListKeys[i]], ' ', itemListKeys[i].getName(), 's')
+				print(itemList[itemListKeys[i]], ' ', itemListKeys[i].__itemName, 's')

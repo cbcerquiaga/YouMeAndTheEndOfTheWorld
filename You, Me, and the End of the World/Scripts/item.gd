@@ -21,18 +21,30 @@ func __init__(itemName, worth, weight, scenePath, scriptPath):
 	self.__packedScenePath = scenePath
 	self.__scriptPath = scriptPath
 	if(itemPopup != null):
-		print("Found item popup")
 		self.connect("mouse_entered", itemPopup, "_mouse_entered", [itemName])
-		print("Connected mouse entered with ", itemName)
 		self.connect("mouse_exited", itemPopup, "_mouse_exited", [itemName])
-		print("Connected mouse exited with ", itemName)
 
 #Fuctions
 #This is the function called when the player picks up the item
 #First we try to add the item to the player's inventory
 #Then we hide the item from the scene, but it is still there and inactive
 #TODO If we free the item this will not allow the player to drop it later, could be done better?
+		
 func handle_item_pickup(player):
 	if(player.has_method('addItem')):
 		player.addItem(self, 1)
-		self.hide()
+		deactivate()
+		
+
+#Sets this item so that it can be stored in inventory and accessed in the 2D world later
+func deactivate():
+	hide()
+	set_collision_layer_bit(1, false)
+	set_collision_mask_bit(1, false)
+
+#Sets this item to be stored in the 2D world
+func activate(location):
+	show()
+	set_collision_layer_bit(1, true)
+	set_collision_mask_bit(1, true)
+	self.position = location

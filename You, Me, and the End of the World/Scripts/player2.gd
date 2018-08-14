@@ -61,7 +61,7 @@ func _physics_process(delta):
 		if !invCooldown:
 			invCooldown = true
 			_restart_invTimer()
-			playerProperty.inventoryStr('p1')
+			playerProperty.inventoryStr('p2')
 	
 	#This method ray-casts to detect any collisions with the player
 	#https://godot.readthedocs.io/en/3.0/tutorials/physics/ray-casting.html
@@ -80,13 +80,8 @@ func _physics_process(delta):
 			#TODO: changed the selected item to an appropriate value
 			playerProperty.selectItemByIndex(0)
 			var item = playerProperty.getSelectedItem()
-			if(item.__packedScenePath != "" && item.__packedScenePath != null):
-				playerProperty.removeItem(item, "p2")
-				var node = load(item.__packedScenePath).instance()
-				node.position = self.position
-				self.get_parent().add_child(node)
-			else:
-				print("ERROR, did not specify the tscn location properly")
+			playerProperty.removeItem(item, "p2")
+			item.activate(self.position)
 
 	#playerProperty.getSpeed() calculates the default speed times any perks or trait bonuses
 	motion = motion.normalized() * playerProperty.getSpeed()
