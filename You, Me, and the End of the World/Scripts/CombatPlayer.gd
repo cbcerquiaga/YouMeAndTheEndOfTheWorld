@@ -234,9 +234,9 @@ func create_bullet(position):
 
 func _on_Border_mouse_entered():
 	isMouseNull = false
-#	print("Mouse is not null")
+	print("Mouse is not null")
 
 
 func _on_Border_mouse_exited():
 	isMouseNull = true
-#	print("Mouse is null")
+	print("Mouse is null")

@@ -488,8 +488,6 @@ position = Vector2( 532.556, 510.357 )
 
 [node name="Inside" type="StaticBody2D" parent="." index="4"]
 
-editor/display_folded = true
-visible = false
 input_pickable = true
 collision_layer = 16384
 collision_mask = 16384
