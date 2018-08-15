@@ -48,6 +48,9 @@ Essentialyly a simplified blood bowl. Both teams have 3 players, and take turns 
 
 Implementation: Turn system, grid mechanics, skill checks and skills, scoreboard, player models (probably not many animations).
 
+MUSIC
+Guitar hero timing-based game. P1 and P2 both have 4 keys to press in time (because they play "different instruments"). Having a higher score makes the gig go better, which results in more pay for paid gigs or a successful event in certain quests.
+
 DRUGS
 ?
 Implementation: ?
