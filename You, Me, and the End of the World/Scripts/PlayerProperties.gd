@@ -9,6 +9,8 @@ var fortitude = 1
 var agility = 1
 var charisma = 1
 
+var overallHealth = 100
+
 #PERKS
 var firstStrikeChance = 0
 var carryBonus = 0
@@ -20,6 +22,17 @@ var knifeFightChance = 0
 var speedBonus = 1
 var hungerBonus = 1
 var damageBonus = 1
+
+#STATUS
+var combatHealth = 100 #TODO: import health from CombatPlayer
+var food = 100 #TODO: reduce food value as time progresses
+var water = 100 #TODO: reduce water value as time progresses and when in heat
+var hot = 100 #TODO: reduce heat resistance value as time progresses in heat and when improperly dressed
+var cold = 100 #TODO: reduce cold resistance value as time progresses in cold and when improperly dressed
+var illness = 100 #TODO: reduce when poisoned or sick
+var hygeine = 100 #TODO: reduce once a day
+var sleepLevel = 100 #TODO: reduce as time progresses
+var addictionLevel = 100 #TODO: reduce as time progresses if addicted
 
 #initalizing playerProperties
 func __init__(strength, fortitude, agility, charisma):
@@ -80,18 +93,9 @@ func inventoryStr(name):
 
 # takes the minimum value of each of the player's statuses and returns it
 func calculateHealth():
-	var combatHealth = 100 #TODO: import health from CombatPlayer
-	var food = 100 #TODO: reduce food value as time progresses
-	var water = 100 #TODO: reduce water value as time progresses and when in heat
-	var hot = 100 #TODO: reduce heat resistance value as time progresses in heat and when improperly dressed
-	var cold = 100 #TODO: reduce cold resistance value as time progresses in cold and when improperly dressed
-	var illness = 100 #TODO: reduce when poisoned or sick
-	var hygeine = 100 #TODO: reduce once a day
-	var sleepLevel = 100 #TODO: reduce as time progresses
-	var addictionLevel = 100 #TODO: reduce as time progresses if addicted
 	var array = [combatHealth,food,water,hot,cold,illness,hygeine,sleepLevel,addictionLevel]
 	var minVal = array[0]
 	#min() only takes 2 arguments, need to go through the whole array to get min value
 	for i in range (1, array.size()):
 		minVal = min(minVal, array[i])
-	return minVal
+	overallHealth = minVal

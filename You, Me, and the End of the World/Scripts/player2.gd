@@ -115,4 +115,3 @@ func addItem(item):
 	
 func getHealth():
 	playerProperty.calculateHealth()
-	

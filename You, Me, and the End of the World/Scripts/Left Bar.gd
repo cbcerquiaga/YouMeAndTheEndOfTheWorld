@@ -4,6 +4,8 @@ extends TextureProgress
 # var a = 2
 # var b = "textvar"
 
+onready var player1 = self.get_parent().get_parent().get_parent().get_node("walls/player1")
+
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
@@ -11,6 +13,6 @@ func _ready():
 
 func _process(delta):
 	#TODO: get the right variable depending on Left Icon's frame
-	value = get_node("/root/World1/walls/player1").get("sleep")
+	value = player1.playerProperty.sleepLevel
 	self.set_value(value)
 	pass
