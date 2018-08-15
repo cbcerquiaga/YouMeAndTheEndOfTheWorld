@@ -22,9 +22,15 @@ var meleeWeapon #check the player's inventory for an equipped
 	#speed, and bonus affects
 var ammoLeft = 6
 var ammoVal = str(ammoLeft)
+
+#AI affecting variables
 var tauntEffect = 0 #0 no effect, 1 taunt back, 2 rage
+var mercy = 3 #from 0 to 5, affects chances of successful surrender
+var greed = 0 #from 0 to 3, affects how much the enemy will steal if the player surrenders
+var spite = 0 #from 0 to 3, affects how much the enemy maims a player that surrenders
+var runStopVal = .5 #TODO: figure out how different enemy stats impact run away chances
 	
-#player status variables
+#status variables
 var headHealth = 100
 var torsoHealth = 100
 var armHealth = 100
