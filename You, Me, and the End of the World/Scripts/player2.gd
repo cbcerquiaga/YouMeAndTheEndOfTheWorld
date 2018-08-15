@@ -15,7 +15,7 @@ signal move
 #Called when the player is entered into the scene
 func _ready():
 	playerProperty.__init__(1,1,1,1)
-	invTimer.connect("timeout",self,"_on_invTimer_timeout")
+	invTimer.connect("timeout", self, "_on_invTimer_timeout")
 	add_child(invTimer)
 	invTimer.wait_time = invWaitTime
 	invTimer.start()
@@ -31,6 +31,8 @@ func _on_invTimer_timeout():
 	invCooldown = false
 
 func _physics_process(delta):
+	#to set icon frame, use this line:
+	#get_node("/root/dungeon/HUD/P2A1 Icon")._setFrame(1)
 	var motion = Vector2()
 	var isPlaying = get_node("/root/Root").get("isp2Playing")
 	if (isPlaying):
@@ -91,7 +93,7 @@ func _physics_process(delta):
 	if motion != Vector2(0,0):
 		move_and_slide(motion)
 		emit_signal("move")
-
+	
 	#Create a dictionary because there are no sets, and dictionaries can be used
 	#for their unique key generation
 	var collision_objects = Dictionary()
@@ -106,9 +108,11 @@ func _physics_process(delta):
 		if collision_objects.keys()[i].has_method('handle_collide'):
 			collision_objects.keys()[i].handle_collide(self);
 
+
 #adds an item to the player inventory, it makes a call to playerProperty's addItem method
 func addItem(item):
 	playerProperty.addItem(item, 'p2')
 	
 func getHealth():
 	playerProperty.calculateHealth()
+	
