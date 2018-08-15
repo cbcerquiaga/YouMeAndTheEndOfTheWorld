@@ -8,7 +8,6 @@ var ricochet = 0 #the number of times the bullet ricochets before destroying
 var explosion = false #default explosiveness
 var poison = false #default poison value
 var motion = Vector2(2,0)
-var gravity = Vector2(0, 500)
 
 onready var enemy = self.get_parent().get_node("Enemy")
 	
@@ -23,7 +22,7 @@ func _ready():
 
 func _process(delta):
 	translate((speed * motion * delta))
-	var collideCheck = move_and_collide(motion * delta* gravity)
+	var collideCheck = move_and_collide(motion * delta)
 	if(collideCheck != null):
 		if(collideCheck.collider.name != "head" and collideCheck.collider.name != "torso"):
 			print("Ouch!")

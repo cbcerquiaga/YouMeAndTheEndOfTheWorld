@@ -33,7 +33,7 @@ func _ready():
 	pass
 
 func leftButtonPressed():
-	currentFrame -= 1
+	# <- 0 <- 1 <- 2 <- 0
 	if currentFrame < 1: #currentFrame == 0
 		L.frame = 2
 		C.frame = 2
@@ -44,30 +44,34 @@ func leftButtonPressed():
 		C.frame = 0
 		R.frame = 0
 		currentFrame = 0
-	else: #currentFrame == 2 or there's a problem
+	elif currentFrame == 2: #currentFrame == 2 or there's a problem
 		L.frame = 1
 		C.frame = 1
 		R.frame = 1
 		currentFrame = 1
+	else:
+		print("ERROR, unexpected currentFrame: ", currentFrame)
 	pass
 	
 func rightButtonPressed():
-	currentFrame += 1
-	if currentFrame > 2: #currentFrame == 0
-		L.frame = 0
-		C.frame = 0
-		R.frame = 0
-		currentFrame = 0
+	# -> 0 -> 1 -> 2 -> 0
+	if currentFrame == 0: #currentFrame == 0
+		L.frame = 1
+		C.frame = 1
+		R.frame = 1
+		currentFrame = 1
 	elif currentFrame == 1:
 		L.frame = 2
 		C.frame = 2
 		R.frame = 2
 		currentFrame = 2
-	else: #currentFrame == 0 or there's a problem
-		L.frame = 1
-		C.frame = 1
-		R.frame = 1
-		currentFrame = 1
+	elif currentFrame == 2: #currentFrame == 0 or there's a problem
+		L.frame = 0
+		C.frame = 0
+		R.frame = 0
+		currentFrame = 0
+	else:
+		print("ERROR, unexpected currentFrame: ", currentFrame)
 		
 func questButtonPressed():
 	highlight.set_position(Vector2(0,0))

@@ -27,11 +27,11 @@ var damageBonus = 1
 var combatHealth = 100 #TODO: import health from CombatPlayer
 var food = 100 #TODO: reduce food value as time progresses
 var water = 100 #TODO: reduce water value as time progresses and when in heat
-var hot = 10 #TODO: reduce heat resistance value as time progresses in heat and when improperly dressed
+var hot = 100 #TODO: reduce heat resistance value as time progresses in heat and when improperly dressed
 var cold = 100 #TODO: reduce cold resistance value as time progresses in cold and when improperly dressed
 var illness = 100 #TODO: reduce when poisoned or sick
-var hygeine = 100 #TODO: reduce once a day
-var sleepLevel = 100 #TODO: reduce as time progresses
+var hygeine = 50 #TODO: reduce once a day
+var sleepLevel = 10 #TODO: reduce as time progresses
 var addictionLevel = 100 #TODO: reduce as time progresses if addicted
 
 #initalizing playerProperties
