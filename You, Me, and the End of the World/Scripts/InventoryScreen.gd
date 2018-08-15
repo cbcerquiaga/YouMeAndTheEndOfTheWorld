@@ -4,6 +4,7 @@ var L
 var C
 var R
 var highlight
+var currentFrame
 onready var leftButton = get_node("Status Box/Left Button")
 onready var rightButton = get_node("Status Box/Right Button")
 onready var questButton = get_node("Tabs/questButton")
@@ -15,6 +16,7 @@ onready var mapButton = get_node("Tabs/mapButton")
 
 func _ready():
 	#self.queue_free()
+	currentFrame = 0
 	L = get_node("Status Box/Left Icon")
 	C = get_node("Status Box/Center Icon")
 	R = get_node("Status Box/Right Icon")
@@ -31,35 +33,41 @@ func _ready():
 	pass
 
 func leftButtonPressed():
-	var currentFrame = L.getFrame()
+	currentFrame -= 1
 	if currentFrame < 1: #currentFrame == 0
-		L.setFrame(2)
-		C.setFrame(2)
-		R.setFrame(2)
+		L.frame = 2
+		C.frame = 2
+		R.frame = 2
+		currentFrame = 2
 	elif currentFrame == 1:
-		L.setFrame(0)
-		C.setFrame(0)
-		R.setFrame(0)
+		L.frame = 0
+		C.frame = 0
+		R.frame = 0
+		currentFrame = 0
 	else: #currentFrame == 2 or there's a problem
-		L.setFrame(1)
-		C.setFrame(1)
-		R.setFrame(1)
+		L.frame = 1
+		C.frame = 1
+		R.frame = 1
+		currentFrame = 1
 	pass
 	
 func rightButtonPressed():
-	var currentFrame = L.getFrame()
-	if currentFrame < 1: #currentFrame == 0
-		L.setFrame(1)
-		C.setFrame(1)
-		R.setFrame(1)
+	currentFrame += 1
+	if currentFrame > 2: #currentFrame == 0
+		L.frame = 0
+		C.frame = 0
+		R.frame = 0
+		currentFrame = 0
 	elif currentFrame == 1:
-		L.setFrame(2)
-		C.setFrame(2)
-		R.setFrame(2)
-	else: #currentFrame == 2 or there's a problem
-		L.setFrame(0)
-		C.setFrame(0)
-		R.setFrame(0)
+		L.frame = 2
+		C.frame = 2
+		R.frame = 2
+		currentFrame = 2
+	else: #currentFrame == 0 or there's a problem
+		L.frame = 1
+		C.frame = 1
+		R.frame = 1
+		currentFrame = 1
 		
 func questButtonPressed():
 	highlight.set_position(Vector2(0,0))

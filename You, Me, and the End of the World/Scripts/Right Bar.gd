@@ -1,8 +1,6 @@
 extends TextureProgress
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+onready var player1 = self.get_parent().get_parent().get_parent().get_node("walls/player1")
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -11,7 +9,6 @@ func _ready():
 
 func _process(delta):
 	#TODO: get the right variable depending on Right Icon's frame
-	#value = get_node("/root/World1/walls/player1").get("water")
-	value = 85
+	value = player1.playerProperty.water
 	self.set_value(value)
 	pass
