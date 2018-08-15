@@ -5,7 +5,6 @@ const invWaitTime = 1
 var playerProperty = preload('res://Scripts/PlayerProperties.gd').new()
 var invCooldown = true
 var invTimer = Timer.new()
-var overallHealth = 100
 var currentEXP = 99 #EXP is out of 100
 var carryWeight = 0
 var maxCarry = 200

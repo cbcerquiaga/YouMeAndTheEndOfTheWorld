@@ -8,7 +8,7 @@ func _ready():
 	pass
 
 func _process(delta):
-	health = get_node("/root/Root/walls/player2").get("overallHealth")
+	health = get_node("/root/Root/walls/player2").playerProperty.overallHealth
 	if(health < 0):
 		self.set_value(0)
 	elif(health > maxHealthVal):
