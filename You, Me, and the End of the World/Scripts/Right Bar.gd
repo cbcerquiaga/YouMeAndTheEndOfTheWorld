@@ -11,6 +11,7 @@ func _ready():
 
 func _process(delta):
 	#TODO: get the right variable depending on Right Icon's frame
-	value = get_node("/root/World1/walls/player1").get("water")
+	#value = get_node("/root/World1/walls/player1").get("water")
+	value = 85
 	self.set_value(value)
 	pass

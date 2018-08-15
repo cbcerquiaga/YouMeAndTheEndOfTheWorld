@@ -58,6 +58,17 @@ func _pause():
 	$pause_popup.update()
 	$pause_popup.show()
 	
+func _inventory1():
+	#TODO: adjust position to the right half of the screen if both players are active
+	$InventoryScreen.rect_global_position = (-(player1.global_position + player2.global_position)/(2) + (screensize/(2)))
+	$InventoryScreen.update()
+	$InventoryScreen.show()
+	
+func _inventory2():
+	#TODO: adjust position to the left half of the screen if both players are active
+	$InventoryScreen.rect_global_position = (-(player1.global_position + player2.global_position)/(2) + (screensize/(2)))
+	$InventoryScreen.update()
+	$InventoryScreen.show()
 
 func _process(delta):
 	if Input.is_action_pressed("p1_dropout") and !cooldown:
@@ -80,6 +91,10 @@ func _process(delta):
 			_start_timer2()
 	if Input.is_action_pressed("pause"):
 		_pause()
+	if Input.is_action_pressed("p1_inventory"):
+		_inventory1()
+	if Input.is_action_pressed("p2_inventory"):
+		_inventory2()
 	pass
 
 func update_camera():

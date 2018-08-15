@@ -12,6 +12,17 @@ var maxCarry = 200
 onready var otherPlayer = get_node("../player2")
 signal move
 
+#STATUS
+onready var combatHealth = 100 #TODO: import health from CombatPlayer
+onready var food = 100 #TODO: reduce food value as time progresses
+onready var water = 100 #TODO: reduce water value as time progresses and when in heat
+onready var hot = 100 #TODO: reduce heat resistance value as time progresses in heat and when improperly dressed
+onready var cold = 100 #TODO: reduce cold resistance value as time progresses in cold and when improperly dressed
+onready var illness = 100 #TODO: reduce when poisoned or sick
+onready var hygeine = 100 #TODO: reduce once a day
+onready var sleepLevel = 100 #TODO: reduce as time progresses
+onready var addictionLevel = 100 #TODO: reduce as time progresses if addicted
+
 #Called when the player is entered into the scene
 func _ready():
 	playerProperty.__init__(1,1,1,1)
@@ -113,5 +124,5 @@ func addItem(item):
 	playerProperty.addItem(item, 'p1')
 	
 func getHealth():
-	playerProperty.calculateHealth()
+	playerProperty.calculateHealth(combatHealth,food,water,hot,cold,illness,hygeine,sleepLevel,addictionLevel)
 	

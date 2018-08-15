@@ -1,20 +1,23 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Images/weaponTab.png" type="Texture" id=1]
-[ext_resource path="res://Images/equippableTab.png" type="Texture" id=2]
-[ext_resource path="res://Images/consumableTab.png" type="Texture" id=3]
-[ext_resource path="res://Images/miscTab.png" type="Texture" id=4]
-[ext_resource path="res://Images/carTab.png" type="Texture" id=5]
-[ext_resource path="res://Images/inventoryHighlight.png" type="Texture" id=6]
+[ext_resource path="res://Images/carInventoryMain.png" type="Texture" id=1]
+[ext_resource path="res://Images/weaponTab.png" type="Texture" id=2]
+[ext_resource path="res://Images/equippableTab.png" type="Texture" id=3]
+[ext_resource path="res://Images/consumableTab.png" type="Texture" id=4]
+[ext_resource path="res://Images/miscTab.png" type="Texture" id=5]
+[ext_resource path="res://Images/carTab.png" type="Texture" id=6]
+[ext_resource path="res://Images/inventoryHighlight.png" type="Texture" id=7]
 
-[node name="Popup" type="Popup"]
+[node name="Popup" type="Popup" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 24.0
+margin_top = 89.0
+margin_right = 64.0
+margin_bottom = 129.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -25,7 +28,19 @@ popup_exclusive = false
 
 [node name="Player inventory" type="Sprite" parent="." index="0"]
 
+position = Vector2( 380, 360 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="Car Inventory" type="Sprite" parent="." index="1"]
+
+position = Vector2( 380, 61 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Tabs" type="Control" parent="." index="2"]
 
@@ -41,6 +56,9 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Weapons" type="Button" parent="Tabs" index="0"]
 
@@ -63,9 +81,12 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-icon = ExtResource( 1 )
+icon = ExtResource( 2 )
 flat = true
 align = 1
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Equippable" type="Button" parent="Tabs" index="1"]
 
@@ -88,9 +109,12 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-icon = ExtResource( 2 )
+icon = ExtResource( 3 )
 flat = true
 align = 1
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Consumable" type="Button" parent="Tabs" index="2"]
 
@@ -113,9 +137,12 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-icon = ExtResource( 3 )
+icon = ExtResource( 4 )
 flat = true
 align = 1
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Misc" type="Button" parent="Tabs" index="3"]
 
@@ -138,9 +165,12 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-icon = ExtResource( 4 )
+icon = ExtResource( 5 )
 flat = true
 align = 1
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Customize car" type="Button" parent="Tabs" index="4"]
 
@@ -163,13 +193,16 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-icon = ExtResource( 5 )
+icon = ExtResource( 6 )
 flat = true
 align = 1
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Highlight" type="Sprite" parent="Tabs" index="5"]
 
 position = Vector2( 261, 210 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 

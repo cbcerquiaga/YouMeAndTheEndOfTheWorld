@@ -21,7 +21,7 @@
 [ext_resource path="res://tscn files/coins.tscn" type="PackedScene" id=19]
 [ext_resource path="res://tscn files/Gut.tscn" type="PackedScene" id=20]
 
-[node name="Root" type="Node2D" index="0"]
+[node name="Root" type="Node2D"]
 
 position = Vector2( 184.751, 4.24893 )
 script = ExtResource( 1 )
@@ -172,6 +172,10 @@ position = Vector2( 326.471, 203.025 )
 position = Vector2( 387.029, 231.751 )
 
 [node name="Gut" parent="." index="7" instance=ExtResource( 20 )]
+
+[node name="InventoryScreen2" parent="." index="8" instance=ExtResource( 4 )]
+
+visible = false
 
 [connection signal="move" from="walls/player1" to="." method="update_camera"]
 
