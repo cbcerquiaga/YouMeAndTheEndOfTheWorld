@@ -8,6 +8,7 @@ const minZoomInScale = 1.0
 # class member variables go here, for example:
 var isp1Playing
 var isp2Playing
+var exploreMouse = load("res://Images/ExploreCursor.png")
 var cooldown = true;
 var cooldown2 = true;
 var timer1 = Timer.new()
@@ -20,6 +21,7 @@ onready var screensize = Vector2(get_viewport().size.x, get_viewport().size.y)
 func _ready():
 	isp1Playing = true
 	isp2Playing = true
+	Input.set_custom_mouse_cursor(exploreMouse)
 	#Handling Timer
 	timer1.connect("timeout", self, "_on_timer_timeout" )
 	timer2.connect("timeout", self, "_on_timer2_timeout")
