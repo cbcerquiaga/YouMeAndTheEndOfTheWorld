@@ -31,7 +31,7 @@ func __init__(strength, fortitude, agility, charisma):
 #Adds an item to inventory, if it is already in inventory then increment it's value by 1
 #name just allows the player's name to be passed in for debugging purposes
 func addItem(item, name):
-	Inventory.add_item(item, item.getQuantity())
+	Inventory.add_item(item)
 	print('Added ', item.getQuantity(), ' ' , item.getName() , ' to ', name, '\'s inventory')
 
 func isEmpty():

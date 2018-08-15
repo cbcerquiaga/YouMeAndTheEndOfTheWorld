@@ -1,13 +1,13 @@
 var itemList = Dictionary()
 
 #Tests completed
-func add_item(item, numberToAdd):
+func add_item(item):
 	#Gets the number in this stack
 	#Sets the items number in stack to 1 so that it would be identical to other items of the same type
 	if itemList.has(item):
-		itemList[item] = itemList[item] + numberToAdd
+		itemList[item] = itemList[item] + item.quantity
 	else:
-		itemList[item] = numberToAdd
+		itemList[item] = item.quantity
 
 #Tests completed
 func remove_item(item, numberToRemove):
