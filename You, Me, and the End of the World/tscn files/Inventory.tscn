@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scripts/InventoryScreen.gd" type="Script" id=1]
 [ext_resource path="res://Images/inventoryStatusBox.png" type="Texture" id=2]
@@ -17,8 +17,9 @@
 [ext_resource path="res://Images/equippableTab.png" type="Texture" id=15]
 [ext_resource path="res://Images/consumableTab.png" type="Texture" id=16]
 [ext_resource path="res://Images/miscTab.png" type="Texture" id=17]
-[ext_resource path="res://Images/inventoryHighlight.png" type="Texture" id=18]
-[ext_resource path="res://Images/inventoryMain.png" type="Texture" id=19]
+[ext_resource path="res://Images/mapTab.png" type="Texture" id=18]
+[ext_resource path="res://Images/inventoryHighlight.png" type="Texture" id=19]
+[ext_resource path="res://Images/inventoryMain.png" type="Texture" id=20]
 
 [node name="InventoryScreen" type="Popup"]
 
@@ -55,7 +56,6 @@ stretch_mode = 0
 
 [node name="Status Box" type="Sprite" parent="." index="1"]
 
-editor/display_folded = true
 position = Vector2( 501.42, 57.0558 )
 texture = ExtResource( 2 )
 
@@ -356,7 +356,6 @@ _sections_unfolded = [ "Z Index" ]
 
 [node name="Tabs" type="Control" parent="." index="3"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -370,12 +369,12 @@ size_flags_vertical = 1
 
 [node name="quests" type="Sprite" parent="Tabs" index="0"]
 
-editor/display_folded = true
 position = Vector2( 364, 137 )
 texture = ExtResource( 13 )
 
 [node name="equippedButton" type="Button" parent="Tabs/quests" index="0"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -401,12 +400,12 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="weapons" type="Sprite" parent="Tabs" index="1"]
 
-editor/display_folded = true
 position = Vector2( 419, 137 )
 texture = ExtResource( 14 )
 
 [node name="weaponButton" type="Button" parent="Tabs/weapons" index="0"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -432,12 +431,12 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="equippable" type="Sprite" parent="Tabs" index="2"]
 
-editor/display_folded = true
 position = Vector2( 474, 137 )
 texture = ExtResource( 15 )
 
 [node name="equippableButton" type="Button" parent="Tabs/equippable" index="0"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -463,12 +462,12 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="consumable" type="Sprite" parent="Tabs" index="3"]
 
-editor/display_folded = true
 position = Vector2( 529, 137 )
 texture = ExtResource( 16 )
 
 [node name="consumableButton" type="Button" parent="Tabs/consumable" index="0"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -494,12 +493,12 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="misc" type="Sprite" parent="Tabs" index="4"]
 
-editor/display_folded = true
 position = Vector2( 584, 137 )
 texture = ExtResource( 17 )
 
 [node name="miscButton" type="Button" parent="Tabs/misc" index="0"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -525,12 +524,12 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="map" type="Sprite" parent="Tabs" index="5"]
 
-editor/display_folded = true
 position = Vector2( 638, 137 )
-texture = ExtResource( 13 )
+texture = ExtResource( 18 )
 
 [node name="Button" type="Button" parent="Tabs/map" index="0"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -557,12 +556,12 @@ _sections_unfolded = [ "Rect" ]
 [node name="Highlight" type="Sprite" parent="Tabs" index="6"]
 
 position = Vector2( 364, 137 )
-texture = ExtResource( 18 )
+texture = ExtResource( 19 )
 
 [node name="Inventory Main" type="Sprite" parent="." index="4"]
 
 position = Vector2( 500, 495 )
-texture = ExtResource( 19 )
+texture = ExtResource( 20 )
 
 [node name="Inventory Box" type="ScrollContainer" parent="." index="5"]
 
@@ -585,6 +584,7 @@ scroll_horizontal_enabled = true
 scroll_horizontal = 0
 scroll_vertical_enabled = true
 scroll_vertical = 0
+scroll_deadzone = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Inventory Box" index="0"]
 
