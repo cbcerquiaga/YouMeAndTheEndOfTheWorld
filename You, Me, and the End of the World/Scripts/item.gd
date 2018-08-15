@@ -24,8 +24,8 @@ func init__(_itemName, _worth, _weight, _quantity, _scenePath, _scriptPath):
 	self.scriptPath = _scriptPath
 	self.quantity = _quantity
 	if(itemPopup != null):
-		self.connect("mouse_entered", itemPopup, "_mouse_entered", [itemName])
-		self.connect("mouse_exited", itemPopup, "_mouse_exited", [itemName])
+		self.connect("mouse_entered", itemPopup, "_mouse_entered", [self])
+		self.connect("mouse_exited", itemPopup, "_mouse_exited", [self])
 	if(itemLabel != null):
 		if(quantity > 1):
 			itemLabel.text = str(quantity)
