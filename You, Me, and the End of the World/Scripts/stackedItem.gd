@@ -13,16 +13,16 @@ func __init__(item, numberInStack):
 		self.connect("mouse_entered", itemPopup, "_mouse_entered", [item.__itemName])
 		self.connect("mouse_exited", itemPopup, "_mouse_exited", [item.__itemName])
 
-#func handle_item_pickup(player):
-#	if(player.has_method('addItem')):
-#		player.addItem(item, 1)
-#		queue_free()
-
 func handle_item_pickup(player):
 	if(player.has_method('addItem')):
-		player.addItem(item, numberInStack)
+		player.addItem(self)
 		deactivate()
 		
+func getName():
+	return item.getName()
+	
+func getQuantity():
+	return numberInStack
 
 #Sets this item so that it can be stored in inventory and accessed in the 2D world later
 func deactivate():

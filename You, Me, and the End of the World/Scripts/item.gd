@@ -32,9 +32,15 @@ func __init__(itemName, worth, weight, scenePath, scriptPath):
 		
 func handle_item_pickup(player):
 	if(player.has_method('addItem')):
-		player.addItem(self, 1)
+		player.addItem(self)
 		deactivate()
 		
+
+func getName():
+	return __itemName
+
+func getQuantity():
+	return 1
 
 #Sets this item so that it can be stored in inventory and accessed in the 2D world later
 func deactivate():

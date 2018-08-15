@@ -106,8 +106,8 @@ func _physics_process(delta):
 			collision_objects.keys()[i].handle_collide(self);
 
 #adds an item to the player inventory, it makes a call to playerProperty's addItem method
-func addItem(item, numToAdd):
-	playerProperty.addItem(item, numToAdd, 'p2')
+func addItem(item):
+	playerProperty.addItem(item, 'p2')
 	
 # takes the minimum value of each of the player's statuses and returns it
 func calculateHealth():
