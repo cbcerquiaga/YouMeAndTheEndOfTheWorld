@@ -26,12 +26,13 @@ func init__(_itemName, _worth, _weight, _quantity, _scenePath, _scriptPath):
 	if(itemPopup != null):
 		self.connect("mouse_entered", itemPopup, "_mouse_entered", [self])
 		self.connect("mouse_exited", itemPopup, "_mouse_exited", [self])
+	update_label()
+
+func update_label():
 	if(itemLabel != null):
 		if(quantity > 1):
 			itemLabel.text = str(quantity)
 			pass
-
-func ready():
 	#Handle Label here
 	pass
 	
@@ -45,6 +46,15 @@ func handle_item_pickup(player):
 		player.addItem(self)
 		deactivate()
 		
+
+func __eq__(other):
+	if(self.itemName == other.itemName):
+		if(self.worth == other.worth):
+			if(self.weight == other.weight):
+				if(self.packedScenePath == other.packedScenePath):
+					if(self.scriptPath == other.scriptPath):
+						return true
+	return false
 
 func getName():
 	return itemName
@@ -64,3 +74,25 @@ func activate(location):
 	set_collision_mask_bit(1, true)
 	self.position = location
 	show()
+	
+#var itemName = 'Unknown'
+#var worth = 0
+#var weight = 0
+#var packedScenePath = ""
+#var scriptPath = ""
+#var quantity = ""
+func str():
+	var output = str("itemName: ", itemName, "\n",
+	"worth: ", worth, "\n",
+	"weight: ", weight, "\n",
+	"packedScenePath: ", packedScenePath, "\n",
+	"scriptPath: ", scriptPath, "\n",
+	"quantity: ", quantity, "\n")
+	return output
+	
+	
+	
+	
+	
+	
+	
