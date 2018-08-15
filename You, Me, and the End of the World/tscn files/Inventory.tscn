@@ -21,7 +21,7 @@
 [ext_resource path="res://Images/mapTab.png" type="Texture" id=19]
 [ext_resource path="res://Images/inventoryMain.png" type="Texture" id=20]
 
-[node name="InventoryScreen" type="Popup"]
+[node name="InventoryScreen" type="Popup" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -69,9 +69,13 @@ group = null
 icon = ExtResource( 3 )
 flat = true
 align = 1
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Left Button Spritete" type="Sprite" parent="Status Box/Left Button" index="0"]
 
+visible = false
 position = Vector2( 12.58, 19.9442 )
 texture = ExtResource( 3 )
 
@@ -101,9 +105,13 @@ icon = ExtResource( 4 )
 flat = true
 align = 1
 _sections_unfolded = [ "Material", "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Right Button Sprite" type="Sprite" parent="Status Box/Right Button" index="0"]
 
+visible = false
 position = Vector2( 13, 20 )
 texture = ExtResource( 4 )
 
@@ -113,6 +121,9 @@ position = Vector2( -90.2352, -0.480492 )
 texture = ExtResource( 5 )
 hframes = 3
 _sections_unfolded = [ "Animation" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Left Bar" type="TextureProgress" parent="Status Box" index="3"]
 
@@ -120,10 +131,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -130.0
-margin_top = -35.0
-margin_right = -52.0
-margin_bottom = 36.0
+margin_left = -129.0
+margin_top = -36.0
+margin_right = -51.0
+margin_bottom = 35.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -153,6 +164,9 @@ position = Vector2( 0.548523, -0.480469 )
 texture = ExtResource( 8 )
 hframes = 3
 _sections_unfolded = [ "Animation" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Center Bar" type="TextureProgress" parent="Status Box" index="5"]
 
@@ -186,6 +200,9 @@ radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
 script = ExtResource( 9 )
 _sections_unfolded = [ "Textures" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Right Icon" type="Sprite" parent="Status Box" index="6"]
 
@@ -193,6 +210,9 @@ position = Vector2( 90.066, -0.551659 )
 texture = ExtResource( 10 )
 hframes = 3
 _sections_unfolded = [ "Animation" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Right Bar" type="TextureProgress" parent="Status Box" index="7"]
 
@@ -567,6 +587,7 @@ __meta__ = {
 
 [node name="Inventory Box" type="ScrollContainer" parent="." index="4"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0

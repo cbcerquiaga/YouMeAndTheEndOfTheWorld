@@ -34,7 +34,10 @@ script = ExtResource( 3 )
 
 [node name="InventoryScreen" parent="." index="1" instance=ExtResource( 4 )]
 
-visible = false
+margin_left = -106.0
+margin_top = -44.0
+margin_right = -106.0
+margin_bottom = -44.0
 
 [node name="pause_popup" parent="." index="2" instance=ExtResource( 5 )]
 
@@ -171,11 +174,15 @@ position = Vector2( 326.471, 203.025 )
 
 position = Vector2( 387.029, 231.751 )
 
-[node name="coins2" parent="walls" index="13" instance=ExtResource( 19 )]
-
-position = Vector2( 447.444, 262.29 )
-
 [node name="Gut" parent="." index="7" instance=ExtResource( 20 )]
+
+[node name="InventoryScreen2" parent="." index="8" instance=ExtResource( 4 )]
+
+visible = false
+margin_left = -167.0
+margin_top = -4.0
+margin_right = -167.0
+margin_bottom = -4.0
 
 [connection signal="move" from="walls/player1" to="." method="update_camera"]
 
