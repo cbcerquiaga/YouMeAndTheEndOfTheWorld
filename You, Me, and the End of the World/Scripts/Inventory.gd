@@ -1,54 +1,65 @@
-var itemList = Dictionary()
+var itemList = Array()
 
 #Tests completed
-func add_item(item, numberToAdd):
+func add_item(item):
 	#Gets the number in this stack
 	#Sets the items number in stack to 1 so that it would be identical to other items of the same type
-	if itemList.has(item):
-		itemList[item] = itemList[item] + numberToAdd
+	if hasItem(item):
+		var tempItem = item
+		itemList.remove(getLocation(item))
+		tempItem.quantity = tempItem.quantity + item.quantity
+		itemList.append(tempItem)
 	else:
-		itemList[item] = numberToAdd
+		itemList.append(item)
 
 #Tests completed
 func remove_item(item, numberToRemove):
-	if itemList.has(item) and itemList[item] >= numberToRemove:
-		itemList[item] = itemList[item] - numberToRemove
-		if(itemList[item] == 0):
-			itemList.erase(item)
+	var location = getLocation(item)
+	var itemInArray = itemList[location]
+	if location != -1 and itemInArray.quantity >= numberToRemove:
+		if(itemInArray.quantity - numberToRemove == 0):
+			itemList.remove(location)
 		return true
 	else:
 		return false
 
+
 #Tests completed
 func isEmpty():
-  if(len(itemList.keys()) == 0):
+  if(len(itemList) == 0):
     return true
   return false
 
+func getLocation(item):
+	for i in range(len(itemList)):
+		if(itemList[i].__eq__(item)):
+			return i
+	return -1
+
 #Tests completed
 func hasItem(item):
-	return itemList.has(item)
+	for i in range(len(itemList)):
+		if(itemList[i].__eq__(item)):
+			return true
+	return false
 
 #Tests completed
 func getSelectedItem(numberSelected):
-	if numberSelected < 0 or numberSelected > len(itemList) - 1:
+	if numberSelected < 0 or numberSelected >= len(itemList):
 		return -1
-	var keyList = itemList.keys()
-	return keyList[numberSelected]
+	return itemList[numberSelected]
 
-#Tests completed
 func selectItemByName(name):
-	var keyList = itemList.keys()
-	for i in range(len(keyList)):
-		if(keyList[i].itemName == name):
+	for i in range(len(itemList)):
+		if(itemList[i].itemName == name):
 			return i
 	return -1
 
 #Tests Completed
 func numberOfItems():
 	var sum = 0
-	for i in itemList:
-		sum = sum + itemList[i]
+	for i in range(len(itemList)):
+		sum = sum + itemList[i].quantity
 	return sum
 
 func getTotalWeight():
@@ -65,8 +76,8 @@ func str(name):
 	else:
 		print('Printing ', name, ' \'s inventory')
 		print('Total weight: ' , getTotalWeight())
-		var itemListKeys = itemList.keys()
-		for i in range(0,itemListKeys.size()):
+		var itemListKeys = len(itemList)
+		for i in range(len(itemList)):
 			if(itemList[itemListKeys[i]] == 1):
 				print(itemList[itemListKeys[i]], ' ', itemListKeys[i].itemName)
 			else:

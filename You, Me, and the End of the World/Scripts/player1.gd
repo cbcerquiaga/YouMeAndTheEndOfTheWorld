@@ -95,6 +95,7 @@ func _physics_process(delta):
 			var item = playerProperty.getSelectedItem()
 			playerProperty.removeItem(item, "p1")
 			item.activate(self.position)
+			item.update_label()
 	
 	#playerProperty.getSpeed() calculates the default speed times any perks or trait bonuses
 	motion = motion.normalized() * playerProperty.getSpeed()

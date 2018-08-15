@@ -29,11 +29,11 @@ func setup():
 	item10.init__("coin", 1, 0, 1, "", "")
 
 func test_loading_items():
-	Inventory.add_item(item1, 1)
-	Inventory.add_item(item2, 1)
-	Inventory.add_item(item3, 1)
-	Inventory.add_item(item4, 1)
-	Inventory.add_item(item5, 1)
+	Inventory.add_item(item1)
+	Inventory.add_item(item2)
+	Inventory.add_item(item3)
+	Inventory.add_item(item4)
+	Inventory.add_item(item5)
 	
 	#Test the inventory
 	assert_true(!Inventory.isEmpty(), "Inventory should be not empty")

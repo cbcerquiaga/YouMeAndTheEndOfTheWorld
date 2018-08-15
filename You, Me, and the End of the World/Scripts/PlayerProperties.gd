@@ -31,8 +31,8 @@ func __init__(strength, fortitude, agility, charisma):
 #Adds an item to inventory, if it is already in inventory then increment it's value by 1
 #name just allows the player's name to be passed in for debugging purposes
 func addItem(item, name):
-	Inventory.add_item(item, item.getQuantity())
-	print('Added ', item.getQuantity(), ' ' , item.getName() , ' to ', name, '\'s inventory')
+	Inventory.add_item(item)
+	print('Added ', item.quantity, ' ' , item.itemName , ' to ', name, '\'s inventory')
 
 func isEmpty():
 	return Inventory.isEmpty()
@@ -41,10 +41,11 @@ func isEmpty():
 #Erases the item from inventory if the value is less than 1 as a result of the call
 #name just allows the player's name to be passed in for debugging purposes
 func removeItem(item, name):
-	if(Inventory.remove_item(item, item.getQuantity())):
-		print('Removed ', item.getQuantity(), ' ' , item.getName() , ' from ', name, '\'s inventory')
+	var itemQuantity = item.quantity
+	if(Inventory.remove_item(item, item.quantity)):
+		print('Removed ', itemQuantity, ' ' , item.itemName , ' from ', name, '\'s inventory')
 	else:
-		print("ERROR removing", item.getName(), " from ", name, "\'s inventory'")
+		print("ERROR removing", item.itemName, " from ", name, "\'s inventory'")
 
 #Calculates the speed the player should be moving at, this should take into account
 #perks, traits and default move speed
