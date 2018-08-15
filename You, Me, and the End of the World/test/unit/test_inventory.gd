@@ -12,25 +12,21 @@ var item8 = load("res://Scripts/item.gd").new()
 var item9 = load("res://Scripts/item.gd").new()
 
 var item10 = load("res://Scripts/item.gd").new()
-var stackedItem1 = load("res://Scripts/stackedItem.gd").new()
-var stackedItem2 = load("res://Scripts/stackedItem.gd").new()
 
 func setup():
-	item1.__init__('GrandPiano', 100, 1, "res://tscn files/Piano.tscn", "res://Scripts/Piano.gd")
-	item2.__init__('Keyboard', 50, 2, "", "")
-	item3.__init__('Banana', 5, 1, "", "")
-	item4.__init__('VR Headset', 500, 1, "", "")
-	item5.__init__('Google Glass', 5000, 5, "", "")
+	item1.init__('GrandPiano', 100, 1, 1, "res://tscn files/Piano.tscn", "res://Scripts/Piano.gd")
+	item2.init__('Keyboard', 50, 2, 1, "", "")
+	item3.init__('Banana', 5, 1, 1, "", "")
+	item4.init__('VR Headset', 500, 1, 1, "", "")
+	item5.init__('Google Glass', 5000, 5, 1, "", "")
 	#print("Testing loading items")
 	#Adding items to the inventory
-	item6.__init__("Piano", 0, 0, "", "")
-	item7.__init__("banana", 0, 0, "", "")
-	item8.__init__("Google Glass", 500, 0, "", "")
-	item9.__init__("keyboard", 50, 0, "", "")
+	item6.init__("Piano", 0, 0, 1, "", "")
+	item7.init__("banana", 0, 0, 1, "", "")
+	item8.init__("Google Glass", 500, 0, 1, "", "")
+	item9.init__("keyboard", 50, 0, 1, "", "")
 	
-	item10.__init__("coin", 1, 0, "", "")
-	stackedItem1.__init__(item10, 10)
-	stackedItem2.__init__(item10, 24)
+	item10.init__("coin", 1, 0, 1, "", "")
 
 func test_loading_items():
 	Inventory.add_item(item1, 1)
@@ -39,8 +35,6 @@ func test_loading_items():
 	Inventory.add_item(item4, 1)
 	Inventory.add_item(item5, 1)
 	
-	Inventory.add_item(stackedItem1.getItem(), stackedItem1.getStackNum())
-	Inventory.add_item(stackedItem2.getItem(), stackedItem2.getStackNum())
 	#Test the inventory
 	assert_true(!Inventory.isEmpty(), "Inventory should be not empty")
 	assert_true(Inventory.hasItem(item1), "Item1 should be in inventory")
@@ -48,7 +42,7 @@ func test_loading_items():
 	assert_true(Inventory.hasItem(item3), "Item3 should be in inventory")
 	assert_true(Inventory.hasItem(item4), "Item4 should be in inventory")
 	assert_true(Inventory.hasItem(item5), "Item5 should be in inventory")
-	assert_true(Inventory.numberOfItems() == 39, "The number of items in the inventory should be 39")
+	assert_true(Inventory.numberOfItems() == 5, "The number of items in the inventory should be 39")
 
 
 func test_searching_methods():
@@ -68,9 +62,9 @@ func test_searching_methods():
 	assert_true(Inventory.getSelectedItem(2) == item3, "Index 2 should have item3")
 	assert_true(Inventory.getSelectedItem(3) == item4, "Index 3 should have item4")
 	assert_true(Inventory.getSelectedItem(4) == item5, "Index 4 should have item5")
-	assert_true(Inventory.getSelectedItem(5) == item10, "Index 5 should have item10")
+#	assert_(Inventory.getSelectedItem(5) == item10, "Index 5 should have item10")
 	
-	assert_true(Inventory.getSelectedItem(6) == -1, "Index 5 should not contain any items")
+	assert_true(Inventory.getSelectedItem(5) == -1, "Index 5 should not contain any items")
 	assert_true(Inventory.getSelectedItem(-1) == -1, "Index -1 should not contain any items")
 	
 	assert_true(Inventory.selectItemByName("GrandPiano") == 0, "The location of the GrandPiano in Inventory should be 0")
@@ -80,7 +74,7 @@ func test_searching_methods():
 	assert_true(Inventory.selectItemByName("Google Glass") == 4, "The location of the Google Glass in Inventory should be 4")
 	assert_true(Inventory.selectItemByName("grandPiano") == -1, "The name of objects should be case sensitive, so grandPiano is not in the Inventory")
 	assert_true(Inventory.selectItemByName("VRHeadset") == -1, "VRHeadset != VR Headset")
-	assert_true(Inventory.selectItemByName("coin") == 5, "The location of the coin should be in index 5")
+#	assert_true(Inventory.selectItemByName("coin") == 5, "The location of the coin should be in index 5")
 
 func test_total_weight():
 	assert_true(Inventory.getTotalWeight() == 10, "The inventory's total weight should be 10")
@@ -95,9 +89,6 @@ func test_removing_items():
 	Inventory.remove_item(item3, 1)
 	Inventory.remove_item(item4, 1)
 	Inventory.remove_item(item5, 1)
-	Inventory.remove_item(item10, stackedItem1.getStackNum() + stackedItem2.getStackNum() - 1)
-	assert_true(!Inventory.isEmpty(), "The inventory should still have 1 coin in it")
-	Inventory.remove_item(item10, 1)
 	
 	#Test the inventory
 	assert_true(Inventory.isEmpty(), "Inventory should be empty")

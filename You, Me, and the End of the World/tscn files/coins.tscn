@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 radius = 10.0
 
-[node name="coins" type="StaticBody2D"]
+[node name="coins" type="StaticBody2D" index="0"]
 
 input_pickable = true
 collision_layer = 2
@@ -49,7 +49,6 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1

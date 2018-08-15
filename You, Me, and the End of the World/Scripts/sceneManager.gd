@@ -21,7 +21,7 @@ func _ready():
 	isp1Playing = true
 	isp2Playing = true
 	#Handling Timer
-	timer1.connect("timeout",self,"_on_timer_timeout")
+	timer1.connect("timeout", self, "_on_timer_timeout" )
 	timer2.connect("timeout", self, "_on_timer2_timeout")
 	add_child(timer1)
 	add_child(timer2)
