@@ -56,7 +56,7 @@ var maxStamina = 100 #the maximum stamina the player can have with their current
 var staminaRegen = .15 #how quickly the player's stamina regenerates
 var agility
 var strength
-var canJump = false
+var maxHealth = 100
 
 
 func _ready():
@@ -229,7 +229,6 @@ func create_bullet(position):
 	truePosition.y += 15
 	tempBullet.motion = truePosition.normalized()
 	self.get_parent().add_child(tempBullet)
-
 
 
 func _on_Border_mouse_entered():

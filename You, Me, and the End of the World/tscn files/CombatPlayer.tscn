@@ -3,7 +3,7 @@
 [ext_resource path="res://Scripts/CombatPlayer.gd" type="Script" id=1]
 [ext_resource path="res://Images/troll.png" type="Texture" id=2]
 
-[node name="CombatPlayer" type="KinematicBody2D" index="0"]
+[node name="CombatPlayer" type="KinematicBody2D"]
 
 position = Vector2( 427.076, 349.132 )
 input_pickable = false

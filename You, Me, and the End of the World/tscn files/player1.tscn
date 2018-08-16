@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 radius = 5.39319
 
-[node name="player1" type="KinematicBody2D" index="0"]
+[node name="player1" type="KinematicBody2D"]
 
 position = Vector2( 370.142, 320.007 )
 input_pickable = false

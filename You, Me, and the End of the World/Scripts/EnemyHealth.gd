@@ -1,20 +1,24 @@
 extends TextureProgress
 
-var health
+onready var enemy = get_node("/root/Combat/TileMap/Enemy")
+var currentHealth
 var maxHealthVal = 100
 
 func _ready():
 	set_process(true)
-	pass
+	update()
 
 func _process(delta):
-	health = get_node("/root/Combat/TileMap/Enemy").get("totalHealth")
-	if(health < 0):
+	pass
+
+func update():
+	currentHealth = enemy.totalHealth
+	if(currentHealth < 0):
 		self.set_value(0)
-	elif(health > maxHealthVal):
+	elif(currentHealth > maxHealthVal):
 		self.set_value(maxHealthVal)
 	else:
-		self.set_value(health)
-	if(health <= 0):
-		print("GAME OVER")
-	pass
+		self.set_value(currentHealth)
+
+func hit():
+	update()

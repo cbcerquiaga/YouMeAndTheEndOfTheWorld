@@ -42,6 +42,7 @@ var maxStamina = 100 #the maximum stamina the player can have with their current
 var staminaRegen = .25 #how quickly the player's stamina regenerates
 var agility
 var strength
+var maxHealth = 100
 
 
 func _ready():
@@ -64,9 +65,9 @@ func _ready():
 #	return motion
 
 func calculateHealth():
-	if headHealth == 0: #if the head is gone, the player is dead
+	if headHealth <= 0: #if the head is gone, the player is dead
 		return 0
-	elif torsoHealth == 0: #if the torso is gone, the player is dead
+	elif torsoHealth <= 0: #if the torso is gone, the player is dead
 		return 0
 	else: #weight head and torso health more than limb health
 		var tempHealth = (headHealth + torsoHealth)*3 + (armHealth + legHealth)*2
@@ -174,7 +175,6 @@ func _physics_process(delta):
 	if (stamina > maxStamina):
 		stamina = maxStamina
 	
-	totalHealth = calculateHealth()
 	#apply movement and gravity
 	motion.y += GRAVITY
 	self.move_and_collide(motion)
@@ -189,4 +189,5 @@ func _on_Bullet_hit(body, damage):
 	elif(body == "head"):
 		print("Headshot")
 		headHealth = (headHealth - (damage*2))
+	totalHealth = calculateHealth()
 	pass # replace with function body
