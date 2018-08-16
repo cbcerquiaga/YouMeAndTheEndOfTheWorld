@@ -105,7 +105,7 @@ func _physics_process(delta):
 	#parses through each unique object and tried to call it's handle_collide() method
 	for i in range(len(collision_objects.keys())-1):
 		if collision_objects.keys()[i].has_method('handle_collide'):
-			collision_objects.keys()[i].handle_collide(self);
+			collision_objects.keys()[i].handle_collide(self)
 
 
 #adds an item to the player inventory, it makes a call to playerProperty's addItem method

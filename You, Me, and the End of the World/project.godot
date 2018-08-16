@@ -11,7 +11,7 @@ config_version=3
 [application]
 
 config/name="Isometric Game"
-run/main_scene="res://tscn files/MainMenu.tscn"
+run/main_scene="res://tscn files/World1.tscn"
 
 [display]
 
@@ -24,6 +24,10 @@ enabled=PoolStringArray( "gut" )
 [gdnative]
 
 singletons=[  ]
+
+[global]
+
+full=false
 
 [image_loader]
 

@@ -1,10 +1,10 @@
 [gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scripts/sceneManager.gd" type="Script" id=1]
-[ext_resource path="res://tscn files/Item_popup.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scripts/Item_popup.gd" type="Script" id=3]
-[ext_resource path="res://tscn files/Inventory.tscn" type="PackedScene" id=4]
-[ext_resource path="res://tscn files/pause_popup.tscn" type="PackedScene" id=5]
+[ext_resource path="res://tscn files/pause_popup.tscn" type="PackedScene" id=2]
+[ext_resource path="res://tscn files/Item_popup.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/Item_popup.gd" type="Script" id=4]
+[ext_resource path="res://tscn files/Inventory.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/dialog_popup.gd" type="Script" id=6]
 [ext_resource path="res://tscn files/HUD.tscn" type="PackedScene" id=7]
 [ext_resource path="res://tscn files/tileset.tres" type="TileSet" id=8]
@@ -27,19 +27,7 @@ position = Vector2( 184.751, 4.24893 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="Item_popup" parent="." index="0" instance=ExtResource( 2 )]
-
-visible = false
-script = ExtResource( 3 )
-
-[node name="InventoryScreen" parent="." index="1" instance=ExtResource( 4 )]
-
-margin_left = -106.0
-margin_top = -44.0
-margin_right = -106.0
-margin_bottom = -44.0
-
-[node name="pause_popup" parent="." index="2" instance=ExtResource( 5 )]
+[node name="pause_popup" parent="." index="0" instance=ExtResource( 2 )]
 
 visible = false
 margin_left = 185.0
@@ -47,6 +35,19 @@ margin_top = 286.0
 margin_right = 1071.0
 margin_bottom = 732.0
 _sections_unfolded = [ "Anchor", "Margin", "Material", "Mouse", "Pause", "Popup", "Visibility" ]
+
+[node name="Item_popup" parent="." index="1" instance=ExtResource( 3 )]
+
+visible = false
+script = ExtResource( 4 )
+
+[node name="InventoryScreen" parent="." index="2" instance=ExtResource( 5 )]
+
+visible = false
+margin_left = -106.0
+margin_top = -44.0
+margin_right = -106.0
+margin_bottom = -44.0
 
 [node name="dialog_popup" type="PopupMenu" parent="." index="3"]
 
@@ -176,7 +177,7 @@ position = Vector2( 387.029, 231.751 )
 
 [node name="Gut" parent="." index="7" instance=ExtResource( 20 )]
 
-[node name="InventoryScreen2" parent="." index="8" instance=ExtResource( 4 )]
+[node name="InventoryScreen2" parent="." index="8" instance=ExtResource( 5 )]
 
 visible = false
 margin_left = -167.0

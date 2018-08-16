@@ -21,7 +21,7 @@ func _ready():
 	C = get_node("Status Box/Center Icon")
 	R = get_node("Status Box/Right Icon")
 	highlight = get_node("Tabs/Highlight")
-	print("Highlight position: " + str(highlight.get_position()))
+#	print("Highlight position: " + str(highlight.get_position()))
 	leftButton.connect("pressed",self,"leftButtonPressed")
 	rightButton.connect("pressed",self,"rightButtonPressed")
 	questButton.connect("pressed",self,"questButtonPressed")
