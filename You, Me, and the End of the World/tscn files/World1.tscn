@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scripts/sceneManager.gd" type="Script" id=1]
 [ext_resource path="res://tscn files/pause_popup.tscn" type="PackedScene" id=2]
@@ -20,8 +20,9 @@
 [ext_resource path="res://tscn files/LightSaber.tscn" type="PackedScene" id=18]
 [ext_resource path="res://tscn files/coins.tscn" type="PackedScene" id=19]
 [ext_resource path="res://tscn files/Gut.tscn" type="PackedScene" id=20]
+[ext_resource path="res://tscn files/CarInventory.tscn" type="PackedScene" id=21]
 
-[node name="Root" type="Node2D"]
+[node name="Root" type="Node2D" index="0"]
 
 position = Vector2( 184.751, 4.24893 )
 script = ExtResource( 1 )
@@ -38,16 +39,12 @@ _sections_unfolded = [ "Anchor", "Margin", "Material", "Mouse", "Pause", "Popup"
 
 [node name="Item_popup" parent="." index="1" instance=ExtResource( 3 )]
 
-visible = false
-script = ExtResource( 4 )
-
-[node name="InventoryScreen" parent="." index="2" instance=ExtResource( 5 )]
-
-visible = false
-margin_left = -106.0
-margin_top = -44.0
-margin_right = -106.0
-margin_bottom = -44.0
+margin_left = 314.0
+margin_top = 124.0
+margin_right = 314.0
+margin_bottom = 124.0
+rect_scale = Vector2( 0.6, 0.6 )
+_sections_unfolded = [ "Rect" ]
 
 [node name="dialog_popup" type="PopupMenu" parent="." index="3"]
 
@@ -179,14 +176,17 @@ position = Vector2( 387.029, 231.751 )
 
 [node name="InventoryScreen2" parent="." index="8" instance=ExtResource( 5 )]
 
+margin_left = -294.0
+margin_top = 127.0
+margin_right = -294.0
+margin_bottom = 127.0
+rect_scale = Vector2( 0.6, 0.6 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="CarInventory" parent="." index="9" instance=ExtResource( 21 )]
+
 visible = false
-margin_left = -167.0
-margin_top = -4.0
-margin_right = -167.0
-margin_bottom = -4.0
 
 [connection signal="move" from="walls/player1" to="." method="update_camera"]
 
 [connection signal="move" from="walls/player2" to="." method="update_camera"]
-
-
