@@ -13,10 +13,6 @@ config_version=3
 config/name="Isometric Game"
 run/main_scene="res://tscn files/MainMenu.tscn"
 
-[display]
-
-window/size/resizable=false
-
 [editor_plugins]
 
 enabled=PoolStringArray( "gut" )
