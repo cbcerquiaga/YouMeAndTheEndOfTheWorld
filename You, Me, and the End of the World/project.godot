@@ -11,7 +11,11 @@ config_version=3
 [application]
 
 config/name="Isometric Game"
-run/main_scene="res://tscn files/World1.tscn"
+run/main_scene="res://tscn files/MainMenu.tscn"
+
+[display]
+
+window/size/resizable=false
 
 [editor_plugins]
 

@@ -3,7 +3,7 @@
 [ext_resource path="res://Scripts/Car.gd" type="Script" id=1]
 [ext_resource path="res://Images/sedan.png" type="Texture" id=2]
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[node name="KinematicBody2D" type="KinematicBody2D" index="0"]
 
 scale = Vector2( 2, 2 )
 input_pickable = false
