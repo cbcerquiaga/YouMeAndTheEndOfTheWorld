@@ -21,7 +21,7 @@
 [ext_resource path="res://Images/mapTab.png" type="Texture" id=19]
 [ext_resource path="res://Images/inventoryMain.png" type="Texture" id=20]
 
-[node name="InventoryScreen" type="Popup"]
+[node name="InventoryScreen" type="Popup" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
