@@ -1,5 +1,6 @@
 extends Popup
 
+var justOpened
 var L
 var C
 var R
@@ -16,6 +17,7 @@ onready var mapButton = get_node("Tabs/mapButton")
 
 func _ready():
 	#self.queue_free()
+	justOpened = true
 	currentFrame = 0
 	L = get_node("Status Box/Left Icon")
 	C = get_node("Status Box/Center Icon")
@@ -97,5 +99,18 @@ func mapButtonPressed():
 	#TODO: change text in inventory section
 
 func _process(delta):
-	#process stuff
+	if Input.is_action_just_pressed("p1_inventory"):
+		if justOpened:
+			justOpened = !justOpened
+		else:
+			.hide()
+	#TODO: add actual functionality to keybinds
+	if Input.is_action_just_pressed("p1_move_up"):
+		print("Scroll up")
+	if Input.is_action_just_pressed("p1_move_down"):
+		print("Scroll down")
+	if Input.is_action_just_pressed("p1_move_left"):
+		print("Tab over left")
+	if Input.is_action_just_pressed("p1_move_right"):
+		print("Tab over right")
 	pass

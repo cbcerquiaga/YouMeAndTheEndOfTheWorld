@@ -168,7 +168,7 @@ position = Vector2( 387.029, 231.751 )
 
 [node name="Gut" parent="." index="6" instance=ExtResource( 18 )]
 
-[node name="InventoryScreen2" parent="." index="7" instance=ExtResource( 19 )]
+[node name="InventoryScreen" parent="." index="7" instance=ExtResource( 19 )]
 
 visible = false
 margin_left = -294.0
