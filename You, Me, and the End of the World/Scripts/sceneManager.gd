@@ -58,17 +58,34 @@ func _pause():
 	$pause_popup.update()
 	$pause_popup.show()
 	
+var inv1 = false
 func _inventory1():
 	#TODO: adjust position to the right half of the screen if both players are active
-	$InventoryScreen.rect_global_position = (-(player1.global_position + player2.global_position)/(2) + (screensize/(2)))
-	$InventoryScreen.update()
-	$InventoryScreen.show()
-	
+	if(!inv1):
+		$InventoryScreen.rect_global_position = (-(player1.global_position + player2.global_position)/(2) + (screensize/(2)))
+		$InventoryScreen.update()
+		$InventoryScreen.popup()
+		player1.isFrozen = true
+		inv1 = true
+	else:
+		
+		$InventoryScreen.hide()
+		player1.isFrozen = false
+		inv1 = false
+
+var inv2 = false
 func _inventory2():
+	if(!inv2):
 	#TODO: adjust position to the left half of the screen if both players are active
-	$InventoryScreen.rect_global_position = (-(player1.global_position + player2.global_position)/(2) + (screensize/(2)))
-	$InventoryScreen.update()
-	$InventoryScreen.show()
+		$InventoryScreen.rect_global_position = (-(player1.global_position + player2.global_position)/(2) + (screensize/(2)))
+		$InventoryScreen.update()
+		$InventoryScreen.popup()
+		player2.isFrozen = true
+		inv2 = true
+	else:
+		$InventoryScreen.hide()
+		player2.isFrozen = false
+		inv2 = false
 
 func _process(delta):
 	if Input.is_action_pressed("p1_dropout") and !cooldown:

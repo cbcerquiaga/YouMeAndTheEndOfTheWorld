@@ -10,6 +10,7 @@ var carryWeight = 0
 var maxCarry = 200
 onready var otherPlayer = get_node("../player1")
 signal move
+var isFrozen = false
 
 #Called when the player is entered into the scene
 func _ready():
@@ -34,7 +35,7 @@ func _physics_process(delta):
 	#get_node("/root/dungeon/HUD/P2A1 Icon")._setFrame(1)
 	var motion = Vector2()
 	var isPlaying = get_node("/root/Root").get("isp2Playing")
-	if (isPlaying):
+	if (isPlaying and !isFrozen):
 		if Input.is_action_pressed("p2_move_up"):
 			motion += Vector2(0, -1)
 		if Input.is_action_pressed("p2_move_down"):
@@ -43,7 +44,7 @@ func _physics_process(delta):
 			motion += Vector2(-1, 0)
 		if Input.is_action_pressed("p2_move_right"):
 			motion += Vector2(1, 0)
-	else: #pathfinding algorithm
+	elif(!isPlaying): #pathfinding algorithm
 		#print("following player 1")
 		var distance = (otherPlayer.position - self.position)
 		var farEnough = (abs(distance.x) > 100 or abs(distance.y) > 100)
