@@ -4,7 +4,7 @@ extends TextureProgress
 # var a = 2
 # var b = "textvar"
 var frame
-onready var player1 = self.get_parent().get_parent().get_parent().get_node("walls/player1")
+onready var player1 = self.get_parent().get_parent().get_parent().get_parent().get_node("walls/player1")
 
 func _ready():
 	pass

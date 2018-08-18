@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 const marginForCameraToZoomOut = 300
 #const slowdownOfZoomOut = 5
@@ -97,14 +97,16 @@ func _player2_Inventory_cooldown_reset():
 
 func _pause():
 	get_tree().paused = true
-	$pause_popup.rect_global_position = (-(player1.global_position + player2.global_position)/(2) + (screensize/(2)))
-	$pause_popup.update()
+#	$pause_popup.rect_global_position = (-(player1.global_position + player2.global_position)/(2) + (screensize/(2)))
+	var transform = get_viewport_transform()
+	print(transform)
+#	$pause_popup.popup(Rect2(transform.x, transform.y))
 	$pause_popup.show()
 	
 func _inventory1():
 	#TODO: adjust position to the right half of the screen if both p
 	if(!player1.isFrozen):
-		$InventoryScreenP1.rect_global_position = Vector2(0, screensize.y / 4) + Vector2(-(screensize.x / 14), 0)
+#		$InventoryScreenP1.rect_global_position = Vector2(0, screensize.y / 4) + Vector2(-(screensize.x / 14), 0)
 		$InventoryScreenP1.show()
 	else:
 		$InventoryScreenP1.hide()
@@ -113,7 +115,7 @@ func _inventory1():
 func _inventory2():
 	#TODO: adjust position to the right half of the screen if both p
 	if(!player2.isFrozen):
-		$InventoryScreenP2.rect_global_position = Vector2(0, screensize.y / 4) + Vector2(screensize.x / 1.8, 0)
+#		$InventoryScreenP2.rect_global_position = Vector2(0, screensize.y / 4) + Vector2(screensize.x / 1.8, 0)
 		$InventoryScreenP2.show()
 	else:
 		$InventoryScreenP2.hide()
