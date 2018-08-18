@@ -104,21 +104,23 @@ func _pause():
 	$pause_popup.show()
 	
 func _inventory1():
-	#TODO: adjust position to the right half of the screen if both p
+	#TODO: adjust position to the right half of the screen if both players are active, or put in the middle if only one is
+	var inventoryScreenP1 = get_node("InventoryControl1/InventoryScreenP1")
+	$InventoryControl2.set_position(Vector2(200,0))
 	if(!player1.isFrozen):
-#		$InventoryScreenP1.rect_global_position = Vector2(0, screensize.y / 4) + Vector2(-(screensize.x / 14), 0)
-		$InventoryScreenP1.show()
+		inventoryScreenP1.show()
 	else:
-		$InventoryScreenP1.hide()
+		inventoryScreenP1.hide()
 	player1.isFrozen = !player1.isFrozen
 
 func _inventory2():
 	#TODO: adjust position to the right half of the screen if both p
+	var inventoryScreenP2 = get_node("InventoryControl2/InventoryScreenP2")
+	$InventoryControl2.set_position(Vector2(0,0))
 	if(!player2.isFrozen):
-#		$InventoryScreenP2.rect_global_position = Vector2(0, screensize.y / 4) + Vector2(screensize.x / 1.8, 0)
-		$InventoryScreenP2.show()
+		inventoryScreenP2.show()
 	else:
-		$InventoryScreenP2.hide()
+		inventoryScreenP2.hide()
 	player2.isFrozen = !player2.isFrozen
 
 func _process(delta):
@@ -155,6 +157,8 @@ func _process(delta):
 func update_camera():
 #	#Get the current canvas transform
 	var canvas_transform = get_viewport().get_canvas_transform()
+	#$InventoryControl1.set_position(Vector2(200,0))
+	#$InventoryControl2.set_position(Vector2(0,0))
 #	#Update the canvas with the center of the two players being the center of the viewport
 	canvas_transform[2] = (-(player1.global_position + player2.global_position)/(2) + (screensize/(2)))
 	#Applies the transform
