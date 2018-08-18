@@ -59,11 +59,11 @@ func _physics_process(delta):
 
 	#Displays the inventory
 	#Currently just prints to console
-	if Input.is_action_pressed("p2_inventory"):
-		if !invCooldown:
-			invCooldown = true
-			_restart_invTimer()
-			playerProperty.inventoryStr('p2')
+#	if Input.is_action_pressed("p2_inventory"):
+#		if !invCooldown:
+#			invCooldown = true
+#			_restart_invTimer()
+#			playerProperty.inventoryStr('p2')
 	
 	#This method ray-casts to detect any collisions with the player
 	#https://godot.readthedocs.io/en/3.0/tutorials/physics/ray-casting.html

@@ -9,10 +9,19 @@ const minZoomInScale = 1.0
 var isp1Playing
 var isp2Playing
 var exploreMouse = load("res://Images/ExploreCursor.png")
-var cooldown = true;
-var cooldown2 = true;
+
+#Timers handle the popup cooldown, it is required to not spam
 var timer1 = Timer.new()
 var timer2 = Timer.new()
+var cooldown = false
+var cooldown2 = false
+
+#Handles inventory popup, cooldown is required to not spam the screen
+var invPopupTimerP1 = Timer.new()
+var invPopupTimerP2 = Timer.new()
+var player1InventoryPopupCooldown = false
+var player2InventoryPopupCooldown = false
+
 onready var player1 = get_node("walls/player1")
 onready var player2 = get_node("walls/player2")
 onready var screensize = Vector2(get_viewport().size.x, get_viewport().size.y)
@@ -22,13 +31,23 @@ func _ready():
 	isp1Playing = true
 	isp2Playing = true
 	Input.set_custom_mouse_cursor(exploreMouse)
-	#Handling Timer
+	#Handling dropout Timers
 	timer1.connect("timeout", self, "_on_timer_timeout" )
 	timer2.connect("timeout", self, "_on_timer2_timeout")
 	add_child(timer1)
 	add_child(timer2)
 	_start_timer1()
 	_start_timer2()
+	
+	#Handles Inventory popup timer
+	invPopupTimerP1.connect("timeout", self, "_player1_Inventory_cooldown_reset")
+	invPopupTimerP2.connect("timeout", self, "_player2_Inventory_cooldown_reset")
+	add_child(invPopupTimerP1)
+	add_child(invPopupTimerP2)
+	_start_p1_Inventory_Cooldown()
+	_start_p2_Inventory_Cooldown()
+	
+
 	#Handling Camera
 	update_camera()
 
@@ -46,11 +65,35 @@ func _start_timer2():
 
 #The function to handle when the timer times out
 func _on_timer_timeout():
+	timer1.stop()
 	cooldown = false
 
 #The function to handle when the second time times out
 func _on_timer2_timeout():
+	timer2.stop()
 	cooldown2 = false
+
+#Function to start the timer at 1 seconds
+func _start_p1_Inventory_Cooldown():
+	if !invPopupTimerP1.time_left > 0:
+		invPopupTimerP1.wait_time = 1
+		invPopupTimerP1.start() #to start
+		player1InventoryPopupCooldown = true
+
+#Function to start the second timer at 1 seconds
+func _start_p2_Inventory_Cooldown():
+	if !invPopupTimerP2.time_left > 0:
+		invPopupTimerP2.wait_time = 1
+		invPopupTimerP2.start() #to start
+		player2InventoryPopupCooldown = true
+
+func _player1_Inventory_cooldown_reset():
+	invPopupTimerP1.stop()
+	player1InventoryPopupCooldown = false
+	
+func _player2_Inventory_cooldown_reset():
+	invPopupTimerP2.stop()
+	player2InventoryPopupCooldown = false
 
 func _pause():
 	get_tree().paused = true
@@ -58,34 +101,23 @@ func _pause():
 	$pause_popup.update()
 	$pause_popup.show()
 	
-var inv1 = false
 func _inventory1():
-	#TODO: adjust position to the right half of the screen if both players are active
-	if(!inv1):
+	#TODO: adjust position to the right half of the screen if both p
+	if(!player1.isFrozen):
 		$InventoryScreen.rect_global_position = (-(player1.global_position + player2.global_position)/(2) + (screensize/(2)))
-		$InventoryScreen.update()
-		$InventoryScreen.popup()
-		player1.isFrozen = true
-		inv1 = true
+		$InventoryScreen.show()
 	else:
-		
 		$InventoryScreen.hide()
-		player1.isFrozen = false
-		inv1 = false
+	player1.isFrozen = !player1.isFrozen
 
-var inv2 = false
 func _inventory2():
-	if(!inv2):
-	#TODO: adjust position to the left half of the screen if both players are active
+	#TODO: adjust position to the right half of the screen if both p
+	if(!player2.isFrozen):
 		$InventoryScreen.rect_global_position = (-(player1.global_position + player2.global_position)/(2) + (screensize/(2)))
-		$InventoryScreen.update()
-		$InventoryScreen.popup()
-		player2.isFrozen = true
-		inv2 = true
+		$InventoryScreen.show()
 	else:
 		$InventoryScreen.hide()
-		player2.isFrozen = false
-		inv2 = false
+	player2.isFrozen = !player2.isFrozen
 
 func _process(delta):
 	if Input.is_action_pressed("p1_dropout") and !cooldown:
@@ -106,12 +138,16 @@ func _process(delta):
 			cooldown2 = true
 			isp2Playing = true
 			_start_timer2()
+	
 	if Input.is_action_pressed("pause"):
 		_pause()
-	if Input.is_action_pressed("p1_inventory"):
+	if Input.is_action_pressed("p1_inventory") and !player1InventoryPopupCooldown:
 		_inventory1()
-	if Input.is_action_pressed("p2_inventory"):
+		_start_p1_Inventory_Cooldown()
+	if Input.is_action_pressed("p2_inventory") and !player2InventoryPopupCooldown:
 		_inventory2()
+		_start_p2_Inventory_Cooldown()
+		pass
 	pass
 
 func update_camera():

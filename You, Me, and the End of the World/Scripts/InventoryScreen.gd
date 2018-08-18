@@ -99,11 +99,6 @@ func mapButtonPressed():
 	#TODO: change text in inventory section
 
 func _process(delta):
-	if Input.is_action_just_pressed("p1_inventory"):
-		if justOpened:
-			justOpened = !justOpened
-		else:
-			.hide()
 	#TODO: add actual functionality to keybinds
 	if Input.is_action_just_pressed("p1_move_up"):
 		print("Scroll up")
