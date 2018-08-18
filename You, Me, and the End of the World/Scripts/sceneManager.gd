@@ -104,19 +104,19 @@ func _pause():
 func _inventory1():
 	#TODO: adjust position to the right half of the screen if both p
 	if(!player1.isFrozen):
-		$InventoryScreen.rect_global_position = (-(player1.global_position + player2.global_position)/(2) + (screensize/(2)))
-		$InventoryScreen.show()
+		$InventoryScreenP1.rect_global_position = Vector2(0, screensize.y / 4) + Vector2(-(screensize.x / 14), 0)
+		$InventoryScreenP1.show()
 	else:
-		$InventoryScreen.hide()
+		$InventoryScreenP1.hide()
 	player1.isFrozen = !player1.isFrozen
 
 func _inventory2():
 	#TODO: adjust position to the right half of the screen if both p
 	if(!player2.isFrozen):
-		$InventoryScreen.rect_global_position = (-(player1.global_position + player2.global_position)/(2) + (screensize/(2)))
-		$InventoryScreen.show()
+		$InventoryScreenP2.rect_global_position = Vector2(0, screensize.y / 4) + Vector2(screensize.x / 1.8, 0)
+		$InventoryScreenP2.show()
 	else:
-		$InventoryScreen.hide()
+		$InventoryScreenP2.hide()
 	player2.isFrozen = !player2.isFrozen
 
 func _process(delta):
