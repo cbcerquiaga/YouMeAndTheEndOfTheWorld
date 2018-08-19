@@ -26,8 +26,6 @@ var jumping = false
 var prev_jump_pressed = false
 
 #combat-affecting variables
-var isCrouched = false
-var isInAir = false
 var isGrappling = false #if the player and enemy are grappling,
 	#the player and enemy are stuck together with whoever has more
 	#strength having greater control over movement. In this situation,

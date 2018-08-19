@@ -35,6 +35,9 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 popup_exclusive = false
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Status Box" type="Sprite" parent="." index="0"]
 
@@ -293,6 +296,9 @@ scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Picture" type="TextureRect" parent="Info Box" index="1"]
 
@@ -311,6 +317,9 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Item Description" type="RichTextLabel" parent="Info Box" index="2"]
 
@@ -339,6 +348,9 @@ scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Spacer Label" type="TextureRect" parent="Info Box" index="3"]
 
@@ -356,6 +368,9 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 stretch_mode = 0
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Sprite" type="Sprite" parent="Info Box" index="4"]
 
@@ -397,11 +412,17 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Sprite" type="Sprite" parent="Tabs/Highlight" index="0"]
 
 position = Vector2( 364, 136 )
 texture = ExtResource( 13 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="questButton" type="Button" parent="Tabs" index="1"]
 
@@ -587,7 +608,6 @@ __meta__ = {
 
 [node name="Inventory Box" type="ScrollContainer" parent="." index="4"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -607,6 +627,9 @@ scroll_horizontal = 0
 scroll_vertical_enabled = true
 scroll_vertical = 0
 scroll_deadzone = 0
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Inventory Box" index="0"]
 
@@ -621,5 +644,8 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
+__meta__ = {
+"_edit_lock_": true
+}
 
 
