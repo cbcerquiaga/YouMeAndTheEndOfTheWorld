@@ -44,11 +44,8 @@ var ammoLeft = 6
 var ammoVal = str(ammoLeft)
 
 #player status variables
-var headHealth = 100
-var torsoHealth = 100
-var armHealth = 100
-var legHealth = 100
-var totalHealth = 100 #heavily weights head and torso health
+var headDamageMultiplier = 2
+var totalHealth = 100
 var bleedRate
 var stamina = 100 #the player's current stamina level
 var maxStamina = 100 #the maximum stamina the player can have with their current fitness
@@ -60,25 +57,6 @@ var maxHealth = 100
 
 func _ready():
 	#ready stuff
-	pass
-
-func calculateHealth():
-	if headHealth == 0: #if the head is gone, the player is dead
-		return 0
-	elif torsoHealth == 0: #if the torso is gone, the player is dead
-		return 0
-	else: #weight head and torso health more than limb health
-		var tempHealth = (headHealth + torsoHealth)*3 + (armHealth + legHealth)*2
-		tempHealth = tempHealth/10
-		if tempHealth < 100:
-			tempHealth = tempHealth - 5
-		if tempHealth < 75:
-			tempHealth = tempHealth - 5
-		if tempHealth < 50:
-			tempHealth = tempHealth - 5
-		if tempHealth < 25:
-			tempHealth = tempHealth - 5
-		return tempHealth
 	pass
 
 func _physics_process(delta):
@@ -158,8 +136,7 @@ func _physics_process(delta):
 			#TODO: damage more based on how long the button is charged
 	
 	if shoot and !isMouseNull:
-		print("bang bang " + ammoVal)
-		if ammoLeft > -100: #there is ammo to shoot
+		if ammoLeft > 0: #there is ammo to shoot
 			ammoLeft -= 1
 			ammoVal = str(ammoLeft)
 			#check coordinates, spawn a bullet
@@ -224,6 +201,12 @@ func create_bullet(position):
 	var truePosition = get_local_mouse_position()
 	truePosition.x += 15
 	truePosition.y += 15
+	#add spread based on bullet type
+	var spread = tempBullet.spread
+	var randSpread = int(rand_range(-spread,spread))
+	truePosition.x += randSpread
+	randSpread = int(rand_range(-spread,spread))
+	truePosition.y += randSpread
 	tempBullet.motion = truePosition.normalized()
 	self.get_parent().add_child(tempBullet)
 
