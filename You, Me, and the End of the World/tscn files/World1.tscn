@@ -20,9 +20,9 @@
 [ext_resource path="res://tscn files/CarInventory.tscn" type="PackedScene" id=18]
 [ext_resource path="res://tscn files/Inventory.tscn" type="PackedScene" id=19]
 [ext_resource path="res://tscn files/pause_popup.tscn" type="PackedScene" id=20]
-[ext_resource path="res://Speech.tscn" type="PackedScene" id=21]
+[ext_resource path="res://tscn files/Speech.tscn" type="PackedScene" id=21]
 
-[node name="Root" type="Control"]
+[node name="Root" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -219,7 +219,7 @@ margin_right = 1071.0
 margin_bottom = 732.0
 _sections_unfolded = [ "Anchor", "Margin", "Material", "Mouse", "Pause", "Popup", "Visibility" ]
 
-[node name="Speech1" parent="HUDControl" index="5" instance=ExtResource( 21 )]
+[node name="Speech" parent="HUDControl" index="5" instance=ExtResource( 21 )]
 
 visible = false
 
