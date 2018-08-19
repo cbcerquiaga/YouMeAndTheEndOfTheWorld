@@ -96,7 +96,7 @@ func _player2_Inventory_cooldown_reset():
 func _pause():
 	get_tree().paused = true
 	var pause_popup = get_node("/root/Root/HUDControl/pause_popup")
-	var transform = get_viewport_transform()
+	var transform = get_viewport()
 	pause_popup.show()
 
 #Handles showing/hiding player2's inventory and freezing the player
