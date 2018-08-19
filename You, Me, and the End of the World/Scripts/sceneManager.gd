@@ -4,7 +4,7 @@ extends Control
 var isp1Playing
 var isp2Playing
 var exploreMouse = load("res://Images/ExploreCursor.png")
-onready var camera = get_node("walls/playerTracking/Camera2D")
+onready var camera = get_node("walls/playerTracking/Camera")
 
 #Timers handle the popup cooldown, it is required to not spam
 var dropoutCoolDownPlayer1 = Timer.new()
