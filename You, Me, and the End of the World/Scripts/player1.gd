@@ -38,7 +38,7 @@ func _physics_process(delta):
 	if (isPlaying and !isFrozen):
 		if Input.is_action_pressed("p1_move_up"):
 			motion += Vector2(0, -1)
-		if Input.is_action_pressed("p1_move_bottom"):
+		if Input.is_action_pressed("p1_move_down"):
 			motion += Vector2(0, 1)
 		if Input.is_action_pressed("p1_move_left"):
 			motion += Vector2(-1, 0)

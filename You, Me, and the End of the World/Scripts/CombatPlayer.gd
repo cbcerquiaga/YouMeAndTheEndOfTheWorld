@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 # Member variables
 const GRAVITY = 500.0 # pixels/second/second
-const CROUCH_SPEED = Vector2(0,2.5) #TODO
+const CROUCH_GRAVITY = 120.0 #pixels/second/second
 const BULLET = preload("res://tscn files/Bullet.tscn")
 
 # Angle in degrees towards either side that the player can consider "floor"
@@ -27,7 +27,6 @@ var prev_jump_pressed = false
 
 #combat-affecting variables
 var isCrouched = false
-var isInAir = false
 var isGrappling = false #if the player and enemy are grappling,
 	#the player and enemy are stuck together with whoever has more
 	#strength having greater control over movement. In this situation,
@@ -157,18 +156,7 @@ func _physics_process(delta):
 			#TODO: play charge-up animation
 			#TODO: check to see if enemy is in range
 			#TODO: damage more based on how long the button is charged
-
-	if crouch:
-		print("crouch pressed")
-		if jumping:
-			print("cannonball!")
-			velocity.y += CROUCH_SPEED
-		else:
-			print("DUCK!")
-			stamina -= staminaRegen/2 #stamina regenerates at half speed
-			#TODO: play crouch animation
-			#TODO: reduce hitbox size
-
+	
 	if shoot and !isMouseNull:
 		print("bang bang " + ammoVal)
 		if ammoLeft > -100: #there is ammo to shoot
@@ -197,6 +185,15 @@ func _physics_process(delta):
 
 	if is_on_floor():
 		on_air_time = 0
+		if crouch:
+			print("DUCK!")
+			stamina -= staminaRegen/2 #stamina regenerates at half speed
+			#TODO: play crouch animation
+			#TODO: reduce hitbox size
+	else:
+		if crouch:
+			print("cannonball!")
+			velocity.y += CROUCH_GRAVITY
 
 	if jumping and velocity.y > 0:
 		# If falling, no longer jumping
