@@ -4,6 +4,7 @@ extends Control
 var isp1Playing
 var isp2Playing
 var exploreMouse = load("res://Images/ExploreCursor.png")
+onready var camera = get_node("walls/playerTracking/Camera2D")
 
 #Timers handle the popup cooldown, it is required to not spam
 var dropoutCoolDownPlayer1 = Timer.new()
@@ -23,6 +24,7 @@ onready var screensize = Vector2(get_viewport().size.x, get_viewport().size.y)
 
 
 func _ready():
+	camera.make_current()
 	isp1Playing = true
 	isp2Playing = true
 	Input.set_custom_mouse_cursor(exploreMouse)
@@ -44,7 +46,7 @@ func _ready():
 
 
 	#Handling Camera
-	update_camera()
+#	update_camera()
 
 #Function to start the timer at 1 seconds
 func _start_timer1():
@@ -97,16 +99,14 @@ func _pause():
 	get_tree().paused = true
 	var pause_popup = get_node("/root/Root/HUDControl/pause_popup")
 	#CanvasItem * (CanvasLayer+GlobalCanvas+Stretch) * position
-	var transform = get_global_transform() * (get_viewport_transform() * (((player1.position + player2.position)/(2))  - (screensize/(2))))
-#	print(transform)
-	pause_popup.set_position(transform)
+	pause_popup.set_position(camera.get_camera_screen_center() - (screensize/2))
 	pause_popup.show()
 
 #Handles showing/hiding player2's inventory and freezing the player
 func _inventory1():
 	#TODO: adjust position to the right half of the screen if both players are active, or put in the middle if only one is
 	var inventoryScreenP1 = get_node("/root/Root/HUDControl/InventoryScreenP1")
-	inventoryScreenP1.set_position(Vector2(200,0))
+	inventoryScreenP1.set_position(camera.get_camera_screen_center() - Vector2(screensize.x/1.6, 0) - Vector2(0, screensize.y/4))
 	if(!player1.isFrozen):
 		inventoryScreenP1.show()
 	else:
@@ -117,7 +117,7 @@ func _inventory1():
 func _inventory2():
 	#TODO: adjust position to the right half of the screen if both p
 	var inventoryScreenP2 = get_node("/root/Root/HUDControl/InventoryScreenP2")
-	inventoryScreenP2.set_position(Vector2(0,0))
+	inventoryScreenP2.set_position(camera.get_camera_screen_center() + Vector2(screensize.x/25, 0) - Vector2(0, screensize.y/4)) 
 	if(!player2.isFrozen):
 		inventoryScreenP2.show()
 	else:
@@ -164,12 +164,12 @@ func _process(delta):
 	pass
 
 #function called whenever the camera should be adjusted
-func update_camera():
-#	#Get the current canvas transform
-	var canvas_transform = get_viewport().get_canvas_transform()
-
-#	#Update the canvas with the center of the two players being the center of the viewport
-	canvas_transform[2] = (-(player1.global_position + player2.global_position)/(2) + (screensize/(2)))
-
-	#Applies the transform
-	get_viewport().set_canvas_transform(canvas_transform)
+#func update_camera():
+##	#Get the current canvas transform
+#	var canvas_transform = get_viewport().get_canvas_transform()
+#
+##	#Update the canvas with the center of the two players being the center of the viewport
+#	canvas_transform[2] = (-(player1.global_position + player2.global_position)/(2) + (screensize/(2)))
+#
+#	#Applies the transform
+#	get_viewport().set_canvas_transform(canvas_transform)

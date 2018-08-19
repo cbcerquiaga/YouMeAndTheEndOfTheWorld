@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scripts/sceneManager.gd" type="Script" id=1]
 [ext_resource path="res://tscn files/Item_popup.tscn" type="PackedScene" id=2]
@@ -9,17 +9,18 @@
 [ext_resource path="res://tscn files/Car.tscn" type="PackedScene" id=7]
 [ext_resource path="res://tscn files/player1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://tscn files/player2.tscn" type="PackedScene" id=9]
-[ext_resource path="res://tscn files/NPC.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scripts/NPC.gd" type="Script" id=11]
-[ext_resource path="res://tscn files/Piano.tscn" type="PackedScene" id=12]
-[ext_resource path="res://tscn files/DollHead.tscn" type="PackedScene" id=13]
-[ext_resource path="res://tscn files/LightSaber.tscn" type="PackedScene" id=14]
-[ext_resource path="res://tscn files/coins.tscn" type="PackedScene" id=15]
-[ext_resource path="res://tscn files/Gut.tscn" type="PackedScene" id=16]
-[ext_resource path="res://tscn files/HUD.tscn" type="PackedScene" id=17]
-[ext_resource path="res://tscn files/CarInventory.tscn" type="PackedScene" id=18]
-[ext_resource path="res://tscn files/Inventory.tscn" type="PackedScene" id=19]
-[ext_resource path="res://tscn files/pause_popup.tscn" type="PackedScene" id=20]
+[ext_resource path="res://tscn files/playerTracking.tscn" type="PackedScene" id=10]
+[ext_resource path="res://tscn files/NPC.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scripts/NPC.gd" type="Script" id=12]
+[ext_resource path="res://tscn files/Piano.tscn" type="PackedScene" id=13]
+[ext_resource path="res://tscn files/DollHead.tscn" type="PackedScene" id=14]
+[ext_resource path="res://tscn files/LightSaber.tscn" type="PackedScene" id=15]
+[ext_resource path="res://tscn files/coins.tscn" type="PackedScene" id=16]
+[ext_resource path="res://tscn files/Gut.tscn" type="PackedScene" id=17]
+[ext_resource path="res://tscn files/HUD.tscn" type="PackedScene" id=18]
+[ext_resource path="res://tscn files/CarInventory.tscn" type="PackedScene" id=19]
+[ext_resource path="res://tscn files/Inventory.tscn" type="PackedScene" id=20]
+[ext_resource path="res://tscn files/pause_popup.tscn" type="PackedScene" id=21]
 
 [node name="Root" type="Control" index="0"]
 
@@ -89,7 +90,6 @@ __meta__ = {
 
 [node name="walls" type="TileMap" parent="." index="3"]
 
-editor/display_folded = true
 position = Vector2( -61.8035, -39.091 )
 mode = 1
 tile_set = ExtResource( 4 )
@@ -142,30 +142,34 @@ _sections_unfolded = [ "Collision", "collision" ]
 
 _sections_unfolded = [ "Collision", "Pause", "collision" ]
 
-[node name="NPC" parent="walls" index="7" instance=ExtResource( 10 )]
+[node name="playerTracking" parent="walls" index="7" instance=ExtResource( 10 )]
+
+visible = false
+
+[node name="NPC" parent="walls" index="8" instance=ExtResource( 11 )]
 
 position = Vector2( -122.425, -298.176 )
-script = ExtResource( 11 )
+script = ExtResource( 12 )
 
-[node name="Piano" parent="walls" index="8" instance=ExtResource( 12 )]
+[node name="Piano" parent="walls" index="9" instance=ExtResource( 13 )]
 
-[node name="Piano2" parent="walls" index="9" instance=ExtResource( 12 )]
+[node name="Piano2" parent="walls" index="10" instance=ExtResource( 13 )]
 
 position = Vector2( 119.866, -30.1142 )
 
-[node name="DollHead" parent="walls" index="10" instance=ExtResource( 13 )]
+[node name="DollHead" parent="walls" index="11" instance=ExtResource( 14 )]
 
 position = Vector2( 315.989, 257.372 )
 
-[node name="LightSaber" parent="walls" index="11" instance=ExtResource( 14 )]
+[node name="LightSaber" parent="walls" index="12" instance=ExtResource( 15 )]
 
 position = Vector2( 326.471, 203.025 )
 
-[node name="coins" parent="walls" index="12" instance=ExtResource( 15 )]
+[node name="coins" parent="walls" index="13" instance=ExtResource( 16 )]
 
 position = Vector2( 387.029, 231.751 )
 
-[node name="Gut" parent="." index="4" instance=ExtResource( 16 )]
+[node name="Gut" parent="." index="4" instance=ExtResource( 17 )]
 
 [node name="HUDControl" type="Control" parent="." index="5"]
 
@@ -182,13 +186,13 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="HUD" parent="HUDControl" index="0" instance=ExtResource( 17 )]
+[node name="HUD" parent="HUDControl" index="0" instance=ExtResource( 18 )]
 
-[node name="CarInventory" parent="HUDControl" index="1" instance=ExtResource( 18 )]
+[node name="CarInventory" parent="HUDControl" index="1" instance=ExtResource( 19 )]
 
 visible = false
 
-[node name="InventoryScreenP2" parent="HUDControl" index="2" instance=ExtResource( 19 )]
+[node name="InventoryScreenP2" parent="HUDControl" index="2" instance=ExtResource( 20 )]
 
 visible = false
 margin_left = -294.0
@@ -198,7 +202,7 @@ margin_bottom = 127.0
 rect_scale = Vector2( 0.6, 0.6 )
 _sections_unfolded = [ "Rect" ]
 
-[node name="InventoryScreenP1" parent="HUDControl" index="3" instance=ExtResource( 19 )]
+[node name="InventoryScreenP1" parent="HUDControl" index="3" instance=ExtResource( 20 )]
 
 visible = false
 anchor_right = 1.0
@@ -209,7 +213,7 @@ margin_bottom = 127.0
 rect_scale = Vector2( 0.6, 0.6 )
 _sections_unfolded = [ "Anchor", "Margin" ]
 
-[node name="pause_popup" parent="HUDControl" index="4" instance=ExtResource( 20 )]
+[node name="pause_popup" parent="HUDControl" index="4" instance=ExtResource( 21 )]
 
 visible = false
 margin_left = 185.0
@@ -217,9 +221,5 @@ margin_top = 286.0
 margin_right = 1071.0
 margin_bottom = 732.0
 _sections_unfolded = [ "Anchor", "Margin", "Material", "Mouse", "Pause", "Popup", "Visibility" ]
-
-[connection signal="move" from="walls/player1" to="." method="update_camera"]
-
-[connection signal="move" from="walls/player2" to="." method="update_camera"]
 
 
