@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scripts/sceneManager.gd" type="Script" id=1]
 [ext_resource path="res://tscn files/Item_popup.tscn" type="PackedScene" id=2]
@@ -20,8 +20,9 @@
 [ext_resource path="res://tscn files/CarInventory.tscn" type="PackedScene" id=18]
 [ext_resource path="res://tscn files/Inventory.tscn" type="PackedScene" id=19]
 [ext_resource path="res://tscn files/pause_popup.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Speech.tscn" type="PackedScene" id=21]
 
-[node name="Root" type="Control" index="0"]
+[node name="Root" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -217,6 +218,10 @@ margin_top = 286.0
 margin_right = 1071.0
 margin_bottom = 732.0
 _sections_unfolded = [ "Anchor", "Margin", "Material", "Mouse", "Pause", "Popup", "Visibility" ]
+
+[node name="Speech1" parent="HUDControl" index="5" instance=ExtResource( 21 )]
+
+visible = false
 
 [connection signal="move" from="walls/player1" to="." method="update_camera"]
 
