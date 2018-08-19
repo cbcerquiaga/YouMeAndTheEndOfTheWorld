@@ -31,10 +31,7 @@ var spite = 0 #from 0 to 3, affects how much the enemy maims a player that surre
 var runStopVal = .5 #TODO: figure out how different enemy stats impact run away chances
 	
 #status variables
-var headHealth = 100
-var torsoHealth = 100
-var armHealth = 100
-var legHealth = 100
+var headDamageMultiplier = 2
 var totalHealth = 100 #heavily weights head and torso health
 var bleedRate
 var stamina = 100 #the player's current stamina level
@@ -63,25 +60,6 @@ func _ready():
 #	if motion.y < -JUMP_CUT_VAL:
 #		 motion.y = -JUMP_CUT_VAL
 #	return motion
-
-func calculateHealth():
-	if headHealth <= 0: #if the head is gone, the player is dead
-		return 0
-	elif torsoHealth <= 0: #if the torso is gone, the player is dead
-		return 0
-	else: #weight head and torso health more than limb health
-		var tempHealth = (headHealth + torsoHealth)*3 + (armHealth + legHealth)*2
-		tempHealth = tempHealth/10
-		if tempHealth < 100:
-			tempHealth = tempHealth - 5
-		if tempHealth < 75:
-			tempHealth = tempHealth - 5
-		if tempHealth < 50:
-			tempHealth = tempHealth - 5
-		if tempHealth < 25:
-			tempHealth = tempHealth - 5
-		return tempHealth
-	pass
 
 func _physics_process(delta):
 #	var motion = Vector2(0,0)
@@ -178,16 +156,13 @@ func _physics_process(delta):
 	#apply movement and gravity
 	motion.y += GRAVITY
 	self.move_and_collide(motion)
-
 	pass
 
 
 
 func _on_Bullet_hit(body, damage):
 	if(body == "torso"):
-		torsoHealth = torsoHealth - damage
+		totalHealth = totalHealth - damage
 	elif(body == "head"):
-		print("Headshot")
-		headHealth = (headHealth - (damage*2))
-	totalHealth = calculateHealth()
-	pass # replace with function body
+		totalHealth = (totalHealth - (damage*headDamageMultiplier))
+	pass
