@@ -20,7 +20,7 @@
 [ext_resource path="res://Images/myTiles.tres" type="TileSet" id=18]
 [ext_resource path="res://tscn files/CombatPlayer.tscn" type="PackedScene" id=19]
 [ext_resource path="res://tscn files/Bullet.tscn" type="PackedScene" id=20]
-[ext_resource path="res://tscn files/CombatEnemy.tscn" type="PackedScene" id=21]
+[ext_resource path="res://tscn files/Raider.tscn" type="PackedScene" id=21]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -56,6 +56,7 @@ margin_bottom = 539.0
 
 [node name="CombatHUD" type="CanvasLayer" parent="." index="1"]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -484,7 +485,7 @@ position = Vector2( 337.906, 509.419 )
 
 [node name="Enemy" parent="TileMap" index="2" instance=ExtResource( 21 )]
 
-position = Vector2( 532.556, 510.357 )
+position = Vector2( 708.474, 508.518 )
 
 [node name="Inside" type="StaticBody2D" parent="." index="4"]
 
