@@ -6,7 +6,7 @@ extends KinematicBody2D
 
 onready var player1 = get_node("/root/Root/walls/player1")
 onready var player2 = get_node("/root/Root/walls/player2")
-var screensize = Vector2(800, 600)
+var screensize
 var zoomOutThreshold = 600
 var zoomOutMax = 1.5
 
@@ -19,6 +19,7 @@ func _ready():
 func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
+	screensize = get_viewport().get_visible_rect().size
 	var distance = (player1.position - player2.position)
 	var distanceInInt = distance.length()
 	print(distanceInInt)
@@ -29,5 +30,5 @@ func _process(delta):
 		$Camera.zoom = Vector2(zoomOutFactor, zoomOutFactor)
 	else:
 		$Camera.zoom = Vector2(1,1)
-	self.position = ((player1.position + player2.position)/(2))# + (screensize/(2)))
+	self.position = ((player1.position + player2.position)/(2))
 	pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scripts/sceneManager.gd" type="Script" id=1]
 [ext_resource path="res://tscn files/Item_popup.tscn" type="PackedScene" id=2]
@@ -17,12 +17,9 @@
 [ext_resource path="res://tscn files/LightSaber.tscn" type="PackedScene" id=15]
 [ext_resource path="res://tscn files/coins.tscn" type="PackedScene" id=16]
 [ext_resource path="res://tscn files/Gut.tscn" type="PackedScene" id=17]
-[ext_resource path="res://tscn files/HUD.tscn" type="PackedScene" id=18]
-[ext_resource path="res://tscn files/CarInventory.tscn" type="PackedScene" id=19]
-[ext_resource path="res://tscn files/Inventory.tscn" type="PackedScene" id=20]
-[ext_resource path="res://tscn files/pause_popup.tscn" type="PackedScene" id=21]
+[ext_resource path="res://tscn files/HUDControl.tscn" type="PackedScene" id=18]
 
-[node name="Root" type="Control"]
+[node name="Root" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -90,6 +87,7 @@ __meta__ = {
 
 [node name="walls" type="TileMap" parent="." index="3"]
 
+editor/display_folded = true
 position = Vector2( -61.8035, -39.091 )
 mode = 1
 tile_set = ExtResource( 4 )
@@ -171,55 +169,6 @@ position = Vector2( 387.029, 231.751 )
 
 [node name="Gut" parent="." index="4" instance=ExtResource( 17 )]
 
-[node name="HUDControl" type="Control" parent="." index="5"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 40.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-
-[node name="HUD" parent="HUDControl" index="0" instance=ExtResource( 18 )]
-
-[node name="CarInventory" parent="HUDControl" index="1" instance=ExtResource( 19 )]
-
-visible = false
-
-[node name="InventoryScreenP2" parent="HUDControl" index="2" instance=ExtResource( 20 )]
-
-visible = false
-margin_left = -294.0
-margin_top = 127.0
-margin_right = -294.0
-margin_bottom = 127.0
-rect_scale = Vector2( 0.6, 0.6 )
-_sections_unfolded = [ "Rect" ]
-
-[node name="InventoryScreenP1" parent="HUDControl" index="3" instance=ExtResource( 20 )]
-
-visible = false
-anchor_right = 1.0
-margin_left = -294.0
-margin_top = 127.0
-margin_right = 442.0
-margin_bottom = 127.0
-rect_scale = Vector2( 0.6, 0.6 )
-_sections_unfolded = [ "Anchor", "Margin" ]
-
-[node name="pause_popup" parent="HUDControl" index="4" instance=ExtResource( 21 )]
-
-visible = false
-margin_left = 185.0
-margin_top = 286.0
-margin_right = 1071.0
-margin_bottom = 732.0
-_sections_unfolded = [ "Anchor", "Margin", "Material", "Mouse", "Pause", "Popup", "Visibility" ]
+[node name="HUDControl" parent="." index="5" instance=ExtResource( 18 )]
 
 
