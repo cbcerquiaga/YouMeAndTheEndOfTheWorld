@@ -108,6 +108,9 @@ func mapButtonPressed():
 	tabIndex = 5
 	#TODO: change text in inventory section
 
+func setBasicText():
+	get_node("Basic Info").currentTab = currentTab
+
 func _process(delta):
 	#TODO: add actual functionality to keybinds
 	currentTab = tabs[tabIndex]
@@ -143,4 +146,5 @@ func _process(delta):
 			mapButtonPressed()
 		else: #currentTab == "map"
 			questButtonPressed()
+	setBasicText()
 	pass
