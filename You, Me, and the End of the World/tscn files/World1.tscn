@@ -19,7 +19,7 @@
 [ext_resource path="res://tscn files/Gut.tscn" type="PackedScene" id=17]
 [ext_resource path="res://tscn files/HUDControl.tscn" type="PackedScene" id=18]
 
-[node name="Root" type="Control" index="0"]
+[node name="Root" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -87,7 +87,6 @@ __meta__ = {
 
 [node name="walls" type="TileMap" parent="." index="3"]
 
-editor/display_folded = true
 position = Vector2( -61.8035, -39.091 )
 mode = 1
 tile_set = ExtResource( 4 )
@@ -141,8 +140,6 @@ _sections_unfolded = [ "Collision", "collision" ]
 _sections_unfolded = [ "Collision", "Pause", "collision" ]
 
 [node name="playerTracking" parent="walls" index="7" instance=ExtResource( 10 )]
-
-visible = false
 
 [node name="NPC" parent="walls" index="8" instance=ExtResource( 11 )]
 

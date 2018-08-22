@@ -11,6 +11,7 @@ var maxCarry = 200
 onready var otherPlayer = get_node("../player2")
 signal move
 var isFrozen = false
+onready var camera = get_node("../playerTracking/Camera")
 
 #Called when the player is entered into the scene
 func _ready():
@@ -33,6 +34,7 @@ func _on_invTimer_timeout():
 func _physics_process(delta):
 	#to set icon frame, use this line:
 	#get_node("/root/dungeon/HUD/P1A1 Icon")._setFrame(1)
+#	var player1InCamera = camera.get_viewport_rect().encloses(self.get_viewport_rect())
 	var motion = Vector2()
 	var isPlaying = get_node("/root/Root").get("isp1Playing")
 	if (isPlaying and !isFrozen):
