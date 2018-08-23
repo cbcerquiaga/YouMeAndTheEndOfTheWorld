@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Scripts/InventoryScreen.gd" type="Script" id=1]
 [ext_resource path="res://Images/inventoryStatusBox.png" type="Texture" id=2]
@@ -20,7 +20,9 @@
 [ext_resource path="res://Images/miscTab.png" type="Texture" id=18]
 [ext_resource path="res://Images/mapTab.png" type="Texture" id=19]
 [ext_resource path="res://Images/inventoryMain.png" type="Texture" id=20]
-[ext_resource path="res://Scripts/Inventory Basic Info.gd" type="Script" id=21]
+[ext_resource path="res://tscn files/InventorySegment.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Images/itemHighlight.png" type="Texture" id=22]
+[ext_resource path="res://Scripts/Inventory Basic Info.gd" type="Script" id=23]
 
 [node name="InventoryScreen" type="Popup" index="0"]
 
@@ -254,6 +256,7 @@ _sections_unfolded = [ "Textures" ]
 
 [node name="Info Box" type="HBoxContainer" parent="." index="1"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -386,6 +389,7 @@ __meta__ = {
 
 [node name="Tabs" type="Control" parent="." index="2"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -608,6 +612,95 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Segment 1" parent="Inventory Main" index="0" instance=ExtResource( 21 )]
+
+margin_top = -150.0
+margin_bottom = -110.0
+
+[node name="Segment 2" parent="Inventory Main" index="1" instance=ExtResource( 21 )]
+
+margin_top = -127.0
+margin_bottom = -87.0
+
+[node name="Segment 3" parent="Inventory Main" index="2" instance=ExtResource( 21 )]
+
+margin_top = -127.0
+margin_bottom = -87.0
+
+[node name="Segment 4" parent="Inventory Main" index="3" instance=ExtResource( 21 )]
+
+margin_top = -127.0
+margin_bottom = -87.0
+
+[node name="Segment 5" parent="Inventory Main" index="4" instance=ExtResource( 21 )]
+
+margin_top = -127.0
+margin_bottom = -87.0
+
+[node name="Segment 6" parent="Inventory Main" index="5" instance=ExtResource( 21 )]
+
+margin_top = -127.0
+margin_bottom = -87.0
+
+[node name="Segment 7" parent="Inventory Main" index="6" instance=ExtResource( 21 )]
+
+margin_top = -127.0
+margin_bottom = -87.0
+
+[node name="Segment 8" parent="Inventory Main" index="7" instance=ExtResource( 21 )]
+
+margin_top = -127.0
+margin_bottom = -87.0
+
+[node name="Segment 9" parent="Inventory Main" index="8" instance=ExtResource( 21 )]
+
+margin_top = -127.0
+margin_bottom = -87.0
+
+[node name="Segment 10" parent="Inventory Main" index="9" instance=ExtResource( 21 )]
+
+margin_top = -127.0
+margin_bottom = -87.0
+
+[node name="Segment 11" parent="Inventory Main" index="10" instance=ExtResource( 21 )]
+
+margin_top = -127.0
+margin_bottom = -87.0
+
+[node name="Segment 12" parent="Inventory Main" index="11" instance=ExtResource( 21 )]
+
+margin_top = -127.0
+margin_bottom = -87.0
+
+[node name="Segment 13" parent="Inventory Main" index="12" instance=ExtResource( 21 )]
+
+margin_top = -127.0
+margin_bottom = -87.0
+
+[node name="Segment 14" parent="Inventory Main" index="13" instance=ExtResource( 21 )]
+
+margin_top = -127.0
+margin_bottom = -87.0
+
+[node name="ItemHighlight" type="Control" parent="Inventory Main" index="14"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="Sprite" type="Sprite" parent="Inventory Main/ItemHighlight" index="0"]
+
+texture = ExtResource( 22 )
+
 [node name="Basic Info" type="RichTextLabel" parent="." index="4"]
 
 anchor_left = 0.0
@@ -615,9 +708,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 334.0
-margin_top = 304.0
+margin_top = 310.0
 margin_right = 666.0
-margin_bottom = 324.0
+margin_bottom = 330.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
@@ -635,9 +728,7 @@ scroll_active = true
 scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
-script = ExtResource( 21 )
+script = ExtResource( 23 )
 _sections_unfolded = [ "Rect" ]
-
-[node name="Inventory Box" type="Node" parent="." index="5"]
 
 
