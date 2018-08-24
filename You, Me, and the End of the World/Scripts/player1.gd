@@ -54,7 +54,7 @@ func _physics_process(delta):
 			emit_signal("move")
 			if get_slide_count() > 0:
 				var right = Vector2(-distance.y, distance.x)
-				print("moving right")
+				#print("moving right")
 				move_and_slide(right)
 			else:
 				move_and_slide(distance)

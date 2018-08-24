@@ -129,9 +129,31 @@ func scrollUp():
 func highlightUp():
 	#move the highlight
 	if currentItem == 1:
-		itemHighlight.setPosition(Vector2(0,0))
+		itemHighlight.set_position(Vector2(0,-150))
 	elif currentItem == 2:
-		itemHighlight.setPosition(Vector2(0,25))
+		itemHighlight.set_position(Vector2(0,-125))
+	elif currentItem == 3:
+		itemHighlight.set_position(Vector2(0,-100))
+	elif currentItem == 4:
+		itemHighlight.set_position(Vector2(0,-75))
+	elif currentItem == 5:
+		itemHighlight.set_position(Vector2(0,-50))
+	elif currentItem == 6:
+		itemHighlight.set_position(Vector2(0,-25))
+	elif currentItem == 7:
+		itemHighlight.set_position(Vector2(0,0))
+	elif currentItem == 8:
+		itemHighlight.set_position(Vector2(0,25))
+	elif currentItem == 9:
+		itemHighlight.set_position(Vector2(0,50))
+	elif currentItem == 10:
+		itemHighlight.set_position(Vector2(0,75))
+	elif currentItem == 11:
+		itemHighlight.set_position(Vector2(0,100))
+	elif currentItem == 12:
+		itemHighlight.set_position(Vector2(0,125))
+	elif currentItem == 13:
+		itemHighlight.set_position(Vector2(0,150))
 	
 #scroll all of the items down
 func scrollDown():
@@ -142,29 +164,53 @@ func scrollDown():
 #move the item highlight down
 func highlightDown():
 	if currentItem == 0:
-		itemHighlight.setPosition(Vector2(0,25))
+		itemHighlight.set_position(Vector2(0,-125))
+	elif currentItem == 1:
+		itemHighlight.set_position(Vector2(0,-100))
 	elif currentItem == 2:
-		itemHighlight.setPosition(Vector2(0,50))
+		itemHighlight.set_position(Vector2(0,-75))
+	elif currentItem == 3:
+		itemHighlight.set_position(Vector2(0,-50))
+	elif currentItem == 4:
+		itemHighlight.set_position(Vector2(0,-25))
+	elif currentItem == 5:
+		itemHighlight.set_position(Vector2(0,0))
+	elif currentItem == 6:
+		itemHighlight.set_position(Vector2(0,25))
+	elif currentItem == 7:
+		itemHighlight.set_position(Vector2(0,50))
+	elif currentItem == 8:
+		itemHighlight.set_position(Vector2(0,75))
+	elif currentItem == 9:
+		itemHighlight.set_position(Vector2(0,100))
+	elif currentItem == 10:
+		itemHighlight.set_position(Vector2(0,125))
+	elif currentItem == 11:
+		itemHighlight.set_position(Vector2(0,150))
+	elif currentItem == 12:
+		itemHighlight.set_position(Vector2(0,175))
 
 func _process(delta):
 	#TODO: add actual functionality to keybinds
 	currentTab = tabs[tabIndex]
 	if Input.is_action_just_pressed("p1_move_up"):
 		if currentItem > 0: #not already the top
-			print("CurrentItem: " + str(currentItem))
+			print("CurrentItem before press: " + str(currentItem))
 			if currentItem == topItem: #need to scroll up
 				topItem = topItem - 1
 				scrollUp()
 			currentItem = currentItem - 1
 			highlightUp()
+			print("Current item after press: " + str(currentItem))
 	if Input.is_action_just_pressed("p1_move_down"):
 		if currentItem < 14: #not already the bottom
-			print("CurrentItem: " + str(currentItem))
+			print("CurrentItem before press: " + str(currentItem))
 			if currentItem == (topItem - 13): #need to scroll down
 				topItem = topItem + 1
 				scrollDown()
 			currentItem = currentItem + 1
 			highlightDown()
+			print("Current item after press: " + str(currentItem))
 	if Input.is_action_just_pressed("p1_move_left"):
 		#print("Tab over left")
 		if currentTab == "quests":

@@ -22,7 +22,7 @@ func _process(delta):
 	screensize = get_viewport().get_visible_rect().size
 	var distance = (player1.position - player2.position)
 	var distanceInInt = distance.length()
-	print(distanceInInt)
+	#print(distanceInInt)
 	if(distanceInInt > zoomOutThreshold):
 		var zoomOutFactor = ((distanceInInt - zoomOutThreshold)/100) + 1
 		if(zoomOutFactor > zoomOutMax):
