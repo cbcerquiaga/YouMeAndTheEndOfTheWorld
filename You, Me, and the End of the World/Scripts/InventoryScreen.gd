@@ -20,9 +20,24 @@ onready var consumableButton = get_node("Tabs/consumableButton")
 onready var equippableButton = get_node("Tabs/equippableButton")
 onready var miscButton = get_node("Tabs/miscButton")
 onready var mapButton = get_node("Tabs/mapButton")
+onready var segment0 = get_node("Inventory Main/Segment0")
+onready var segment1 = get_node("Inventory Main/Segment1")
+onready var segment2 = get_node("Inventory Main/Segment2")
+onready var segment3 = get_node("Inventory Main/Segment3")
+onready var segment4 = get_node("Inventory Main/Segment4")
+onready var segment5 = get_node("Inventory Main/Segment5")
+onready var segment6 = get_node("Inventory Main/Segment6")
+onready var segment7 = get_node("Inventory Main/Segment7")
+onready var segment8 = get_node("Inventory Main/Segment8")
+onready var segment9 = get_node("Inventory Main/Segment9")
+onready var segment10 = get_node("Inventory Main/Segment10")
+onready var segment11 = get_node("Inventory Main/Segment11")
+onready var segment12 = get_node("Inventory Main/Segment12")
+onready var segment13 = get_node("Inventory Main/Segment13")
 
 func _ready():
 	#self.queue_free()
+	alternateSegmentFrames()
 	justOpened = true
 	currentFrame = 0
 	currentItem = 0
@@ -44,6 +59,32 @@ func _ready():
 	mapButton.connect("pressed",self,"mapButtonPressed")
 	#segment0.connect("pressed",self,"segment0Pressed")
 	pass
+
+#initializes the segment frames so that they alternate in color
+func alternateSegmentFrames():
+	segment1.switchIcon()
+	segment3.switchIcon()
+	segment5.switchIcon()
+	segment7.switchIcon()
+	segment9.switchIcon()
+	segment11.switchIcon()
+	segment13.switchIcon()
+	
+func switchAllSegmentFrames():
+	segment0.switchIcon()
+	segment1.switchIcon()
+	segment2.switchIcon()
+	segment3.switchIcon()
+	segment4.switchIcon()
+	segment5.switchIcon()
+	segment6.switchIcon()
+	segment7.switchIcon()
+	segment8.switchIcon()
+	segment9.switchIcon()
+	segment10.switchIcon()
+	segment11.switchIcon()
+	segment12.switchIcon()
+	segment13.switchIcon()
 
 func leftButtonPressed():
 	# <- 0 <- 1 <- 2 <- 0

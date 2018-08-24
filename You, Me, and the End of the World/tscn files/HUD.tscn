@@ -18,13 +18,13 @@
 [ext_resource path="res://Images/flippedCarryBar.png" type="Texture" id=16]
 [ext_resource path="res://Scripts/P2Carry.gd" type="Script" id=17]
 
-[node name="HUD" type="CanvasLayer"]
+[node name="HUD" type="CanvasLayer" index="0"]
 
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
-scale = Vector2( 1, 1 )
-transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+scale = Vector2( 0.9, 0.9 )
+transform = Transform2D( 0.9, 0, 0, 0.9, 0, 0 )
 
 [node name="HUD Skeleton" type="Sprite" parent="." index="0"]
 
@@ -51,26 +51,27 @@ _sections_unfolded = [ "Animation", "Z Index" ]
 
 [node name="Flipped HUD Skeleton" type="Sprite" parent="." index="3"]
 
-position = Vector2( 831.4, 134 )
+position = Vector2( 1231.4, 134 )
 texture = ExtResource( 5 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="P2A1 Icon" type="Sprite" parent="." index="4"]
 
-position = Vector2( 762.4, 82 )
+position = Vector2( 1162.4, 82 )
 z_index = -3
 texture = ExtResource( 2 )
 hframes = 10
 script = ExtResource( 3 )
-_sections_unfolded = [ "Z Index" ]
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="P2A2 Icon" type="Sprite" parent="." index="5"]
 
-position = Vector2( 843.4, 82 )
+position = Vector2( 1243.4, 82 )
 z_index = -13
 texture = ExtResource( 4 )
 hframes = 10
 script = ExtResource( 3 )
-_sections_unfolded = [ "Animation", "Z Index" ]
+_sections_unfolded = [ "Animation", "Transform", "Z Index" ]
 
 [node name="P1Health" type="TextureProgress" parent="." index="6"]
 
@@ -110,9 +111,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 670.0
+margin_left = 1070.0
 margin_top = 17.0
-margin_right = 905.0
+margin_right = 1305.0
 margin_bottom = 57.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -135,7 +136,7 @@ radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
 script = ExtResource( 9 )
-_sections_unfolded = [ "Textures" ]
+_sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="P1EXP" type="TextureProgress" parent="." index="8"]
 
@@ -175,9 +176,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 673.0
+margin_left = 1073.0
 margin_top = 27.0
-margin_right = 896.0
+margin_right = 1296.0
 margin_bottom = 67.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -200,7 +201,7 @@ radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
 script = ExtResource( 13 )
-_sections_unfolded = [ "Textures" ]
+_sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="P1Carry" type="TextureProgress" parent="." index="10"]
 
@@ -240,9 +241,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 676.0
+margin_left = 1076.0
 margin_top = 37.0
-margin_right = 891.0
+margin_right = 1291.0
 margin_bottom = 77.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -265,6 +266,6 @@ radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
 script = ExtResource( 17 )
-_sections_unfolded = [ "Textures" ]
+_sections_unfolded = [ "Rect", "Textures" ]
 
 
