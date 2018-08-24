@@ -44,7 +44,6 @@ __meta__ = {
 
 [node name="Status Box" type="Sprite" parent="." index="0"]
 
-editor/display_folded = true
 position = Vector2( 501.42, 57.0558 )
 texture = ExtResource( 2 )
 __meta__ = {
@@ -181,9 +180,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -39.0
+margin_left = -38.0
 margin_top = -36.0
-margin_right = 39.0
+margin_right = 40.0
 margin_bottom = 35.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -206,10 +205,7 @@ radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
 script = ExtResource( 9 )
-_sections_unfolded = [ "Textures" ]
-__meta__ = {
-"_edit_lock_": true
-}
+_sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="Right Icon" type="Sprite" parent="Status Box" index="6"]
 
@@ -606,6 +602,7 @@ __meta__ = {
 
 [node name="Inventory Main" type="Sprite" parent="." index="3"]
 
+editor/display_folded = true
 position = Vector2( 500, 495 )
 texture = ExtResource( 20 )
 __meta__ = {

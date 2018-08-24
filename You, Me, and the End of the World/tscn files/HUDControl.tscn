@@ -33,7 +33,6 @@ margin_left = -294.0
 margin_top = 127.0
 margin_right = -294.0
 margin_bottom = 127.0
-rect_scale = Vector2( 0.6, 0.6 )
 _sections_unfolded = [ "Rect" ]
 
 [node name="InventoryScreenP1" parent="." index="3" instance=ExtResource( 3 )]
@@ -44,8 +43,7 @@ margin_left = -294.0
 margin_top = 127.0
 margin_right = 442.0
 margin_bottom = 127.0
-rect_scale = Vector2( 0.6, 0.6 )
-_sections_unfolded = [ "Anchor", "Margin" ]
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
 [node name="pause_popup" parent="." index="4" instance=ExtResource( 4 )]
 

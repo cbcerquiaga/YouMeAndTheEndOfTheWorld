@@ -5,7 +5,10 @@ var L
 var C
 var R
 var highlight
+var itemHighlight
 var currentFrame
+var currentItem
+var topItem
 var currentTab #stores text for current tab to make it easier to code other nodes
 onready var tabIndex = 0
 onready var tabs = ["quests","weapons","equippable","consumable","misc","map"]
@@ -22,11 +25,14 @@ func _ready():
 	#self.queue_free()
 	justOpened = true
 	currentFrame = 0
+	currentItem = 0
+	topItem = 0
 	currentTab = tabs[tabIndex]
 	L = get_node("Status Box/Left Icon")
 	C = get_node("Status Box/Center Icon")
 	R = get_node("Status Box/Right Icon")
 	highlight = get_node("Tabs/Highlight")
+	itemHighlight = get_node("Inventory Main/ItemHighlight")
 #	print("Highlight position: " + str(highlight.get_position()))
 	leftButton.connect("pressed",self,"leftButtonPressed")
 	rightButton.connect("pressed",self,"rightButtonPressed")
@@ -36,6 +42,7 @@ func _ready():
 	equippableButton.connect("pressed",self,"equippableButtonPressed")
 	miscButton.connect("pressed",self,"miscButtonPressed")
 	mapButton.connect("pressed",self,"mapButtonPressed")
+	#segment0.connect("pressed",self,"segment0Pressed")
 	pass
 
 func leftButtonPressed():
@@ -108,16 +115,56 @@ func mapButtonPressed():
 	tabIndex = 5
 	#TODO: change text in inventory section
 
+#sets the text above the items
 func setBasicText():
 	get_node("Basic Info").currentTab = currentTab
+
+#scroll all of the items up
+func scrollUp():
+	print("Scroll up")
+	#go through the inventory and change text
+	#change the icons of the segments to simulate actual scrolling
+		
+#move the item highlight up
+func highlightUp():
+	#move the highlight
+	if currentItem == 1:
+		itemHighlight.setPosition(Vector2(0,0))
+	elif currentItem == 2:
+		itemHighlight.setPosition(Vector2(0,25))
+	
+#scroll all of the items down
+func scrollDown():
+	print("Scroll down")
+	#go through the inventory and change text
+	#change the icons of the segments to simulate actual scrolling
+
+#move the item highlight down
+func highlightDown():
+	if currentItem == 0:
+		itemHighlight.setPosition(Vector2(0,25))
+	elif currentItem == 2:
+		itemHighlight.setPosition(Vector2(0,50))
 
 func _process(delta):
 	#TODO: add actual functionality to keybinds
 	currentTab = tabs[tabIndex]
 	if Input.is_action_just_pressed("p1_move_up"):
-		print("Scroll up")
+		if currentItem > 0: #not already the top
+			print("CurrentItem: " + str(currentItem))
+			if currentItem == topItem: #need to scroll up
+				topItem = topItem - 1
+				scrollUp()
+			currentItem = currentItem - 1
+			highlightUp()
 	if Input.is_action_just_pressed("p1_move_down"):
-		print("Scroll down")
+		if currentItem < 14: #not already the bottom
+			print("CurrentItem: " + str(currentItem))
+			if currentItem == (topItem - 13): #need to scroll down
+				topItem = topItem + 1
+				scrollDown()
+			currentItem = currentItem + 1
+			highlightDown()
 	if Input.is_action_just_pressed("p1_move_left"):
 		#print("Tab over left")
 		if currentTab == "quests":
