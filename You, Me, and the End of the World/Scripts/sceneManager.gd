@@ -106,7 +106,7 @@ func _pause():
 func _inventory1():
 	#TODO: adjust position to the right half of the screen if both players are active, or put in the middle if only one is
 	var inventoryScreenP1 = get_node("/root/Root/HUDControl/InventoryScreenP1")
-	inventoryScreenP1.set_position(camera.get_camera_screen_center() - Vector2(screensize.x/1.6, 0) - Vector2(0, screensize.y/4))
+	inventoryScreenP1.set_position(camera.get_camera_screen_center() - Vector2(screensize.x/1.1, 0) - Vector2(0, screensize.y/2))
 	if(!player1.isFrozen):
 		inventoryScreenP1.show()
 	else:
@@ -117,7 +117,7 @@ func _inventory1():
 func _inventory2():
 	#TODO: adjust position to the right half of the screen if both p
 	var inventoryScreenP2 = get_node("/root/Root/HUDControl/InventoryScreenP2")
-	inventoryScreenP2.set_position(camera.get_camera_screen_center() + Vector2(screensize.x/25, 0) - Vector2(0, screensize.y/4)) 
+	inventoryScreenP2.set_position(camera.get_camera_screen_center() + Vector2(screensize.x/200, 0) - Vector2(0, screensize.y/2)) 
 	if(!player2.isFrozen):
 		inventoryScreenP2.show()
 	else:

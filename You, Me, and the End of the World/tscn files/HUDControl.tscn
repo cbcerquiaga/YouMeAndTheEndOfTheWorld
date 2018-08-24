@@ -28,19 +28,21 @@ visible = false
 
 [node name="InventoryScreenP2" parent="." index="2" instance=ExtResource( 3 )]
 
-margin_left = -258.0
-margin_top = 123.0
-margin_right = -258.0
-margin_bottom = 123.0
+visible = false
+margin_left = -386.0
+margin_top = -151.0
+margin_right = -386.0
+margin_bottom = -151.0
 _sections_unfolded = [ "Rect" ]
 
 [node name="InventoryScreenP1" parent="." index="3" instance=ExtResource( 3 )]
 
+visible = false
 anchor_right = 1.0
-margin_left = 527.0
-margin_top = 123.0
-margin_right = 1263.0
-margin_bottom = 123.0
+margin_left = 561.0
+margin_top = -174.0
+margin_right = 1297.0
+margin_bottom = -174.0
 _sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
 [node name="pause_popup" parent="." index="4" instance=ExtResource( 4 )]

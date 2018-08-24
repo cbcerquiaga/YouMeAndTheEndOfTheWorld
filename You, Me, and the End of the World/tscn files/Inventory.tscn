@@ -24,7 +24,7 @@
 [ext_resource path="res://Images/itemHighlight.png" type="Texture" id=22]
 [ext_resource path="res://Scripts/Inventory Basic Info.gd" type="Script" id=23]
 
-[node name="InventoryScreen" type="Popup"]
+[node name="InventoryScreen" type="Popup" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -659,32 +659,32 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="Segment9" parent="Inventory Main" index="9" instance=ExtResource( 21 )]
 
-margin_top = 50.0
-margin_bottom = 90.0
-_sections_unfolded = [ "Rect" ]
-
-[node name="Segment10" parent="Inventory Main" index="10" instance=ExtResource( 21 )]
-
 margin_top = 75.0
 margin_bottom = 115.0
 _sections_unfolded = [ "Rect" ]
 
-[node name="Segment11" parent="Inventory Main" index="11" instance=ExtResource( 21 )]
+[node name="Segment10" parent="Inventory Main" index="10" instance=ExtResource( 21 )]
 
 margin_top = 100.0
 margin_bottom = 140.0
 _sections_unfolded = [ "Rect" ]
 
-[node name="Segment12" parent="Inventory Main" index="12" instance=ExtResource( 21 )]
+[node name="Segment11" parent="Inventory Main" index="11" instance=ExtResource( 21 )]
 
 margin_top = 125.0
 margin_bottom = 165.0
 _sections_unfolded = [ "Rect" ]
 
-[node name="Segment13" parent="Inventory Main" index="13" instance=ExtResource( 21 )]
+[node name="Segment12" parent="Inventory Main" index="12" instance=ExtResource( 21 )]
 
 margin_top = 150.0
 margin_bottom = 190.0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Segment13" parent="Inventory Main" index="13" instance=ExtResource( 21 )]
+
+margin_top = 175.0
+margin_bottom = 215.0
 _sections_unfolded = [ "Rect" ]
 
 [node name="ItemHighlight" type="Control" parent="Inventory Main" index="14"]
