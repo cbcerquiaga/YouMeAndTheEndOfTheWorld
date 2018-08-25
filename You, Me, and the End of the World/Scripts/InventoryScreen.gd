@@ -179,45 +179,11 @@ func scrollUp():
 	#go through the inventory and change text
 	#change the icons of the segments to simulate actual scrolling
 		
-#move the item highlight up
-func highlightUp():
-	#move the highlight
+#move the highlight to the currentItem location
+func moveHighlight():
 	if currentItem == 0:
-		segment0ButtonPr1essed()
+		segment0ButtonPressed()
 	elif currentItem == 1:
-		segment1ButtonPressed()
-	elif currentItem == 2:
-		segment2ButtonPressed()
-	elif currentItem == 3:
-		segment3ButtonPressed()
-	elif currentItem == 4:
-		segment4ButtonPressed()
-	elif currentItem == 5:
-		segment5ButtonPressed()
-	elif currentItem == 6:
-		segment6ButtonPressed()
-	elif currentItem == 7:
-		segment7ButtonPressed()
-	elif currentItem == 8:
-		segment8ButtonPressed()
-	elif currentItem == 9:
-		segment9ButtonPressed()
-	elif currentItem == 10:
-		segment10ButtonPressed()
-	elif currentItem == 11:
-		segment11ButtonPressed()
-	elif currentItem == 12:
-		segment12ButtonPressed()
-	
-#scroll all of the items down
-func scrollDown():
-	print("Scroll down")
-	#go through the inventory and change text
-	#change the icons of the segments to simulate actual scrolling
-
-#move the item highlight down
-func highlightDown():
-	if currentItem == 1:
 		segment1ButtonPressed()
 	elif currentItem == 2:
 		segment2ButtonPressed()
@@ -243,6 +209,12 @@ func highlightDown():
 		segment12ButtonPressed()
 	elif currentItem == 13:
 		segment13ButtonPressed()
+	
+#scroll all of the items down
+func scrollDown():
+	print("Scroll down")
+	#go through the inventory and change text
+	#change the icons of the segments to simulate actual scrolling
 		
 func segment0ButtonPressed():
 	itemHighlight.set_position(Vector2(0,0))
@@ -296,7 +268,7 @@ func _process(delta):
 			#	topItem = topItem - 1
 			#	scrollUp()
 			currentItem = currentItem - 1
-			highlightUp()
+			moveHighlight()
 			print("Current item after press: " + str(currentItem))
 	if Input.is_action_just_pressed("p1_move_down"):
 		if currentItem < 14: #not already the bottom
@@ -305,7 +277,7 @@ func _process(delta):
 			#	topItem = topItem + 1
 			#	scrollDown()
 			currentItem = currentItem + 1
-			highlightDown()
+			moveHighlight()
 			print("Current item after press: " + str(currentItem))
 	if Input.is_action_just_pressed("p1_move_left"):
 		#print("Tab over left")
