@@ -182,31 +182,31 @@ func scrollUp():
 #move the item highlight up
 func highlightUp():
 	#move the highlight
-	if currentItem == 1:
-		segment0ButtonPressed()
-	elif currentItem == 2:
+	if currentItem == 0:
+		segment0ButtonPr1essed()
+	elif currentItem == 1:
 		segment1ButtonPressed()
-	elif currentItem == 3:
+	elif currentItem == 2:
 		segment2ButtonPressed()
-	elif currentItem == 4:
+	elif currentItem == 3:
 		segment3ButtonPressed()
-	elif currentItem == 5:
+	elif currentItem == 4:
 		segment4ButtonPressed()
-	elif currentItem == 6:
+	elif currentItem == 5:
 		segment5ButtonPressed()
-	elif currentItem == 7:
+	elif currentItem == 6:
 		segment6ButtonPressed()
-	elif currentItem == 8:
+	elif currentItem == 7:
 		segment7ButtonPressed()
-	elif currentItem == 9:
+	elif currentItem == 8:
 		segment8ButtonPressed()
-	elif currentItem == 10:
+	elif currentItem == 9:
 		segment9ButtonPressed()
-	elif currentItem == 11:
+	elif currentItem == 10:
 		segment10ButtonPressed()
-	elif currentItem == 12:
+	elif currentItem == 11:
 		segment11ButtonPressed()
-	elif currentItem == 13:
+	elif currentItem == 12:
 		segment12ButtonPressed()
 	
 #scroll all of the items down
@@ -217,31 +217,31 @@ func scrollDown():
 
 #move the item highlight down
 func highlightDown():
-	if currentItem == 0:
+	if currentItem == 1:
 		segment1ButtonPressed()
-	elif currentItem == 1:
-		segment2ButtonPressed()
 	elif currentItem == 2:
-		segment3ButtonPressed()
+		segment2ButtonPressed()
 	elif currentItem == 3:
-		segment4ButtonPressed()
+		segment3ButtonPressed()
 	elif currentItem == 4:
-		segment5ButtonPressed()
+		segment4ButtonPressed()
 	elif currentItem == 5:
-		segment6ButtonPressed()
+		segment5ButtonPressed()
 	elif currentItem == 6:
-		segment7ButtonPressed()
+		segment6ButtonPressed()
 	elif currentItem == 7:
-		segment8ButtonPressed()
+		segment7ButtonPressed()
 	elif currentItem == 8:
-		segment9ButtonPressed()
+		segment8ButtonPressed()
 	elif currentItem == 9:
-		segment10ButtonPressed()
+		segment9ButtonPressed()
 	elif currentItem == 10:
-		segment11ButtonPressed()
+		segment10ButtonPressed()
 	elif currentItem == 11:
-		segment12ButtonPressed()
+		segment11ButtonPressed()
 	elif currentItem == 12:
+		segment12ButtonPressed()
+	elif currentItem == 13:
 		segment13ButtonPressed()
 		
 func segment0ButtonPressed():
@@ -290,7 +290,7 @@ func _process(delta):
 	#TODO: add actual functionality to keybinds
 	currentTab = tabs[tabIndex]
 	if Input.is_action_just_pressed("p1_move_up"):
-		if currentItem > 0: #not already the top
+		if currentItem > -1: #not already the top
 			#print("CurrentItem before press: " + str(currentItem))
 			#if currentItem == topItem: #need to scroll up
 			#	topItem = topItem - 1
