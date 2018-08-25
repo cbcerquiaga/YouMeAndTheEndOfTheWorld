@@ -57,7 +57,20 @@ func _ready():
 	equippableButton.connect("pressed",self,"equippableButtonPressed")
 	miscButton.connect("pressed",self,"miscButtonPressed")
 	mapButton.connect("pressed",self,"mapButtonPressed")
-	#segment0.connect("pressed",self,"segment0Pressed")
+	segment0.connect("pressed",self,"segment0ButtonPressed")
+	segment1.connect("pressed",self,"segment1ButtonPressed")
+	segment2.connect("pressed",self,"segment2ButtonPressed")
+	segment3.connect("pressed",self,"segment3ButtonPressed")
+	segment4.connect("pressed",self,"segment4ButtonPressed")
+	segment5.connect("pressed",self,"segment5ButtonPressed")
+	segment6.connect("pressed",self,"segment6ButtonPressed")
+	segment7.connect("pressed",self,"segment7ButtonPressed")
+	segment8.connect("pressed",self,"segment8ButtonPressed")
+	segment9.connect("pressed",self,"segment9ButtonPressed")
+	segment10.connect("pressed",self,"segment10ButtonPressed")
+	segment11.connect("pressed",self,"segment11ButtonPressed")
+	segment12.connect("pressed",self,"segment12ButtonPressed")
+	segment13.connect("pressed",self,"segment13ButtonPressed")
 	pass
 
 #initializes the segment frames so that they alternate in color
@@ -170,31 +183,31 @@ func scrollUp():
 func highlightUp():
 	#move the highlight
 	if currentItem == 1:
-		itemHighlight.set_position(Vector2(0,-150))
+		segment0ButtonPressed()
 	elif currentItem == 2:
-		itemHighlight.set_position(Vector2(0,-125))
+		segment1ButtonPressed()
 	elif currentItem == 3:
-		itemHighlight.set_position(Vector2(0,-100))
+		segment2ButtonPressed()
 	elif currentItem == 4:
-		itemHighlight.set_position(Vector2(0,-75))
+		segment3ButtonPressed()
 	elif currentItem == 5:
-		itemHighlight.set_position(Vector2(0,-50))
+		segment4ButtonPressed()
 	elif currentItem == 6:
-		itemHighlight.set_position(Vector2(0,-25))
+		segment5ButtonPressed()
 	elif currentItem == 7:
-		itemHighlight.set_position(Vector2(0,0))
+		segment6ButtonPressed()
 	elif currentItem == 8:
-		itemHighlight.set_position(Vector2(0,25))
+		segment7ButtonPressed()
 	elif currentItem == 9:
-		itemHighlight.set_position(Vector2(0,50))
+		segment8ButtonPressed()
 	elif currentItem == 10:
-		itemHighlight.set_position(Vector2(0,75))
+		segment9ButtonPressed()
 	elif currentItem == 11:
-		itemHighlight.set_position(Vector2(0,100))
+		segment10ButtonPressed()
 	elif currentItem == 12:
-		itemHighlight.set_position(Vector2(0,125))
+		segment11ButtonPressed()
 	elif currentItem == 13:
-		itemHighlight.set_position(Vector2(0,150))
+		segment12ButtonPressed()
 	
 #scroll all of the items down
 func scrollDown():
@@ -205,50 +218,92 @@ func scrollDown():
 #move the item highlight down
 func highlightDown():
 	if currentItem == 0:
-		itemHighlight.set_position(Vector2(0,-125))
+		segment1ButtonPressed()
 	elif currentItem == 1:
-		itemHighlight.set_position(Vector2(0,-100))
+		segment2ButtonPressed()
 	elif currentItem == 2:
-		itemHighlight.set_position(Vector2(0,-75))
+		segment3ButtonPressed()
 	elif currentItem == 3:
-		itemHighlight.set_position(Vector2(0,-50))
+		segment4ButtonPressed()
 	elif currentItem == 4:
-		itemHighlight.set_position(Vector2(0,-25))
+		segment5ButtonPressed()
 	elif currentItem == 5:
-		itemHighlight.set_position(Vector2(0,0))
+		segment6ButtonPressed()
 	elif currentItem == 6:
-		itemHighlight.set_position(Vector2(0,25))
+		segment7ButtonPressed()
 	elif currentItem == 7:
-		itemHighlight.set_position(Vector2(0,50))
+		segment8ButtonPressed()
 	elif currentItem == 8:
-		itemHighlight.set_position(Vector2(0,75))
+		segment9ButtonPressed()
 	elif currentItem == 9:
-		itemHighlight.set_position(Vector2(0,100))
+		segment10ButtonPressed()
 	elif currentItem == 10:
-		itemHighlight.set_position(Vector2(0,125))
+		segment11ButtonPressed()
 	elif currentItem == 11:
-		itemHighlight.set_position(Vector2(0,150))
+		segment12ButtonPressed()
 	elif currentItem == 12:
-		itemHighlight.set_position(Vector2(0,175))
+		segment13ButtonPressed()
+		
+func segment0ButtonPressed():
+	itemHighlight.set_position(Vector2(0,0))
+
+func segment1ButtonPressed():
+	itemHighlight.set_position(Vector2(0,25))
+
+func segment2ButtonPressed():
+	itemHighlight.set_position(Vector2(0,50))
+	
+func segment3ButtonPressed():
+	itemHighlight.set_position(Vector2(0,75))
+	
+func segment4ButtonPressed():
+	itemHighlight.set_position(Vector2(0,100))
+	
+func segment5ButtonPressed():
+	itemHighlight.set_position(Vector2(0,125))
+	
+func segment6ButtonPressed():
+	itemHighlight.set_position(Vector2(0,150))
+	
+func segment7ButtonPressed():
+	itemHighlight.set_position(Vector2(0,175))
+	
+func segment8ButtonPressed():
+	itemHighlight.set_position(Vector2(0,200))
+	
+func segment9ButtonPressed():
+	itemHighlight.set_position(Vector2(0,225))
+	
+func segment10ButtonPressed():
+	itemHighlight.set_position(Vector2(0,250))
+	
+func segment11ButtonPressed():
+	itemHighlight.set_position(Vector2(0,275))
+	
+func segment12ButtonPressed():
+	itemHighlight.set_position(Vector2(0,300))
+	
+func segment13ButtonPressed():
+	itemHighlight.set_position(Vector2(0,325))
 
 func _process(delta):
 	#TODO: add actual functionality to keybinds
 	currentTab = tabs[tabIndex]
 	if Input.is_action_just_pressed("p1_move_up"):
 		if currentItem > 0: #not already the top
-			print("CurrentItem before press: " + str(currentItem))
-			if currentItem == topItem: #need to scroll up
-				topItem = topItem - 1
-				scrollUp()
+			#print("CurrentItem before press: " + str(currentItem))
+			#if currentItem == topItem: #need to scroll up
+			#	topItem = topItem - 1
+			#	scrollUp()
 			currentItem = currentItem - 1
 			highlightUp()
 			print("Current item after press: " + str(currentItem))
 	if Input.is_action_just_pressed("p1_move_down"):
 		if currentItem < 14: #not already the bottom
-			print("CurrentItem before press: " + str(currentItem))
-			if currentItem == (topItem - 13): #need to scroll down
-				topItem = topItem + 1
-				scrollDown()
+			#print("CurrentItem before press: " + str(currentItem))
+			#if currentItem == (topItem - 13): #need to scroll down
+			#	topItem = topItem + 1
+			#	scrollDown()
 			currentItem = currentItem + 1
 			highlightDown()
 			print("Current item after press: " + str(currentItem))

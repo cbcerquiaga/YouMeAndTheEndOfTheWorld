@@ -1,4 +1,4 @@
-extends Control
+extends Button
 
 onready var sprite = get_node("Sprite")
 onready var label = get_node("RichTextLabel")

@@ -383,6 +383,7 @@ __meta__ = {
 
 [node name="Tabs" type="Control" parent="." index="2"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -401,6 +402,7 @@ __meta__ = {
 
 [node name="Highlight" type="Control" parent="Tabs" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -411,6 +413,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
 __meta__ = {
 "_edit_lock_": true
 }
@@ -419,6 +422,7 @@ __meta__ = {
 
 position = Vector2( 364, 136 )
 texture = ExtResource( 13 )
+_sections_unfolded = [ "Offset" ]
 __meta__ = {
 "_edit_lock_": true
 }
@@ -607,85 +611,101 @@ __meta__ = {
 
 [node name="Segment0" parent="Inventory Main" index="0" instance=ExtResource( 21 )]
 
-margin_top = -150.0
-margin_bottom = -110.0
-_sections_unfolded = [ "Rect" ]
+margin_left = -165.0
+margin_top = -162.0
+margin_right = 166.0
+margin_bottom = -137.0
 
 [node name="Segment1" parent="Inventory Main" index="1" instance=ExtResource( 21 )]
 
-margin_top = -125.0
-margin_bottom = -85.0
-_sections_unfolded = [ "Rect" ]
+margin_left = -165.0
+margin_top = -137.0
+margin_right = 166.0
+margin_bottom = -112.0
 
 [node name="Segment2" parent="Inventory Main" index="2" instance=ExtResource( 21 )]
 
-margin_top = -100.0
-margin_bottom = -60.0
-_sections_unfolded = [ "Rect" ]
+margin_left = -165.0
+margin_top = -112.0
+margin_right = 166.0
+margin_bottom = -87.0
 
 [node name="Segment3" parent="Inventory Main" index="3" instance=ExtResource( 21 )]
 
-margin_top = -75.0
-margin_bottom = -35.0
-_sections_unfolded = [ "Rect" ]
+margin_left = -165.0
+margin_top = -87.0
+margin_right = 166.0
+margin_bottom = -62.0
 
 [node name="Segment4" parent="Inventory Main" index="4" instance=ExtResource( 21 )]
 
-margin_top = -50.0
-margin_bottom = -10.0
-_sections_unfolded = [ "Rect" ]
+margin_left = -165.0
+margin_top = -62.0
+margin_right = 166.0
+margin_bottom = -37.0
 
 [node name="Segment5" parent="Inventory Main" index="5" instance=ExtResource( 21 )]
 
-margin_top = -25.0
-margin_bottom = 15.0
-_sections_unfolded = [ "Rect" ]
+margin_left = -165.0
+margin_top = -37.0
+margin_right = 166.0
+margin_bottom = -12.0
 
 [node name="Segment6" parent="Inventory Main" index="6" instance=ExtResource( 21 )]
 
-_sections_unfolded = [ "Rect" ]
+margin_left = -165.0
+margin_top = -12.0
+margin_right = 166.0
+margin_bottom = 13.0
 
 [node name="Segment7" parent="Inventory Main" index="7" instance=ExtResource( 21 )]
 
-margin_top = 25.0
-margin_bottom = 65.0
-_sections_unfolded = [ "Rect" ]
+margin_left = -165.0
+margin_top = 13.0
+margin_right = 166.0
+margin_bottom = 38.0
 
 [node name="Segment8" parent="Inventory Main" index="8" instance=ExtResource( 21 )]
 
-margin_top = 50.0
-margin_bottom = 90.0
-_sections_unfolded = [ "Rect" ]
+margin_left = -165.0
+margin_top = 38.0
+margin_right = 166.0
+margin_bottom = 63.0
 
 [node name="Segment9" parent="Inventory Main" index="9" instance=ExtResource( 21 )]
 
-margin_top = 75.0
-margin_bottom = 115.0
-_sections_unfolded = [ "Rect" ]
+margin_left = -165.0
+margin_top = 63.0
+margin_right = 166.0
+margin_bottom = 88.0
 
 [node name="Segment10" parent="Inventory Main" index="10" instance=ExtResource( 21 )]
 
-margin_top = 100.0
-margin_bottom = 140.0
-_sections_unfolded = [ "Rect" ]
+margin_left = -165.0
+margin_top = 88.0
+margin_right = 166.0
+margin_bottom = 113.0
 
 [node name="Segment11" parent="Inventory Main" index="11" instance=ExtResource( 21 )]
 
-margin_top = 125.0
-margin_bottom = 165.0
-_sections_unfolded = [ "Rect" ]
+margin_left = -165.0
+margin_top = 113.0
+margin_right = 166.0
+margin_bottom = 138.0
 
 [node name="Segment12" parent="Inventory Main" index="12" instance=ExtResource( 21 )]
 
-margin_top = 150.0
-margin_bottom = 190.0
-_sections_unfolded = [ "Rect" ]
+margin_left = -165.0
+margin_top = 138.0
+margin_right = 166.0
+margin_bottom = 163.0
 
 [node name="Segment13" parent="Inventory Main" index="13" instance=ExtResource( 21 )]
 
-margin_top = 175.0
-margin_bottom = 215.0
-_sections_unfolded = [ "Rect" ]
+margin_left = -165.0
+margin_top = 163.0
+margin_right = 166.0
+margin_bottom = 188.0
 
 [node name="ItemHighlight" type="Control" parent="Inventory Main" index="14"]
 
@@ -693,9 +713,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = -150.0
 margin_right = 40.0
-margin_bottom = -110.0
+margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -706,6 +725,7 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="Sprite" type="Sprite" parent="Inventory Main/ItemHighlight" index="0"]
 
+position = Vector2( 0, -150 )
 texture = ExtResource( 22 )
 
 [node name="Basic Info" type="RichTextLabel" parent="." index="4"]
