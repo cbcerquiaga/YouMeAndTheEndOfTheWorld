@@ -41,8 +41,7 @@ func _physics_process(delta):
 	#get_node("/root/dungeon/HUD/P1A1 Icon")._setFrame(1)
 	#var player1InCamera = camera.get_viewport_rect().encloses(self.get_viewport_rect())
 	var motion = Vector2()
-
-
+	screensize = Vector2(get_viewport().size.x, get_viewport().size.y)
 	var isPlaying = get_node("/root/Root").get("isp1Playing")
 	if (isPlaying and !isFrozen):
 		if Input.is_action_pressed("p1_move_up"):
@@ -121,13 +120,9 @@ func _physics_process(delta):
 #adds an item to the player inventory, it makes a call to playerProperty's addItem method
 func addItem(item):
 	playerProperty.addItem(item, 'p1')
-<<<<<<< HEAD
 
-=======
-	
 func getInventory():
 	return playerProperty.Inventory
-	
->>>>>>> d1bb1ed2ec250c2b02fc0e2c00c4c97debc119b0
+
 func getHealth():
 	playerProperty.calculateHealth()
