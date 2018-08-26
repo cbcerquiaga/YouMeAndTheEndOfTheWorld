@@ -109,6 +109,7 @@ func _inventory1():
 	inventoryScreenP1.set_position(camera.get_camera_screen_center() - Vector2(screensize.x/1.1, 0) - Vector2(0, screensize.y/2))
 	if(!player1.isFrozen):
 		inventoryScreenP1.show()
+		inventoryScreenP1.loadInventory(player1.getInventory().itemList)
 	else:
 		inventoryScreenP1.hide()
 	player1.isFrozen = !player1.isFrozen
