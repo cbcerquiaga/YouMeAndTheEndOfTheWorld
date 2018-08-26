@@ -9,6 +9,12 @@ var itemHighlight
 var currentFrame
 var currentItem
 var topItem
+var quests
+var weaponItems
+var equippableItems
+var consumableItems
+var miscItems
+var discoveredPlaces
 var currentTab #stores text for current tab to make it easier to code other nodes
 onready var tabIndex = 0
 onready var tabs = ["quests","weapons","equippable","consumable","misc","map"]
@@ -38,6 +44,12 @@ onready var segment13 = get_node("Inventory Main/Segment13")
 func _ready():
 	#self.queue_free()
 	alternateSegmentFrames()
+	quests = []
+	weaponItems = []
+	equippableItems = []
+	consumableItems = []
+	miscItems = []
+	discoveredPlaces = []
 	justOpened = true
 	currentFrame = 0
 	currentItem = 0
@@ -173,6 +185,32 @@ func mapButtonPressed():
 func setBasicText():
 	get_node("Basic Info").currentTab = currentTab
 
+#split the player's inventory into several arrays based on item type
+func loadInventory(list):
+	for i in list:
+		if i.itemType == "quest":
+			quests.append(i)
+		elif i.itemType == "weapon":
+			weaponItems.append(i)
+		elif i.itemType == "equippable":
+			equippableItems.append(i)
+		elif i.itemType == "consumable":
+			consumableItems.append(i)
+		elif i.itemType == "misc":
+			miscItems.append(i)
+		else: #i.itemType == "place":
+			discoveredPlaces.append(i)
+	print("inventory loaded")
+	print("quests: " + str(quests))
+	print("weapons: " + str(weaponItems))
+	print("equippables: " + str(equippableItems))
+	print("consumables: " + str(consumableItems))
+	print("misc: " + str(miscItems))
+	print("discovered places: " + str(discoveredPlaces))
+
+func loadTab():
+	print("tab loaded")
+
 #scroll all of the items up
 func scrollUp():
 	print("Scroll up")
@@ -261,51 +299,52 @@ func segment13ButtonPressed():
 func _process(delta):
 	#TODO: add actual functionality to keybinds
 	currentTab = tabs[tabIndex]
-	if Input.is_action_just_pressed("p1_move_up"):
-		if currentItem > -1: #not already the top
+	if self.is_visible_in_tree():
+		if Input.is_action_just_pressed("p1_move_up"):
+			if currentItem > -1: #not already the top
 			#print("CurrentItem before press: " + str(currentItem))
 			#if currentItem == topItem: #need to scroll up
 			#	topItem = topItem - 1
 			#	scrollUp()
-			currentItem = currentItem - 1
-			moveHighlight()
-			print("Current item after press: " + str(currentItem))
-	if Input.is_action_just_pressed("p1_move_down"):
-		if currentItem < 14: #not already the bottom
+				currentItem = currentItem - 1
+				moveHighlight()
+			#print("Current item after press: " + str(currentItem))
+		if Input.is_action_just_pressed("p1_move_down"):
+			if currentItem < 14: #not already the bottom
 			#print("CurrentItem before press: " + str(currentItem))
 			#if currentItem == (topItem - 13): #need to scroll down
 			#	topItem = topItem + 1
 			#	scrollDown()
-			currentItem = currentItem + 1
-			moveHighlight()
-			print("Current item after press: " + str(currentItem))
-	if Input.is_action_just_pressed("p1_move_left"):
+				currentItem = currentItem + 1
+				moveHighlight()
+			#print("Current item after press: " + str(currentItem))
+		if Input.is_action_just_pressed("p1_move_left"):
 		#print("Tab over left")
-		if currentTab == "quests":
-			mapButtonPressed()
-		elif currentTab == "map":
-			miscButtonPressed()
-		elif currentTab == "misc":
-			consumableButtonPressed()
-		elif currentTab == "consumable":
-			equippableButtonPressed()
-		elif currentTab == "equippable":
-			weaponButtonPressed()
-		else: #currentTab == "weapons":
-			questButtonPressed()
-	if Input.is_action_just_pressed("p1_move_right"):
-		#print("Tab over right")
-		if currentTab == "quests":
-			weaponButtonPressed()
-		elif currentTab == "weapons":
-			equippableButtonPressed()
-		elif currentTab == "equippable":
-			consumableButtonPressed()
-		elif currentTab == "consumable":
-			miscButtonPressed()
-		elif currentTab == "misc":
-			mapButtonPressed()
-		else: #currentTab == "map"
-			questButtonPressed()
-	setBasicText()
+			if currentTab == "quests":
+				mapButtonPressed()
+			elif currentTab == "map":
+				miscButtonPressed()
+			elif currentTab == "misc":
+				consumableButtonPressed()
+			elif currentTab == "consumable":
+				equippableButtonPressed()
+			elif currentTab == "equippable":
+				weaponButtonPressed()
+			else: #currentTab == "weapons":
+				questButtonPressed()
+		if Input.is_action_just_pressed("p1_move_right"):
+			#print("Tab over right")
+			if currentTab == "quests":
+				weaponButtonPressed()
+			elif currentTab == "weapons":
+				equippableButtonPressed()
+			elif currentTab == "equippable":
+				consumableButtonPressed()
+			elif currentTab == "consumable":
+				miscButtonPressed()
+			elif currentTab == "misc":
+				mapButtonPressed()
+			else: #currentTab == "map"
+				questButtonPressed()
+		setBasicText()
 	pass

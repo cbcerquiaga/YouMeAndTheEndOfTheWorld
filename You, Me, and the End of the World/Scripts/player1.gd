@@ -121,6 +121,13 @@ func _physics_process(delta):
 #adds an item to the player inventory, it makes a call to playerProperty's addItem method
 func addItem(item):
 	playerProperty.addItem(item, 'p1')
+<<<<<<< HEAD
 
+=======
+	
+func getInventory():
+	return playerProperty.Inventory
+	
+>>>>>>> d1bb1ed2ec250c2b02fc0e2c00c4c97debc119b0
 func getHealth():
 	playerProperty.calculateHealth()

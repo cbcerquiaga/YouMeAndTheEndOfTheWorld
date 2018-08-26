@@ -60,7 +60,6 @@ func _physics_process(delta):
 			emit_signal("move")
 			if get_slide_count() > 0:
 				var right = Vector2(-distance.y, distance.x)
-				print("moving right")
 				move_and_slide(right)
 			else:
 				move_and_slide(distance)
@@ -121,6 +120,13 @@ func _physics_process(delta):
 #adds an item to the player inventory, it makes a call to playerProperty's addItem method
 func addItem(item):
 	playerProperty.addItem(item, 'p2')
+<<<<<<< HEAD
 
+=======
+	
+func getInventory():
+	return playerProperty.Inventory
+	
+>>>>>>> d1bb1ed2ec250c2b02fc0e2c00c4c97debc119b0
 func getHealth():
 	playerProperty.calculateHealth()
