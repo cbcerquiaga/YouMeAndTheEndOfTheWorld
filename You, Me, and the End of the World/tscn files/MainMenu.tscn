@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=1]
 
-[node name="MainMenu" type="Control" index="0"]
+[node name="MainMenu" type="Control"]
 
 pause_mode = 2
 anchor_left = 0.0
@@ -96,7 +96,32 @@ text = "World2"
 flat = false
 align = 1
 
-[node name="Camera2D" type="Camera2D" parent="." index="3"]
+[node name="World3" type="Button" parent="." index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 310.0
+margin_top = 310.0
+margin_right = 720.0
+margin_bottom = 370.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 0
+shortcut = null
+group = null
+text = "OpenWorld"
+flat = false
+align = 1
+
+[node name="Camera2D" type="Camera2D" parent="." index="4"]
 
 visible = false
 position = Vector2( 510, 300 )
@@ -129,5 +154,7 @@ editor_draw_drag_margin = false
 [connection signal="pressed" from="World1" to="." method="_on_World1_pressed"]
 
 [connection signal="pressed" from="World2" to="." method="_on_World2_pressed"]
+
+[connection signal="pressed" from="World3" to="." method="_on_OpenWorld_pressed"]
 
 

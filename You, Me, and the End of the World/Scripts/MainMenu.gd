@@ -20,3 +20,6 @@ func _on_World1_pressed():
 
 func _on_World2_pressed():
 	get_tree().change_scene("res://tscn files/World2.tscn")
+
+func _on_OpenWorld_pressed():
+	get_tree().change_scene("res://tscn files/OpenWorld.tscn")

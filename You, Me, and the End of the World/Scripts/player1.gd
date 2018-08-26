@@ -8,10 +8,15 @@ var invTimer = Timer.new()
 var currentEXP = 99 #EXP is out of 100
 var carryWeight = 0
 var maxCarry = 200
-onready var otherPlayer = get_node("../player2")
-signal move
 var isFrozen = false
+
+#Signals
+signal move
+
+#Nodes
+onready var otherPlayer = get_node("../player2")
 onready var camera = get_node("../playerTracking/Camera")
+onready var screensize = Vector2(get_viewport().size.x, get_viewport().size.y)
 
 #Called when the player is entered into the scene
 func _ready():
@@ -34,8 +39,10 @@ func _on_invTimer_timeout():
 func _physics_process(delta):
 	#to set icon frame, use this line:
 	#get_node("/root/dungeon/HUD/P1A1 Icon")._setFrame(1)
-#	var player1InCamera = camera.get_viewport_rect().encloses(self.get_viewport_rect())
+	#var player1InCamera = camera.get_viewport_rect().encloses(self.get_viewport_rect())
 	var motion = Vector2()
+
+
 	var isPlaying = get_node("/root/Root").get("isp1Playing")
 	if (isPlaying and !isFrozen):
 		if Input.is_action_pressed("p1_move_up"):
@@ -54,7 +61,6 @@ func _physics_process(delta):
 			emit_signal("move")
 			if get_slide_count() > 0:
 				var right = Vector2(-distance.y, distance.x)
-				#print("moving right")
 				move_and_slide(right)
 			else:
 				move_and_slide(distance)
@@ -79,15 +85,24 @@ func _physics_process(delta):
 			playerProperty.removeItem(item, "p1")
 			item.activate(self.position)
 			item.update_label()
-	
+
 	#playerProperty.getSpeed() calculates the default speed times any perks or trait bonuses
 	motion = motion.normalized() * playerProperty.getSpeed()
+	var distance = self.global_position - otherPlayer.global_position
+
+	#This is the function to manage the screensize and make sure the player cannot
+	#move outside the camera's view
+	if !motion.x + distance.x < screensize.x or !motion.x + distance.x > -screensize.x:
+		motion.x = 0
+	if !motion.y + distance.y < screensize.y or !motion.y + distance.y > -screensize.y:
+		motion.y = 0
 
 	#If the player moved in this frame then emit the move signal
 	if motion != Vector2(0,0):
+		print(distance)
 		move_and_slide(motion)
 		emit_signal("move")
-	
+
 	#Create a dictionary because there are no sets, and dictionaries can be used
 	#for their unique key generation
 	var collision_objects = Dictionary()
@@ -106,7 +121,6 @@ func _physics_process(delta):
 #adds an item to the player inventory, it makes a call to playerProperty's addItem method
 func addItem(item):
 	playerProperty.addItem(item, 'p1')
-	
+
 func getHealth():
 	playerProperty.calculateHealth()
-	
