@@ -104,14 +104,14 @@ func _pause():
 
 #Handles showing/hiding player2's inventory and freezing the player
 func _inventory1():
-	#TODO: adjust position to the right half of the screen if both players are active, or put in the middle if only one is
+	var zoomedOut = player1.getZoom()
 	var inventoryScreenP1 = get_node("/root/Root/HUDControl/InventoryScreenP1")
-	#if screen != zoomedOut:
-	inventoryScreenP1.set_position(camera.get_camera_screen_center()- Vector2(screensize.x/1.5, screensize.y/3.2))
-	inventoryScreenP1.set_scale(Vector2(0.7,0.7))
-	#else:
-		#inventoryScreenP1.set_position
-		#inventoryScreenP1.set_scale
+	if !zoomedOut:
+		inventoryScreenP1.set_position(camera.get_camera_screen_center() - Vector2(screensize.x/1.5, screensize.y/3.2))
+		inventoryScreenP1.set_scale(Vector2(0.7,0.7))
+	else:
+		inventoryScreenP1.set_position(camera.get_camera_screen_center() - Vector2(screensize.x/1.001, screensize.y/2.16))
+		inventoryScreenP1.set_scale(Vector2(1.05,1.05))
 	if(!player1.isFrozen):
 		inventoryScreenP1.show()
 		inventoryScreenP1.loadInventory(player1.getInventory().itemList)
@@ -121,14 +121,14 @@ func _inventory1():
 
 #Handles showing/hiding player2's inventory and freezing the player
 func _inventory2():
-	#TODO: adjust position to the right half of the screen if both p
+	var zoomedOut = player1.getZoom()
 	var inventoryScreenP2 = get_node("/root/Root/HUDControl/InventoryScreenP2")
-	#if screen != zoomedOut:
-	inventoryScreenP2.set_position(camera.get_camera_screen_center() - Vector2(20, screensize.y/3.2))
-	inventoryScreenP2.set_scale(Vector2(0.7,0.7)) 
-	#else:
-		#inventoryScreenP1.set_position
-		#inventoryScreenP1.set_scale
+	if !zoomedOut:
+		inventoryScreenP2.set_position(camera.get_camera_screen_center() - Vector2(20, screensize.y/3.2))
+		inventoryScreenP2.set_scale(Vector2(0.7,0.7)) 
+	else:
+		inventoryScreenP2.set_position(camera.get_camera_screen_center() - Vector2(20, screensize.y/2.16))
+		inventoryScreenP2.set_scale(Vector2(1.05,1.05))
 	if(!player2.isFrozen):
 		inventoryScreenP2.show()
 	else:

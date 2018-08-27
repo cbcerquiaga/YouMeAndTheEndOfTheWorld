@@ -123,6 +123,10 @@ func addItem(item):
 
 func getInventory():
 	return playerProperty.Inventory
+	
+func getZoom():
+	var playerTracking = get_node("../playerTracking")
+	return playerTracking.isZoomedOut
 
 func getHealth():
 	playerProperty.calculateHealth()
