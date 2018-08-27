@@ -38,6 +38,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 popup_exclusive = false
 script = ExtResource( 1 )
+_sections_unfolded = [ "Rect" ]
 
 [node name="Status Box" type="Sprite" parent="." index="0"]
 
