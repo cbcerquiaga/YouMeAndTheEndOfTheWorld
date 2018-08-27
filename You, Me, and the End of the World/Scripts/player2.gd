@@ -16,7 +16,7 @@ signal move
 #Nodes
 onready var otherPlayer = get_node("../player1")
 onready var camera = get_node("../playerTracking/Camera")
-onready var screensize = Vector2(get_viewport().size.x, get_viewport().size.y)
+onready var screensize = Vector2(1024,600)
 
 #Called when the player is entered into the scene
 func _ready():
@@ -41,7 +41,6 @@ func _physics_process(delta):
 	#get_node("/root/dungeon/HUD/P1A1 Icon")._setFrame(1)
 	#var player1InCamera = camera.get_viewport_rect().encloses(self.get_viewport_rect())
 	var motion = Vector2()
-	screensize = Vector2(get_viewport().size.x, get_viewport().size.y)
 	var isPlaying = get_node("/root/Root").get("isp2Playing")
 	if (isPlaying and !isFrozen):
 		if Input.is_action_pressed("p2_move_up"):
@@ -91,14 +90,14 @@ func _physics_process(delta):
 
 	#This is the function to manage the screensize and make sure the player cannot
 	#move outside the camera's view
-	if !motion.x + distance.x < screensize.x or !motion.x + distance.x > -screensize.x:
+	if !motion.x + distance.x < 1024 or !motion.x + distance.x > -1024:
 		motion.x = 0
-	if !motion.y + distance.y < screensize.y or !motion.y + distance.y > -screensize.y:
+	if !motion.y + distance.y < 600 or !motion.y + distance.y > -600:
 		motion.y = 0
 
 	#If the player moved in this frame then emit the move signal
 	if motion != Vector2(0,0):
-		print(distance)
+		# print(distance)
 		move_and_slide(motion)
 		emit_signal("move")
 
