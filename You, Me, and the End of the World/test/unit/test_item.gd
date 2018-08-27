@@ -9,7 +9,7 @@ func setup():
 
 func test_equality():
 	assert_true(item1.itemName != item2.itemName, "item1 and item2 do not have the same name")
-	assert_true(item1.itemType != item2.itemType, "item1 and item2 do not have the same type")
+	assert_true(item1.itemType == item2.itemType, "item1 and item2 do not have the same type")
 	assert_true(item1.worth != item2.worth, "item1 and item2 do not have the same worth")
 	assert_true(item1.scriptPath == item2.scriptPath, "item1 and item2 have the same script path")
 	assert_true(item1.packedScenePath == item2.packedScenePath, "item1 and item2 have the same scene path")
