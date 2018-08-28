@@ -90,14 +90,31 @@ func _physics_process(delta):
 
 	#This is the function to manage the screensize and make sure the player cannot
 	#move outside the camera's view
-	if !motion.x + distance.x < 1024 or !motion.x + distance.x > -1024:
-		motion.x = 0
-	if !motion.y + distance.y < 600 or !motion.y + distance.y > -600:
-		motion.y = 0
+	var newDistance = Vector2(motion.x + distance.x, motion.y + distance.y)
+	var screenx = 1024
+	var screeny = 600
+
+	#Positive x distance
+	if distance.x > 0:
+		if newDistance.x > screenx:
+			motion.x = screenx - distance.x
+	#Negative x distance
+	if distance.x < 0:
+		if newDistance.x < -screenx:
+			motion.x = -screenx - distance.x
+
+	#Positive y distance
+	if distance.y > 0:
+		if newDistance.y > screeny:
+			motion.y = screeny - distance.y
+	#Negative x distance
+	if distance.y < 0:
+		if newDistance.y < -screeny:
+			motion.y = -screeny - distance.y
 
 	#If the player moved in this frame then emit the move signal
 	if motion != Vector2(0,0):
-		# print(distance)
+		# print("Distance: ", distance, "Motion: ", motion)
 		move_and_slide(motion)
 		emit_signal("move")
 
