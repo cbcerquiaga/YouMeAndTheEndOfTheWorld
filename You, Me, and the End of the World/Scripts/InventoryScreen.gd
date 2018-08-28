@@ -208,6 +208,68 @@ func loadInventory(list):
 	print("misc: " + str(miscItems))
 	print("discovered places: " + str(discoveredPlaces))
 
+#checks what tab the screen is on, and sets the inventory screen
+#accordingly
+func setInventorySegments():
+	if currentTab == "quests":
+		setSegments(quests)
+	elif currentTab == "map":
+		setSegments(discoveredPlaces)
+	elif currentTab == "misc":
+		setSegments(miscItems)
+	elif currentTab == "consumable":
+		setSegments(consumableItems)
+	elif currentTab == "equippable":
+		setSegments(equippableItems)
+	else: #currentTab == "weapons":
+		setSegments(weaponItems)
+		
+
+#takes an array of items and assigns them to the inventory segments
+func setSegments(itemsArray):
+	var currentIndex = 0
+	if itemsArray.size() > 14:
+		for i in range(14):
+			setIndividualSegment(currentIndex,i)
+			currentIndex = currentIndex + 1
+			#add all segments and be ready to scroll
+	else:
+		for i in range(0,itemsArray.size()):
+			setIndividualSegment(currentIndex,i)
+			currentIndex = currentIndex + 1
+			#add to appropriate segments
+
+#helper for setSegments to make the code cleaner
+func setIndividualSegment(index, item):
+	if index == 0:
+		segment0.setText(str(item))
+	elif index == 1:
+		segment1.setText(str(item))
+	elif index == 2:
+		segment2.setText(str(item))
+	elif index == 3:
+		segment3.setText(str(item))
+	elif index == 4:
+		segment4.setText(str(item))
+	elif index == 5:
+		segment5.setText(str(item))
+	elif index == 6:
+		segment6.setText(str(item))
+	elif index == 7:
+		segment7.setText(str(item))
+	elif index == 8:
+		segment8.setText(str(item))
+	elif index == 9:
+		segment9.setText(str(item))
+	elif index == 10:
+		segment10.setText(str(item))
+	elif index == 11:
+		segment11.setText(str(item))
+	elif index == 12:
+		segment12.setText(str(item))
+	else: #index == 13:
+		segment13.setText(str(item))
+
 func loadTab():
 	print("tab loaded")
 
@@ -347,4 +409,5 @@ func _process(delta):
 			else: #currentTab == "map"
 				questButtonPressed()
 		setBasicText()
+		setInventorySegments()
 	pass
