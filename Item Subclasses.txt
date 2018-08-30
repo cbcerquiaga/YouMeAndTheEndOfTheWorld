@@ -3,7 +3,7 @@ ItemType (fields)
 
 Quest (objectives[], startLocation, startCondition)
 
-Weapon (damage, durability)
+Weapon (damage, durability, criticalChance)
 ->RangedWeapon (isAuto, ammo capacity, bulletSpeed, ROF, spread, bonusEffects, bulletArc, numRicochets, jamChance, reloadSpeed?)
 ->MeleeWeapon (reach, attackSpeed, blockSpeed, blockValue, attackValue, damageType)
 
