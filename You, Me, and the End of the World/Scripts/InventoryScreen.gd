@@ -1,5 +1,9 @@
 extends Popup
 
+var leftKey
+var rightKey
+var upKey
+var downKey
 var justOpened
 var L
 var C
@@ -84,6 +88,13 @@ func _ready():
 	segment12.connect("pressed",self,"segment12ButtonPressed")
 	segment13.connect("pressed",self,"segment13ButtonPressed")
 	pass
+	
+#lets the inventroy be controlled by different keys
+func setKeys(_leftKey, _rightKey, _upKey, _downKey):
+	leftKey = _leftKey
+	rightKey = _rightKey
+	upKey = _upKey
+	downKey = _downKey
 
 #initializes the segment frames so that they alternate in color
 func alternateSegmentFrames():
@@ -362,7 +373,7 @@ func _process(delta):
 	#TODO: add actual functionality to keybinds
 	currentTab = tabs[tabIndex]
 	if self.is_visible_in_tree():
-		if Input.is_action_just_pressed("p1_move_up"):
+		if Input.is_action_just_pressed(str(upKey)):
 			if currentItem > -1: #not already the top
 			#print("CurrentItem before press: " + str(currentItem))
 			#if currentItem == topItem: #need to scroll up
@@ -371,7 +382,7 @@ func _process(delta):
 				currentItem = currentItem - 1
 				moveHighlight()
 			#print("Current item after press: " + str(currentItem))
-		if Input.is_action_just_pressed("p1_move_down"):
+		if Input.is_action_just_pressed(str(downKey)):
 			if currentItem < 14: #not already the bottom
 			#print("CurrentItem before press: " + str(currentItem))
 			#if currentItem == (topItem - 13): #need to scroll down
@@ -380,7 +391,7 @@ func _process(delta):
 				currentItem = currentItem + 1
 				moveHighlight()
 			#print("Current item after press: " + str(currentItem))
-		if Input.is_action_just_pressed("p1_move_left"):
+		if Input.is_action_just_pressed(str(leftKey)):
 		#print("Tab over left")
 			if currentTab == "quests":
 				mapButtonPressed()
@@ -394,7 +405,7 @@ func _process(delta):
 				weaponButtonPressed()
 			else: #currentTab == "weapons":
 				questButtonPressed()
-		if Input.is_action_just_pressed("p1_move_right"):
+		if Input.is_action_just_pressed(str(rightKey)):
 			#print("Tab over right")
 			if currentTab == "quests":
 				weaponButtonPressed()
