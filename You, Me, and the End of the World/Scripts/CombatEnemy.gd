@@ -160,9 +160,21 @@ func _physics_process(delta):
 
 
 
-func _on_Bullet_hit(body, damage):
-	if(body == "torso"):
-		totalHealth = totalHealth - damage
-	elif(body == "head"):
-		totalHealth = (totalHealth - (damage*headDamageMultiplier))
+func _on_Bullet_hit(bodyPart, damage, critChance):
+	print("Hit! " + str(totalHealth))
+	var randNum = rand_range(0,1)
+	if bodyPart == "torso":
+		if randNum > critChance: #not a critical hit
+			totalHealth = totalHealth - damage
+		else: #50% bonus damage
+			print("CRITICAL STRIKE")
+			totalHealth = totalHealth - (damage * 3/2)
+	elif bodyPart == "head":
+		if randNum > critChance: #not a critical hit
+			totalHealth = (totalHealth - (damage*headDamageMultiplier))
+		else:
+			print("CRITICAL STRIKE")
+			totalHealth = totalHealth - ((damage*headDamageMultiplier) * 3/2)
+	print(str(totalHealth))
 	pass
+

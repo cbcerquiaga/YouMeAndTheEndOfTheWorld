@@ -3,6 +3,7 @@ extends KinematicBody2D
 var damage = 45 #default damage
 var spread = 15 #default spread
 var speed = 1600 #default speed
+var critChance = 0.05 #default chance of a critical hit
 var bleed = 0 #default bleed damage
 var ricochet = 0 #the number of times the bullet ricochets before destroying
 var explosion = false #default explosiveness
@@ -41,7 +42,7 @@ func _process(delta):
 	
 func contact(body):
 	print("Hit enemy")
-	emit_signal("hit", body.name, damage)
+	emit_signal("hit", body.name, damage, critChance)
 	emit_signal("hitUpdate")
 	#if ricochet < 1:
 	destroy()
