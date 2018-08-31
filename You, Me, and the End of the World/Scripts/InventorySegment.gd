@@ -1,10 +1,9 @@
 extends Button
 
 onready var sprite = get_node("Sprite")
-var labelText
 
 func _ready():
-	labelText = ""
+	get_node("RichTextLabel").text = " "
 	pass
 	
 func switchIcon():

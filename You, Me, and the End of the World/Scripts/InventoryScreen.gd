@@ -222,6 +222,7 @@ func loadInventory(list):
 #checks what tab the screen is on, and sets the inventory screen
 #accordingly
 func setInventorySegments():
+	resetSegmentText()
 	if currentTab == "quests":
 		setSegments(quests)
 	elif currentTab == "map":
@@ -282,6 +283,22 @@ func setIndividualSegment(item, index):
 		segment12.setText(str(item))
 	else: #index == 13:
 		segment13.setText(str(item))
+		
+func resetSegmentText():
+	segment0.setText("")
+	segment1.setText("")
+	segment2.setText("")
+	segment3.setText("")
+	segment4.setText("")
+	segment5.setText("")
+	segment6.setText("")
+	segment7.setText("")
+	segment8.setText("")
+	segment9.setText("")
+	segment10.setText("")
+	segment11.setText("")
+	segment12.setText("")
+	segment13.setText("")
 
 func loadTab():
 	print("tab loaded")
@@ -394,7 +411,6 @@ func _process(delta):
 				moveHighlight()
 			#print("Current item after press: " + str(currentItem))
 		if Input.is_action_just_pressed(str(leftKey)):
-		#print("Tab over left")
 			if currentTab == "quests":
 				mapButtonPressed()
 			elif currentTab == "map":
@@ -408,7 +424,6 @@ func _process(delta):
 			else: #currentTab == "weapons":
 				questButtonPressed()
 		if Input.is_action_just_pressed(str(rightKey)):
-			#print("Tab over right")
 			if currentTab == "quests":
 				weaponButtonPressed()
 			elif currentTab == "weapons":
