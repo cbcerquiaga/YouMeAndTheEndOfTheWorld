@@ -1,11 +1,10 @@
 extends Button
 
 onready var sprite = get_node("Sprite")
-onready var label = get_node("RichTextLabel")
+var labelText
 
 func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
+	labelText = ""
 	pass
 	
 func switchIcon():
@@ -15,7 +14,7 @@ func switchIcon():
 		sprite.frame = 0
 		
 func setText(string):
-	label.text = string
+	get_node("RichTextLabel").text = string
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.

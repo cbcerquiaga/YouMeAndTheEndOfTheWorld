@@ -238,20 +238,22 @@ func setInventorySegments():
 
 #takes an array of items and assigns them to the inventory segments
 func setSegments(itemsArray):
-	var currentIndex = 0
+	#print("setting segments with " + str(itemsArray))
+	var item
 	if itemsArray.size() > 14:
 		for i in range(14):
-			setIndividualSegment(currentIndex,i)
-			currentIndex = currentIndex + 1
+			item = itemsArray[i]
+			setIndividualSegment(item,i)
 			#add all segments and be ready to scroll
 	else:
 		for i in range(0,itemsArray.size()):
-			setIndividualSegment(currentIndex,i)
-			currentIndex = currentIndex + 1
+			item = itemsArray[i]
+			setIndividualSegment(item,i)
 			#add to appropriate segments
 
 #helper for setSegments to make the code cleaner
-func setIndividualSegment(index, item):
+func setIndividualSegment(item, index):
+	#print("setting indivudual segments at index " + str(index) + " and item " + str(item))
 	if index == 0:
 		segment0.setText(str(item))
 	elif index == 1:

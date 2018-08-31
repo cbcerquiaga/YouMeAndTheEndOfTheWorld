@@ -3,7 +3,7 @@
 [ext_resource path="res://Scripts/InventorySegment.gd" type="Script" id=1]
 [ext_resource path="res://Images/inventoryTexture.png" type="Texture" id=2]
 
-[node name="Control" type="Button"]
+[node name="Button" type="Button" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -27,14 +27,21 @@ align = 1
 script = ExtResource( 1 )
 _sections_unfolded = [ "Rect" ]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." index="0"]
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+position = Vector2( 165, 12 )
+texture = ExtResource( 2 )
+vframes = 2
+_sections_unfolded = [ "Animation" ]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 330.0
-margin_bottom = 24.0
+margin_right = 331.0
+margin_bottom = 25.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
@@ -52,12 +59,6 @@ scroll_active = true
 scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
-
-[node name="Sprite" type="Sprite" parent="." index="1"]
-
-position = Vector2( 165, 12 )
-texture = ExtResource( 2 )
-vframes = 2
-_sections_unfolded = [ "Animation" ]
+_sections_unfolded = [ "Rect" ]
 
 
