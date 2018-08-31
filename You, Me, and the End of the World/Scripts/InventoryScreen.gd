@@ -44,6 +44,20 @@ onready var segment10 = get_node("Inventory Main/Segment10")
 onready var segment11 = get_node("Inventory Main/Segment11")
 onready var segment12 = get_node("Inventory Main/Segment12")
 onready var segment13 = get_node("Inventory Main/Segment13")
+onready var button0 = get_node("Inventory Main/Segment0/Button0")
+onready var button1 = get_node("Inventory Main/Segment1/Button1")
+onready var button2 = get_node("Inventory Main/Segment2/Button2")
+onready var button3 = get_node("Inventory Main/Segment3/Button3")
+onready var button4 = get_node("Inventory Main/Segment4/Button4")
+onready var button5 = get_node("Inventory Main/Segment5/Button5")
+onready var button6 = get_node("Inventory Main/Segment6/Button6")
+onready var button7 = get_node("Inventory Main/Segment7/Button7")
+onready var button8 = get_node("Inventory Main/Segment8/Button8")
+onready var button9 = get_node("Inventory Main/Segment9/Button9")
+onready var button10 = get_node("Inventory Main/Segment10/Button10")
+onready var button11 = get_node("Inventory Main/Segment11/Button11")
+onready var button12 = get_node("Inventory Main/Segment12/Button12")
+onready var button13 = get_node("Inventory Main/Segment13/Button13")
 
 func _ready():
 	#self.queue_free()
@@ -73,20 +87,20 @@ func _ready():
 	equippableButton.connect("pressed",self,"equippableButtonPressed")
 	miscButton.connect("pressed",self,"miscButtonPressed")
 	mapButton.connect("pressed",self,"mapButtonPressed")
-	segment0.connect("pressed",self,"segment0ButtonPressed")
-	segment1.connect("pressed",self,"segment1ButtonPressed")
-	segment2.connect("pressed",self,"segment2ButtonPressed")
-	segment3.connect("pressed",self,"segment3ButtonPressed")
-	segment4.connect("pressed",self,"segment4ButtonPressed")
-	segment5.connect("pressed",self,"segment5ButtonPressed")
-	segment6.connect("pressed",self,"segment6ButtonPressed")
-	segment7.connect("pressed",self,"segment7ButtonPressed")
-	segment8.connect("pressed",self,"segment8ButtonPressed")
-	segment9.connect("pressed",self,"segment9ButtonPressed")
-	segment10.connect("pressed",self,"segment10ButtonPressed")
-	segment11.connect("pressed",self,"segment11ButtonPressed")
-	segment12.connect("pressed",self,"segment12ButtonPressed")
-	segment13.connect("pressed",self,"segment13ButtonPressed")
+	button0.connect("pressed",self,"segment0ButtonPressed")
+	button1.connect("pressed",self,"segment1ButtonPressed")
+	button2.connect("pressed",self,"segment2ButtonPressed")
+	button3.connect("pressed",self,"segment3ButtonPressed")
+	button4.connect("pressed",self,"segment4ButtonPressed")
+	button5.connect("pressed",self,"segment5ButtonPressed")
+	button6.connect("pressed",self,"segment6ButtonPressed")
+	button7.connect("pressed",self,"segment7ButtonPressed")
+	button8.connect("pressed",self,"segment8ButtonPressed")
+	button9.connect("pressed",self,"segment9ButtonPressed")
+	button10.connect("pressed",self,"segment10ButtonPressed")
+	button11.connect("pressed",self,"segment11ButtonPressed")
+	button12.connect("pressed",self,"segment12ButtonPressed")
+	button13.connect("pressed",self,"segment13ButtonPressed")
 	pass
 	
 #lets the inventroy be controlled by different keys
@@ -163,6 +177,8 @@ func rightButtonPressed():
 	else:
 		print("ERROR, unexpected currentFrame: ", currentFrame)
 		
+#the following functions move the tab highlight to the appropriate
+#tab.
 func questButtonPressed():
 	highlight.set_position(Vector2(0,0))
 	tabIndex = 0
@@ -346,47 +362,66 @@ func scrollDown():
 	#go through the inventory and change text
 	#change the icons of the segments to simulate actual scrolling
 		
+#the following functions move the item highlight to the appropriate
+#inventory segment, and in case the function is being called because
+#of a clickm the currentItem is changed to be correct. If the function
+#is called because of a key press, this is redundant, but it allows a
+#player to navigate with both the keys and the mouse one after the other
 func segment0ButtonPressed():
 	itemHighlight.set_position(Vector2(0,0))
+	currentItem = 0
 
 func segment1ButtonPressed():
 	itemHighlight.set_position(Vector2(0,25))
+	currentItem = 1
 
 func segment2ButtonPressed():
 	itemHighlight.set_position(Vector2(0,50))
+	currentItem = 2
 	
 func segment3ButtonPressed():
 	itemHighlight.set_position(Vector2(0,75))
+	currentItem = 3
 	
 func segment4ButtonPressed():
 	itemHighlight.set_position(Vector2(0,100))
+	currentItem = 4
 	
 func segment5ButtonPressed():
 	itemHighlight.set_position(Vector2(0,125))
+	currentItem = 5
 	
 func segment6ButtonPressed():
 	itemHighlight.set_position(Vector2(0,150))
+	currentItem = 6
 	
 func segment7ButtonPressed():
 	itemHighlight.set_position(Vector2(0,175))
+	currentItem = 7
 	
 func segment8ButtonPressed():
 	itemHighlight.set_position(Vector2(0,200))
+	currentItem = 8
 	
 func segment9ButtonPressed():
 	itemHighlight.set_position(Vector2(0,225))
+	currentItem = 9
 	
 func segment10ButtonPressed():
 	itemHighlight.set_position(Vector2(0,250))
+	currentItem = 10
 	
 func segment11ButtonPressed():
 	itemHighlight.set_position(Vector2(0,275))
+	currentItem = 11
 	
 func segment12ButtonPressed():
 	itemHighlight.set_position(Vector2(0,300))
+	currentItem = 12
 	
 func segment13ButtonPressed():
 	itemHighlight.set_position(Vector2(0,325))
+	currentItem = 13
 
 func _process(delta):
 	#TODO: add actual functionality to keybinds

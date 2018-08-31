@@ -24,7 +24,7 @@
 [ext_resource path="res://Images/itemHighlight.png" type="Texture" id=22]
 [ext_resource path="res://Scripts/Inventory Basic Info.gd" type="Script" id=23]
 
-[node name="InventoryScreen" type="Popup"]
+[node name="InventoryScreen" type="Popup" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -612,101 +612,479 @@ __meta__ = {
 
 [node name="Segment0" parent="Inventory Main" index="0" instance=ExtResource( 21 )]
 
+editor/display_folded = true
 margin_left = -165.0
 margin_top = -162.0
 margin_right = 166.0
 margin_bottom = -137.0
 
+[node name="Button0" type="Button" parent="Inventory Main/Segment0" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 331.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="Segment1" parent="Inventory Main" index="1" instance=ExtResource( 21 )]
 
+editor/display_folded = true
 margin_left = -165.0
 margin_top = -137.0
 margin_right = 166.0
 margin_bottom = -112.0
 
+[node name="Button1" type="Button" parent="Inventory Main/Segment1" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 331.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="Segment2" parent="Inventory Main" index="2" instance=ExtResource( 21 )]
 
+editor/display_folded = true
 margin_left = -165.0
 margin_top = -112.0
 margin_right = 166.0
 margin_bottom = -87.0
 
+[node name="Button2" type="Button" parent="Inventory Main/Segment2" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 331.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="Segment3" parent="Inventory Main" index="3" instance=ExtResource( 21 )]
 
+editor/display_folded = true
 margin_left = -165.0
 margin_top = -87.0
 margin_right = 166.0
 margin_bottom = -62.0
 
+[node name="Button3" type="Button" parent="Inventory Main/Segment3" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 331.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="Segment4" parent="Inventory Main" index="4" instance=ExtResource( 21 )]
 
+editor/display_folded = true
 margin_left = -165.0
 margin_top = -62.0
 margin_right = 166.0
 margin_bottom = -37.0
 
+[node name="Button4" type="Button" parent="Inventory Main/Segment4" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 331.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="Segment5" parent="Inventory Main" index="5" instance=ExtResource( 21 )]
 
+editor/display_folded = true
 margin_left = -165.0
 margin_top = -37.0
 margin_right = 166.0
 margin_bottom = -12.0
 
+[node name="Button5" type="Button" parent="Inventory Main/Segment5" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 331.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="Segment6" parent="Inventory Main" index="6" instance=ExtResource( 21 )]
 
+editor/display_folded = true
 margin_left = -165.0
 margin_top = -12.0
 margin_right = 166.0
 margin_bottom = 13.0
 
+[node name="Button6" type="Button" parent="Inventory Main/Segment6" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 331.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="Segment7" parent="Inventory Main" index="7" instance=ExtResource( 21 )]
 
+editor/display_folded = true
 margin_left = -165.0
 margin_top = 13.0
 margin_right = 166.0
 margin_bottom = 38.0
 
+[node name="Button7" type="Button" parent="Inventory Main/Segment7" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 331.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="Segment8" parent="Inventory Main" index="8" instance=ExtResource( 21 )]
 
+editor/display_folded = true
 margin_left = -165.0
 margin_top = 38.0
 margin_right = 166.0
 margin_bottom = 63.0
 
+[node name="Button8" type="Button" parent="Inventory Main/Segment8" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 331.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="Segment9" parent="Inventory Main" index="9" instance=ExtResource( 21 )]
 
+editor/display_folded = true
 margin_left = -165.0
 margin_top = 63.0
 margin_right = 166.0
 margin_bottom = 88.0
 
+[node name="Button9" type="Button" parent="Inventory Main/Segment9" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 331.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="Segment10" parent="Inventory Main" index="10" instance=ExtResource( 21 )]
 
+editor/display_folded = true
 margin_left = -165.0
 margin_top = 88.0
 margin_right = 166.0
 margin_bottom = 113.0
 
+[node name="Button10" type="Button" parent="Inventory Main/Segment10" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 331.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="Segment11" parent="Inventory Main" index="11" instance=ExtResource( 21 )]
 
+editor/display_folded = true
 margin_left = -165.0
 margin_top = 113.0
 margin_right = 166.0
 margin_bottom = 138.0
 
+[node name="Button11" type="Button" parent="Inventory Main/Segment11" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 331.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="Segment12" parent="Inventory Main" index="12" instance=ExtResource( 21 )]
 
+editor/display_folded = true
 margin_left = -165.0
 margin_top = 138.0
 margin_right = 166.0
 margin_bottom = 163.0
 
+[node name="Button12" type="Button" parent="Inventory Main/Segment12" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 331.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="Segment13" parent="Inventory Main" index="13" instance=ExtResource( 21 )]
 
+editor/display_folded = true
 margin_left = -165.0
 margin_top = 163.0
 margin_right = 166.0
 margin_bottom = 188.0
+
+[node name="Button13" type="Button" parent="Inventory Main/Segment13" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 331.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="ItemHighlight" type="Control" parent="Inventory Main" index="14"]
 
