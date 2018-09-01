@@ -91,8 +91,8 @@ func _physics_process(delta):
 	#This is the function to manage the screensize and make sure the player cannot
 	#move outside the camera's view
 	var newDistance = Vector2(motion.x + distance.x, motion.y + distance.y)
-	var screenx = 1024 * 1.5
-	var screeny = 600 * 1.5
+	var screenx = 1024 * 1.45
+	var screeny = 600 * 1.45
 
 	#Positive x distance
 	if distance.x > 0:

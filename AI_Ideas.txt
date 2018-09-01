@@ -1,0 +1,49 @@
+Combat AI
+Combat player can do a few things:
+1. They can jump
+2. Crouch to move down faster
+3. Move closer to the player
+(if there is any space available)
+4. Move further from the player
+(if a wall doesn't get in the way)
+5. Shoot a bullet
+
+Combat player should optimize two things
+1. Take as little damage as possible
+This should be done by keeping a distance and utilizing tasks 1-4
+2. Kill the player as quickly
+But this also needs to take into consideration like how sure a shot is at a certain position
+The further from the player, the less likely the enemy can land a hit. But the closer
+The AI gets the harder it will be to dodge.
+
+Variance in AI
+Each Enemy in the game should behave slightly different. We don't want one AI
+Strategy for the entire game. Therefore we should optimize several behaviors,
+and also give the AI variance such as:
+Enemy Defined:
+1. Bullet accuracy
+2. Risk taking and certainty
+3. Reaction speed
+
+Environment Variance:
+1. Weapon type. Melee or range? Shotgun or sniper? Spear or shank?
+2. Height of the AI, If the AI is short jumping will be easier to dodge the bullets
+3. Size of the Arena (could change)
+4. Number of players
+5. Number of tag outs (party size)
+
+Behaviors
+1. Defensive
+The AI always keeps a distances, waits for the player to attack. Will not hesitate to take a decent shot.
+2. Balanced
+The AI will balance between defense and aggressive for certain time. The AI will not go full gun hoe, but will not stall for long.
+3. Aggressive
+The AI does not let the player get a chance to get the upper hand. Will run at the player, still try to dodge, but it's real objective is to kill before it is killed.
+4. Risk
+Don't tell me the odds. This AI will never question a shot, far or near. Might need a cool down so it isn't a temporary hail storm.
+5. 100% sure
+Please tell me the odds. This AI will not waste their bullets. Could be a good strategy when you are low?
+6. Mimic
+If the player is going to get close and personal this AI will not hesitate to play the game. If the player wants to wait the AI has all the time it needs.
+7. Late to the date
+This AI should utilize it's poor player calculation to give the player an easy shot. Will react a little slower to everything, can take the form of any of the previous AIs
