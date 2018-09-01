@@ -1,0 +1,43 @@
+Player Skills
+
+Build (stats that are fixed when designing the character)
+-Height: taller characters have more reach in melee but a larger hit box
+-Age: older characters start at a higher level but gain less experience from playing
+-Sex: in certain situations, a character may have an advantage for being male or female
+-Body type: slim characters survive in the heat better, thick characters survive in the cold better.
+-Metabolism: fast metabolizing characters need more food but get a strength(thick), endurance(slim), or combat quickness(medium) bonus when fully fed, while slow metabolizing characters need less food.
+
+General (multipurpose skills)
+-Strength: increasess melee damage and carry weight
+-Endurance: increases combat endurance and reduced the rate at which sleepLevel falls
+-Luck: critical chance in combat and chance of finding rare encounters
+-Stealth: shrinks vision cone for enemies in the exploration world.
+
+Speech (all of the skills involved with talking to people)
+Each speech skill affects checks on certain dialog options
+-Lying: the ability to convince people of things that aren't true
+-Intimidation: the ability to scare people
+-Seduction: the ability to make people attracted to you
+-Comedy: the ability to use jokes in conversation
+-Knowledge: the ability to know what you're talking about and communicate with experts
+-Barter: ability to get good deals in negotiations and good prices in trades
+-Charisma: general speech skill
+
+Combat (all of the skills involved with combat)
+-Toughness: totalHealth
+-Aim: reduces ranged weapon spread
+-Technique: allows the player to use higher-level melee weapons. Not having enough technique means a reduction in attack and block speed, block effectiveness, and block breaking chance with that weapon.
+-Quickness: speed, jumping, and crouching
+-Recovery: how quickly the stamina meter refills
+
+Survival (skills used to survive)
+-Lockpicking: the max level lock that can be attempted
+-Immunity: chance to get diseases, time to recover from diseases
+-Tolerance: chance to get addicted, time to recover from addictions
+-Awareness: quality of search skill
+-Repair: ability to fix items
+-Medicine: ability to heal self and/or others
+
+Minigame (skills only used in minigames)
+-
+
