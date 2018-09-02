@@ -6,24 +6,36 @@ Combat player can do a few things:
 (if there is any space available)
 4. Move further from the player
 (if a wall doesn't get in the way)
-5. Shoot a bullet
+5. Shoot a bullet at the player's head
+(if a ranged weapon is equipped)
+6. Shoot a bullet at the player's body
+(if a ranged weapon is equipped)
+7. Shoot a bullet at the player's legs
+(if a ranged weapon is equipped)
+6. Melee attack- high, low, heavy
+(if in range)
+7. Block- high, low
+8. Grab attack
+(if in range)
 
-Combat player should optimize two things
+Combat player should optimize three things
 1. Take as little damage as possible
 This should be done by keeping a distance and utilizing tasks 1-4
 2. Kill the player as quickly
 But this also needs to take into consideration like how sure a shot is at a certain position
 The further from the player, the less likely the enemy can land a hit. But the closer
 The AI gets the harder it will be to dodge.
+3. Avoid running out of stamina
 
 Variance in AI
 Each Enemy in the game should behave slightly different. We don't want one AI
 Strategy for the entire game. Therefore we should optimize several behaviors,
 and also give the AI variance such as:
 Enemy Defined:
-1. Bullet accuracy
+1. Bullet accuracy (could just be a spread multiplier on ranged weapons)
 2. Risk taking and certainty
 3. Reaction speed
+4. Reaction to taunts
 
 Environment Variance:
 1. Weapon type. Melee or range? Shotgun or sniper? Spear or shank?
@@ -31,6 +43,7 @@ Environment Variance:
 3. Size of the Arena (could change)
 4. Number of players
 5. Number of tag outs (party size)
+6. Health level- enemies with lots of health can afford to take hits to deal damage, ones that are low on health need to be more careful
 
 Behaviors
 1. Defensive
@@ -47,3 +60,7 @@ Please tell me the odds. This AI will not waste their bullets. Could be a good s
 If the player is going to get close and personal this AI will not hesitate to play the game. If the player wants to wait the AI has all the time it needs.
 7. Late to the date
 This AI should utilize it's poor player calculation to give the player an easy shot. Will react a little slower to everything, can take the form of any of the previous AIs
+8. Unpredictable
+Switches back and forth between varioous AI patterns, making it difficult to predict what they will do next
+9. Pattern
+Uses a pattern of attacks and movements like a boss. Might react a little bit to the player's actions, but it doesn't necessarily have to.
