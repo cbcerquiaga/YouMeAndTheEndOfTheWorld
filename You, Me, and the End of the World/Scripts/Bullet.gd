@@ -1,7 +1,6 @@
 extends KinematicBody2D
 
 var damage = 45 #default damage
-var spread = 15 #default spread
 var speed = 1600 #default speed
 var critChance = 0.05 #default chance of a critical hit
 var bleed = 0 #default bleed damage
@@ -14,7 +13,7 @@ onready var enemyHealth = get_node("/root/Combat/CombatHUD/EnemyHealth")
 onready var playerHealth = get_node("/root/Combat/CombatHUD/PlayerHealth")
 
 onready var enemy = self.get_parent().get_node("Enemy")
-	
+
 signal hit
 signal hitUpdate
 
@@ -33,13 +32,12 @@ func _process(delta):
 	if(collideCheck != null):
 		if(collideCheck.collider.name != "head" and collideCheck.collider.name != "torso"):
 			print("Ouch!")
-			#var enemy = get_node("/root/TileMap/Enemy")
 			hide()
 			queue_free()
 		else:
 			contact(collideCheck.collider);
 	pass
-	
+
 func contact(body):
 	print("Hit enemy")
 	emit_signal("hit", body.name, damage, critChance)

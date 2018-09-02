@@ -3,7 +3,6 @@ extends KinematicBody2D
 # Member variables
 const GRAVITY = 500.0 # pixels/second/second
 const CROUCH_GRAVITY = 120.0 #pixels/second/second
-const BULLET = preload("res://tscn files/Bullet.tscn")
 
 # Angle in degrees towards either side that the player can consider "floor"
 const FLOOR_ANGLE_TOLERANCE = 40
@@ -53,7 +52,10 @@ var staminaRegen = .15 #how quickly the player's stamina regenerates
 var agility
 var strength
 var maxHealth = 100
+var spread = 15
+var lastFrameEndSpeed = Vector2(0,0)
 
+onready var bullet = load("res://tscn files/Bullet.tscn")
 
 func _ready():
 	#ready stuff
@@ -91,11 +93,11 @@ func _physics_process(delta):
 	if stop:
 		var vsign = sign(velocity.x)
 		var vlen = abs(velocity.x)
-		
+
 		vlen -= STOP_FORCE * delta
 		if vlen < 0:
 			vlen = 0
-		
+
 		velocity.x = vlen * vsign
 
 	if head_attack:
@@ -134,7 +136,7 @@ func _physics_process(delta):
 			#TODO: play charge-up animation
 			#TODO: check to see if enemy is in range
 			#TODO: damage more based on how long the button is charged
-	
+
 	if shoot and !isMouseNull:
 		if ammoLeft > 0: #there is ammo to shoot
 			ammoLeft -= 1
@@ -159,6 +161,7 @@ func _physics_process(delta):
 	velocity += force * delta
 	# Integrate velocity into motion and move
 	velocity = move_and_slide(velocity, Vector2(0, -1))
+	lastFrameEndSpeed = velocity
 
 	if is_on_floor():
 		on_air_time = 0
@@ -190,19 +193,12 @@ func _physics_process(delta):
 	pass
 
 func create_bullet(position):
-#	var bullet = BULLET.instance(1)
-#	bullet.set_position(self.global_position)
-#	self.add_child(bullet)
-#	bullet.show()
-#	print("Created Bullet")
-#	print(bullet.position)
-	var tempBullet = load("res://tscn files/Bullet.tscn").instance()
+	var tempBullet = bullet.instance()
 	tempBullet.set_position(self.position)
 	var truePosition = get_local_mouse_position()
 	truePosition.x += 15
 	truePosition.y += 15
 	#add spread based on bullet type
-	var spread = tempBullet.spread
 	var randSpread = int(rand_range(-spread,spread))
 	truePosition.x += randSpread
 	randSpread = int(rand_range(-spread,spread))

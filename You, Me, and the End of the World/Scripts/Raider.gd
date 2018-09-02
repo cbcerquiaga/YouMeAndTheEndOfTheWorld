@@ -1,1 +1,1 @@
-extends 'CombatEnemy.gd'
+extends 'CombatAI/Aimbot.gd'

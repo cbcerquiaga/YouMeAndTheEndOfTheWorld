@@ -43,7 +43,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 custom_solver_bias = 0.0
 extents = Vector2( 9.76202, 9.58755 )
 
-[node name="Combat" type="Node2D"]
+[node name="Combat" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
@@ -484,7 +484,7 @@ position = Vector2( 337.906, 509.419 )
 
 [node name="Enemy" parent="TileMap" index="2" instance=ExtResource( 21 )]
 
-position = Vector2( 708.474, 508.518 )
+position = Vector2( 969.918, 500.251 )
 
 [node name="Inside" type="StaticBody2D" parent="." index="4"]
 
@@ -505,6 +505,9 @@ __meta__ = {
 position = Vector2( 517.385, 289.739 )
 scale = Vector2( -47.8738, -25.1606 )
 shape = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [connection signal="mouse_entered" from="Inside" to="TileMap/CombatPlayer" method="_on_Border_mouse_entered"]
 
