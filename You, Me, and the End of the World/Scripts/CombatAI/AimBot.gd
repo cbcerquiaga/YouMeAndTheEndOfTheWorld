@@ -4,7 +4,10 @@ var threshold = .6
 var playerMaxSpeed = 420
 
 onready var player = get_node("../CombatPlayer")
+onready var playerHead = get_node("../CombatPlayer/head")
+onready var playerTorso = get_node("../CombatPlayer/torso")
 onready var bullet = load("res://tscn files/Bullet.tscn")
+
 var bulletSpeed = 1600
 var maxDistance = 900
 
@@ -23,7 +26,12 @@ func _physics_process(delta):
 func shoot():
 	print("Shooting")
 	#Determine player distance
+	var distanceToPlayer = (self.global_position - player.global_position).length()
 	#Determine player current movement direction and speed
+	var tempBullet = bullet.instance()
+	tempBullet.set_position(self.position)
+	tempBullet.motion = playerHead.global_position.normalized()
+	self.get_parent().add_child(tempBullet)
 	#Determine where the expected point of contact would be
 	#Fire bullet
 	pass

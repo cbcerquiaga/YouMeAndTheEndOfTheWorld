@@ -2,6 +2,7 @@ extends "res://Scripts/CombatAI/CombatEnemy.gd"
 
 var maxDistance
 var minDistance
+onready var player = get_node("../CombatPlayer")
 
 func _ready():
 	maxDistance = 800
@@ -11,8 +12,14 @@ func _ready():
 func jump():
 	pass
 
+func _physics_process(delta):
+	staminaRegen()
+	updateGravity()
+	dodge()
+	pass
+
 func dodge():
-	var distanceToPlayer = (self.global_position - player.global_position).length()
+	var distanceToPlayer = (self.global_position - player.global_position).x
 	if distanceToPlayer >= 0: #player is on the left
 		print("To the left to the left")
 		if distanceToPlayer < minDistance: #need to move away

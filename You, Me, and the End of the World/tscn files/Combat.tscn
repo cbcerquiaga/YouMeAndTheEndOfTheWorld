@@ -484,7 +484,7 @@ position = Vector2( 337.906, 509.419 )
 
 [node name="Enemy" parent="TileMap" index="2" instance=ExtResource( 21 )]
 
-position = Vector2( 969.918, 500.251 )
+position = Vector2( 866.58, 477.517 )
 
 [node name="Inside" type="StaticBody2D" parent="." index="4"]
 
