@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>350</x>
-      <y>640</y>
+      <x>370</x>
+      <y>590</y>
       <w>210</w>
       <h>130</h>
     </coordinates>
@@ -21,8 +21,8 @@ CreateBullet()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>350</x>
-      <y>480</y>
+      <x>370</x>
+      <y>430</y>
       <w>210</w>
       <h>100</h>
     </coordinates>
@@ -36,8 +36,8 @@ staminaRegen()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>440</x>
-      <y>570</y>
+      <x>460</x>
+      <y>520</y>
       <w>30</w>
       <h>90</h>
     </coordinates>
@@ -47,8 +47,8 @@ staminaRegen()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>670</x>
-      <y>350</y>
+      <x>690</x>
+      <y>300</y>
       <w>210</w>
       <h>90</h>
     </coordinates>
@@ -61,8 +61,8 @@ maintainDistance()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>450</x>
-      <y>350</y>
+      <x>470</x>
+      <y>300</y>
       <w>210</w>
       <h>90</h>
     </coordinates>
@@ -76,8 +76,8 @@ dodge()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>230</x>
-      <y>350</y>
+      <x>250</x>
+      <y>300</y>
       <w>210</w>
       <h>90</h>
     </coordinates>
@@ -91,8 +91,8 @@ calcCertainty()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>10</x>
-      <y>350</y>
+      <x>30</x>
+      <y>300</y>
       <w>210</w>
       <h>90</h>
     </coordinates>
@@ -104,8 +104,8 @@ _physics_process(delta)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>450</x>
-      <y>120</y>
+      <x>470</x>
+      <y>70</y>
       <w>230</w>
       <h>180</h>
     </coordinates>
@@ -125,8 +125,8 @@ maintainDistance()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>320</x>
-      <y>290</y>
+      <x>340</x>
+      <y>240</y>
       <w>220</w>
       <h>80</h>
     </coordinates>
@@ -136,8 +136,8 @@ maintainDistance()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>550</x>
-      <y>290</y>
+      <x>570</x>
+      <y>240</y>
       <w>30</w>
       <h>80</h>
     </coordinates>
@@ -147,8 +147,8 @@ maintainDistance()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>570</x>
-      <y>290</y>
+      <x>590</x>
+      <y>240</y>
       <w>220</w>
       <h>80</h>
     </coordinates>
@@ -158,8 +158,8 @@ maintainDistance()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>330</x>
-      <y>430</y>
+      <x>350</x>
+      <y>380</y>
       <w>140</w>
       <h>70</h>
     </coordinates>
@@ -169,8 +169,8 @@ maintainDistance()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>100</x>
-      <y>430</y>
+      <x>120</x>
+      <y>380</y>
       <w>320</w>
       <h>70</h>
     </coordinates>
@@ -180,8 +180,8 @@ maintainDistance()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>470</x>
-      <y>430</y>
+      <x>490</x>
+      <y>380</y>
       <w>100</w>
       <h>70</h>
     </coordinates>
@@ -191,8 +191,8 @@ maintainDistance()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>510</x>
-      <y>430</y>
+      <x>530</x>
+      <y>380</y>
       <w>290</w>
       <h>70</h>
     </coordinates>
