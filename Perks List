@@ -7,7 +7,7 @@ Did I say that?: can re-roll charisma checks
 Wild Wasteland (needs a different name): random encounters are much more likely
 Salty: lets the player sail wind-powered vehicles
 Scary: makes there a slight chance that enemies attempt to run away from combat even if they're properly equipped (and didn't bring a kinfe to a gunfight)
-Knife to a gunfight: increased chance of surviving (and succeeding) when attempting to rush an enemy equipped with a ranged weapon and getting into melee combat
+Knife to a gunfight: enemies have decreased accuracy when the player equips a melee weapon and no ranged weapon
 Speedy: increased movement speed when exploring
 Iron gut: risk on all foods reduced 20%
 Double damage potion: all melee damage done will be doubled (it would make sense to be better at finding weak points on people or having good martial arts technique, but nobody shoots a bullet harder than anybody else)
@@ -21,7 +21,7 @@ Red Pill: Enemy ranged weapon accuracy decreased by 20%
 It's a Dry Heat: improved heat resistance
 You should have been here last Winter: improved cold resistance
 Bear: If the player runs out of water in their inventory, they get their thirst meter refilled halfway
-An Apple a Day: The player's hygeine meter goes down 50% slower
+An Apple a Day: The player's hygeine and illness meter goes down 50% slower
 Sweet: improved charisma with females
 Charming: improved charisma with males
 Inquisitive: more EXP from everyday actions
@@ -30,6 +30,15 @@ Shields for Arms: blocks absorb a higher percentage of damage in combat
 Barter Beater: sell items for an increased cost
 Senior Discount: get a reduced price on items, only if the character is old
 Safe Driver Discount: Reduced chance of being attacked by bandits or wrecking the car when fast travelling in a vehicle
+Sweaty: All athletic traits increase by 2 (quickness, endurance, strength, recovery), but water and hygiene levels go down faster
+Grapple master: immune to grab attacks from enemies
+Pitiful: Reduced chance of being robbed or maimed on a successful surrender, even if the enemy is greedy or merciless
+Guitarist: unlocks the guitar instrument as playable
+Drummer: unlocks the drum instrument as playable
+Hairy: improved cold resistance at all times, +1 to intimidation, and -1 to seduction
+Damaged but dashing: When combatHealth is below 50%, all charisma attrbutes get a +1
+Pacifist: when not carrying a weapon in the inventory, all charisma and survival stats get a +1 boost
+Craftsman: unlock all crafting blueprints
 
 Types of values we need to implement
 Name: value range
