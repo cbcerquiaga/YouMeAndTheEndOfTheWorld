@@ -1,13 +1,24 @@
 extends KinematicBody2D
 
-#jump variables and constants
-const JUMP_VELOCITY = 4.5
-const JUMP_CUT_VAL = 1
-const GRAVITY = 0.1
-const CROUCH_GRAVITY = 2.5
+# Member variables
+const GRAVITY = 500.0 # pixels/second/second
+const CROUCH_GRAVITY = 120.0 #pixels/second/second
+
+# Angle in degrees towards either side that the player can consider "floor"
+const FLOOR_ANGLE_TOLERANCE = 40
+const WALK_FORCE = 600
+const WALK_MIN_SPEED = 10
+const WALK_MAX_SPEED = 200
+const STOP_FORCE = 1300
+const JUMP_SPEED = 400
+const JUMP_MAX_AIRBORNE_TIME = .4
+
+const SLIDE_STOP_VELOCITY = 1.0 # one pixel/second
+const SLIDE_STOP_MIN_TRAVEL = 1.0 # one pixel
 var timeHeld = 0
 var timeForFullJump = 0.1
-var motion = Vector2()
+var velocity = Vector2()
+var lastFrameEndSpeed = Vector2(0,0)
 const BULLET = preload("res://tscn files/Bullet.tscn")
 
 #combat-affecting variables
@@ -52,8 +63,8 @@ func staminaRegen():
 
 func updateGravity():
 		#apply movement and gravity
-		motion.y += GRAVITY
-		self.move_and_collide(motion)
+		velocity.y += GRAVITY
+		self.move_and_collide(velocity)
 
 func _on_Bullet_hit(bodyPart, damage, critChance):
 	print("Hit! " + str(totalHealth))
