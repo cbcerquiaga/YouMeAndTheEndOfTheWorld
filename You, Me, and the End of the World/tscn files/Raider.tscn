@@ -15,7 +15,6 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
@@ -29,8 +28,8 @@ __meta__ = {
 [node name="torso" type="KinematicBody2D" parent="." index="1"]
 
 input_pickable = false
-collision_layer = 4
-collision_mask = 4
+collision_layer = 12
+collision_mask = 12
 collision/safe_margin = 0.08
 _sections_unfolded = [ "Collision", "Pickable" ]
 __meta__ = {
@@ -46,8 +45,8 @@ polygon = PoolVector2Array( 18.0618, 42.3149, 4.89125, 42.2799, 3.42398, 41.3367
 [node name="head" type="KinematicBody2D" parent="." index="2"]
 
 input_pickable = false
-collision_layer = 4
-collision_mask = 4
+collision_layer = 12
+collision_mask = 12
 collision/safe_margin = 0.08
 _sections_unfolded = [ "Collision" ]
 __meta__ = {

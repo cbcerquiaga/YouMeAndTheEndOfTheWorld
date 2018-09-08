@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Scripts/Bullet.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/EnemyBullet.gd" type="Script" id=1]
 [ext_resource path="res://Images/basicBullet.png" type="Texture" id=2]
 
-[node name="Bullet" type="KinematicBody2D"]
+[node name="Bullet" type="KinematicBody2D" index="0"]
 
 position = Vector2( 0.0200272, -0.0100021 )
 input_pickable = false
-collision_layer = 8
-collision_mask = 8
+collision_layer = 16
+collision_mask = 16
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
