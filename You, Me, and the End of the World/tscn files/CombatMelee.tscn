@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/CombatMelee.gd" type="Script" id=1]
+[ext_resource path="res://Images/lightsabericonblue.png" type="Texture" id=2]
+
+[node name="Body" type="KinematicBody2D" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
+
+build_mode = 1
+polygon = PoolVector2Array( -10.6867, 14.2326, -17.0177, 24.4299, -20.9992, 24.2972, -21.1319, 19.1213, -2.43151, -15.0357, 2.0713, -24.7918, 7.47468, -23.591 )
+
+[node name="Sprite" type="Sprite" parent="." index="1"]
+
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+

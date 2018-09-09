@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scripts/CombatSceneManager.gd" type="Script" id=1]
 [ext_resource path="res://tscn files/pause_popup.tscn" type="PackedScene" id=2]
@@ -19,8 +19,9 @@
 [ext_resource path="res://Images/runAwayButton.png" type="Texture" id=17]
 [ext_resource path="res://Images/myTiles.tres" type="TileSet" id=18]
 [ext_resource path="res://tscn files/CombatPlayer.tscn" type="PackedScene" id=19]
-[ext_resource path="res://tscn files/Bullet.tscn" type="PackedScene" id=20]
-[ext_resource path="res://tscn files/Raider.tscn" type="PackedScene" id=21]
+[ext_resource path="res://tscn files/CombatMelee.tscn" type="PackedScene" id=20]
+[ext_resource path="res://tscn files/Bullet.tscn" type="PackedScene" id=21]
+[ext_resource path="res://tscn files/Raider.tscn" type="PackedScene" id=22]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -43,7 +44,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 custom_solver_bias = 0.0
 extents = Vector2( 9.76202, 9.58755 )
 
-[node name="Combat" type="Node2D" index="0"]
+[node name="Combat" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
@@ -481,9 +482,13 @@ __meta__ = {
 
 position = Vector2( 337.906, 509.419 )
 
-[node name="Bullet" parent="TileMap" index="1" instance=ExtResource( 20 )]
+[node name="Sword" parent="TileMap/CombatPlayer" index="4" instance=ExtResource( 20 )]
 
-[node name="Enemy" parent="TileMap" index="2" instance=ExtResource( 21 )]
+position = Vector2( 40, -17 )
+
+[node name="Bullet" parent="TileMap" index="1" instance=ExtResource( 21 )]
+
+[node name="Enemy" parent="TileMap" index="2" instance=ExtResource( 22 )]
 
 position = Vector2( 866.58, 477.517 )
 
