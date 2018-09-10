@@ -4,6 +4,7 @@ var leftKey
 var rightKey
 var upKey
 var downKey
+var enterKey
 var justOpened
 var L
 var C
@@ -109,6 +110,7 @@ func setKeys(_leftKey, _rightKey, _upKey, _downKey):
 	rightKey = _rightKey
 	upKey = _upKey
 	downKey = _downKey
+	enterKey = "ui_select"
 
 #initializes the segment frames so that they alternate in color
 func alternateSegmentFrames():
@@ -207,6 +209,21 @@ func mapButtonPressed():
 	highlight.set_position(Vector2(275,0))
 	tabIndex = 5
 	#TODO: change text in inventory section
+	
+func itemSelected():
+	match currentTab:
+		"map":
+			print("discovered place")
+		"quests":
+			print("quest")
+		"weapons":
+			print("weapon")
+		"consumable":
+			print("consumable")
+		"equippable":
+			print("equippable")
+		_:
+			print("misc item")
 
 #sets the text above the items
 func setBasicText():
@@ -428,7 +445,7 @@ func _process(delta):
 	currentTab = tabs[tabIndex]
 	if self.is_visible_in_tree():
 		if Input.is_action_just_pressed(str(upKey)):
-			if currentItem > -1: #not already the top
+			if currentItem > 0: #not already the top
 			#print("CurrentItem before press: " + str(currentItem))
 			#if currentItem == topItem: #need to scroll up
 			#	topItem = topItem - 1
@@ -437,7 +454,7 @@ func _process(delta):
 				moveHighlight()
 			#print("Current item after press: " + str(currentItem))
 		if Input.is_action_just_pressed(str(downKey)):
-			if currentItem < 14: #not already the bottom
+			if currentItem < 13: #not already the bottom
 			#print("CurrentItem before press: " + str(currentItem))
 			#if currentItem == (topItem - 13): #need to scroll down
 			#	topItem = topItem + 1
@@ -471,6 +488,8 @@ func _process(delta):
 				mapButtonPressed()
 			else: #currentTab == "map"
 				questButtonPressed()
+		if Input.is_action_just_pressed(str(enterKey)):
+			itemSelected()
 		setBasicText()
 		setInventorySegments()
 	pass

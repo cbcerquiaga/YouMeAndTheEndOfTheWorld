@@ -20,7 +20,7 @@
 [ext_resource path="res://tscn files/Gut.tscn" type="PackedScene" id=18]
 [ext_resource path="res://tscn files/HUDControl.tscn" type="PackedScene" id=19]
 
-[node name="Root" type="Control"]
+[node name="Root" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -148,7 +148,7 @@ position = Vector2( 655.256, -293.595 )
 
 [node name="NPC" parent="walls" index="9" instance=ExtResource( 12 )]
 
-position = Vector2( -122.425, -298.176 )
+position = Vector2( -122.425, -299.026 )
 script = ExtResource( 13 )
 
 [node name="Piano" parent="walls" index="10" instance=ExtResource( 14 )]
