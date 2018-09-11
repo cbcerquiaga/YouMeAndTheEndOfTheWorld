@@ -1,5 +1,6 @@
 extends Popup
 
+var isPopupUp
 var leftKey
 var rightKey
 var upKey
@@ -59,9 +60,11 @@ onready var button10 = get_node("Inventory Main/Segment10/Button10")
 onready var button11 = get_node("Inventory Main/Segment11/Button11")
 onready var button12 = get_node("Inventory Main/Segment12/Button12")
 onready var button13 = get_node("Inventory Main/Segment13/Button13")
+onready var optionPopup = get_node("OptionPopup")
 
 func _ready():
 	#self.queue_free()
+	isPopupUp = false
 	alternateSegmentFrames()
 	quests = []
 	weaponItems = []
@@ -211,18 +214,30 @@ func mapButtonPressed():
 	#TODO: change text in inventory section
 	
 func itemSelected():
+	optionPopup.show()
 	match currentTab:
 		"map":
+			optionPopup.setText("set marker", "fast travel", "show on map")
 			print("discovered place")
 		"quests":
+			#TODO: figure out what the 3 options should be
+			optionPopup.setText("make active", "make inactive", "set marker")
 			print("quest")
 		"weapons":
+			#TODO: change text based on whether the item is equipped
+			optionPopup.setText("equip", "drop", "give to partner")
 			print("weapon")
 		"consumable":
+			#TODO: change text based on whether the item is food, drugs, etc/
+			optionPopup.setText("eat", "drop", "give to partner")
 			print("consumable")
 		"equippable":
+			#TODO: change text based on whether the item is equipped
+			optionPopup.setText("equip", "drop", "give to partner")
 			print("equippable")
 		_:
+			#TODO: figure out what the 3 options should be
+			optionPopup.setText("use", "drop", "give to partner")
 			print("misc item")
 
 #sets the text above the items
@@ -381,7 +396,7 @@ func scrollDown():
 		
 #the following functions move the item highlight to the appropriate
 #inventory segment, and in case the function is being called because
-#of a clickm the currentItem is changed to be correct. If the function
+#of a click the currentItem is changed to be correct. If the function
 #is called because of a key press, this is redundant, but it allows a
 #player to navigate with both the keys and the mouse one after the other
 func segment0ButtonPressed():
