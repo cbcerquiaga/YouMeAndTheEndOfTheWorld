@@ -60,7 +60,7 @@ onready var button10 = get_node("Inventory Main/Segment10/Button10")
 onready var button11 = get_node("Inventory Main/Segment11/Button11")
 onready var button12 = get_node("Inventory Main/Segment12/Button12")
 onready var button13 = get_node("Inventory Main/Segment13/Button13")
-onready var optionPopup = get_node("OptionPopup")
+onready var optionPopup = get_node("Inventory Main/ItemHighlight/OptionPopup")
 
 func _ready():
 	#self.queue_free()
@@ -214,6 +214,7 @@ func mapButtonPressed():
 	#TODO: change text in inventory section
 	
 func itemSelected():
+	isPopupUp = true
 	optionPopup.show()
 	match currentTab:
 		"map":
@@ -454,57 +455,68 @@ func segment12ButtonPressed():
 func segment13ButtonPressed():
 	itemHighlight.set_position(Vector2(0,325))
 	currentItem = 13
+	
+func setOptionPopupLocation():
+	var yVal = 306 + 18*currentItem
+	optionPopup.set_position(Vector2(220,yVal))
 
 func _process(delta):
 	#TODO: add actual functionality to keybinds
 	currentTab = tabs[tabIndex]
+	setOptionPopupLocation()
 	if self.is_visible_in_tree():
-		if Input.is_action_just_pressed(str(upKey)):
-			if currentItem > 0: #not already the top
-			#print("CurrentItem before press: " + str(currentItem))
-			#if currentItem == topItem: #need to scroll up
-			#	topItem = topItem - 1
-			#	scrollUp()
-				currentItem = currentItem - 1
-				moveHighlight()
-			#print("Current item after press: " + str(currentItem))
-		if Input.is_action_just_pressed(str(downKey)):
-			if currentItem < 13: #not already the bottom
-			#print("CurrentItem before press: " + str(currentItem))
-			#if currentItem == (topItem - 13): #need to scroll down
-			#	topItem = topItem + 1
-			#	scrollDown()
-				currentItem = currentItem + 1
-				moveHighlight()
-			#print("Current item after press: " + str(currentItem))
-		if Input.is_action_just_pressed(str(leftKey)):
-			if currentTab == "quests":
-				mapButtonPressed()
-			elif currentTab == "map":
-				miscButtonPressed()
-			elif currentTab == "misc":
-				consumableButtonPressed()
-			elif currentTab == "consumable":
-				equippableButtonPressed()
-			elif currentTab == "equippable":
-				weaponButtonPressed()
-			else: #currentTab == "weapons":
-				questButtonPressed()
-		if Input.is_action_just_pressed(str(rightKey)):
-			if currentTab == "quests":
-				weaponButtonPressed()
-			elif currentTab == "weapons":
-				equippableButtonPressed()
-			elif currentTab == "equippable":
-				consumableButtonPressed()
-			elif currentTab == "consumable":
-				miscButtonPressed()
-			elif currentTab == "misc":
-				mapButtonPressed()
-			else: #currentTab == "map"
-				questButtonPressed()
-		if Input.is_action_just_pressed(str(enterKey)):
-			itemSelected()
+		if !isPopupUp:
+			if Input.is_action_just_pressed(str(upKey)):
+				if currentItem > 0: #not already the top
+				#print("CurrentItem before press: " + str(currentItem))
+				#if currentItem == topItem: #need to scroll up
+				#	topItem = topItem - 1
+				#	scrollUp()
+					currentItem = currentItem - 1
+					moveHighlight()
+				#print("Current item after press: " + str(currentItem))
+			if Input.is_action_just_pressed(str(downKey)):
+				if currentItem < 13: #not already the bottom
+				#print("CurrentItem before press: " + str(currentItem))
+				#if currentItem == (topItem - 13): #need to scroll down
+				#	topItem = topItem + 1
+				#	scrollDown()
+					currentItem = currentItem + 1
+					moveHighlight()
+				#print("Current item after press: " + str(currentItem))
+			if Input.is_action_just_pressed(str(leftKey)):
+				if currentTab == "quests":
+					mapButtonPressed()
+				elif currentTab == "map":
+					miscButtonPressed()
+				elif currentTab == "misc":
+					consumableButtonPressed()
+				elif currentTab == "consumable":
+					equippableButtonPressed()
+				elif currentTab == "equippable":
+					weaponButtonPressed()
+				else: #currentTab == "weapons":
+					questButtonPressed()
+			if Input.is_action_just_pressed(str(rightKey)):
+				if currentTab == "quests":
+					weaponButtonPressed()
+				elif currentTab == "weapons":
+					equippableButtonPressed()
+				elif currentTab == "equippable":
+					consumableButtonPressed()
+				elif currentTab == "consumable":
+					miscButtonPressed()
+				elif currentTab == "misc":
+					mapButtonPressed()
+				else: #currentTab == "map"
+					questButtonPressed()
+			if Input.is_action_just_pressed(str(enterKey)):
+				itemSelected()
+		else:
+			if Input.is_action_pressed(str(upKey)):
+				optionPopup.upButtonPressed()
+			if Input.is_action_pressed(str(downKey)):
+				optionPopup.downButtonPressed()
 		setBasicText()
 		setInventorySegments()
 	pass

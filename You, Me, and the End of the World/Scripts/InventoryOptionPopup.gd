@@ -37,24 +37,40 @@ func setText(option0, option1, option2):
 	text0.text = option0
 	text1.text = option1
 	text2.text = option2
+
+func upButtonPressed():
+		if currentItem == 2:
+			highlight.set_position(Vector2(0,9))
+			currentItem = 1
+		else: #highlight is on 1 or 0
+			highlight.set_position(Vector2(0,0))
+			currentItem = 0
+			
+func downButtonPressed():
+	if currentItem == 0:
+		highlight.set_position(Vector2(0,9))
+		currentItem = 1
+	else: #highlight is 1 or 2
+		highlight.set_position(Vector2(0,18))
+		currentItem = 2
 	
 func button0Pressed():
 	if currentItem != 0:
-		highlight.setPosition(Vector2(0,0))
+		highlight.set_position(Vector2(0,0))
 		currentItem = 0
 	else:
 		print("emit signal 0")
 
 func button1Pressed():
 	if currentItem != 1:
-		highlight.setPosition(Vector2(0,6))
+		highlight.set_position(Vector2(0,9))
 		currentItem = 1
 	else:
 		print("emit signal 1")
 
 func button2Pressed():
 	if currentItem != 2:
-		highlight.setPosition(Vector2(0,12))
+		highlight.set_position(Vector2(0,18))
 		currentItem = 2
 	else:
 		print("emit signal 2")
@@ -63,17 +79,17 @@ func button2Pressed():
 func _process(delta):
 	if downButtonPressed:
 		if currentItem == 0:
-			highlight.set_position(Vector2(0,6))
+			highlight.set_position(Vector2(0,9))
 			currentItem = 1
 		else: #highlight is 1 or 2
-			highlight.setPosition(Vector2(0,12))
+			highlight.set_position(Vector2(0,18))
 			currentItem = 2
 	if upButtonPressed:
 		if currentItem == 2:
-			highlight.setPosition(Vector2(0,6))
+			highlight.set_position(Vector2(0,9))
 			currentItem = 1
 		else: #highlight is on 1 or 0
-			highlight.setPosition(Vector2(0,0))
+			highlight.set_position(Vector2(0,0))
 			currentItem = 0
 	if enterButtonPressed:
 		if currentItem == 0:

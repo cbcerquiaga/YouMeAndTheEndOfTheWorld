@@ -22,8 +22,8 @@
 [ext_resource path="res://Images/inventoryMain.png" type="Texture" id=20]
 [ext_resource path="res://tscn files/InventorySegment.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Images/itemHighlight.png" type="Texture" id=22]
-[ext_resource path="res://Scripts/Inventory Basic Info.gd" type="Script" id=23]
-[ext_resource path="res://tscn files/InventoryOptionPopup.tscn" type="PackedScene" id=24]
+[ext_resource path="res://tscn files/InventoryOptionPopup.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Scripts/Inventory Basic Info.gd" type="Script" id=24]
 
 [node name="InventoryScreen" type="Popup" index="0"]
 
@@ -1108,6 +1108,15 @@ _sections_unfolded = [ "Rect" ]
 position = Vector2( 0, -150 )
 texture = ExtResource( 22 )
 
+[node name="OptionPopup" parent="Inventory Main/ItemHighlight" index="1" instance=ExtResource( 23 )]
+
+visible = false
+margin_left = 200.0
+margin_top = -145.0
+margin_right = 240.0
+margin_bottom = -105.0
+_sections_unfolded = [ "Rect" ]
+
 [node name="Basic Info" type="RichTextLabel" parent="." index="4"]
 
 anchor_left = 0.0
@@ -1135,16 +1144,7 @@ scroll_active = true
 scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
-script = ExtResource( 23 )
-_sections_unfolded = [ "Rect" ]
-
-[node name="OptionPopup" parent="." index="5" instance=ExtResource( 24 )]
-
-margin_left = 60.0
-margin_top = 40.0
-margin_right = 100.0
-margin_bottom = 80.0
-rect_scale = Vector2( 2.5, 2.5 )
+script = ExtResource( 24 )
 _sections_unfolded = [ "Rect" ]
 
 
