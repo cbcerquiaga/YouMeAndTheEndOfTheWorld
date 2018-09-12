@@ -4,7 +4,7 @@
 [ext_resource path="res://Images/inventoryOptionPopup.png" type="Texture" id=2]
 [ext_resource path="res://Images/inventoryOptionHighlight.png" type="Texture" id=3]
 
-[node name="Popup" type="Popup"]
+[node name="Popup" type="Popup" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -248,6 +248,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
 
 [node name="Sprite" type="Sprite" parent="Highlight" index="0"]
 

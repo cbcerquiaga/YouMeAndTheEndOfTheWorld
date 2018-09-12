@@ -6,6 +6,7 @@ var rightKey
 var upKey
 var downKey
 var enterKey
+var escKey
 var justOpened
 var L
 var C
@@ -114,6 +115,7 @@ func setKeys(_leftKey, _rightKey, _upKey, _downKey):
 	upKey = _upKey
 	downKey = _downKey
 	enterKey = "ui_select"
+	escKey = "p1_move_left"
 
 #initializes the segment frames so that they alternate in color
 func alternateSegmentFrames():
@@ -513,10 +515,16 @@ func _process(delta):
 			if Input.is_action_just_pressed(str(enterKey)):
 				itemSelected()
 		else:
-			if Input.is_action_pressed(str(upKey)):
+			if Input.is_action_just_pressed(str(upKey)):
 				optionPopup.upButtonPressed()
-			if Input.is_action_pressed(str(downKey)):
+			if Input.is_action_just_pressed(str(downKey)):
 				optionPopup.downButtonPressed()
+			if Input.is_action_just_pressed(enterKey):
+				optionPopup.enterButtonPressed()
+				isPopupUp = false
+			if Input.is_action_just_pressed(escKey):
+				optionPopup.hide()
+				isPopupUp = false
 		setBasicText()
 		setInventorySegments()
 	pass
