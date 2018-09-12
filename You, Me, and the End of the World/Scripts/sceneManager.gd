@@ -106,7 +106,7 @@ func _pause():
 func _inventory1():
 	var zoomedOut = player1.getZoom()
 	var inventoryScreenP1 = get_node("/root/Root/HUDControl/InventoryScreenP1")
-	inventoryScreenP1.setKeys("p1_move_left","p1_move_right","p1_move_up","p1_move_down")
+	inventoryScreenP1.setKeys("p1_move_left","p1_move_right","p1_move_up","p1_move_down", "p1_action1", "p1_move_left")
 	if !zoomedOut:
 		inventoryScreenP1.set_position(camera.get_camera_screen_center() - Vector2(screensize.x/1.5, screensize.y/3.2))
 		inventoryScreenP1.set_scale(Vector2(0.7,0.7))
@@ -124,7 +124,7 @@ func _inventory1():
 func _inventory2():
 	var zoomedOut = player1.getZoom()
 	var inventoryScreenP2 = get_node("/root/Root/HUDControl/InventoryScreenP2")
-	inventoryScreenP2.setKeys("p2_move_left","p2_move_right","p2_move_up","p2_move_down")
+	inventoryScreenP2.setKeys("p2_move_left","p2_move_right","p2_move_up","p2_move_down", "p2_action1", "p2_move_right")
 	if !zoomedOut:
 		inventoryScreenP2.set_position(camera.get_camera_screen_center() - Vector2(20, screensize.y/3.2))
 		inventoryScreenP2.set_scale(Vector2(0.7,0.7)) 

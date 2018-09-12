@@ -109,13 +109,13 @@ func _ready():
 	pass
 	
 #lets the inventroy be controlled by different keys
-func setKeys(_leftKey, _rightKey, _upKey, _downKey):
+func setKeys(_leftKey, _rightKey, _upKey, _downKey, _enterKey, _escKey):
 	leftKey = _leftKey
 	rightKey = _rightKey
 	upKey = _upKey
 	downKey = _downKey
-	enterKey = "ui_select"
-	escKey = "p1_move_left"
+	enterKey = _enterKey
+	escKey = _escKey
 
 #initializes the segment frames so that they alternate in color
 func alternateSegmentFrames():
