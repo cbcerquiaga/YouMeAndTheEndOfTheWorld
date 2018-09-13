@@ -224,7 +224,7 @@ func itemSelected():
 			print("discovered place")
 		"quests":
 			#TODO: figure out what the 3 options should be
-			optionPopup.setText("make active", "make inactive", "set marker")
+			optionPopup.setText("set marker", "make active", "choice tree")
 			print("quest")
 		"weapons":
 			#TODO: change text based on whether the item is equipped

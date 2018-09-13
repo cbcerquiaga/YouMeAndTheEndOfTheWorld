@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Scripts/CombatSceneManager.gd" type="Script" id=1]
 [ext_resource path="res://tscn files/pause_popup.tscn" type="PackedScene" id=2]
@@ -6,8 +6,8 @@
 [ext_resource path="res://Images/flippedCombatHud.png" type="Texture" id=4]
 [ext_resource path="res://Images/ammoCounterIcon.png" type="Texture" id=5]
 [ext_resource path="res://Scripts/Icon.gd" type="Script" id=6]
-[ext_resource path="res://Telex-Regular.ttf" type="DynamicFontData" id=7]
-[ext_resource path="res://Scripts/PlayerAmmoNum.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/PlayerAmmoNum.gd" type="Script" id=7]
+[ext_resource path="res://Fonts/Telex-Regular.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://Scripts/EnemyAmmoNum.gd" type="Script" id=9]
 [ext_resource path="res://Images/combatHealthBar.png" type="Texture" id=10]
 [ext_resource path="res://Scripts/CombatPlayerHealth.gd" type="Script" id=11]
@@ -23,20 +23,25 @@
 [ext_resource path="res://tscn files/Bullet.tscn" type="PackedScene" id=21]
 [ext_resource path="res://tscn files/Raider.tscn" type="PackedScene" id=22]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFontData" id=4]
+
+hinting = 2
+font_path = "res://Fonts/Telex-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=5]
 
 size = 24
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 7 )
+font_data = SubResource( 4 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=6]
 
-size = 25
+size = 24
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 7 )
+font_data = ExtResource( 8 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="RectangleShape2D" id=3]
@@ -44,7 +49,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 custom_solver_bias = 0.0
 extents = Vector2( 9.76202, 9.58755 )
 
-[node name="Combat" type="Node2D" index="0"]
+[node name="Combat" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
@@ -108,7 +113,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/normal_font = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 5 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 bbcode_enabled = false
 bbcode_text = ""
@@ -121,7 +126,7 @@ scroll_active = false
 scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
-script = ExtResource( 8 )
+script = ExtResource( 7 )
 _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 __meta__ = {
 "_edit_lock_": true
@@ -181,7 +186,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 6 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 bbcode_enabled = false
 bbcode_text = ""
@@ -195,7 +200,7 @@ scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
 script = ExtResource( 9 )
-_sections_unfolded = [ "Theme" ]
+_sections_unfolded = [ "Theme", "custom_fonts" ]
 __meta__ = {
 "_edit_lock_": true
 }

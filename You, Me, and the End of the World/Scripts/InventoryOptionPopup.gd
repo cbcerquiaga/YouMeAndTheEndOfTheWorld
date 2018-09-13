@@ -37,6 +37,9 @@ func setText(option0, option1, option2):
 	text0.text = option0
 	text1.text = option1
 	text2.text = option2
+#	button0.text = option0
+#	button1.text = option1
+#	button2.text = option2
 
 func upButtonPressed():
 		if currentItem == 2:

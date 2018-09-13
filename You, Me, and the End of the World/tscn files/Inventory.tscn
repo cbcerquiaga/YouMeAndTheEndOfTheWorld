@@ -605,6 +605,7 @@ __meta__ = {
 
 [node name="Inventory Main" type="Sprite" parent="." index="3"]
 
+editor/display_folded = true
 position = Vector2( 500, 495 )
 texture = ExtResource( 20 )
 __meta__ = {
@@ -1115,7 +1116,6 @@ margin_left = 200.0
 margin_top = -145.0
 margin_right = 240.0
 margin_bottom = -105.0
-_sections_unfolded = [ "Rect" ]
 
 [node name="Basic Info" type="RichTextLabel" parent="." index="4"]
 

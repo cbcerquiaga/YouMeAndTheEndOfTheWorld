@@ -1,10 +1,40 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/InventoryOptionPopup.gd" type="Script" id=1]
 [ext_resource path="res://Images/inventoryOptionPopup.png" type="Texture" id=2]
-[ext_resource path="res://Images/inventoryOptionHighlight.png" type="Texture" id=3]
+[ext_resource path="res://Fonts/Web Serveroff.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Images/inventoryOptionHighlight.png" type="Texture" id=4]
 
-[node name="Popup" type="Popup" index="0"]
+[sub_resource type="DynamicFontData" id=1]
+
+hinting = 2
+font_path = "res://Fonts/Web Serveroff.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 18
+use_mipmaps = false
+use_filter = false
+font_data = SubResource( 1 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=3]
+
+size = 18
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=4]
+
+size = 18
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[node name="Popup" type="Popup"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -20,10 +50,10 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 popup_exclusive = false
 script = ExtResource( 1 )
+_sections_unfolded = [ "Rect" ]
 
 [node name="Background" type="Sprite" parent="." index="0"]
 
-scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
@@ -33,10 +63,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -23.0
-margin_top = -15.0
-margin_right = 17.0
-margin_bottom = 25.0
+margin_left = -39.0
+margin_top = -24.0
+margin_right = 1.0
+margin_bottom = 16.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -50,15 +80,17 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = -1.0
-margin_right = 46.0
-margin_bottom = 8.0
+margin_left = -7.0
+margin_top = -6.0
+margin_right = 85.0
+margin_bottom = 9.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = false
 bbcode_text = ""
 visible_characters = -1
@@ -78,8 +110,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 46.0
-margin_bottom = 20.0
+margin_left = -7.0
+margin_top = -7.0
+margin_right = 85.0
+margin_bottom = 33.0
 rect_scale = Vector2( 1, 0.45 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -119,26 +153,29 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 46.0
-margin_bottom = 9.0
+margin_left = -23.0
+margin_top = -3.0
+margin_right = 69.0
+margin_bottom = 12.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = false
 bbcode_text = ""
 visible_characters = -1
 percent_visible = 1.0
 meta_underlined = true
-tab_size = 4
+tab_size = 2
 text = ""
 scroll_active = false
 scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="Button1" type="Button" parent="Background/Segment1" index="1"]
 
@@ -146,8 +183,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 46.0
-margin_bottom = 20.0
+margin_left = -23.0
+margin_top = -4.0
+margin_right = 69.0
+margin_bottom = 36.0
 rect_scale = Vector2( 1, 0.45 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -162,11 +201,9 @@ shortcut = null
 group = null
 flat = true
 align = 1
-_sections_unfolded = [ "Rect" ]
 
 [node name="Segment2" type="Control" parent="Background" index="2"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -188,14 +225,17 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 46.0
-margin_bottom = 9.0
+margin_left = -23.0
+margin_top = 8.0
+margin_right = 69.0
+margin_bottom = 23.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_fonts/normal_font = SubResource( 4 )
 bbcode_enabled = false
 bbcode_text = ""
 visible_characters = -1
@@ -207,7 +247,7 @@ scroll_active = false
 scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="Button2" type="Button" parent="Background/Segment2" index="1"]
 
@@ -215,8 +255,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 46.0
-margin_bottom = 20.0
+margin_left = -23.0
+margin_top = 7.0
+margin_right = 69.0
+margin_bottom = 47.0
 rect_scale = Vector2( 1, 0.45 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -253,7 +295,7 @@ _sections_unfolded = [ "Rect" ]
 [node name="Sprite" type="Sprite" parent="Highlight" index="0"]
 
 scale = Vector2( 2, 2 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
 
