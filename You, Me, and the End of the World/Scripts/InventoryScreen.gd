@@ -249,6 +249,12 @@ func setBasicText():
 
 #split the player's inventory into several arrays based on item type
 func loadInventory(list):
+	quests = []
+	weaponItems = []
+	equippableItems = []
+	consumableItems = []
+	miscItems = []
+	discoveredPlaces = []
 	for i in list:
 		if i.itemType == "quest":
 			quests.append(i)
