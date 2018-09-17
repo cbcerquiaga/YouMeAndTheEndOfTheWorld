@@ -23,20 +23,20 @@
 [ext_resource path="res://tscn files/Bullet.tscn" type="PackedScene" id=21]
 [ext_resource path="res://tscn files/Raider.tscn" type="PackedScene" id=22]
 
-[sub_resource type="DynamicFontData" id=4]
+[sub_resource type="DynamicFontData" id=1]
 
 hinting = 2
 font_path = "res://Fonts/Telex-Regular.ttf"
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=2]
 
 size = 24
 use_mipmaps = false
 use_filter = false
-font_data = SubResource( 4 )
+font_data = SubResource( 1 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=3]
 
 size = 24
 use_mipmaps = false
@@ -44,12 +44,12 @@ use_filter = false
 font_data = ExtResource( 8 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
 extents = Vector2( 9.76202, 9.58755 )
 
-[node name="Combat" type="Node2D"]
+[node name="Combat" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
@@ -113,7 +113,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/normal_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 2 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 bbcode_enabled = false
 bbcode_text = ""
@@ -186,7 +186,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/normal_font = SubResource( 6 )
+custom_fonts/normal_font = SubResource( 3 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 bbcode_enabled = false
 bbcode_text = ""
@@ -484,7 +484,7 @@ __meta__ = {
 
 [node name="CombatPlayer" parent="TileMap" index="0" instance=ExtResource( 19 )]
 
-position = Vector2( 337.906, 509.419 )
+position = Vector2( 697.069, 466.758 )
 
 [node name="Sword" parent="TileMap/CombatPlayer" index="4" instance=ExtResource( 20 )]
 
@@ -494,7 +494,7 @@ position = Vector2( 40, -17 )
 
 [node name="Enemy" parent="TileMap" index="2" instance=ExtResource( 22 )]
 
-position = Vector2( 866.58, 477.517 )
+position = Vector2( 250.873, 376.629 )
 
 [node name="Inside" type="StaticBody2D" parent="." index="4"]
 
@@ -514,7 +514,7 @@ __meta__ = {
 
 position = Vector2( 517.385, 289.739 )
 scale = Vector2( -47.8738, -25.1606 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 __meta__ = {
 "_edit_lock_": true
 }
