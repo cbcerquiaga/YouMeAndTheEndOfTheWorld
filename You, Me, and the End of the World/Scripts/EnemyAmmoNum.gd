@@ -7,10 +7,8 @@ extends RichTextLabel
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
-	text = "6"
 	pass
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+func _process(delta):
+	text = get_node("/root/Combat/TileMap/Enemy").get("ammoVal")
+	pass

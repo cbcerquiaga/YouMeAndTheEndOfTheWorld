@@ -2,20 +2,28 @@ extends "res://Scripts/CombatAI/CombatEnemy.gd"
 
 var threshold = .6
 var playerMaxSpeed = 420
-
+var maxDistance
+var minDistance
+var middlePoint
+var speed = 1.0 #1.0 is the same as the player
+var movement
 onready var player = get_node("../CombatPlayer")
+onready var force = Vector2(0, GRAVITY)
+
 onready var playerHead = get_node("../CombatPlayer/head")
 onready var playerTorso = get_node("../CombatPlayer/torso")
 onready var bullet = load("res://tscn files/EnemyBullet.tscn")
 
 var bulletSpeed = 1600
-var maxDistance = 900
+var maxShootDistance = 900
 
 #Weights
 var speedWeight = .4
 var distanceWeight = .6
 
 func _ready():
+	maxDistance = 315# must be 3 apart to avoid glitching, 15 to avoid any glitching when forced to move
+	minDistance = 300
 	pass
 
 func _physics_process(delta):
@@ -24,6 +32,24 @@ func _physics_process(delta):
 		shoot()
 		ammoLeft -= 1
 		ammoVal = str(ammoLeft)
+	elif (totalHealth < 25 and calcCertainty() > .7 and ammoLeft > 0): #about to die, time to get desparate
+		shoot()
+		ammoLeft -= 1
+		ammoVal = str(ammoLeft)
+	staminaRegen()
+	self.move_and_collide(Vector2(0,500)) #GRAVITY
+	movement = Vector2(WALK_MAX_SPEED, 0) * speed
+	var distanceToPlayer = (self.global_position - player.global_position)
+	if(abs(distanceToPlayer.x) < minDistance):
+		if(distanceToPlayer.x > 0):
+			move_and_slide(movement)
+		else:
+			move_and_slide(-movement)
+	elif(abs(distanceToPlayer.x) > maxDistance):
+		if(distanceToPlayer.x < 0):
+			move_and_slide(movement)
+		else:
+			move_and_slide(-movement)
 
 func shoot():
 #	print("Shooting")
@@ -49,7 +75,7 @@ func calcCertainty():
 	#Max player move speed is ~ 400
 	var speedVariance = 1 - ((abs(playerMoveSpeed) + 1) / playerMaxSpeed)
 
-	var distanceVariance = 1 - ((distanceToPlayer+1)/ maxDistance)
+	var distanceVariance = 1 - ((distanceToPlayer+1)/ maxShootDistance)
 
 	# print("Distance: ", distanceToPlayer, "\tPlayer Speed: ", playerMaxSpeed,
 	# "\tBulletSpeed: ", bulletSpeed)

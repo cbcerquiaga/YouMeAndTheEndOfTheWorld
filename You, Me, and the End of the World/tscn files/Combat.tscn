@@ -484,7 +484,7 @@ __meta__ = {
 
 [node name="CombatPlayer" parent="TileMap" index="0" instance=ExtResource( 19 )]
 
-position = Vector2( 697.069, 466.758 )
+position = Vector2( 215.972, 460.04 )
 
 [node name="Sword" parent="TileMap/CombatPlayer" index="4" instance=ExtResource( 20 )]
 
@@ -494,7 +494,7 @@ position = Vector2( 40, -17 )
 
 [node name="Enemy" parent="TileMap" index="2" instance=ExtResource( 22 )]
 
-position = Vector2( 250.873, 376.629 )
+position = Vector2( 843.072, 381.28 )
 
 [node name="Inside" type="StaticBody2D" parent="." index="4"]
 

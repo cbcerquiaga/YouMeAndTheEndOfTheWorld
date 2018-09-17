@@ -106,6 +106,7 @@ func _ready():
 	button11.connect("pressed",self,"segment11ButtonPressed")
 	button12.connect("pressed",self,"segment12ButtonPressed")
 	button13.connect("pressed",self,"segment13ButtonPressed")
+	optionPopup.connect("drop_item_signal",self, "emit_drop_signal")
 	pass
 	
 #lets the inventroy be controlled by different keys
@@ -467,6 +468,10 @@ func segment13ButtonPressed():
 func setOptionPopupLocation():
 	var yVal = 306 + 18*currentItem
 	optionPopup.set_position(Vector2(220,yVal))
+	
+func emit_drop_signal():
+	print("emitting signal from inventory screen")
+	emit_signal("drop_item_signal", 1, 0)
 
 func _process(delta):
 	#TODO: add actual functionality to keybinds

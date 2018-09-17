@@ -60,6 +60,9 @@ func staminaRegen():
 		stamina = 0
 	if (stamina > maxStamina):
 		stamina = maxStamina
+		
+func updateAmmo():
+	ammoVal = str(ammoLeft)
 
 func updateGravity():
 		#apply movement and gravity

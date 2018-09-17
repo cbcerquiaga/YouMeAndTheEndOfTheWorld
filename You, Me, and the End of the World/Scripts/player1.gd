@@ -144,6 +144,7 @@ func getHealth():
 	playerProperty.calculateHealth()
 	
 func _dropItem(index):
+	print("item actually dropped: " + str(index))
 	if !playerProperty.isEmpty():
 		#TODO: changed the selected item to an appropriate value
 		playerProperty.selectItemByIndex(index)

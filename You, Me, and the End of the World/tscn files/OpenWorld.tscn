@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/sceneManager.gd" type="Script" id=1]
 [ext_resource path="res://tscn files/Item_popup.tscn" type="PackedScene" id=2]
@@ -7,8 +7,9 @@
 [ext_resource path="res://tscn files/player1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://tscn files/player2.tscn" type="PackedScene" id=6]
 [ext_resource path="res://tscn files/playerTracking.tscn" type="PackedScene" id=7]
-[ext_resource path="res://tscn files/Gut.tscn" type="PackedScene" id=8]
-[ext_resource path="res://tscn files/HUDControl.tscn" type="PackedScene" id=9]
+[ext_resource path="res://tscn files/Piano.tscn" type="PackedScene" id=8]
+[ext_resource path="res://tscn files/Gut.tscn" type="PackedScene" id=9]
+[ext_resource path="res://tscn files/HUDControl.tscn" type="PackedScene" id=10]
 
 [node name="Root" type="Control"]
 
@@ -112,9 +113,71 @@ _sections_unfolded = [ "Collision", "Pause", "collision" ]
 
 [node name="playerTracking" parent="walls" index="2" instance=ExtResource( 7 )]
 
-[node name="Gut" parent="." index="4" instance=ExtResource( 8 )]
+[node name="Piano" parent="walls" index="3" instance=ExtResource( 8 )]
 
-[node name="HUDControl" parent="." index="5" instance=ExtResource( 9 )]
+[node name="Piano15" parent="walls" index="4" instance=ExtResource( 8 )]
+
+position = Vector2( 364.312, 3.86533 )
+
+[node name="Piano8" parent="walls" index="5" instance=ExtResource( 8 )]
+
+position = Vector2( 186.15, -6 )
+
+[node name="Piano12" parent="walls" index="6" instance=ExtResource( 8 )]
+
+position = Vector2( 549.312, 3.86533 )
+
+[node name="Piano4" parent="walls" index="7" instance=ExtResource( 8 )]
+
+position = Vector2( 38.1502, -90 )
+
+[node name="Piano10" parent="walls" index="8" instance=ExtResource( 8 )]
+
+position = Vector2( 401.312, -80.1347 )
+
+[node name="Piano6" parent="walls" index="9" instance=ExtResource( 8 )]
+
+position = Vector2( 223.15, -90 )
+
+[node name="Piano16" parent="walls" index="10" instance=ExtResource( 8 )]
+
+position = Vector2( 586.312, -80.1347 )
+
+[node name="Piano2" parent="walls" index="11" instance=ExtResource( 8 )]
+
+position = Vector2( 87.1501, -6 )
+
+[node name="Piano14" parent="walls" index="12" instance=ExtResource( 8 )]
+
+position = Vector2( 450.312, 3.86533 )
+
+[node name="Piano7" parent="walls" index="13" instance=ExtResource( 8 )]
+
+position = Vector2( 272.15, -6 )
+
+[node name="Piano11" parent="walls" index="14" instance=ExtResource( 8 )]
+
+position = Vector2( 635.312, 3.86533 )
+
+[node name="Piano3" parent="walls" index="15" instance=ExtResource( 8 )]
+
+position = Vector2( 124.15, -90 )
+
+[node name="Piano9" parent="walls" index="16" instance=ExtResource( 8 )]
+
+position = Vector2( 487.312, -80.1347 )
+
+[node name="Piano5" parent="walls" index="17" instance=ExtResource( 8 )]
+
+position = Vector2( 309.15, -90 )
+
+[node name="Piano13" parent="walls" index="18" instance=ExtResource( 8 )]
+
+position = Vector2( 672.312, -80.1347 )
+
+[node name="Gut" parent="." index="4" instance=ExtResource( 9 )]
+
+[node name="HUDControl" parent="." index="5" instance=ExtResource( 10 )]
 
 margin_left = -64.0
 margin_top = -81.0

@@ -22,6 +22,8 @@ onready var player1 = get_node("walls/player1")
 onready var player2 = get_node("walls/player2")
 onready var screensize = Vector2(get_viewport().size.x, get_viewport().size.y)
 
+onready var inventoryScreenP1 = get_node("/root/Root/HUDControl/InventoryScreenP1")
+
 
 func _ready():
 	camera.make_current()
@@ -44,7 +46,9 @@ func _ready():
 	_start_p1_Inventory_Cooldown()
 	_start_p2_Inventory_Cooldown()
 
-
+	#connect to inventory signals
+	inventoryScreenP1.connect("drop_item_signal", self, "p1_drop_item")
+	
 	#Handling Camera
 #	update_camera()
 
@@ -105,7 +109,6 @@ func _pause():
 #Handles showing/hiding player2's inventory and freezing the player
 func _inventory1():
 	var zoomedOut = player1.getZoom()
-	var inventoryScreenP1 = get_node("/root/Root/HUDControl/InventoryScreenP1")
 	inventoryScreenP1.setKeys("p1_move_left","p1_move_right","p1_move_up","p1_move_down", "p1_action1", "p1_move_left")
 	if !zoomedOut:
 		inventoryScreenP1.set_position(camera.get_camera_screen_center() - Vector2(screensize.x/1.5, screensize.y/3.2))
@@ -175,6 +178,10 @@ func _process(delta):
 		_inventory2()
 		_start_p2_Inventory_Cooldown()
 	pass
+	
+func p1_drop_item():
+	print("signal caught by scene manager")
+	player1.dropItem(0)
 
 #function called whenever the camera should be adjusted
 #func update_camera():
