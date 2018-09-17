@@ -25,6 +25,8 @@ func _ready():
 	add_child(invTimer)
 	invTimer.wait_time = invWaitTime
 	invTimer.start()
+	#connect to inventory screen signals
+	self.connect("drop_item_signal", self, "_dropItem")
 
 #Called to restart the invTimer, they will not set it if the timer is still active
 func _restart_invTimer():
@@ -76,13 +78,7 @@ func _physics_process(delta):
 	#This method can simply be modified to take into
 	#account the selectedItem, but for now I just used 0
 	if Input.is_action_pressed("p1_action2"):
-		if !playerProperty.isEmpty():
-			#TODO: changed the selected item to an appropriate value
-			playerProperty.selectItemByIndex(0)
-			var item = playerProperty.getSelectedItem()
-			playerProperty.removeItem(item, "p1")
-			item.activate(self.position)
-			item.update_label()
+		_dropItem(0)
 
 	#playerProperty.getSpeed() calculates the default speed times any perks or trait bonuses
 	motion = motion.normalized() * playerProperty.getSpeed()
@@ -146,3 +142,12 @@ func getZoom():
 
 func getHealth():
 	playerProperty.calculateHealth()
+	
+func _dropItem(index):
+	if !playerProperty.isEmpty():
+		#TODO: changed the selected item to an appropriate value
+		playerProperty.selectItemByIndex(index)
+		var item = playerProperty.getSelectedItem()
+		playerProperty.removeItem(item, "p1")
+		item.activate(self.position)
+		item.update_label()

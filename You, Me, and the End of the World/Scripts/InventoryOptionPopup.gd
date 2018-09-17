@@ -13,6 +13,10 @@ var text0
 var text1
 var text2
 
+onready var player1 = get_node("/root/World1/walls/player1")
+
+signal drop_item_signal(player, index)
+
 func _ready():
 	currentItem = 0
 	highlight = get_node("Highlight")
@@ -25,6 +29,7 @@ func _ready():
 	text0 = get_node("Background/Segment0/RichTextLabel0")
 	text1 = get_node("Background/Segment1/RichTextLabel1")
 	text2 = get_node("Background/Segment2/RichTextLabel2")
+	self.connect("drop_item_signal", player1, "_dropItem")
 	pass
 	
 func setButtons(_exit, _enter, _up, _down):
@@ -70,6 +75,9 @@ func button1Pressed():
 		currentItem = 1
 	else:
 		print("emit signal 1")
+		emit_signal("drop_item_signal", 1, 0) 
+		#TODO: change 1st number to be current player, change second number
+		#to actual index of the item in the player's inventory
 
 func button2Pressed():
 	if currentItem != 2:
@@ -84,5 +92,5 @@ func enterButtonPressed():
 	elif currentItem == 1:
 		print("emit signal 1")
 	else: # currentItem == 2:
-		print("emit signal 3")
+		print("emit signal 2")
 	self.hide()
