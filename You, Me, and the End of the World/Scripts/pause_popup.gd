@@ -57,7 +57,7 @@ func timer_cooldown_reset():
 	
 func start_timer_cooldown():
 	if !timer.time_left > 0:
-		timer.wait_time = 0.75
+		timer.wait_time = 1.5
 		timer.start() #to start
 		pausePopupCooldown = true
 	

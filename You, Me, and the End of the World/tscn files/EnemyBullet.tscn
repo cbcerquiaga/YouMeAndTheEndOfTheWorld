@@ -3,7 +3,7 @@
 [ext_resource path="res://Scripts/EnemyBullet.gd" type="Script" id=1]
 [ext_resource path="res://Images/basicBullet.png" type="Texture" id=2]
 
-[node name="Bullet" type="KinematicBody2D" index="0"]
+[node name="Bullet" type="KinematicBody2D"]
 
 position = Vector2( 0.0200272, -0.0100021 )
 input_pickable = false

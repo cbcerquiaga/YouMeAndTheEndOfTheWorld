@@ -1,27 +1,28 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scripts/CombatSceneManager.gd" type="Script" id=1]
-[ext_resource path="res://tscn files/pause_popup.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Images/combatHud.png" type="Texture" id=3]
-[ext_resource path="res://Images/flippedCombatHud.png" type="Texture" id=4]
-[ext_resource path="res://Images/ammoCounterIcon.png" type="Texture" id=5]
-[ext_resource path="res://Scripts/Icon.gd" type="Script" id=6]
-[ext_resource path="res://Scripts/PlayerAmmoNum.gd" type="Script" id=7]
-[ext_resource path="res://Fonts/Telex-Regular.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://Scripts/EnemyAmmoNum.gd" type="Script" id=9]
-[ext_resource path="res://Images/combatHealthBar.png" type="Texture" id=10]
-[ext_resource path="res://Scripts/CombatPlayerHealth.gd" type="Script" id=11]
-[ext_resource path="res://Scripts/EnemyHealth.gd" type="Script" id=12]
-[ext_resource path="res://Images/combatStaminaBar.png" type="Texture" id=13]
-[ext_resource path="res://Scripts/PlayerStamina.gd" type="Script" id=14]
-[ext_resource path="res://Scripts/EnemyStamina.gd" type="Script" id=15]
-[ext_resource path="res://Images/surrenderButton.png" type="Texture" id=16]
-[ext_resource path="res://Images/runAwayButton.png" type="Texture" id=17]
-[ext_resource path="res://Images/myTiles.tres" type="TileSet" id=18]
-[ext_resource path="res://tscn files/CombatPlayer.tscn" type="PackedScene" id=19]
-[ext_resource path="res://tscn files/CombatMelee.tscn" type="PackedScene" id=20]
-[ext_resource path="res://tscn files/Bullet.tscn" type="PackedScene" id=21]
-[ext_resource path="res://tscn files/Raider.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Scripts/DefeatedDialog.gd" type="Script" id=2]
+[ext_resource path="res://tscn files/pause_popup.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Images/combatHud.png" type="Texture" id=4]
+[ext_resource path="res://Images/flippedCombatHud.png" type="Texture" id=5]
+[ext_resource path="res://Images/ammoCounterIcon.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/Icon.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/PlayerAmmoNum.gd" type="Script" id=8]
+[ext_resource path="res://Fonts/Telex-Regular.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://Scripts/EnemyAmmoNum.gd" type="Script" id=10]
+[ext_resource path="res://Images/combatHealthBar.png" type="Texture" id=11]
+[ext_resource path="res://Scripts/CombatPlayerHealth.gd" type="Script" id=12]
+[ext_resource path="res://Scripts/EnemyHealth.gd" type="Script" id=13]
+[ext_resource path="res://Images/combatStaminaBar.png" type="Texture" id=14]
+[ext_resource path="res://Scripts/PlayerStamina.gd" type="Script" id=15]
+[ext_resource path="res://Scripts/EnemyStamina.gd" type="Script" id=16]
+[ext_resource path="res://Images/surrenderButton.png" type="Texture" id=17]
+[ext_resource path="res://Images/runAwayButton.png" type="Texture" id=18]
+[ext_resource path="res://Images/myTiles.tres" type="TileSet" id=19]
+[ext_resource path="res://tscn files/CombatPlayer.tscn" type="PackedScene" id=20]
+[ext_resource path="res://tscn files/CombatMelee.tscn" type="PackedScene" id=21]
+[ext_resource path="res://tscn files/Bullet.tscn" type="PackedScene" id=22]
+[ext_resource path="res://tscn files/Raider.tscn" type="PackedScene" id=23]
 
 [sub_resource type="DynamicFontData" id=1]
 
@@ -41,7 +42,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 size = 24
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 8 )
+font_data = ExtResource( 9 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="RectangleShape2D" id=4]
@@ -49,18 +50,41 @@ _sections_unfolded = [ "Font", "Settings" ]
 custom_solver_bias = 0.0
 extents = Vector2( 9.76202, 9.58755 )
 
-[node name="Combat" type="Node2D"]
+[node name="Combat" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
 
-[node name="pause_popup" parent="." index="0" instance=ExtResource( 2 )]
+[node name="DefeatedDialog" type="AcceptDialog" parent="." index="0"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 481.0
+margin_top = 322.0
+margin_right = 564.0
+margin_bottom = 380.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+window_title = "Alert!"
+resizable = false
+dialog_hide_on_ok = true
+script = ExtResource( 2 )
+
+[node name="pause_popup" parent="." index="1" instance=ExtResource( 3 )]
 
 visible = false
 margin_right = 986.0
 margin_bottom = 539.0
 
-[node name="CombatHUD" type="CanvasLayer" parent="." index="1"]
+[node name="CombatHUD" type="CanvasLayer" parent="." index="2"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -71,7 +95,7 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 [node name="Player Skeleton" type="Sprite" parent="CombatHUD" index="0"]
 
 position = Vector2( 119.492, 19.2463 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 _sections_unfolded = [ "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
@@ -80,7 +104,7 @@ __meta__ = {
 [node name="Enemy Skeleton" type="Sprite" parent="CombatHUD" index="1"]
 
 position = Vector2( 903.108, 20.9885 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -88,9 +112,9 @@ __meta__ = {
 [node name="PlayerAmmoCounter" type="Sprite" parent="CombatHUD" index="2"]
 
 position = Vector2( 62.2234, 543.419 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 hframes = 6
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 _sections_unfolded = [ "Animation" ]
 __meta__ = {
 "_edit_lock_": true
@@ -126,7 +150,7 @@ scroll_active = false
 scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
-script = ExtResource( 7 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 __meta__ = {
 "_edit_lock_": true
@@ -161,9 +185,9 @@ override_selected_font_color = false
 [node name="EnemyAmmoCounter" type="Sprite" parent="CombatHUD" index="4"]
 
 position = Vector2( 965.186, 542.955 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 hframes = 6
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 _sections_unfolded = [ "Animation" ]
 __meta__ = {
 "_edit_lock_": true
@@ -199,7 +223,7 @@ scroll_active = false
 scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
-script = ExtResource( 9 )
+script = ExtResource( 10 )
 _sections_unfolded = [ "Theme", "custom_fonts" ]
 __meta__ = {
 "_edit_lock_": true
@@ -256,11 +280,11 @@ exp_edit = false
 rounded = false
 texture_under = null
 texture_over = null
-texture_progress = ExtResource( 10 )
+texture_progress = ExtResource( 11 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
-script = ExtResource( 11 )
+script = ExtResource( 12 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -290,12 +314,12 @@ exp_edit = false
 rounded = false
 texture_under = null
 texture_over = null
-texture_progress = ExtResource( 10 )
+texture_progress = ExtResource( 11 )
 fill_mode = 1
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
-script = ExtResource( 12 )
+script = ExtResource( 13 )
 _sections_unfolded = [ "Textures" ]
 __meta__ = {
 "_edit_lock_": true
@@ -326,11 +350,11 @@ exp_edit = false
 rounded = false
 texture_under = null
 texture_over = null
-texture_progress = ExtResource( 13 )
+texture_progress = ExtResource( 14 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
-script = ExtResource( 14 )
+script = ExtResource( 15 )
 _sections_unfolded = [ "Textures" ]
 __meta__ = {
 "_edit_lock_": true
@@ -361,11 +385,11 @@ exp_edit = false
 rounded = false
 texture_under = null
 texture_over = null
-texture_progress = ExtResource( 13 )
+texture_progress = ExtResource( 14 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 _sections_unfolded = [ "Textures" ]
 __meta__ = {
 "_edit_lock_": true
@@ -392,7 +416,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-icon = ExtResource( 16 )
+icon = ExtResource( 17 )
 flat = true
 align = 1
 _sections_unfolded = [ "Visibility" ]
@@ -421,14 +445,14 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-icon = ExtResource( 17 )
+icon = ExtResource( 18 )
 flat = true
 align = 1
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Camera" type="Camera2D" parent="." index="2"]
+[node name="Camera" type="Camera2D" parent="." index="3"]
 
 position = Vector2( 525.496, 297.796 )
 scale = Vector2( 19.1919, 9.60345 )
@@ -458,10 +482,10 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap" type="TileMap" parent="." index="3"]
+[node name="TileMap" type="TileMap" parent="." index="4"]
 
 mode = 0
-tile_set = ExtResource( 18 )
+tile_set = ExtResource( 19 )
 cell_size = Vector2( 50, 50 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -482,21 +506,21 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CombatPlayer" parent="TileMap" index="0" instance=ExtResource( 19 )]
+[node name="CombatPlayer" parent="TileMap" index="0" instance=ExtResource( 20 )]
 
 position = Vector2( 215.972, 460.04 )
 
-[node name="Sword" parent="TileMap/CombatPlayer" index="4" instance=ExtResource( 20 )]
+[node name="Sword" parent="TileMap/CombatPlayer" index="4" instance=ExtResource( 21 )]
 
 position = Vector2( 40, -17 )
 
-[node name="Bullet" parent="TileMap" index="1" instance=ExtResource( 21 )]
+[node name="Bullet" parent="TileMap" index="1" instance=ExtResource( 22 )]
 
-[node name="Enemy" parent="TileMap" index="2" instance=ExtResource( 22 )]
+[node name="Enemy" parent="TileMap" index="2" instance=ExtResource( 23 )]
 
 position = Vector2( 843.072, 381.28 )
 
-[node name="Inside" type="StaticBody2D" parent="." index="4"]
+[node name="Inside" type="StaticBody2D" parent="." index="5"]
 
 input_pickable = true
 collision_layer = 16384

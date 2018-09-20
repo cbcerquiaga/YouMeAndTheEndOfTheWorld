@@ -5,6 +5,8 @@ var crosshair = load("res://Images/Crosshair.png")
 onready var surrenderButton = get_node("CombatHUD/Surrender Button")
 onready var runButton = get_node("CombatHUD/Run Away Button")
 onready var enemyHealth = get_node("TileMap/Enemy").totalHealth
+onready var playerHealth = get_node("TileMap/CombatPlayer").totalHealth
+onready var defeatedDialog = get_node("DefeatedDialog")
 
 func _ready():
 	#set mouse cursor to combat crosshairs
@@ -54,7 +56,15 @@ func on_run_pressed():
 		#maybe deplete the player's stamina?
 		
 func on_enemy_defeated():
-		get_tree().change_scene("res://tscn files/World1.tscn")
+	print("victory")
+	defeatedDialog.show()
+	defeatedDialog.winner("player")
+	#get_tree().change_scene("res://tscn files/World1.tscn")
+
+func on_player_defeated():
+	print("defeat")
+	defeatedDialog.show()
+	defeatedDialog.winner("enemy")
 
 func _pause():
 	print("Game paused")
@@ -64,9 +74,12 @@ func _pause():
 	
 func _process(delta):
 	enemyHealth = get_node("TileMap/Enemy").totalHealth
+	playerHealth = get_node("TileMap/CombatPlayer").totalHealth
 	if Input.is_action_pressed("pause"):
 		_pause()
-	if enemyHealth <= 0: #enemy is dead
+	if playerHealth <= 0: #got rekt
+		on_player_defeated()
+	elif enemyHealth <= 0: #enemy is dead
 		on_enemy_defeated()
 
 func _on_Border_mouse_entered():
