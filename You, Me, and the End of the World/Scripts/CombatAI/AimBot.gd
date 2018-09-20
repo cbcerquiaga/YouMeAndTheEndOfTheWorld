@@ -19,7 +19,6 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-	print("Processing")
 	if(calcCertainty() > .7 + (.05 * (6 - ammoLeft)) and ammoLeft > 0):
 		shoot()
 		ammoLeft -= 1

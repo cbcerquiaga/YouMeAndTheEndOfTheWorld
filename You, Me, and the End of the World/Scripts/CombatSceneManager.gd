@@ -1,11 +1,10 @@
 extends Node2D
 
-# class member variables go here, for example:
-# var a = 2
 var crosshair = load("res://Images/Crosshair.png")
 #export (NodePath) var button_path
 onready var surrenderButton = get_node("CombatHUD/Surrender Button")
 onready var runButton = get_node("CombatHUD/Run Away Button")
+onready var enemyHealth = get_node("TileMap/Enemy").totalHealth
 
 func _ready():
 	#set mouse cursor to combat crosshairs
@@ -53,6 +52,9 @@ func on_run_pressed():
 		print("You froze in fear!")
 		#TODO: apply a cooldown before another run away can be attempted
 		#maybe deplete the player's stamina?
+		
+func on_enemy_defeated():
+		get_tree().change_scene("res://tscn files/World1.tscn")
 
 func _pause():
 	print("Game paused")
@@ -61,8 +63,11 @@ func _pause():
 	$pause_popup.show()
 	
 func _process(delta):
+	enemyHealth = get_node("TileMap/Enemy").totalHealth
 	if Input.is_action_pressed("pause"):
 		_pause()
+	if enemyHealth <= 0: #enemy is dead
+		on_enemy_defeated()
 
 func _on_Border_mouse_entered():
 	pass # replace with function body

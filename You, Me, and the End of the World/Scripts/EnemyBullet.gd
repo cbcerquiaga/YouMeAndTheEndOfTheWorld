@@ -12,15 +12,15 @@ var motion = Vector2(2,0)
 onready var enemyHealth = get_node("/root/Combat/CombatHUD/EnemyHealth")
 onready var playerHealth = get_node("/root/Combat/CombatHUD/PlayerHealth")
 
-onready var enemy = self.get_parent().get_node("Enemy")
+onready var player = self.get_parent().get_node("CombatPlayer")
 
 signal hit
 signal hitUpdate
 
 func _ready():
 	set_process(true)
-	if(!self.is_connected("hit", enemy, "_on_Bullet_hit")):
-		self.connect("hit", enemy, "_on_Bullet_hit", [])
+	if(!self.is_connected("hit", player, "_on_Bullet_hit")):
+		self.connect("hit", player, "_on_Bullet_hit", [])
 	self.connect("hitUpdate", enemyHealth, "hit", [])
 	self.connect("hitUpdate", playerHealth, "hit", [])
 	pass
@@ -38,7 +38,7 @@ func _process(delta):
 	pass
 
 func contact(body):
-	print("Hit enemy")
+	print("Hit player")
 	emit_signal("hit", body.name, damage, critChance)
 	emit_signal("hitUpdate")
 	#if ricochet < 1:

@@ -215,3 +215,22 @@ func _on_Border_mouse_entered():
 func _on_Border_mouse_exited():
 	isMouseNull = true
 #	print("Mouse is null")
+
+
+func _on_Bullet_hit(bodyPart, damage, critChance):
+	print("Hit! " + str(totalHealth))
+	var randNum = rand_range(0,1)
+	if bodyPart == "torso":
+		if randNum > critChance: #not a critical hit
+			totalHealth = totalHealth - damage
+		else: #50% bonus damage
+			print("CRITICAL STRIKE")
+			totalHealth = totalHealth - (damage * 3/2)
+	elif bodyPart == "head":
+		if randNum > critChance: #not a critical hit
+			totalHealth = (totalHealth - (damage*headDamageMultiplier))
+		else:
+			print("CRITICAL STRIKE")
+			totalHealth = totalHealth - ((damage*headDamageMultiplier) * 3/2)
+	print(str(totalHealth))
+	pass

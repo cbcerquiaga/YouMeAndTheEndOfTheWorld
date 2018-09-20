@@ -19,7 +19,7 @@ var timeHeld = 0
 var timeForFullJump = 0.1
 var velocity = Vector2()
 var lastFrameEndSpeed = Vector2(0,0)
-const BULLET = preload("res://tscn files/Bullet.tscn")
+const BULLET = preload("res://tscn files/EnemyBullet.tscn")
 
 #combat-affecting variables
 var isCrouched = false
