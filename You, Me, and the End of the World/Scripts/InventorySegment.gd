@@ -1,9 +1,11 @@
 extends Control
 
 onready var sprite = get_node("Sprite")
+var item
 
 func _ready():
-	get_node("RichTextLabel").text = " "
+	get_node("RichTextLabel").text = ""
+	resetItem()
 	pass
 	
 func switchIcon():
@@ -14,6 +16,12 @@ func switchIcon():
 		
 func setText(string):
 	get_node("RichTextLabel").text = string
+
+func getText():
+	return get_node("RichTextLabel").text
+	
+func resetItem():
+	item = null
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.

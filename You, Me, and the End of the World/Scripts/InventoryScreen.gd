@@ -311,10 +311,12 @@ func setSegments(itemsArray):
 			#add to appropriate segments
 
 #helper for setSegments to make the code cleaner
+#TODO: clean up redundant parts setting the item and setting the text shoule be able to be done in one line
 func setIndividualSegment(item, index):
 	#print("setting indivudual segments at index " + str(index) + " and item " + str(item))
 	if index == 0:
 		segment0.setText(str(item))
+		segment0.item = item
 	elif index == 1:
 		segment1.setText(str(item))
 	elif index == 2:
@@ -369,6 +371,7 @@ func scrollUp():
 		
 #move the highlight to the currentItem location
 func moveHighlight():
+	print("Current item: " + str(currentItem) + " is empty? " + str(isSegmentEmpty(currentItem)))
 	if currentItem == 0:
 		segment0ButtonPressed()
 	elif currentItem == 1:
@@ -472,6 +475,108 @@ func setOptionPopupLocation():
 func emit_drop_signal():
 	print("emitting signal from inventory screen")
 	emit_signal("drop_item_signal", 1, 0)
+	
+func isSegmentEmpty(segmentNum):
+	if segmentNum == 0:
+		if segment0.getText() == "":
+			return true
+		else:
+			return false
+	elif segmentNum == 1:
+		if segment1.getText() == "":
+			return true
+		else:
+			return false
+	elif segmentNum == 2:
+		if segment2.getText() == "":
+			return true
+		else:
+			return false
+	elif segmentNum == 3:
+		if segment3.getText() == "":
+			return true
+		else:
+			return false
+	elif segmentNum == 4:
+		if segment4.getText() == "":
+			return true
+		else:
+			return false
+	elif segmentNum == 5:
+		if segment5.getText() == "":
+			return true
+		else:
+			return false
+	elif segmentNum == 6:
+		if segment6.getText() == "":
+			return true
+		else:
+			return false
+	elif segmentNum == 7:
+		if segment7.getText() == "":
+			return true
+		else:
+			return false
+	elif segmentNum == 8:
+		if segment8.getText() == "":
+			return true
+		else:
+			return false
+	elif segmentNum == 9:
+		if segment9.getText() == "":
+			return true
+		else:
+			return false
+	elif segmentNum == 10:
+		if segment10.getText() == "":
+			return true
+		else:
+			return false
+	elif segmentNum == 11:
+		if segment11.getText() == "":
+			return true
+		else:
+			return false
+	elif segmentNum == 12:
+		if segment12.getText() == "":
+			return true
+		else:
+			return false
+	elif segmentNum == 13:
+		if segment13.getText() == "":
+			return true
+		else:
+			return false
+			
+func getCurrentItemDescription():
+	if currentItem == 0:
+		return segment0.item.description
+	elif currentItem == 1:
+		return segment1.item.description
+	elif currentItem == 2:
+		return segment2.item.description
+	elif currentItem == 3:
+		return segment3.item.description
+	elif currentItem == 4:
+		return segment4.item.description
+	elif currentItem == 5:
+		return segment5.item.description
+	elif currentItem == 6:
+		return segment6.item.description
+	elif currentItem == 7:
+		return segment7.item.description
+	elif currentItem == 8:
+		return segment8.item.description
+	elif currentItem == 9:
+		return segment9.item.description
+	elif currentItem == 10:
+		return segment10.item.description
+	elif currentItem == 11:
+		return segment11.item.description
+	elif currentItem == 12:
+		return segment12.item.description
+	elif currentItem == 13:
+		return segment13.item.description
 
 func _process(delta):
 	#TODO: add actual functionality to keybinds
@@ -479,24 +584,25 @@ func _process(delta):
 	setOptionPopupLocation()
 	if self.is_visible_in_tree():
 		if !isPopupUp:
+			#check if the current segment is empty and if not show its information
+			if !isSegmentEmpty(currentItem):
+				get_node("Info Box/Item Description").text = getCurrentItemDescription()
+			else:
+				get_node("Info Box/Item Description").text = ""
 			if Input.is_action_just_pressed(str(upKey)):
 				if currentItem > 0: #not already the top
-				#print("CurrentItem before press: " + str(currentItem))
 				#if currentItem == topItem: #need to scroll up
 				#	topItem = topItem - 1
 				#	scrollUp()
 					currentItem = currentItem - 1
 					moveHighlight()
-				#print("Current item after press: " + str(currentItem))
 			if Input.is_action_just_pressed(str(downKey)):
 				if currentItem < 13: #not already the bottom
-				#print("CurrentItem before press: " + str(currentItem))
 				#if currentItem == (topItem - 13): #need to scroll down
 				#	topItem = topItem + 1
 				#	scrollDown()
 					currentItem = currentItem + 1
 					moveHighlight()
-				#print("Current item after press: " + str(currentItem))
 			if Input.is_action_just_pressed(str(leftKey)):
 				if currentTab == "quests":
 					mapButtonPressed()

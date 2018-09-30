@@ -8,6 +8,7 @@ var weight = 0
 var packedScenePath = ""
 var scriptPath = ""
 var quantity = ""
+var description = "an item that can be stored in the inventory and dropped and stuff"
 
 onready var itemPopup = get_parent().get_parent().get_node("Item_popup")
 onready var itemLabel = get_node("Label")
