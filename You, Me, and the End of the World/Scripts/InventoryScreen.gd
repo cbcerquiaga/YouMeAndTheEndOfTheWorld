@@ -23,6 +23,7 @@ var consumableItems
 var miscItems
 var discoveredPlaces
 var currentTab #stores text for current tab to make it easier to code other nodes
+var descriptionText
 onready var tabIndex = 0
 onready var tabs = ["quests","weapons","equippable","consumable","misc","map"]
 onready var leftButton = get_node("Status Box/Left Button")
@@ -78,6 +79,7 @@ func _ready():
 	currentItem = 0
 	topItem = 0
 	currentTab = tabs[tabIndex]
+	descriptionText = ""
 	L = get_node("Status Box/Left Icon")
 	C = get_node("Status Box/Center Icon")
 	R = get_node("Status Box/Right Icon")
@@ -190,30 +192,42 @@ func rightButtonPressed():
 func questButtonPressed():
 	highlight.set_position(Vector2(0,0))
 	tabIndex = 0
+	currentItem = 0
+	moveHighlight()
 	#TODO: change text in inventory section
 	
 func weaponButtonPressed():
 	highlight.set_position(Vector2(55,0))
 	tabIndex = 1
+	currentItem = 0
+	moveHighlight()
 	#TODO: change text in inventory section
 	
 func equippableButtonPressed():
 	highlight.set_position(Vector2(110,0))
 	tabIndex = 2
+	currentItem = 0
+	moveHighlight()
 	#TODO: change text in inventory section
 	
 func consumableButtonPressed():
 	highlight.set_position(Vector2(165,0))
 	tabIndex = 3
+	currentItem = 0
+	moveHighlight()
 	
 func miscButtonPressed():
 	highlight.set_position(Vector2(220,0))
 	tabIndex = 4
+	currentItem = 0
+	moveHighlight()
 	#TODO: change text in inventory section
 	
 func mapButtonPressed():
 	highlight.set_position(Vector2(275,0))
 	tabIndex = 5
+	currentItem = 0
+	moveHighlight()
 	#TODO: change text in inventory section
 	
 func itemSelected():
@@ -281,6 +295,8 @@ func loadInventory(list):
 #accordingly
 func setInventorySegments():
 	resetSegmentText()
+	#currentItem = 0
+	#moveHighlight()
 	if currentTab == "quests":
 		setSegments(quests)
 	elif currentTab == "map":
@@ -413,60 +429,74 @@ func scrollDown():
 #is called because of a key press, this is redundant, but it allows a
 #player to navigate with both the keys and the mouse one after the other
 func segment0ButtonPressed():
-	itemHighlight.set_position(Vector2(0,0))
-	currentItem = 0
+	if !isSegmentEmpty(0):
+		itemHighlight.set_position(Vector2(0,0))
+		currentItem = 0
 
 func segment1ButtonPressed():
-	itemHighlight.set_position(Vector2(0,25))
-	currentItem = 1
+	if !isSegmentEmpty(1):
+		itemHighlight.set_position(Vector2(0,25))
+		currentItem = 1
 
 func segment2ButtonPressed():
-	itemHighlight.set_position(Vector2(0,50))
-	currentItem = 2
+	if !isSegmentEmpty(2):
+		itemHighlight.set_position(Vector2(0,50))
+		currentItem = 2
 	
 func segment3ButtonPressed():
-	itemHighlight.set_position(Vector2(0,75))
-	currentItem = 3
+	if !isSegmentEmpty(3):
+		itemHighlight.set_position(Vector2(0,75))
+		currentItem = 3
 	
 func segment4ButtonPressed():
-	itemHighlight.set_position(Vector2(0,100))
-	currentItem = 4
+	if !isSegmentEmpty(4):
+		itemHighlight.set_position(Vector2(0,100))
+		currentItem = 4
 	
 func segment5ButtonPressed():
-	itemHighlight.set_position(Vector2(0,125))
-	currentItem = 5
+	if !isSegmentEmpty(5):
+		itemHighlight.set_position(Vector2(0,125))
+		currentItem = 5
 	
 func segment6ButtonPressed():
-	itemHighlight.set_position(Vector2(0,150))
-	currentItem = 6
+	if !isSegmentEmpty(6):
+		itemHighlight.set_position(Vector2(0,150))
+		currentItem = 6
 	
 func segment7ButtonPressed():
-	itemHighlight.set_position(Vector2(0,175))
-	currentItem = 7
+	if !isSegmentEmpty(7):
+		itemHighlight.set_position(Vector2(0,175))
+		currentItem = 7
 	
 func segment8ButtonPressed():
-	itemHighlight.set_position(Vector2(0,200))
-	currentItem = 8
+	if !isSegmentEmpty(8):
+		itemHighlight.set_position(Vector2(0,200))
+		currentItem = 8
 	
 func segment9ButtonPressed():
-	itemHighlight.set_position(Vector2(0,225))
-	currentItem = 9
+	if !isSegmentEmpty(9):
+		itemHighlight.set_position(Vector2(0,225))
+		currentItem = 9
 	
 func segment10ButtonPressed():
-	itemHighlight.set_position(Vector2(0,250))
-	currentItem = 10
+	if !isSegmentEmpty(10):
+		itemHighlight.set_position(Vector2(0,250))
+		currentItem = 10
 	
 func segment11ButtonPressed():
-	itemHighlight.set_position(Vector2(0,275))
-	currentItem = 11
+	if !isSegmentEmpty(11):
+		itemHighlight.set_position(Vector2(0,275))
+		currentItem = 11
 	
 func segment12ButtonPressed():
-	itemHighlight.set_position(Vector2(0,300))
-	currentItem = 12
+	if !isSegmentEmpty(12):
+		itemHighlight.set_position(Vector2(0,300))
+		currentItem = 12
 	
 func segment13ButtonPressed():
-	itemHighlight.set_position(Vector2(0,325))
-	currentItem = 13
+	if !isSegmentEmpty(13):
+		itemHighlight.set_position(Vector2(0,325))
+		currentItem = 13
 	
 func setOptionPopupLocation():
 	var yVal = 306 + 18*currentItem
@@ -550,33 +580,33 @@ func isSegmentEmpty(segmentNum):
 			
 func getCurrentItemDescription():
 	if currentItem == 0:
-		return segment0.item.description
+		descriptionText = segment0.itemDescription()
 	elif currentItem == 1:
-		return segment1.item.description
+		descriptionText = segment1.itemDescription()
 	elif currentItem == 2:
-		return segment2.item.description
+		descriptionText = segment2.itemDescription()
 	elif currentItem == 3:
-		return segment3.item.description
+		descriptionText = segment3.itemDescription()
 	elif currentItem == 4:
-		return segment4.item.description
+		descriptionText = segment4.itemDescription()
 	elif currentItem == 5:
-		return segment5.item.description
+		descriptionText = segment5.itemDescription()
 	elif currentItem == 6:
-		return segment6.item.description
+		descriptionText = segment6.itemDescription()
 	elif currentItem == 7:
-		return segment7.item.description
+		descriptionText = segment7.itemDescription()
 	elif currentItem == 8:
-		return segment8.item.description
+		descriptionText = segment8.itemDescription()
 	elif currentItem == 9:
-		return segment9.item.description
+		descriptionText = segment9.itemDescription()
 	elif currentItem == 10:
-		return segment10.item.description
+		descriptionText = segment10.itemDescription()
 	elif currentItem == 11:
-		return segment11.item.description
+		descriptionText = segment11.itemDescription()
 	elif currentItem == 12:
-		return segment12.item.description
+		descriptionText = segment12.itemDescription()
 	elif currentItem == 13:
-		return segment13.item.description
+		descriptionText = segment13.itemDescription()
 
 func _process(delta):
 	#TODO: add actual functionality to keybinds
@@ -585,19 +615,21 @@ func _process(delta):
 	if self.is_visible_in_tree():
 		if !isPopupUp:
 			#check if the current segment is empty and if not show its information
-			if !isSegmentEmpty(currentItem):
-				get_node("Info Box/Item Description").text = getCurrentItemDescription()
+			if isSegmentEmpty(currentItem):
+				get_node("Item Description").text = ""
+				currentItem = 0
+				moveHighlight()
 			else:
-				get_node("Info Box/Item Description").text = ""
+				print("Description text" + descriptionText)
 			if Input.is_action_just_pressed(str(upKey)):
-				if currentItem > 0: #not already the top
+				if currentItem > 0 and !isSegmentEmpty(currentItem - 1): #not already the top and the next segment isn't empty
 				#if currentItem == topItem: #need to scroll up
 				#	topItem = topItem - 1
 				#	scrollUp()
 					currentItem = currentItem - 1
 					moveHighlight()
 			if Input.is_action_just_pressed(str(downKey)):
-				if currentItem < 13: #not already the bottom
+				if currentItem < 13 and !isSegmentEmpty(currentItem + 1): #not already the bottom and the next segment isn't empty
 				#if currentItem == (topItem - 13): #need to scroll down
 				#	topItem = topItem + 1
 				#	scrollDown()

@@ -20,6 +20,12 @@ func setText(string):
 func getText():
 	return get_node("RichTextLabel").text
 	
+func itemDescription():
+	if item != null:
+		return item.description
+	else:
+		return ""
+	
 func resetItem():
 	item = null
 
