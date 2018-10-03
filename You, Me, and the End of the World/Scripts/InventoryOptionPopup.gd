@@ -32,11 +32,11 @@ func _ready():
 	self.connect("drop_item_signal", player1, "_dropItem")
 	pass
 	
-func setButtons(_exit, _enter, _up, _down):
-	exitButtonPressed = Input.is_action_pressed(_exit)
-	enterButtonPressed = Input.is_action_pressed(_enter)
-	upButtonPressed = Input.is_action_pressed(_up)
-	downButtonPressed = Input.is_action_pressed(_down)
+#func setButtons(_exit, _enter, _up, _down):
+#	exitButtonPressed = Input.is_action_pressed(_exit)
+#	enterButtonPressed = Input.is_action_pressed(_enter)
+#	upButtonPressed = Input.is_action_pressed(_up)
+#	downButtonPressed = Input.is_action_pressed(_down)
 
 func setText(option0, option1, option2):
 	text0.text = option0

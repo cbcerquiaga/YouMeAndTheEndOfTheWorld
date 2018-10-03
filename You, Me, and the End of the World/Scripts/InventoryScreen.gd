@@ -7,6 +7,7 @@ var upKey
 var downKey
 var enterKey
 var escKey
+var closeKey
 var justOpened
 var L
 var C
@@ -109,16 +110,18 @@ func _ready():
 	button12.connect("pressed",self,"segment12ButtonPressed")
 	button13.connect("pressed",self,"segment13ButtonPressed")
 	optionPopup.connect("drop_item_signal",self, "emit_drop_signal")
+	#optionPopup.setButtons(escKey, enterKey, upKey, downKey)
 	pass
 	
 #lets the inventroy be controlled by different keys
-func setKeys(_leftKey, _rightKey, _upKey, _downKey, _enterKey, _escKey):
+func setKeys(_leftKey, _rightKey, _upKey, _downKey, _enterKey, _escKey, _closeKey):
 	leftKey = _leftKey
 	rightKey = _rightKey
 	upKey = _upKey
 	downKey = _downKey
 	enterKey = _enterKey
 	escKey = _escKey
+	closeKey = _closeKey
 
 #initializes the segment frames so that they alternate in color
 func alternateSegmentFrames():
@@ -331,34 +334,34 @@ func setSegments(itemsArray):
 func setIndividualSegment(item, index):
 	#print("setting indivudual segments at index " + str(index) + " and item " + str(item))
 	if index == 0:
-		segment0.setText(str(item))
+		segment0.setText(str(item) + "  " + str(item.quantity))
 		segment0.item = item
 	elif index == 1:
-		segment1.setText(str(item))
+		segment1.setText(str(item)+ "  " + str(item.quantity))
 	elif index == 2:
-		segment2.setText(str(item))
+		segment2.setText(str(item)+ "  " + str(item.quantity))
 	elif index == 3:
-		segment3.setText(str(item))
+		segment3.setText(str(item)+ "  " + str(item.quantity))
 	elif index == 4:
-		segment4.setText(str(item))
+		segment4.setText(str(item)+ "  " + str(item.quantity))
 	elif index == 5:
-		segment5.setText(str(item))
+		segment5.setText(str(item)+ "  " + str(item.quantity))
 	elif index == 6:
-		segment6.setText(str(item))
+		segment6.setText(str(item)+ "  " + str(item.quantity))
 	elif index == 7:
-		segment7.setText(str(item))
+		segment7.setText(str(item)+ "  " + str(item.quantity))
 	elif index == 8:
-		segment8.setText(str(item))
+		segment8.setText(str(item)+ "  " + str(item.quantity))
 	elif index == 9:
-		segment9.setText(str(item))
+		segment9.setText(str(item)+ "  " + str(item.quantity))
 	elif index == 10:
-		segment10.setText(str(item))
+		segment10.setText(str(item)+ "  " + str(item.quantity))
 	elif index == 11:
-		segment11.setText(str(item))
+		segment11.setText(str(item)+ "  " + str(item.quantity))
 	elif index == 12:
-		segment12.setText(str(item))
+		segment12.setText(str(item)+ "  " + str(item.quantity))
 	else: #index == 13:
-		segment13.setText(str(item))
+		segment13.setText(str(item)+ "  " + str(item.quantity))
 		
 func resetSegmentText():
 	segment0.setText("")
@@ -671,9 +674,12 @@ func _process(delta):
 			if Input.is_action_just_pressed(enterKey):
 				optionPopup.enterButtonPressed()
 				isPopupUp = false
-			if Input.is_action_just_pressed(escKey):
+			if Input.is_action_just_pressed(escKey) or Input.is_action_pressed(closeKey):
 				optionPopup.hide()
 				isPopupUp = false
 		setBasicText()
 		setInventorySegments()
+	else: 
+		optionPopup.hide()
+		isPopupUp = false
 	pass
