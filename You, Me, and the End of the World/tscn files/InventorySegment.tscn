@@ -1,7 +1,20 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/InventorySegment.gd" type="Script" id=1]
 [ext_resource path="res://Images/inventoryTexture.png" type="Texture" id=2]
+
+[sub_resource type="DynamicFontData" id=1]
+
+hinting = 2
+font_path = "res://Fonts/Telex-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 20
+use_mipmaps = false
+use_filter = false
+font_data = SubResource( 1 )
+_sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Root" type="Control" index="0"]
 
@@ -46,6 +59,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = false
 bbcode_text = ""
 visible_characters = -1

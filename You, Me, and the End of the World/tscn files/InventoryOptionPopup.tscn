@@ -3,16 +3,16 @@
 [ext_resource path="res://Scripts/InventoryOptionPopup.gd" type="Script" id=1]
 [ext_resource path="res://Images/inventoryOptionPopup.png" type="Texture" id=2]
 [ext_resource path="res://Fonts/Web Serveroff.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://Images/inventoryOptionHighlight.png" type="Texture" id=4]
+[ext_resource path="res://Images/itemHighlight.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFontData" id=1]
 
 hinting = 2
-font_path = "res://Fonts/Web Serveroff.ttf"
+font_path = "res://Fonts/Telex-Regular.ttf"
 
 [sub_resource type="DynamicFont" id=2]
 
-size = 18
+size = 20
 use_mipmaps = false
 use_filter = false
 font_data = SubResource( 1 )
@@ -20,7 +20,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=3]
 
-size = 18
+size = 20
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 3 )
@@ -28,7 +28,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=4]
 
-size = 18
+size = 20
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 3 )
@@ -42,6 +42,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 40.0
 margin_bottom = 40.0
+rect_scale = Vector2( 0.75, 0.75 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -50,12 +51,13 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 popup_exclusive = false
 script = ExtResource( 1 )
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Rect", "Visibility" ]
 
 [node name="Background" type="Sprite" parent="." index="0"]
 
+z_index = 12
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="Segment0" type="Control" parent="Background" index="0"]
 
@@ -294,8 +296,8 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="Sprite" type="Sprite" parent="Highlight" index="0"]
 
-scale = Vector2( 2, 2 )
+z_index = 12
 texture = ExtResource( 4 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 
