@@ -338,30 +338,43 @@ func setIndividualSegment(item, index):
 		segment0.item = item
 	elif index == 1:
 		segment1.setText(str(item)+ "  " + str(item.quantity))
+		segment1.item = item
 	elif index == 2:
 		segment2.setText(str(item)+ "  " + str(item.quantity))
+		segment2.item = item
 	elif index == 3:
 		segment3.setText(str(item)+ "  " + str(item.quantity))
+		segment3.item = item
 	elif index == 4:
 		segment4.setText(str(item)+ "  " + str(item.quantity))
+		segment4.item = item
 	elif index == 5:
 		segment5.setText(str(item)+ "  " + str(item.quantity))
+		segment5.item = item
 	elif index == 6:
 		segment6.setText(str(item)+ "  " + str(item.quantity))
+		segment6.item = item
 	elif index == 7:
 		segment7.setText(str(item)+ "  " + str(item.quantity))
+		segment7.item = item
 	elif index == 8:
 		segment8.setText(str(item)+ "  " + str(item.quantity))
+		segment8.item = item
 	elif index == 9:
 		segment9.setText(str(item)+ "  " + str(item.quantity))
+		segment9.item = item
 	elif index == 10:
 		segment10.setText(str(item)+ "  " + str(item.quantity))
+		segment10.item = item
 	elif index == 11:
 		segment11.setText(str(item)+ "  " + str(item.quantity))
+		segment11.item = item
 	elif index == 12:
 		segment12.setText(str(item)+ "  " + str(item.quantity))
+		segment12.item = item
 	else: #index == 13:
 		segment13.setText(str(item)+ "  " + str(item.quantity))
+		segment13.item = item
 		
 func resetSegmentText():
 	segment0.setText("")
@@ -501,10 +514,6 @@ func segment13ButtonPressed():
 		itemHighlight.set_position(Vector2(0,325))
 		currentItem = 13
 	
-func setOptionPopupLocation():
-	var yVal = 306 + 18*currentItem
-	optionPopup.set_position(Vector2(220,yVal))
-	
 func emit_drop_signal():
 	print("emitting signal from inventory screen")
 	emit_signal("drop_item_signal", 1, 0)
@@ -614,7 +623,7 @@ func getCurrentItemDescription():
 func _process(delta):
 	#TODO: add actual functionality to keybinds
 	currentTab = tabs[tabIndex]
-	setOptionPopupLocation()
+	optionPopup.set_position(get_node("Sprite").global_position)
 	if self.is_visible_in_tree():
 		if !isPopupUp:
 			#check if the current segment is empty and if not show its information

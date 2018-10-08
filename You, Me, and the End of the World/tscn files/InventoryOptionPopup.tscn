@@ -1,40 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/InventoryOptionPopup.gd" type="Script" id=1]
 [ext_resource path="res://Images/inventoryOptionPopup.png" type="Texture" id=2]
-[ext_resource path="res://Fonts/Web Serveroff.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://tscn files/InventorySegment.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Images/itemHighlight.png" type="Texture" id=4]
 
-[sub_resource type="DynamicFontData" id=1]
-
-hinting = 2
-font_path = "res://Fonts/Telex-Regular.ttf"
-
-[sub_resource type="DynamicFont" id=2]
-
-size = 20
-use_mipmaps = false
-use_filter = false
-font_data = SubResource( 1 )
-_sections_unfolded = [ "Font", "Settings" ]
-
-[sub_resource type="DynamicFont" id=3]
-
-size = 20
-use_mipmaps = false
-use_filter = false
-font_data = ExtResource( 3 )
-_sections_unfolded = [ "Font", "Settings" ]
-
-[sub_resource type="DynamicFont" id=4]
-
-size = 20
-use_mipmaps = false
-use_filter = false
-font_data = ExtResource( 3 )
-_sections_unfolded = [ "Font", "Settings" ]
-
-[node name="Popup" type="Popup"]
+[node name="Popup" type="Popup" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -55,227 +26,50 @@ _sections_unfolded = [ "Rect", "Visibility" ]
 
 [node name="Background" type="Sprite" parent="." index="0"]
 
+position = Vector2( 0.212687, 0 )
 z_index = 12
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
-[node name="Segment0" type="Control" parent="Background" index="0"]
+[node name="segment0" parent="Background" index="0" instance=ExtResource( 3 )]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -39.0
-margin_top = -24.0
-margin_right = 1.0
-margin_bottom = 16.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
+margin_left = -165.0
+margin_top = -69.0
+margin_right = -165.0
+margin_bottom = -69.0
+rect_scale = Vector2( 1, 1.05 )
 
-[node name="RichTextLabel0" type="RichTextLabel" parent="Background/Segment0" index="0"]
+[node name="segment1" parent="Background" index="1" instance=ExtResource( 3 )]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -7.0
-margin_top = -6.0
-margin_right = 85.0
-margin_bottom = 9.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-custom_fonts/normal_font = SubResource( 2 )
-bbcode_enabled = false
-bbcode_text = ""
-visible_characters = -1
-percent_visible = 1.0
-meta_underlined = true
-tab_size = 4
-text = ""
-scroll_active = false
-scroll_following = false
-selection_enabled = false
-override_selected_font_color = false
-_sections_unfolded = [ "Rect", "custom_fonts" ]
+margin_left = -165.0
+margin_top = -42.0
+margin_right = -165.0
+margin_bottom = -42.0
+rect_scale = Vector2( 1, 1.05 )
 
-[node name="Button0" type="Button" parent="Background/Segment0" index="1"]
+[node name="segment2" parent="Background" index="2" instance=ExtResource( 3 )]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -7.0
-margin_top = -7.0
-margin_right = 85.0
-margin_bottom = 33.0
-rect_scale = Vector2( 1, 0.45 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-flat = true
-align = 1
-_sections_unfolded = [ "Rect" ]
+margin_left = -165.0
+margin_top = -16.0
+margin_right = -165.0
+margin_bottom = -16.0
+rect_scale = Vector2( 1, 1.05 )
 
-[node name="Segment1" type="Control" parent="Background" index="1"]
+[node name="segment3" parent="Background" index="3" instance=ExtResource( 3 )]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -23.0
-margin_top = -5.0
-margin_right = 17.0
-margin_bottom = 35.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
+margin_left = -165.0
+margin_top = 11.0
+margin_right = -165.0
+margin_bottom = 11.0
+rect_scale = Vector2( 1, 1.05 )
 
-[node name="RichTextLabel1" type="RichTextLabel" parent="Background/Segment1" index="0"]
+[node name="segment4" parent="Background" index="4" instance=ExtResource( 3 )]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -23.0
-margin_top = -3.0
-margin_right = 69.0
-margin_bottom = 12.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-custom_fonts/normal_font = SubResource( 3 )
-bbcode_enabled = false
-bbcode_text = ""
-visible_characters = -1
-percent_visible = 1.0
-meta_underlined = true
-tab_size = 2
-text = ""
-scroll_active = false
-scroll_following = false
-selection_enabled = false
-override_selected_font_color = false
-_sections_unfolded = [ "Rect", "custom_fonts" ]
-
-[node name="Button1" type="Button" parent="Background/Segment1" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -23.0
-margin_top = -4.0
-margin_right = 69.0
-margin_bottom = 36.0
-rect_scale = Vector2( 1, 0.45 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-flat = true
-align = 1
-
-[node name="Segment2" type="Control" parent="Background" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -23.0
-margin_top = 6.0
-margin_right = 17.0
-margin_bottom = 46.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="Background/Segment2" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -23.0
-margin_top = 8.0
-margin_right = 69.0
-margin_bottom = 23.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-custom_fonts/normal_font = SubResource( 4 )
-bbcode_enabled = false
-bbcode_text = ""
-visible_characters = -1
-percent_visible = 1.0
-meta_underlined = true
-tab_size = 4
-text = ""
-scroll_active = false
-scroll_following = false
-selection_enabled = false
-override_selected_font_color = false
-_sections_unfolded = [ "Rect", "custom_fonts" ]
-
-[node name="Button2" type="Button" parent="Background/Segment2" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -23.0
-margin_top = 7.0
-margin_right = 69.0
-margin_bottom = 47.0
-rect_scale = Vector2( 1, 0.45 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-flat = true
-align = 1
-_sections_unfolded = [ "Rect" ]
+margin_left = -165.0
+margin_top = 43.0
+margin_right = -165.0
+margin_bottom = 43.0
+rect_scale = Vector2( 1, 1.05 )
 
 [node name="Highlight" type="Control" parent="." index="1"]
 
@@ -283,9 +77,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = -22.0
+margin_top = -57.0
 margin_right = 40.0
-margin_bottom = 18.0
+margin_bottom = -17.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -296,6 +90,7 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="Sprite" type="Sprite" parent="Highlight" index="0"]
 
+scale = Vector2( 1, 1.05 )
 z_index = 12
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform", "Z Index" ]
