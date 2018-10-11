@@ -664,7 +664,7 @@ func _process(delta):
 					mapButtonPressed()
 				else: #currentTab == "map"
 					questButtonPressed()
-			if Input.is_action_just_pressed(str(enterKey)):
+			if Input.is_action_just_pressed(enterKey):
 				itemSelected()
 		else:
 			if Input.is_action_just_pressed(str(upKey)):
