@@ -7,7 +7,7 @@ var bleed = 0 #default bleed damage
 var ricochet = 0 #the number of times the bullet ricochets before destroying
 var explosion = false #default explosiveness
 var poison = false #default poison value
-var motion = Vector2(2,0)
+var motion = Vector2(0,0)
 
 onready var enemyHealth = get_node("/root/Combat/CombatHUD/EnemyHealth")
 onready var playerHealth = get_node("/root/Combat/CombatHUD/PlayerHealth")
