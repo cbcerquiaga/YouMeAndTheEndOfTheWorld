@@ -6,7 +6,7 @@ const CROUCH_GRAVITY = 120.0 #pixels/second/second
 
 # Angle in degrees towards either side that the player can consider "floor"
 const FLOOR_ANGLE_TOLERANCE = 40
-const WALK_FORCE = 600
+const WALK_FORCE = 900
 const WALK_MIN_SPEED = 10
 const WALK_MAX_SPEED = 200
 const STOP_FORCE = 1300
@@ -67,6 +67,8 @@ func _physics_process(delta):
 
 	var walk_left = Input.is_action_pressed("p1_move_left")
 	var walk_right = Input.is_action_pressed("p1_move_right")
+	var dash_left = Input.is_action_just_pressed("p1_action1")
+	var dash_right = Input.is_action_just_pressed("p1_action2")
 	var jump = Input.is_action_pressed("p1_move_up")
 	var crouch = Input.is_action_pressed("p1_move_down")
 	var head_attack = Input.is_action_just_pressed("p2_action2")
@@ -146,6 +148,16 @@ func _physics_process(delta):
 			create_bullet(playerPosition)
 			#TODO: apply spread based on weapon & skills
 			#TODO: check where the enemy is hit and apply damage
+			
+	if dash_left:
+		if stamina >= 35:
+			force.x -= 60*WALK_FORCE
+			stamina-=35
+		
+	if dash_right:
+		if stamina >= 35:
+			force.x += 60*WALK_FORCE
+			stamina-=35
 
 	if taunt:
 		#make taunt gesture

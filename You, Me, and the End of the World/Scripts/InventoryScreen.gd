@@ -616,8 +616,9 @@ func getCurrentItemDescription():
 		descriptionText = segment11.itemDescription()
 	elif currentItem == 12:
 		descriptionText = segment12.itemDescription()
-	elif currentItem == 13:
+	else: #currentItem == 13:
 		descriptionText = segment13.itemDescription()
+	get_node("Item Description").text = descriptionText
 
 func _process(delta):
 	#TODO: add actual functionality to keybinds
