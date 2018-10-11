@@ -33,43 +33,163 @@ _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="segment0" parent="Background" index="0" instance=ExtResource( 3 )]
 
+editor/display_folded = true
 margin_left = -165.0
 margin_top = -69.0
 margin_right = -165.0
 margin_bottom = -69.0
 rect_scale = Vector2( 1, 1.05 )
 
+[node name="Button" type="Button" parent="Background/segment0" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 330.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+
 [node name="segment1" parent="Background" index="1" instance=ExtResource( 3 )]
 
+editor/display_folded = true
 margin_left = -165.0
 margin_top = -42.0
 margin_right = -165.0
 margin_bottom = -42.0
 rect_scale = Vector2( 1, 1.05 )
 
+[node name="Button" type="Button" parent="Background/segment1" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 330.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+
 [node name="segment2" parent="Background" index="2" instance=ExtResource( 3 )]
 
+editor/display_folded = true
 margin_left = -165.0
 margin_top = -16.0
 margin_right = -165.0
 margin_bottom = -16.0
 rect_scale = Vector2( 1, 1.05 )
 
+[node name="Button" type="Button" parent="Background/segment2" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 330.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+
 [node name="segment3" parent="Background" index="3" instance=ExtResource( 3 )]
 
+editor/display_folded = true
 margin_left = -165.0
 margin_top = 11.0
 margin_right = -165.0
 margin_bottom = 11.0
 rect_scale = Vector2( 1, 1.05 )
 
+[node name="Button" type="Button" parent="Background/segment3" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 330.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+
 [node name="segment4" parent="Background" index="4" instance=ExtResource( 3 )]
 
+editor/display_folded = true
 margin_left = -165.0
 margin_top = 43.0
 margin_right = -165.0
 margin_bottom = 43.0
 rect_scale = Vector2( 1, 1.05 )
+
+[node name="Button" type="Button" parent="Background/segment4" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 330.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
 
 [node name="Highlight" type="Control" parent="." index="1"]
 

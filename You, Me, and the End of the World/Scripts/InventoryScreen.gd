@@ -238,27 +238,27 @@ func itemSelected():
 	optionPopup.show()
 	match currentTab:
 		"map":
-			optionPopup.setText("set marker", "fast travel", "show on map")
+			optionPopup.setText("set marker", "detailed info", "fast travel", "show on map", "")
 			print("discovered place")
 		"quests":
 			#TODO: figure out what the 3 options should be
-			optionPopup.setText("set marker", "make active", "choice tree")
+			optionPopup.setText("set marker", "make active", "choice tree", "make inactive", "")
 			print("quest")
 		"weapons":
 			#TODO: change text based on whether the item is equipped
-			optionPopup.setText("equip", "drop", "give to partner")
+			optionPopup.setText("equip", "stats", "repair", "give to partner", "drop")
 			print("weapon")
 		"consumable":
 			#TODO: change text based on whether the item is food, drugs, etc/
-			optionPopup.setText("eat", "drop", "give to partner")
+			optionPopup.setText("eat", "drop one", "drop all", "give one to partner", "give all to partner")
 			print("consumable")
 		"equippable":
 			#TODO: change text based on whether the item is equipped
-			optionPopup.setText("equip", "drop", "give to partner")
+			optionPopup.setText("equip", "stats", "repair", "give to partner", "drop")
 			print("equippable")
 		_:
-			#TODO: figure out what the 3 options should be
-			optionPopup.setText("use", "drop", "give to partner")
+			#TODO: figure out what the 1-5 options should be
+			optionPopup.setText("use", "info", "drop", "give to partner")
 			print("misc item")
 
 #sets the text above the items
