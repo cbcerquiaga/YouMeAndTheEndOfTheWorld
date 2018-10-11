@@ -5,7 +5,7 @@
 [ext_resource path="res://tscn files/InventorySegment.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Images/itemHighlight.png" type="Texture" id=4]
 
-[node name="Popup" type="Popup" index="0"]
+[node name="Popup" type="Popup"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -213,6 +213,6 @@ _sections_unfolded = [ "Rect" ]
 scale = Vector2( 1, 1.05 )
 z_index = 12
 texture = ExtResource( 4 )
-_sections_unfolded = [ "Transform", "Z Index" ]
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 

@@ -13,7 +13,6 @@ var L
 var C
 var R
 var highlight
-var itemHighlight
 var currentFrame
 var currentItem
 var topItem
@@ -64,6 +63,7 @@ onready var button11 = get_node("Inventory Main/Segment11/Button11")
 onready var button12 = get_node("Inventory Main/Segment12/Button12")
 onready var button13 = get_node("Inventory Main/Segment13/Button13")
 onready var optionPopup = get_node("Inventory Main/ItemHighlight/OptionPopup")
+onready var itemHighlight = get_node("Inventory Main/ItemHighlight")
 
 func _ready():
 	#self.queue_free()
@@ -85,7 +85,6 @@ func _ready():
 	C = get_node("Status Box/Center Icon")
 	R = get_node("Status Box/Right Icon")
 	highlight = get_node("Tabs/Highlight")
-	itemHighlight = get_node("Inventory Main/ItemHighlight")
 #	print("Highlight position: " + str(highlight.get_position()))
 	leftButton.connect("pressed",self,"leftButtonPressed")
 	rightButton.connect("pressed",self,"rightButtonPressed")
@@ -258,7 +257,7 @@ func itemSelected():
 			print("equippable")
 		_:
 			#TODO: figure out what the 1-5 options should be
-			optionPopup.setText("use", "info", "drop", "give to partner")
+			optionPopup.setText("use", "info", "drop", "give to partner", "")
 			print("misc item")
 
 #sets the text above the items
@@ -403,7 +402,7 @@ func scrollUp():
 		
 #move the highlight to the currentItem location
 func moveHighlight():
-	print("Current item: " + str(currentItem) + " is empty? " + str(isSegmentEmpty(currentItem)))
+	#print("Current item: " + str(currentItem) + " is empty? " + str(isSegmentEmpty(currentItem)))
 	if currentItem == 0:
 		segment0ButtonPressed()
 	elif currentItem == 1:
@@ -626,6 +625,7 @@ func _process(delta):
 	optionPopup.set_position(get_node("Sprite").global_position)
 	if self.is_visible_in_tree():
 		if !isPopupUp:
+			get_node("Inventory Main/ItemHighlight/Sprite").show()
 			#check if the current segment is empty and if not show its information
 			if isSegmentEmpty(currentItem):
 				get_node("Item Description").text = ""
@@ -676,6 +676,7 @@ func _process(delta):
 			if Input.is_action_just_pressed(str(enterKey)):
 				itemSelected()
 		else:
+			get_node("Inventory Main/ItemHighlight/Sprite").hide()
 			if Input.is_action_just_pressed(str(upKey)):
 				optionPopup.upButtonPressed()
 			if Input.is_action_just_pressed(str(downKey)):
