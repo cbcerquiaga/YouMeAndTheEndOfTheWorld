@@ -87,19 +87,19 @@ func button1Pressed():
 func button2Pressed():
 	if segment2.getText() != "" and segment2.getText() != " ":
 		if currentItem != 2:
-			highlight.set_position(Vector2(0,-3))
+			highlight.set_position(Vector2(0,-5))
 			currentItem = 2
 		
 func button3Pressed():
 	if segment3.getText() != "" and segment3.getText() != " ":
 		if currentItem != 3:
-			highlight.set_position(Vector2(0,23))
+			highlight.set_position(Vector2(0,21))
 			currentItem = 3
 
 func button4Pressed():
 	if segment4.getText() != "" and segment4.getText() != " ":
 		if currentItem != 4:
-			highlight.set_position(Vector2(0,50))
+			highlight.set_position(Vector2(0,47))
 			currentItem = 4
 
 func enterButtonPressed():
