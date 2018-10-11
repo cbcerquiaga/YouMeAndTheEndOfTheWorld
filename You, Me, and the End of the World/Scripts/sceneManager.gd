@@ -109,7 +109,7 @@ func _pause():
 #Handles showing/hiding player2's inventory and freezing the player
 func _inventory1():
 	var zoomedOut = player1.getZoom()
-	inventoryScreenP1.setKeys("p1_move_left","p1_move_right","p1_move_up","p1_move_down", "p1_action1", "p1_move_left", "p1_inventory")
+	inventoryScreenP1.setKeys("p1_move_left","p1_move_right","p1_move_up","p1_move_down", "p1_action1", "p1_action2", "p1_inventory")
 	if !zoomedOut:
 		inventoryScreenP1.set_position(camera.get_camera_screen_center() - Vector2(screensize.x/1.5, screensize.y/3.2))
 		inventoryScreenP1.set_scale(Vector2(0.7,0.7))
@@ -127,7 +127,7 @@ func _inventory1():
 func _inventory2():
 	var zoomedOut = player1.getZoom()
 	var inventoryScreenP2 = get_node("/root/Root/HUDControl/InventoryScreenP2")
-	inventoryScreenP2.setKeys("p2_move_left","p2_move_right","p2_move_up","p2_move_down", "p2_action1", "p2_move_right", "p2_inventory")
+	inventoryScreenP2.setKeys("p2_move_left","p2_move_right","p2_move_up","p2_move_down", "p2_action1", "p2_action2", "p2_inventory")
 	if !zoomedOut:
 		inventoryScreenP2.set_position(camera.get_camera_screen_center() - Vector2(20, screensize.y/3.2))
 		inventoryScreenP2.set_scale(Vector2(0.7,0.7)) 

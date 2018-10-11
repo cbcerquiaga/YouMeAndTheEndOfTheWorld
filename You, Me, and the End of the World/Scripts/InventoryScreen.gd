@@ -13,7 +13,6 @@ var L
 var C
 var R
 var highlight
-var itemHighlight
 var currentFrame
 var currentItem
 var topItem
@@ -64,6 +63,7 @@ onready var button11 = get_node("Inventory Main/Segment11/Button11")
 onready var button12 = get_node("Inventory Main/Segment12/Button12")
 onready var button13 = get_node("Inventory Main/Segment13/Button13")
 onready var optionPopup = get_node("Inventory Main/ItemHighlight/OptionPopup")
+onready var itemHighlight = get_node("Inventory Main/ItemHighlight")
 
 func _ready():
 	#self.queue_free()
@@ -85,7 +85,6 @@ func _ready():
 	C = get_node("Status Box/Center Icon")
 	R = get_node("Status Box/Right Icon")
 	highlight = get_node("Tabs/Highlight")
-	itemHighlight = get_node("Inventory Main/ItemHighlight")
 #	print("Highlight position: " + str(highlight.get_position()))
 	leftButton.connect("pressed",self,"leftButtonPressed")
 	rightButton.connect("pressed",self,"rightButtonPressed")
@@ -238,27 +237,27 @@ func itemSelected():
 	optionPopup.show()
 	match currentTab:
 		"map":
-			optionPopup.setText("set marker", "fast travel", "show on map")
+			optionPopup.setText("set marker", "detailed info", "fast travel", "show on map", "")
 			print("discovered place")
 		"quests":
 			#TODO: figure out what the 3 options should be
-			optionPopup.setText("set marker", "make active", "choice tree")
+			optionPopup.setText("set marker", "make active", "choice tree", "make inactive", "")
 			print("quest")
 		"weapons":
 			#TODO: change text based on whether the item is equipped
-			optionPopup.setText("equip", "drop", "give to partner")
+			optionPopup.setText("equip", "stats", "repair", "give to partner", "drop")
 			print("weapon")
 		"consumable":
 			#TODO: change text based on whether the item is food, drugs, etc/
-			optionPopup.setText("eat", "drop", "give to partner")
+			optionPopup.setText("eat", "drop one", "drop all", "give one to partner", "give all to partner")
 			print("consumable")
 		"equippable":
 			#TODO: change text based on whether the item is equipped
-			optionPopup.setText("equip", "drop", "give to partner")
+			optionPopup.setText("equip", "stats", "repair", "give to partner", "drop")
 			print("equippable")
 		_:
-			#TODO: figure out what the 3 options should be
-			optionPopup.setText("use", "drop", "give to partner")
+			#TODO: figure out what the 1-5 options should be
+			optionPopup.setText("use", "info", "drop", "give to partner", "")
 			print("misc item")
 
 #sets the text above the items
@@ -338,30 +337,43 @@ func setIndividualSegment(item, index):
 		segment0.item = item
 	elif index == 1:
 		segment1.setText(str(item)+ "  " + str(item.quantity))
+		segment1.item = item
 	elif index == 2:
 		segment2.setText(str(item)+ "  " + str(item.quantity))
+		segment2.item = item
 	elif index == 3:
 		segment3.setText(str(item)+ "  " + str(item.quantity))
+		segment3.item = item
 	elif index == 4:
 		segment4.setText(str(item)+ "  " + str(item.quantity))
+		segment4.item = item
 	elif index == 5:
 		segment5.setText(str(item)+ "  " + str(item.quantity))
+		segment5.item = item
 	elif index == 6:
 		segment6.setText(str(item)+ "  " + str(item.quantity))
+		segment6.item = item
 	elif index == 7:
 		segment7.setText(str(item)+ "  " + str(item.quantity))
+		segment7.item = item
 	elif index == 8:
 		segment8.setText(str(item)+ "  " + str(item.quantity))
+		segment8.item = item
 	elif index == 9:
 		segment9.setText(str(item)+ "  " + str(item.quantity))
+		segment9.item = item
 	elif index == 10:
 		segment10.setText(str(item)+ "  " + str(item.quantity))
+		segment10.item = item
 	elif index == 11:
 		segment11.setText(str(item)+ "  " + str(item.quantity))
+		segment11.item = item
 	elif index == 12:
 		segment12.setText(str(item)+ "  " + str(item.quantity))
+		segment12.item = item
 	else: #index == 13:
 		segment13.setText(str(item)+ "  " + str(item.quantity))
+		segment13.item = item
 		
 func resetSegmentText():
 	segment0.setText("")
@@ -390,7 +402,7 @@ func scrollUp():
 		
 #move the highlight to the currentItem location
 func moveHighlight():
-	print("Current item: " + str(currentItem) + " is empty? " + str(isSegmentEmpty(currentItem)))
+	#print("Current item: " + str(currentItem) + " is empty? " + str(isSegmentEmpty(currentItem)))
 	if currentItem == 0:
 		segment0ButtonPressed()
 	elif currentItem == 1:
@@ -501,10 +513,6 @@ func segment13ButtonPressed():
 		itemHighlight.set_position(Vector2(0,325))
 		currentItem = 13
 	
-func setOptionPopupLocation():
-	var yVal = 306 + 18*currentItem
-	optionPopup.set_position(Vector2(220,yVal))
-	
 func emit_drop_signal():
 	print("emitting signal from inventory screen")
 	emit_signal("drop_item_signal", 1, 0)
@@ -608,15 +616,17 @@ func getCurrentItemDescription():
 		descriptionText = segment11.itemDescription()
 	elif currentItem == 12:
 		descriptionText = segment12.itemDescription()
-	elif currentItem == 13:
+	else: #currentItem == 13:
 		descriptionText = segment13.itemDescription()
+	get_node("Item Description").text = descriptionText
 
 func _process(delta):
 	#TODO: add actual functionality to keybinds
 	currentTab = tabs[tabIndex]
-	setOptionPopupLocation()
+	optionPopup.set_position(get_node("Sprite").global_position)
 	if self.is_visible_in_tree():
 		if !isPopupUp:
+			get_node("Inventory Main/ItemHighlight/Sprite").show()
 			#check if the current segment is empty and if not show its information
 			if isSegmentEmpty(currentItem):
 				get_node("Item Description").text = ""
@@ -667,6 +677,7 @@ func _process(delta):
 			if Input.is_action_just_pressed(enterKey):
 				itemSelected()
 		else:
+			get_node("Inventory Main/ItemHighlight/Sprite").hide()
 			if Input.is_action_just_pressed(str(upKey)):
 				optionPopup.upButtonPressed()
 			if Input.is_action_just_pressed(str(downKey)):
