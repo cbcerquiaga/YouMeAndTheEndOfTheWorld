@@ -54,7 +54,7 @@ var strength
 var maxHealth = 100
 var spread = 15
 var lastFrameEndSpeed = Vector2(0,0)
-
+var damageRecMultiplier = .5 #double health
 onready var bullet = load("res://tscn files/Bullet.tscn")
 
 func _ready():
@@ -231,6 +231,7 @@ func _on_Border_mouse_exited():
 
 func _on_Bullet_hit(bodyPart, damage, critChance):
 	print("Hit! " + str(totalHealth))
+	damage = damage * damageRecMultiplier
 	var randNum = rand_range(0,1)
 	if bodyPart == "torso":
 		if randNum > critChance: #not a critical hit
