@@ -50,7 +50,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 custom_solver_bias = 0.0
 extents = Vector2( 9.76202, 9.58755 )
 
-[node name="Combat" type="Node2D"]
+[node name="Combat" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
@@ -513,9 +513,6 @@ position = Vector2( 215.972, 460.04 )
 [node name="Sword" parent="TileMap/CombatPlayer" index="4" instance=ExtResource( 21 )]
 
 position = Vector2( 40, -17 )
-collision_layer = 9
-collision_mask = 9
-_sections_unfolded = [ "Collision" ]
 
 [node name="Bullet" parent="TileMap" index="1" instance=ExtResource( 22 )]
 

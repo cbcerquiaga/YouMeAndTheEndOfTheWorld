@@ -52,6 +52,7 @@ var staminaRegen = .25 #how quickly the player's stamina regenerates
 var agility
 var strength
 var maxHealth = 100
+var damageRecMultiplier = 1.1 #10% less health
 
 func staminaRegen():
 	if (stamina < 100):
@@ -71,6 +72,7 @@ func updateGravity():
 
 func _on_Bullet_hit(bodyPart, damage, critChance):
 	print("Hit! " + str(totalHealth))
+	damage = damage*damageRecMultiplier
 	var randNum = rand_range(0,1)
 	if bodyPart == "torso":
 		if randNum > critChance: #not a critical hit
