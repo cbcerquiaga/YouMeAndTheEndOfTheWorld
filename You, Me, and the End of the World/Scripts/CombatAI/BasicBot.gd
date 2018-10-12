@@ -20,14 +20,19 @@ var maxShootDistance = 900
 #Weights
 var speedWeight = .4
 var distanceWeight = .6
+var certainty = .7
+var weightPerBullet = .05
+var totalNumberOfBullets = 6
 
+#Function to initiate variables
 func _ready():
-	maxDistance = 315# must be 3 apart to avoid glitching, 15 to avoid any glitching when forced to move
+	maxDistance = 315# must be 3 apart to avoid extreme glitching, 15 to avoid any glitching when forced to move
 	minDistance = 300
 	pass
 
+#
 func _physics_process(delta):
-	if(calcCertainty() > .7 + (.05 * (6 - ammoLeft)) and ammoLeft > 0):
+	if(calcCertainty() > certainty + (weightPerBullet * (totalNumberOfBullets - ammoLeft)) and ammoLeft > 0):
 		shoot()
 		ammoLeft -= 1
 		ammoVal = str(ammoLeft)
@@ -36,7 +41,7 @@ func _physics_process(delta):
 		ammoLeft -= 1
 		ammoVal = str(ammoLeft)
 	staminaRegen()
-	self.move_and_collide(Vector2(0,500)) #GRAVITY
+	self.move_and_collide(Vector2(0,GRAVITY)) #GRAVITY
 	movement = Vector2(WALK_MAX_SPEED, 0) * speed
 	var distanceToPlayer = (self.global_position - player.global_position)
 	if(abs(distanceToPlayer.x) < minDistance):
@@ -80,6 +85,5 @@ func calcCertainty():
 	# "\tBulletSpeed: ", bulletSpeed)
 	# print("SpeedVariance: ", speedVariance, "\tDistanceVariance: ", distanceVariance)
 
+	#Returns a calculation of the certainty based on the weights for each of the variances
 	return (speedWeight * speedVariance) + (distanceWeight * distanceVariance)
-
-	#Return some calculation of the numbers
