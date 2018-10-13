@@ -24,6 +24,7 @@ onready var screensize = Vector2(get_viewport().size.x, get_viewport().size.y)
 
 onready var inventoryScreenP1 = get_node("/root/Root/HUDControl/InventoryScreenP1")
 
+#signal drop_item_signal
 
 func _ready():
 	camera.make_current()
@@ -47,7 +48,7 @@ func _ready():
 	_start_p2_Inventory_Cooldown()
 
 	#connect to inventory signals
-	inventoryScreenP1.connect("drop_item_signal", self, "p1_drop_item")
+#	inventoryScreenP1.connect("drop_item_signal", self, "p1_drop_item")
 	
 	#Handling Camera
 #	update_camera()

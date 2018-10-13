@@ -12,6 +12,7 @@ var isFrozen = false
 
 #Signals
 signal move
+signal drop_item_signal
 
 #Nodes
 onready var otherPlayer = get_node("../player2")

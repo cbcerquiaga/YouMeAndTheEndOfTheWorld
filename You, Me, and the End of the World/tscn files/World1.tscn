@@ -20,7 +20,7 @@
 [ext_resource path="res://tscn files/Gut.tscn" type="PackedScene" id=18]
 [ext_resource path="res://tscn files/HUDControl.tscn" type="PackedScene" id=19]
 
-[node name="Root" type="Control"]
+[node name="Root" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0

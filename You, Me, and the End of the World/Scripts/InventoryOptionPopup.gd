@@ -7,7 +7,7 @@ var downButtonPressed
 var exitButtonPressed
 var enterButtonPressed
 
-onready var player1 = get_node("/root/World1/walls/player1")
+onready var player1 = get_node("/root/Root/walls/player1")
 onready var segment0 = get_node("Background/segment0")
 onready var segment1 = get_node("Background/segment1")
 onready var segment2 = get_node("Background/segment2")
@@ -19,7 +19,7 @@ onready var button2 = get_node("Background/segment2/Button")
 onready var button3 = get_node("Background/segment3/Button")
 onready var button4 = get_node("Background/segment4/Button")
 
-signal drop_item_signal(player, index)
+signal drop_item_signal(player1, index)
 
 func _ready():
 	currentItem = 0

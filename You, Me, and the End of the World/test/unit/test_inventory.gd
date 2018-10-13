@@ -22,8 +22,7 @@ func setup():
 	item5.init__('Google Glass', "equippable", 5000, 5, 1, "", "", "", "")
 	#print("Testing loading items")
 	#Adding items to the inventory
-	item6.init__('GrandPiano', "misc", 100, 1, 1,
-	"res://tscn files/Piano.tscn", "res://Scripts/Piano.gd", "res://Images/grandPiano.png", "An enormous, heavy musical instrument played with several black and white keys, and a traditional symbol of wealth and learned musical ability.")
+	item6.init__("Piano", "misc", 0, 0, 1, "", "", "", "")
 	item7.init__("banana", "consumable", 0, 0, 1, "", "", "", "")
 	item8.init__("Google Glass", "equippable", 500, 0, 1, "", "", "", "")
 	item9.init__("keyboard", "misc", 50, 0, 1, "", "", "", "")
