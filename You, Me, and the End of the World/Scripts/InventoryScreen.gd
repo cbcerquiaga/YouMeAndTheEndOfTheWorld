@@ -25,6 +25,7 @@ var discoveredPlaces
 var currentTab #stores text for current tab to make it easier to code other nodes
 var descriptionText
 var itemPicture
+var blankTexture
 onready var tabIndex = 0
 onready var tabs = ["quests","weapons","equippable","consumable","misc","map"]
 onready var leftButton = get_node("Status Box/Left Button")
@@ -110,6 +111,7 @@ func _ready():
 	button12.connect("pressed",self,"segment12ButtonPressed")
 	button13.connect("pressed",self,"segment13ButtonPressed")
 	optionPopup.connect("drop_item_signal",self, "emit_drop_signal")
+	blankTexture = ImageTexture.new()
 	#optionPopup.setButtons(escKey, enterKey, upKey, downKey)
 	pass
 	
@@ -689,6 +691,7 @@ func _process(delta):
 			#check if the current segment is empty and if not show its information
 			if isSegmentEmpty(currentItem):
 				get_node("Item Description").text = ""
+				get_node("Item Picture").set_texture(blankTexture)
 				currentItem = 0
 				moveHighlight()
 			else:
