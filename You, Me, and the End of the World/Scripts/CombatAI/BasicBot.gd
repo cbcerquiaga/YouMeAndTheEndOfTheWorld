@@ -28,22 +28,33 @@ var bulletSpeed = 1600
 var maxShootDistance = 900
 var certainty = staticCertainty
 var totalNumberOfBullets = 6
+var randomWaitTime = 1 #Seconds
+var bulletCooldown = .2 #Seconds
 
 var randomRecalcTimer = Timer.new()
 var randomRecalcTimerCooldownBool = false
+var bulletTimer = Timer.new()
+var bulletTimerCooldownBool = false
 
 #Function to initiate variables
 func _ready():
 	maxDistance = staticMaxDistance# must be 3 apart to avoid extreme glitching, 15 to avoid any glitching when forced to move
 	minDistance = staticMinDistance
-	randomRecalcTimer.wait_time = 1
+	randomRecalcTimer.wait_time = randomWaitTime
 	randomRecalcTimer.connect("timeout", self, "randomRecalcTimerCooldown")
 	self.add_child(randomRecalcTimer)
 	randomRecalcTimer.start()
+	bulletTimer.wait_time = bulletCooldown
+	bulletTimer.connect("timeout", self, "bulletTimerCooldown")
+	self.add_child(bulletTimer)
+	bulletTimer.start()
 	pass
 
 func randomRecalcTimerCooldown():
 	randomRecalcTimerCooldownBool = false
+
+func bulletTimerCooldown():
+	bulletTimerCooldownBool = false
 
 #Times passed is the count of frames 
 
@@ -54,21 +65,34 @@ func implementRand():
 		minDistance = staticMinDistance + (randomValue * randomWeight)
 		certainty = staticCertainty + (randomValue * certaintyRandomWeight)
 		randomRecalcTimerCooldownBool=true
-		randomRecalcTimer.wait_time = 1
+		randomRecalcTimer.wait_time = randomWaitTime
 		randomRecalcTimer.start()
+		#Todo implement accuracy of the shots based on the AI's skill
 #
 func _physics_process(delta):
+	#Implementing random into
+	#distance Maintained, certainty required, and accuracy
 	implementRand()
-	if(calcCertainty() > certainty + (weightPerBullet * (totalNumberOfBullets - ammoLeft)) and ammoLeft > 0):
-		shoot()
-		ammoLeft -= 1
-		ammoVal = str(ammoLeft)
-	elif (totalHealth < 25 and calcCertainty() > .7 and ammoLeft > 0): #about to die, time to get desparate
-		shoot()
-		ammoLeft -= 1
-		ammoVal = str(ammoLeft)
+	
+	#Shooting
+	if(not bulletTimerCooldownBool):
+		bulletTimerCooldownBool = true
+		bulletTimer.wait_time = bulletCooldown
+		bulletTimer.start()
+		if(calcCertainty() > certainty + (weightPerBullet * (totalNumberOfBullets - ammoLeft)) and ammoLeft > 0):
+			shoot()
+			ammoLeft -= 1
+			ammoVal = str(ammoLeft)
+		elif (totalHealth < 25 and calcCertainty() > .7 and ammoLeft > 0): #about to die, time to get desparate
+			shoot()
+			ammoLeft -= 1
+			ammoVal = str(ammoLeft)
+			
+	#Physics
 	staminaRegen()
 	self.move_and_collide(force) #GRAVITY
+	
+	#Maintaining distance in relation to the player
 	movement = Vector2(WALK_MAX_SPEED, 0) * speed
 	var distanceToPlayer = (self.global_position - player.global_position)
 	if(abs(distanceToPlayer.x) < minDistance):
