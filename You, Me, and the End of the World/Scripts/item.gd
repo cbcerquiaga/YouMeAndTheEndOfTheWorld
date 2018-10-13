@@ -19,7 +19,7 @@ onready var itemLabel = get_node("Label")
 #numberInStack is the number that is in this item, IE 43 dollars
 #scenePath, path to the tscn file for this item, this will be assigned to the object if dropped from inventory
 #scriptPath, path to this object's script, this will be assigned to the object if dropped from inventory
-func init__(_itemName, _itemType, _worth, _weight, _quantity, _scenePath, _scriptPath, _imagePath, _description):
+func init__(_itemName, _itemType, _worth, _weight, _quantity, _scenePath="", _scriptPath="", _imagePath="", _description=""):
 	self.itemName = _itemName
 	self.itemType = _itemType
 	self.worth = _worth
