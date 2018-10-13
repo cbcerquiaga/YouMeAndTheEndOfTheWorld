@@ -7,8 +7,9 @@ var worth = 0
 var weight = 0
 var packedScenePath = ""
 var scriptPath = ""
+var imagePath = ""
 var quantity = ""
-onready var description = "an item that can be stored in the inventory and dropped and stuff"
+var description = ""
 
 onready var itemPopup = get_parent().get_parent().get_node("Item_popup")
 onready var itemLabel = get_node("Label")
@@ -18,7 +19,7 @@ onready var itemLabel = get_node("Label")
 #numberInStack is the number that is in this item, IE 43 dollars
 #scenePath, path to the tscn file for this item, this will be assigned to the object if dropped from inventory
 #scriptPath, path to this object's script, this will be assigned to the object if dropped from inventory
-func init__(_itemName, _itemType, _worth, _weight, _quantity, _scenePath, _scriptPath):
+func init__(_itemName, _itemType, _worth, _weight, _quantity, _scenePath, _scriptPath, _imagePath, _description):
 	self.itemName = _itemName
 	self.itemType = _itemType
 	self.worth = _worth
@@ -26,6 +27,8 @@ func init__(_itemName, _itemType, _worth, _weight, _quantity, _scenePath, _scrip
 	self.packedScenePath = _scenePath
 	self.scriptPath = _scriptPath
 	self.quantity = _quantity
+	self.imagePath = _imagePath
+	self.description = _description
 	if(itemPopup != null):
 		self.connect("mouse_entered", itemPopup, "_mouse_entered", [self])
 		self.connect("mouse_exited", itemPopup, "_mouse_exited", [self])

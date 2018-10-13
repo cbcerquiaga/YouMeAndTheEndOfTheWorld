@@ -20,6 +20,10 @@ func setText(string):
 func getText():
 	return get_node("RichTextLabel").text
 	
+func getImage():
+	if item != null:
+		return item.imagePath
+	
 func itemDescription():
 	if item != null:
 		return item.description

@@ -24,6 +24,7 @@ var miscItems
 var discoveredPlaces
 var currentTab #stores text for current tab to make it easier to code other nodes
 var descriptionText
+var itemPicture
 onready var tabIndex = 0
 onready var tabs = ["quests","weapons","equippable","consumable","misc","map"]
 onready var leftButton = get_node("Status Box/Left Button")
@@ -333,46 +334,46 @@ func setSegments(itemsArray):
 func setIndividualSegment(item, index):
 	#print("setting indivudual segments at index " + str(index) + " and item " + str(item))
 	if index == 0:
-		segment0.setText(str(item) + "  " + str(item.quantity))
+		segment0.setText(str(item.itemName) + "  " + str(item.quantity))
 		segment0.item = item
 	elif index == 1:
-		segment1.setText(str(item)+ "  " + str(item.quantity))
+		segment1.setText(str(item.itemName)+ "  " + str(item.quantity))
 		segment1.item = item
 	elif index == 2:
-		segment2.setText(str(item)+ "  " + str(item.quantity))
+		segment2.setText(str(item.itemName)+ "  " + str(item.quantity))
 		segment2.item = item
 	elif index == 3:
-		segment3.setText(str(item)+ "  " + str(item.quantity))
+		segment3.setText(str(item.itemName)+ "  " + str(item.quantity))
 		segment3.item = item
 	elif index == 4:
-		segment4.setText(str(item)+ "  " + str(item.quantity))
+		segment4.setText(str(item.itemName)+ "  " + str(item.quantity))
 		segment4.item = item
 	elif index == 5:
-		segment5.setText(str(item)+ "  " + str(item.quantity))
+		segment5.setText(str(item.itemName)+ "  " + str(item.quantity))
 		segment5.item = item
 	elif index == 6:
-		segment6.setText(str(item)+ "  " + str(item.quantity))
+		segment6.setText(str(item.itemName)+ "  " + str(item.quantity))
 		segment6.item = item
 	elif index == 7:
-		segment7.setText(str(item)+ "  " + str(item.quantity))
+		segment7.setText(str(item.itemName)+ "  " + str(item.quantity))
 		segment7.item = item
 	elif index == 8:
-		segment8.setText(str(item)+ "  " + str(item.quantity))
+		segment8.setText(str(item.itemName)+ "  " + str(item.quantity))
 		segment8.item = item
 	elif index == 9:
-		segment9.setText(str(item)+ "  " + str(item.quantity))
+		segment9.setText(str(item.itemName)+ "  " + str(item.quantity))
 		segment9.item = item
 	elif index == 10:
-		segment10.setText(str(item)+ "  " + str(item.quantity))
+		segment10.setText(str(item.itemName)+ "  " + str(item.quantity))
 		segment10.item = item
 	elif index == 11:
-		segment11.setText(str(item)+ "  " + str(item.quantity))
+		segment11.setText(str(item.itemName)+ "  " + str(item.quantity))
 		segment11.item = item
 	elif index == 12:
-		segment12.setText(str(item)+ "  " + str(item.quantity))
+		segment12.setText(str(item.itemName)+ "  " + str(item.quantity))
 		segment12.item = item
 	else: #index == 13:
-		segment13.setText(str(item)+ "  " + str(item.quantity))
+		segment13.setText(str(item.itemName)+ "  " + str(item.quantity))
 		segment13.item = item
 		
 func resetSegmentText():
@@ -589,39 +590,58 @@ func isSegmentEmpty(segmentNum):
 		else:
 			return false
 			
-func getCurrentItemDescription():
+func getCurrentItemInfo():
 	if currentItem == 0:
 		descriptionText = segment0.itemDescription()
+		itemPicture = segment0.getImage()
 	elif currentItem == 1:
 		descriptionText = segment1.itemDescription()
+		itemPicture = segment1.getImage()
 	elif currentItem == 2:
 		descriptionText = segment2.itemDescription()
+		itemPicture = segment2.getImage()
 	elif currentItem == 3:
 		descriptionText = segment3.itemDescription()
+		itemPicture = segment3.getImage()
 	elif currentItem == 4:
 		descriptionText = segment4.itemDescription()
+		itemPicture = segment4.getImage()
 	elif currentItem == 5:
 		descriptionText = segment5.itemDescription()
+		itemPicture = segment5.getImage()
 	elif currentItem == 6:
 		descriptionText = segment6.itemDescription()
+		itemPicture = segment6.getImage()
 	elif currentItem == 7:
 		descriptionText = segment7.itemDescription()
+		itemPicture = segment7.getImage()
 	elif currentItem == 8:
 		descriptionText = segment8.itemDescription()
+		itemPicture = segment8.getImage()
 	elif currentItem == 9:
 		descriptionText = segment9.itemDescription()
+		itemPicture = segment9.getImage()
 	elif currentItem == 10:
 		descriptionText = segment10.itemDescription()
+		itemPicture = segment10.getImage()
 	elif currentItem == 11:
 		descriptionText = segment11.itemDescription()
+		itemPicture = segment11.getImage()
 	elif currentItem == 12:
 		descriptionText = segment12.itemDescription()
+		itemPicture = segment12.getImage()
 	else: #currentItem == 13:
 		descriptionText = segment13.itemDescription()
+		itemPicture = segment0.getImage()
 	get_node("Item Description").text = descriptionText
+	var imageTexture = ImageTexture.new()
+	imageTexture.load("res://Images" + itemPicture)
+	get_node("Item Picture").set_texture(imageTexture)
 
 func _process(delta):
 	#TODO: add actual functionality to keybinds
+	if !isSegmentEmpty(currentItem):
+		getCurrentItemInfo()
 	currentTab = tabs[tabIndex]
 	optionPopup.set_position(get_node("Sprite").global_position)
 	if self.is_visible_in_tree():
