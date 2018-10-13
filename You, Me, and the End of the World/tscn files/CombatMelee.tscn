@@ -3,24 +3,29 @@
 [ext_resource path="res://Scripts/CombatMelee.gd" type="Script" id=1]
 [ext_resource path="res://Images/lightsabericonblue.png" type="Texture" id=2]
 
-[node name="Body" type="KinematicBody2D" index="0"]
+[node name="Body" type="Area2D" index="0"]
 
-input_pickable = false
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
 collision_layer = 9
 collision_mask = 9
-collision/safe_margin = 0.08
+audio_bus_override = false
+audio_bus_name = "Master"
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
-
-build_mode = 1
-polygon = PoolVector2Array( -10.6867, 14.2326, -17.0177, 24.4299, -20.9992, 24.2972, -21.1319, 19.1213, -2.43151, -15.0357, 2.0713, -24.7918, 7.47468, -23.591 )
-
-[node name="Sprite" type="Sprite" parent="." index="1"]
+[node name="Sprite" type="Sprite" parent="." index="0"]
 
 scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -3.02046, -23.8812, -26.4662, 22.1419, -13.6144, 27.1784, 14.8678, -24.0549 )
 
 

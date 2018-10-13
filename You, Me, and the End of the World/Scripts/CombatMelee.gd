@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Area2D
 
 var damage = 30 #default damage
 var speed = 600 #default speed
@@ -7,7 +7,6 @@ var bleed = 0 #default bleed damage
 var ricochet = 0 #the number of times the bullet ricochets before destroying
 var explosion = false #default explosiveness
 var poison = false #default poison value
-var motion = Vector2(0,0)
 
 onready var enemyHealth = get_node("/root/Combat/CombatHUD/EnemyHealth")
 onready var playerHealth = get_node("/root/Combat/CombatHUD/PlayerHealth")
@@ -27,14 +26,11 @@ func _ready():
 	pass
 
 func _process(delta):
-	var collideCheck = move_and_collide(motion * delta)
+	var collideCheck = get_overlapping_bodies()
 	if(collideCheck != null):
-		if(collideCheck.collider.name != "head" and collideCheck.collider.name != "torso"):
+		for i in collideCheck:
 			print("Ouch!")
-			hide()
-			#queue_free()
-		else:
-			contact(collideCheck.collider);
+			contact(i)
 	pass
 
 func contact(body):
