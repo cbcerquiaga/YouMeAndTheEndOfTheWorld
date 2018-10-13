@@ -7,31 +7,58 @@ var minDistance
 var middlePoint
 var speed = 1.0 #1.0 is the same as the player
 var movement
-onready var player = get_node("../CombatPlayer")
+var staticMaxDistance = 315
+var staticMinDistance = 300
+var staticCertainty = .7
+
 onready var force = Vector2(0, GRAVITY)
 
+onready var player = get_node("../CombatPlayer")
 onready var playerHead = get_node("../CombatPlayer/head")
 onready var playerTorso = get_node("../CombatPlayer/torso")
-onready var bullet = load("res://tscn files/EnemyBullet.tscn")
-
-var bulletSpeed = 1600
-var maxShootDistance = 900
 
 #Weights
 var speedWeight = .4
 var distanceWeight = .6
-var certainty = .7
 var weightPerBullet = .05
+var randomWeight = .5
+var certaintyRandomWeight = .0005
+
+var bulletSpeed = 1600
+var maxShootDistance = 900
+var certainty = staticCertainty
 var totalNumberOfBullets = 6
+
+var randomRecalcTimer = Timer.new()
+var randomRecalcTimerCooldownBool = false
 
 #Function to initiate variables
 func _ready():
-	maxDistance = 315# must be 3 apart to avoid extreme glitching, 15 to avoid any glitching when forced to move
-	minDistance = 300
+	maxDistance = staticMaxDistance# must be 3 apart to avoid extreme glitching, 15 to avoid any glitching when forced to move
+	minDistance = staticMinDistance
+	randomRecalcTimer.wait_time = 1
+	randomRecalcTimer.connect("timeout", self, "randomRecalcTimerCooldown")
+	self.add_child(randomRecalcTimer)
+	randomRecalcTimer.start()
 	pass
 
+func randomRecalcTimerCooldown():
+	randomRecalcTimerCooldownBool = false
+
+#Times passed is the count of frames 
+
+func implementRand():
+	if(not randomRecalcTimerCooldownBool):
+		var randomValue = rand_range(-100, 100)
+		maxDistance = staticMaxDistance + (randomValue * randomWeight)
+		minDistance = staticMinDistance + (randomValue * randomWeight)
+		certainty = staticCertainty + (randomValue * certaintyRandomWeight)
+		randomRecalcTimerCooldownBool=true
+		randomRecalcTimer.wait_time = 1
+		randomRecalcTimer.start()
 #
 func _physics_process(delta):
+	implementRand()
 	if(calcCertainty() > certainty + (weightPerBullet * (totalNumberOfBullets - ammoLeft)) and ammoLeft > 0):
 		shoot()
 		ammoLeft -= 1
@@ -41,7 +68,7 @@ func _physics_process(delta):
 		ammoLeft -= 1
 		ammoVal = str(ammoLeft)
 	staminaRegen()
-	self.move_and_collide(Vector2(0,GRAVITY)) #GRAVITY
+	self.move_and_collide(force) #GRAVITY
 	movement = Vector2(WALK_MAX_SPEED, 0) * speed
 	var distanceToPlayer = (self.global_position - player.global_position)
 	if(abs(distanceToPlayer.x) < minDistance):
@@ -57,7 +84,7 @@ func _physics_process(delta):
 
 func shoot():
 #	print("Shooting")
-	var tempBullet = bullet.instance()
+	var tempBullet = BULLET.instance()
 	tempBullet.set_position(self.global_position)
 	tempBullet.motion = -(self.global_position - playerHead.global_position).normalized()
 	self.get_parent().add_child(tempBullet)
