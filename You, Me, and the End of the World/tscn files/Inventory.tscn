@@ -1056,8 +1056,7 @@ _sections_unfolded = [ "Rect", "Visibility" ]
 
 [node name="Item Picture" type="Sprite" parent="." index="6"]
 
-position = Vector2( 463.316, 286.566 )
-scale = Vector2( -116.274, -116.641 )
-_sections_unfolded = [ "Rect" ]
+position = Vector2( 403.316, 223.566 )
+_sections_unfolded = [ "Rect", "Region", "Transform" ]
 
 

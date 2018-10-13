@@ -635,8 +635,47 @@ func getCurrentItemInfo():
 		itemPicture = segment0.getImage()
 	get_node("Item Description").text = descriptionText
 	var imageTexture = ImageTexture.new()
-	imageTexture.load("res://Images" + itemPicture)
+	imageTexture.load(itemPicture)
 	get_node("Item Picture").set_texture(imageTexture)
+	var size = imageTexture.get_size() #image size
+	var scale = Vector2(1,1)
+	if size.x >= 1500:
+		scale.x = .06
+	elif size.x >= 1000:
+		scale.x = .1
+	elif size.x >= 500:
+		scale.x = .2
+	elif size.x >= 300:
+		scale.x = .3
+	elif size.x >= 200:
+		scale.x = .5
+	elif size.x <= 50:
+		scale.x = 2
+	elif size.x <= 25:
+		scale.x = 4
+	elif size.x <= 20:
+		scale.x = 5
+	elif size.x <= 10:
+		scale.x = 10
+	if size.y >= 1500:
+		scale.y = .06
+	elif size.y >= 1000:
+		scale.y = .1
+	elif size.y >= 500:
+		scale.y = .2
+	elif size.y >= 300:
+		scale.y = .3
+	elif size.y >= 200:
+		scale.y = .5
+	elif size.y <= 50:
+		scale.y = 2
+	elif size.y <= 25:
+		scale.y = 4
+	elif size.y <= 20:
+		scale.y = 5
+	elif size.y <= 10:
+		scale.y = 10
+	get_node("Item Picture").set_scale(scale)
 
 func _process(delta):
 	#TODO: add actual functionality to keybinds
