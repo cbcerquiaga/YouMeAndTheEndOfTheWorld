@@ -9,6 +9,7 @@ var enterKey
 var escKey
 var closeKey
 var justOpened
+var assignedPlayer
 var L
 var C
 var R
@@ -124,6 +125,9 @@ func setKeys(_leftKey, _rightKey, _upKey, _downKey, _enterKey, _escKey, _closeKe
 	enterKey = _enterKey
 	escKey = _escKey
 	closeKey = _closeKey
+	
+func assignPlayer(_player):
+	assignedPlayer = _player
 
 #initializes the segment frames so that they alternate in color
 func alternateSegmentFrames():
@@ -640,6 +644,7 @@ func getCurrentItemInfo():
 	imageTexture.load(itemPicture)
 	get_node("Item Picture").set_texture(imageTexture)
 	var size = imageTexture.get_size() #image size
+	#shrinks or grows the image to fit into the inventroy UI properly
 	var scale = Vector2(1,1)
 	if size.x >= 1500:
 		scale.x = .06
@@ -677,6 +682,11 @@ func getCurrentItemInfo():
 		scale.y = 5
 	elif size.y <= 10:
 		scale.y = 10
+	#makes sure the image isn't distorted. Better to be too small than too big
+	if scale.x < scale.y:
+		scale.y = scale.x
+	elif scale.y < scale.x:
+		scale.x = scale.y
 	get_node("Item Picture").set_scale(scale)
 
 func _process(delta):
