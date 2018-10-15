@@ -4,9 +4,11 @@ func _ready():
 	pass
 
 func collidingWithPlayer():
+	print("checking collision")
 	var collideCheck = get_overlapping_bodies()
 	if(collideCheck != null):
 		for i in collideCheck:
+			print(str(i))
 			if i == "CombatPlayer":
 				return true
 	return false
