@@ -2,8 +2,8 @@
 
 [ext_resource path="res://Scripts/CarInventory.gd" type="Script" id=1]
 [ext_resource path="res://Images/carInventoryMain.png" type="Texture" id=2]
-[ext_resource path="res://tscn files/InventorySegment.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Images/itemHighlight.png" type="Texture" id=4]
+[ext_resource path="res://Images/itemHighlight.png" type="Texture" id=3]
+[ext_resource path="res://tscn files/InventorySegment.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Images/weaponTab.png" type="Texture" id=5]
 [ext_resource path="res://Images/equippableTab.png" type="Texture" id=6]
 [ext_resource path="res://Images/consumableTab.png" type="Texture" id=7]
@@ -48,6 +48,7 @@ __meta__ = {
 
 [node name="Car Segments" type="Control" parent="." index="2"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -61,7 +62,29 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="cSegment0" parent="Car Segments" index="0" instance=ExtResource( 3 )]
+[node name="Highlight" type="Control" parent="Car Segments" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 380.0
+margin_top = -28.0
+margin_right = 420.0
+margin_bottom = 12.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="Sprite" type="Sprite" parent="Car Segments/Highlight" index="0"]
+
+texture = ExtResource( 3 )
+
+[node name="cSegment0" parent="Car Segments" index="1" instance=ExtResource( 4 )]
 
 editor/display_folded = true
 margin_left = 216.0
@@ -93,7 +116,7 @@ flat = true
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="cSegment1" parent="Car Segments" index="1" instance=ExtResource( 3 )]
+[node name="cSegment1" parent="Car Segments" index="2" instance=ExtResource( 4 )]
 
 editor/display_folded = true
 margin_left = 216.0
@@ -125,7 +148,7 @@ flat = true
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="cSegment2" parent="Car Segments" index="2" instance=ExtResource( 3 )]
+[node name="cSegment2" parent="Car Segments" index="3" instance=ExtResource( 4 )]
 
 editor/display_folded = true
 margin_left = 216.0
@@ -157,7 +180,7 @@ flat = true
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="cSegment3" parent="Car Segments" index="3" instance=ExtResource( 3 )]
+[node name="cSegment3" parent="Car Segments" index="4" instance=ExtResource( 4 )]
 
 editor/display_folded = true
 margin_left = 216.0
@@ -189,8 +212,9 @@ flat = true
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="cSegment4" parent="Car Segments" index="4" instance=ExtResource( 3 )]
+[node name="cSegment4" parent="Car Segments" index="5" instance=ExtResource( 4 )]
 
+editor/display_folded = true
 margin_left = 216.0
 margin_top = 55.0
 margin_right = 216.0
@@ -220,7 +244,7 @@ flat = true
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="cSegment5" parent="Car Segments" index="5" instance=ExtResource( 3 )]
+[node name="cSegment5" parent="Car Segments" index="6" instance=ExtResource( 4 )]
 
 editor/display_folded = true
 margin_left = 216.0
@@ -252,7 +276,7 @@ flat = true
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="cSegment6" parent="Car Segments" index="6" instance=ExtResource( 3 )]
+[node name="cSegment6" parent="Car Segments" index="7" instance=ExtResource( 4 )]
 
 editor/display_folded = true
 margin_left = 216.0
@@ -284,7 +308,7 @@ flat = true
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="cSegment7" parent="Car Segments" index="7" instance=ExtResource( 3 )]
+[node name="cSegment7" parent="Car Segments" index="8" instance=ExtResource( 4 )]
 
 editor/display_folded = true
 margin_left = 216.0
@@ -316,8 +340,9 @@ flat = true
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="cSegment8" parent="Car Segments" index="8" instance=ExtResource( 3 )]
+[node name="cSegment8" parent="Car Segments" index="9" instance=ExtResource( 4 )]
 
+editor/display_folded = true
 margin_left = 216.0
 margin_top = 155.0
 margin_right = 216.0
@@ -347,28 +372,7 @@ flat = true
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Highlight" type="Control" parent="." index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 380.0
-margin_top = -28.0
-margin_right = 420.0
-margin_bottom = 12.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-
-[node name="Sprite" type="Sprite" parent="Highlight" index="0"]
-
-texture = ExtResource( 4 )
-
-[node name="Player Segments" type="Control" parent="." index="4"]
+[node name="Player Segments" type="Control" parent="." index="3"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -384,7 +388,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="pSegment0" parent="Player Segments" index="0" instance=ExtResource( 3 )]
+[node name="pSegment0" parent="Player Segments" index="0" instance=ExtResource( 4 )]
 
 editor/display_folded = true
 margin_left = 215.0
@@ -415,7 +419,7 @@ flat = true
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="pSegment1" parent="Player Segments" index="1" instance=ExtResource( 3 )]
+[node name="pSegment1" parent="Player Segments" index="1" instance=ExtResource( 4 )]
 
 editor/display_folded = true
 margin_left = 215.0
@@ -446,7 +450,7 @@ flat = true
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="pSegment2" parent="Player Segments" index="2" instance=ExtResource( 3 )]
+[node name="pSegment2" parent="Player Segments" index="2" instance=ExtResource( 4 )]
 
 editor/display_folded = true
 margin_left = 215.0
@@ -477,7 +481,7 @@ flat = true
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="pSegment3" parent="Player Segments" index="3" instance=ExtResource( 3 )]
+[node name="pSegment3" parent="Player Segments" index="3" instance=ExtResource( 4 )]
 
 editor/display_folded = true
 margin_left = 215.0
@@ -508,7 +512,7 @@ flat = true
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="pSegment4" parent="Player Segments" index="4" instance=ExtResource( 3 )]
+[node name="pSegment4" parent="Player Segments" index="4" instance=ExtResource( 4 )]
 
 editor/display_folded = true
 margin_left = 215.0
@@ -539,7 +543,7 @@ flat = true
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="pSegment5" parent="Player Segments" index="5" instance=ExtResource( 3 )]
+[node name="pSegment5" parent="Player Segments" index="5" instance=ExtResource( 4 )]
 
 editor/display_folded = true
 margin_left = 215.0
@@ -570,7 +574,7 @@ flat = true
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="pSegment6" parent="Player Segments" index="6" instance=ExtResource( 3 )]
+[node name="pSegment6" parent="Player Segments" index="6" instance=ExtResource( 4 )]
 
 editor/display_folded = true
 margin_left = 215.0
@@ -601,7 +605,7 @@ flat = true
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="pSegment7" parent="Player Segments" index="7" instance=ExtResource( 3 )]
+[node name="pSegment7" parent="Player Segments" index="7" instance=ExtResource( 4 )]
 
 editor/display_folded = true
 margin_left = 215.0
@@ -632,7 +636,7 @@ flat = true
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="pSegment8" parent="Player Segments" index="8" instance=ExtResource( 3 )]
+[node name="pSegment8" parent="Player Segments" index="8" instance=ExtResource( 4 )]
 
 editor/display_folded = true
 margin_left = 215.0
@@ -665,7 +669,6 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="Highlight" type="Control" parent="Player Segments" index="9"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -683,10 +686,11 @@ size_flags_vertical = 1
 
 [node name="Sprite" type="Sprite" parent="Player Segments/Highlight" index="0"]
 
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 
-[node name="Tabs" type="Control" parent="." index="5"]
+[node name="Tabs" type="Control" parent="." index="4"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -851,7 +855,7 @@ __meta__ = {
 position = Vector2( 261, 210 )
 texture = ExtResource( 10 )
 
-[node name="Top Basic Info" type="RichTextLabel" parent="." index="6"]
+[node name="Top Basic Info" type="RichTextLabel" parent="." index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -879,7 +883,7 @@ scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
 
-[node name="Bottom Basic Info" type="RichTextLabel" parent="." index="7"]
+[node name="Bottom Basic Info" type="RichTextLabel" parent="." index="6"]
 
 anchor_left = 0.0
 anchor_top = 0.0

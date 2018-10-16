@@ -203,21 +203,18 @@ func questButtonPressed():
 	tabIndex = 0
 	currentItem = 0
 	moveHighlight()
-	#TODO: change text in inventory section
 	
 func weaponButtonPressed():
 	highlight.set_position(Vector2(55,0))
 	tabIndex = 1
 	currentItem = 0
 	moveHighlight()
-	#TODO: change text in inventory section
 	
 func equippableButtonPressed():
 	highlight.set_position(Vector2(110,0))
 	tabIndex = 2
 	currentItem = 0
 	moveHighlight()
-	#TODO: change text in inventory section
 	
 func consumableButtonPressed():
 	highlight.set_position(Vector2(165,0))
@@ -230,14 +227,12 @@ func miscButtonPressed():
 	tabIndex = 4
 	currentItem = 0
 	moveHighlight()
-	#TODO: change text in inventory section
 	
 func mapButtonPressed():
 	highlight.set_position(Vector2(275,0))
 	tabIndex = 5
 	currentItem = 0
 	moveHighlight()
-	#TODO: change text in inventory section
 	
 func itemSelected():
 	isPopupUp = true
