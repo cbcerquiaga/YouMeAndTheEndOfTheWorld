@@ -24,6 +24,7 @@ onready var miscButton = get_node("Tabs/Misc")
 onready var carButton = get_node("Tabs/Customize car")
 
 func _ready():
+	alternateSegmentFrames()
 	tabs = ["weapons","equippable","consumable","misc","car"]
 	highlight = get_node("Player Segments/Highlight")
 	carHighlight = get_node("Car Segments/Highlight")
@@ -32,6 +33,17 @@ func _ready():
 	equippableButton.connect("pressed",self,"equippableButtonPressed")
 	miscButton.connect("pressed",self,"miscButtonPressed")
 	pass
+	
+func alternateSegmentFrames():
+	get_node("Player Segments/pSegment1").switchIcon()
+	get_node("Player Segments/pSegment3").switchIcon()
+	get_node("Player Segments/pSegment5").switchIcon()
+	get_node("Player Segments/pSegment7").switchIcon()
+	get_node("Car Segments/cSegment1").switchIcon()
+	get_node("Car Segments/cSegment3").switchIcon()
+	get_node("Car Segments/cSegment5").switchIcon()
+	get_node("Car Segments/cSegment7").switchIcon()
+	
 	
 #split the player's inventory into several arrays based on item type
 func loadPlayerInventory(list):
@@ -70,6 +82,46 @@ func loadCarInventory(list):
 		else: # i.itemType == "misc":
 			car_miscItems.append(i)
 	
+func moveHighlight():
+	if !inCarInventory:
+		if currentItem == 0:
+			pSegment0ButtonPressed()
+		elif currentItem == 1:
+			pSegment1ButtonPressed()
+		elif currentItem == 2:
+			pSegment2ButtonPressed()
+		elif currentItem == 3:
+			pSegment3ButtonPressed()
+		elif currentItem == 4:
+			pSegment4ButtonPressed()
+		elif currentItem == 5:
+			pSegment5ButtonPressed()
+		elif currentItem == 6:
+			pSegment6ButtonPressed()
+		elif currentItem == 7:
+			pSegment7ButtonPressed()
+		elif currentItem == 8:
+			pSegment8ButtonPressed()
+	else: #if inCarInentory:
+		if currentItem == 0:
+			cSegment0ButtonPressed()
+		elif currentItem == 1:
+			cSegment1ButtonPressed()
+		elif currentItem == 2:
+			cSegment2ButtonPressed()
+		elif currentItem == 3:
+			cSegment3ButtonPressed()
+		elif currentItem == 4:
+			cSegment4ButtonPressed()
+		elif currentItem == 5:
+			cSegment5ButtonPressed()
+		elif currentItem == 6:
+			cSegment6ButtonPressed()
+		elif currentItem == 7:
+			cSegment7ButtonPressed()
+		elif currentItem == 8:
+			cSegment8ButtonPressed()
+
 func weaponButtonPressed():
 	highlight.set_position(Vector2(0,0))
 	tabIndex = 0
