@@ -152,6 +152,96 @@ func carButtonPressed():
 	currentItem = 0
 	moveHighlight()
 	
+func pSegment0ButtonPressed():
+	if !isSegmentEmpty(0):
+		highlight.set_position(Vector2(0,0))
+		currentItem = 0
+		
+func pSegment1ButtonPressed():
+	if !isSegmentEmpty(1):
+		highlight.set_position(Vector2(0,0)) #TODO: figure out spacing
+		currentItem = 1
+		
+func pSegment2ButtonPressed():
+	if !isSegmentEmpty(2):
+		highlight.set_position(Vector2(0,0)) #TODO: figure out spacing
+		currentItem = 2
+		
+func pSegment3ButtonPressed():
+	if !isSegmentEmpty(3):
+		highlight.set_position(Vector2(0,0)) #TODO: figure out spacing
+		currentItem = 3
+		
+func pSegment4ButtonPressed():
+	if !isSegmentEmpty(4):
+		highlight.set_position(Vector2(0,0)) #TODO: figure out spacing
+		currentItem = 4
+		
+func pSegment5ButtonPressed():
+	if !isSegmentEmpty(5):
+		highlight.set_position(Vector2(0,0)) #TODO: figure out spacing
+		currentItem = 5
+		
+func pSegment6ButtonPressed():
+	if !isSegmentEmpty(6):
+		highlight.set_position(Vector2(0,0)) #TODO: figure out spacing
+		currentItem = 6
+		
+func pSegment7ButtonPressed():
+	if !isSegmentEmpty(7):
+		highlight.set_position(Vector2(0,0)) #TODO: figure out spacing
+		currentItem = 7
+		
+func pSegment8ButtonPressed():
+	if !isSegmentEmpty(8):
+		highlight.set_position(Vector2(0,0)) #TODO: figure out spacing
+		currentItem = 8
+		
+func cSegment0ButtonPressed():
+	if !isSegmentEmpty(0):
+		carHighlight.set_position(Vector2(0,0))
+		currentItem = 0
+		
+func cSegment1ButtonPressed():
+	if !isSegmentEmpty(1):
+		carHighlight.set_position(Vector2(0,0)) #TODO: figure out spacing
+		currentItem = 1
+		
+func cSegment2ButtonPressed():
+	if !isSegmentEmpty(2):
+		carHighlight.set_position(Vector2(0,0)) #TODO: figure out spacing
+		currentItem = 2
+		
+func cSegment3ButtonPressed():
+	if !isSegmentEmpty(3):
+		carHighlight.set_position(Vector2(0,0)) #TODO: figure out spacing
+		currentItem = 3
+		
+func cSegment4ButtonPressed():
+	if !isSegmentEmpty(4):
+		carHighlight.set_position(Vector2(0,0)) #TODO: figure out spacing
+		currentItem = 4
+		
+func cSegment5ButtonPressed():
+	if !isSegmentEmpty(5):
+		carHighlight.set_position(Vector2(0,0)) #TODO: figure out spacing
+		currentItem = 5
+		
+func cSegment6ButtonPressed():
+	if !isSegmentEmpty(6):
+		carHighlight.set_position(Vector2(0,0)) #TODO: figure out spacing
+		currentItem = 6
+		
+func cSegment7ButtonPressed():
+	if !isSegmentEmpty(7):
+		carHighlight.set_position(Vector2(0,0)) #TODO: figure out spacing
+		currentItem = 7
+		
+func cSegment8ButtonPressed():
+	if !isSegmentEmpty(8):
+		carHighlight.set_position(Vector2(0,0)) #TODO: figure out spacing
+		currentItem = 8
+	
 func itemSelected():
 	print("item at index " + str(currentItem) + " selected")
 	#TODO: if the item is chosen from the player's inventory, move it to the car's inventory
@@ -173,6 +263,100 @@ func setInventorySegments():
 		setSegments(equippableItems)
 	else: #currentTab == "weapons":
 		setSegments(weaponItems)
+		
+func isSegmentEmpty(segmentNum):
+	if inCarInventory:
+		if segmentNum == 0:
+			if get_node("Car Segments/cSegment0").getText() == "":
+				return true
+			else:
+				return false
+		elif segmentNum == 1:
+			if get_node("Car Segments/cSegment1").getText() == "":
+				return true
+			else:
+				return false
+		elif segmentNum == 2:
+			if get_node("Car Segments/cSegment2").getText() == "":
+				return true
+			else:
+				return false
+		elif segmentNum == 3:
+			if get_node("Car Segments/cSegment3").getText() == "":
+				return true
+			else:
+				return false
+		elif segmentNum == 4:
+			if get_node("Car Segments/cSegment4").getText() == "":
+				return true
+			else:
+				return false
+		elif segmentNum == 5:
+			if get_node("Car Segments/cSegment5").getText() == "":
+				return true
+			else:
+				return false
+		elif segmentNum == 6:
+			if get_node("Car Segments/cSegment6").getText() == "":
+				return true
+			else:
+				return false
+		elif segmentNum == 7:
+			if get_node("Car Segments/cSegment7").getText() == "":
+				return true
+			else:
+				return false
+		elif segmentNum == 8:
+			if get_node("Car Segments/cSegment8").getText() == "":
+				return true
+			else:
+				return false
+	else: #in player inventory
+		if segmentNum == 0:
+			if get_node("Player Segments/pSegment0").getText() == "":
+				return true
+			else:
+				return false
+		elif segmentNum == 1:
+			if get_node("Player Segments/pSegment1").getText() == "":
+				return true
+			else:
+				return false
+		elif segmentNum == 2:
+			if get_node("Player Segments/pSegment2").getText() == "":
+				return true
+			else:
+				return false
+		elif segmentNum == 3:
+			if get_node("Player Segments/pSegment3").getText() == "":
+				return true
+			else:
+				return false
+		elif segmentNum == 4:
+			if get_node("Player Segments/pSegment4").getText() == "":
+				return true
+			else:
+				return false
+		elif segmentNum == 5:
+			if get_node("Player Segments/pSegment5").getText() == "":
+				return true
+			else:
+				return false
+		elif segmentNum == 6:
+			if get_node("Player Segments/pSegment6").getText() == "":
+				return true
+			else:
+				return false
+		elif segmentNum == 7:
+			if get_node("Player Segments/pSegment7").getText() == "":
+				return true
+			else:
+				return false
+		elif segmentNum == 8:
+			if get_node("Player Segments/pSegment8").getText() == "":
+				return true
+			else:
+				return false
 	
 #sets the text above the items in both areas
 func setBasicText():
