@@ -9,6 +9,7 @@ var enterKey
 var escKey
 var closeKey
 var justOpened
+var assignedPlayer
 var L
 var C
 var R
@@ -124,6 +125,9 @@ func setKeys(_leftKey, _rightKey, _upKey, _downKey, _enterKey, _escKey, _closeKe
 	enterKey = _enterKey
 	escKey = _escKey
 	closeKey = _closeKey
+	
+func assignPlayer(_player):
+	assignedPlayer = _player
 
 #initializes the segment frames so that they alternate in color
 func alternateSegmentFrames():
@@ -199,21 +203,18 @@ func questButtonPressed():
 	tabIndex = 0
 	currentItem = 0
 	moveHighlight()
-	#TODO: change text in inventory section
 	
 func weaponButtonPressed():
 	highlight.set_position(Vector2(55,0))
 	tabIndex = 1
 	currentItem = 0
 	moveHighlight()
-	#TODO: change text in inventory section
 	
 func equippableButtonPressed():
 	highlight.set_position(Vector2(110,0))
 	tabIndex = 2
 	currentItem = 0
 	moveHighlight()
-	#TODO: change text in inventory section
 	
 func consumableButtonPressed():
 	highlight.set_position(Vector2(165,0))
@@ -226,14 +227,12 @@ func miscButtonPressed():
 	tabIndex = 4
 	currentItem = 0
 	moveHighlight()
-	#TODO: change text in inventory section
 	
 func mapButtonPressed():
 	highlight.set_position(Vector2(275,0))
 	tabIndex = 5
 	currentItem = 0
 	moveHighlight()
-	#TODO: change text in inventory section
 	
 func itemSelected():
 	isPopupUp = true
@@ -640,6 +639,7 @@ func getCurrentItemInfo():
 	imageTexture.load(itemPicture)
 	get_node("Item Picture").set_texture(imageTexture)
 	var size = imageTexture.get_size() #image size
+	#shrinks or grows the image to fit into the inventroy UI properly
 	var scale = Vector2(1,1)
 	if size.x >= 1500:
 		scale.x = .06
@@ -677,6 +677,11 @@ func getCurrentItemInfo():
 		scale.y = 5
 	elif size.y <= 10:
 		scale.y = 10
+	#makes sure the image isn't distorted. Better to be too small than too big
+	if scale.x < scale.y:
+		scale.y = scale.x
+	elif scale.y < scale.x:
+		scale.x = scale.y
 	get_node("Item Picture").set_scale(scale)
 
 func _process(delta):

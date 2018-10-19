@@ -1,15 +1,17 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/CarInventory.gd" type="Script" id=1]
 [ext_resource path="res://Images/carInventoryMain.png" type="Texture" id=2]
-[ext_resource path="res://Images/weaponTab.png" type="Texture" id=3]
-[ext_resource path="res://Images/equippableTab.png" type="Texture" id=4]
-[ext_resource path="res://Images/consumableTab.png" type="Texture" id=5]
-[ext_resource path="res://Images/miscTab.png" type="Texture" id=6]
-[ext_resource path="res://Images/carTab.png" type="Texture" id=7]
-[ext_resource path="res://Images/inventoryHighlight.png" type="Texture" id=8]
+[ext_resource path="res://Images/itemHighlight.png" type="Texture" id=3]
+[ext_resource path="res://tscn files/InventorySegment.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Images/weaponTab.png" type="Texture" id=5]
+[ext_resource path="res://Images/equippableTab.png" type="Texture" id=6]
+[ext_resource path="res://Images/consumableTab.png" type="Texture" id=7]
+[ext_resource path="res://Images/miscTab.png" type="Texture" id=8]
+[ext_resource path="res://Images/carTab.png" type="Texture" id=9]
+[ext_resource path="res://Images/inventoryHighlight.png" type="Texture" id=10]
 
-[node name="Popup" type="Popup"]
+[node name="Popup" type="Popup" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -44,8 +46,650 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Tabs" type="Control" parent="." index="2"]
+[node name="Car Segments" type="Control" parent="." index="2"]
 
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="Highlight" type="Control" parent="Car Segments" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 380.0
+margin_top = -28.0
+margin_right = 420.0
+margin_bottom = 12.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="Sprite" type="Sprite" parent="Car Segments/Highlight" index="0"]
+
+texture = ExtResource( 3 )
+
+[node name="cSegment0" parent="Car Segments" index="1" instance=ExtResource( 4 )]
+
+editor/display_folded = true
+margin_left = 216.0
+margin_top = -40.0
+margin_right = 216.0
+margin_bottom = -40.0
+
+[node name="Button" type="Button" parent="Car Segments/cSegment0" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 1.0
+margin_right = 331.0
+margin_bottom = 23.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="cSegment1" parent="Car Segments" index="2" instance=ExtResource( 4 )]
+
+editor/display_folded = true
+margin_left = 216.0
+margin_top = -15.0
+margin_right = 216.0
+margin_bottom = -15.0
+
+[node name="Button" type="Button" parent="Car Segments/cSegment1" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 1.0
+margin_right = 331.0
+margin_bottom = 23.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="cSegment2" parent="Car Segments" index="3" instance=ExtResource( 4 )]
+
+editor/display_folded = true
+margin_left = 216.0
+margin_top = 5.0
+margin_right = 216.0
+margin_bottom = 5.0
+
+[node name="Button" type="Button" parent="Car Segments/cSegment2" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 1.0
+margin_right = 331.0
+margin_bottom = 23.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="cSegment3" parent="Car Segments" index="4" instance=ExtResource( 4 )]
+
+editor/display_folded = true
+margin_left = 216.0
+margin_top = 30.0
+margin_right = 216.0
+margin_bottom = 30.0
+
+[node name="Button" type="Button" parent="Car Segments/cSegment3" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 1.0
+margin_right = 331.0
+margin_bottom = 23.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="cSegment4" parent="Car Segments" index="5" instance=ExtResource( 4 )]
+
+editor/display_folded = true
+margin_left = 216.0
+margin_top = 55.0
+margin_right = 216.0
+margin_bottom = 55.0
+
+[node name="Button" type="Button" parent="Car Segments/cSegment4" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = -4.0
+margin_right = 331.0
+margin_bottom = 18.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="cSegment5" parent="Car Segments" index="6" instance=ExtResource( 4 )]
+
+editor/display_folded = true
+margin_left = 216.0
+margin_top = 80.0
+margin_right = 216.0
+margin_bottom = 80.0
+
+[node name="Button" type="Button" parent="Car Segments/cSegment5" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 1.0
+margin_right = 331.0
+margin_bottom = 23.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="cSegment6" parent="Car Segments" index="7" instance=ExtResource( 4 )]
+
+editor/display_folded = true
+margin_left = 216.0
+margin_top = 105.0
+margin_right = 216.0
+margin_bottom = 105.0
+
+[node name="Button" type="Button" parent="Car Segments/cSegment6" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 1.0
+margin_right = 331.0
+margin_bottom = 23.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="cSegment7" parent="Car Segments" index="8" instance=ExtResource( 4 )]
+
+editor/display_folded = true
+margin_left = 216.0
+margin_top = 130.0
+margin_right = 216.0
+margin_bottom = 130.0
+
+[node name="Button" type="Button" parent="Car Segments/cSegment7" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 1.0
+margin_right = 331.0
+margin_bottom = 23.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="cSegment8" parent="Car Segments" index="9" instance=ExtResource( 4 )]
+
+editor/display_folded = true
+margin_left = 216.0
+margin_top = 155.0
+margin_right = 216.0
+margin_bottom = 155.0
+
+[node name="Button" type="Button" parent="Car Segments/cSegment8" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 1.0
+margin_right = 331.0
+margin_bottom = 23.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Player Segments" type="Control" parent="." index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="pSegment0" parent="Player Segments" index="0" instance=ExtResource( 4 )]
+
+editor/display_folded = true
+margin_left = 215.0
+margin_top = 259.0
+margin_right = 215.0
+margin_bottom = 259.0
+
+[node name="Button" type="Button" parent="Player Segments/pSegment0" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 331.0
+margin_bottom = 22.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="pSegment1" parent="Player Segments" index="1" instance=ExtResource( 4 )]
+
+editor/display_folded = true
+margin_left = 215.0
+margin_top = 284.0
+margin_right = 215.0
+margin_bottom = 284.0
+
+[node name="Button" type="Button" parent="Player Segments/pSegment1" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 331.0
+margin_bottom = 22.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="pSegment2" parent="Player Segments" index="2" instance=ExtResource( 4 )]
+
+editor/display_folded = true
+margin_left = 215.0
+margin_top = 309.0
+margin_right = 215.0
+margin_bottom = 309.0
+
+[node name="Button" type="Button" parent="Player Segments/pSegment2" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 331.0
+margin_bottom = 22.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="pSegment3" parent="Player Segments" index="3" instance=ExtResource( 4 )]
+
+editor/display_folded = true
+margin_left = 215.0
+margin_top = 334.0
+margin_right = 215.0
+margin_bottom = 334.0
+
+[node name="Button" type="Button" parent="Player Segments/pSegment3" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 331.0
+margin_bottom = 22.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="pSegment4" parent="Player Segments" index="4" instance=ExtResource( 4 )]
+
+editor/display_folded = true
+margin_left = 215.0
+margin_top = 359.0
+margin_right = 215.0
+margin_bottom = 359.0
+
+[node name="Button" type="Button" parent="Player Segments/pSegment4" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 331.0
+margin_bottom = 22.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="pSegment5" parent="Player Segments" index="5" instance=ExtResource( 4 )]
+
+editor/display_folded = true
+margin_left = 215.0
+margin_top = 384.0
+margin_right = 215.0
+margin_bottom = 384.0
+
+[node name="Button" type="Button" parent="Player Segments/pSegment5" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 331.0
+margin_bottom = 22.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="pSegment6" parent="Player Segments" index="6" instance=ExtResource( 4 )]
+
+editor/display_folded = true
+margin_left = 215.0
+margin_top = 409.0
+margin_right = 215.0
+margin_bottom = 409.0
+
+[node name="Button" type="Button" parent="Player Segments/pSegment6" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 331.0
+margin_bottom = 22.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="pSegment7" parent="Player Segments" index="7" instance=ExtResource( 4 )]
+
+editor/display_folded = true
+margin_left = 215.0
+margin_top = 434.0
+margin_right = 215.0
+margin_bottom = 434.0
+
+[node name="Button" type="Button" parent="Player Segments/pSegment7" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 331.0
+margin_bottom = 22.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="pSegment8" parent="Player Segments" index="8" instance=ExtResource( 4 )]
+
+editor/display_folded = true
+margin_left = 215.0
+margin_top = 459.0
+margin_right = 215.0
+margin_bottom = 459.0
+
+[node name="Button" type="Button" parent="Player Segments/pSegment8" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 331.0
+margin_bottom = 22.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Highlight" type="Control" parent="Player Segments" index="9"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 380.0
+margin_top = 271.0
+margin_right = 420.0
+margin_bottom = 311.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="Sprite" type="Sprite" parent="Player Segments/Highlight" index="0"]
+
+texture = ExtResource( 3 )
+
+[node name="Tabs" type="Control" parent="." index="4"]
+
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -83,7 +727,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-icon = ExtResource( 3 )
+icon = ExtResource( 5 )
 flat = true
 align = 1
 _sections_unfolded = [ "Rect" ]
@@ -112,7 +756,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-icon = ExtResource( 4 )
+icon = ExtResource( 6 )
 flat = true
 align = 1
 _sections_unfolded = [ "Rect" ]
@@ -141,7 +785,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-icon = ExtResource( 5 )
+icon = ExtResource( 7 )
 flat = true
 align = 1
 _sections_unfolded = [ "Rect" ]
@@ -170,7 +814,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-icon = ExtResource( 6 )
+icon = ExtResource( 8 )
 flat = true
 align = 1
 __meta__ = {
@@ -198,7 +842,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-icon = ExtResource( 7 )
+icon = ExtResource( 9 )
 flat = true
 align = 1
 __meta__ = {
@@ -208,6 +852,62 @@ __meta__ = {
 [node name="Highlight" type="Sprite" parent="Tabs" index="5"]
 
 position = Vector2( 261, 210 )
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
+
+[node name="Top Basic Info" type="RichTextLabel" parent="." index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 215.0
+margin_top = -65.0
+margin_right = 545.0
+margin_bottom = -45.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = ""
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+
+[node name="Bottom Basic Info" type="RichTextLabel" parent="." index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 215.0
+margin_top = 234.0
+margin_right = 545.0
+margin_bottom = 254.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = ""
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
 
 

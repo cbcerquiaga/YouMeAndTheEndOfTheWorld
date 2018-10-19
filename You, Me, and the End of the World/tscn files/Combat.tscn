@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Scripts/CombatSceneManager.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/DefeatedDialog.gd" type="Script" id=2]
@@ -19,10 +19,11 @@
 [ext_resource path="res://Images/surrenderButton.png" type="Texture" id=17]
 [ext_resource path="res://Images/runAwayButton.png" type="Texture" id=18]
 [ext_resource path="res://Images/myTiles.tres" type="TileSet" id=19]
-[ext_resource path="res://tscn files/CombatPlayer.tscn" type="PackedScene" id=20]
-[ext_resource path="res://tscn files/CombatMelee.tscn" type="PackedScene" id=21]
-[ext_resource path="res://tscn files/Bullet.tscn" type="PackedScene" id=22]
-[ext_resource path="res://tscn files/Raider.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Scripts/Left Wall.gd" type="Script" id=20]
+[ext_resource path="res://tscn files/CombatPlayer.tscn" type="PackedScene" id=21]
+[ext_resource path="res://tscn files/CombatMelee.tscn" type="PackedScene" id=22]
+[ext_resource path="res://tscn files/Bullet.tscn" type="PackedScene" id=23]
+[ext_resource path="res://tscn files/Raider.tscn" type="PackedScene" id=24]
 
 [sub_resource type="DynamicFontData" id=1]
 
@@ -46,6 +47,11 @@ font_data = ExtResource( 9 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
 extents = Vector2( 9.76202, 9.58755 )
@@ -506,17 +512,53 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CombatPlayer" parent="TileMap" index="0" instance=ExtResource( 20 )]
+[node name="Left Wall" type="Area2D" parent="TileMap" index="0"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 20 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Left Wall" index="0"]
+
+position = Vector2( 86.6396, 326.028 )
+scale = Vector2( 2.8243, 21.207 )
+shape = SubResource( 4 )
+
+[node name="Right Wall" type="Area2D" parent="TileMap" index="1"]
+
+editor/display_folded = true
+position = Vector2( 62, 0 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Right Wall" index="0"]
+
+position = Vector2( 900.599, 320.356 )
+scale = Vector2( 2.8243, 21.207 )
+shape = SubResource( 4 )
+
+[node name="CombatPlayer" parent="TileMap" index="2" instance=ExtResource( 21 )]
 
 position = Vector2( 215.972, 460.04 )
 
-[node name="Sword" parent="TileMap/CombatPlayer" index="4" instance=ExtResource( 21 )]
+[node name="Sword" parent="TileMap/CombatPlayer" index="4" instance=ExtResource( 22 )]
 
 position = Vector2( 40, -17 )
 
-[node name="Bullet" parent="TileMap" index="1" instance=ExtResource( 22 )]
+[node name="Bullet" parent="TileMap" index="3" instance=ExtResource( 23 )]
 
-[node name="Enemy" parent="TileMap" index="2" instance=ExtResource( 23 )]
+[node name="Enemy" parent="TileMap" index="4" instance=ExtResource( 24 )]
 
 position = Vector2( 843.072, 381.28 )
 
@@ -538,7 +580,7 @@ __meta__ = {
 
 position = Vector2( 517.385, 289.739 )
 scale = Vector2( -47.8738, -25.1606 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 __meta__ = {
 "_edit_lock_": true
 }
