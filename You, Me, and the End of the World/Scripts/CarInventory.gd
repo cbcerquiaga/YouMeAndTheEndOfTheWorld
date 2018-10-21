@@ -1,5 +1,12 @@
 extends Popup
 
+var leftKey
+var rightKey
+var upKey
+var downKey
+var enterKey
+var escKey
+var closeKey
 var highlight
 var carHighlight
 var currentItem = 0
@@ -33,6 +40,16 @@ func _ready():
 	equippableButton.connect("pressed",self,"equippableButtonPressed")
 	miscButton.connect("pressed",self,"miscButtonPressed")
 	pass
+	
+#lets the inventroy be controlled by different keys
+func setKeys(_leftKey, _rightKey, _upKey, _downKey, _enterKey, _escKey, _closeKey):
+	leftKey = _leftKey
+	rightKey = _rightKey
+	upKey = _upKey
+	downKey = _downKey
+	enterKey = _enterKey
+	escKey = _escKey
+	closeKey = _closeKey
 	
 func alternateSegmentFrames():
 	get_node("Player Segments/pSegment1").switchIcon()
@@ -243,7 +260,7 @@ func cSegment8ButtonPressed():
 		currentItem = 8
 	
 func itemSelected():
-	print("item at index " + str(currentItem) + " selected")
+	print("item at index " + str(currentItem) + " selected from Car inventory: " + str(inCarInventory))
 	#TODO: if the item is chosen from the player's inventory, move it to the car's inventory
 	#TODO: if the item is chosen from the car's inventory, move it to the player's inventory
 	
@@ -365,7 +382,7 @@ func setBasicText():
 
 func _process(delta):
 	currentTab = tabs[tabIndex]
-	if Input.is_action_just_pressed("p1_move_left"):
+	if Input.is_action_just_pressed(str(leftKey)):
 		if currentTab == "weapons":
 			carButtonPressed()
 		elif currentTab == "car":
@@ -376,7 +393,7 @@ func _process(delta):
 			equippableButtonPressed()
 		else: #if currentTab == "equippable":
 			weaponButtonPressed()
-	elif Input.is_action_just_pressed("p1_move_right"):
+	elif Input.is_action_just_pressed(str(rightKey)):
 		if currentTab == "weapons":
 			equippableButtonPressed()
 		elif currentTab == "equippable":
@@ -387,9 +404,24 @@ func _process(delta):
 			carButtonPressed()
 		else: #if currentTab == "car":
 			weaponsButtonPressed()
+	if Input.is_action_just_pressed(str(upKey)):
+		if currentItem > 0 and !isSegmentEmpty(currentItem - 1): #not already the top and the next segment isn't empty
+			#if currentItem == topItem: #need to scroll up
+			#	topItem = topItem - 1
+			#	scrollUp()
+			currentItem = currentItem - 1
+			moveHighlight()
+	elif Input.is_action_just_pressed(str(downKey)):
+		if currentItem < 13 and !isSegmentEmpty(currentItem + 1): #not already the bottom and the next segment isn't empty
+			#if currentItem == (topItem - 13): #need to scroll down
+			#	topItem = topItem + 1
+			#	scrollDown()
+			currentItem = currentItem + 1
+			moveHighlight()
 	if inCarInventory:
 		get_node("Player Segments/Highlight/Sprite").hide()
 		get_node("Car Segments/Highlight/Sprite").show()
+		
 	else:
 		get_node("Car Segments/Highlight/Sprite").hide()
 		get_node("Player Segments/Highlight/Sprite").show()
