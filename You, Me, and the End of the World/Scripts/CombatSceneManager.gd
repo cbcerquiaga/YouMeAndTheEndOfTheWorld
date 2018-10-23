@@ -10,7 +10,7 @@ onready var defeatedDialog = get_node("DefeatedDialog")
 
 func _ready():
 	#set mouse cursor to combat crosshairs
-	Input.set_custom_mouse_cursor(crosshair)
+	Input.set_custom_mouse_cursor(crosshair, 0, Vector2(15, 15))
 	#connect button signals
 	self.get_node("Camera").make_current()
 	surrenderButton.connect("pressed",self, "on_surrender_pressed")
