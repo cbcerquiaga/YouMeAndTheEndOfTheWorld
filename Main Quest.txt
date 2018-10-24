@@ -8,32 +8,44 @@ MAIN QUESTLINE
 Main objective: Find the boy, either take him to his father to be killed or kill his father.
 
 Part one: The Chase
-A teenaged boy runs through your town, clearly running away from someone or something. He drops an old book, it's filled with love notes from someone, presumably to him. You find the book, and not long after, a big man comes into town with a posse asking if you've seen the boy. He explains that this boy is his son, but that he's derranged, dangerous, and that they need to bring him home for his own safety and so they can rehabilitate him. He mentions that some girl has driven him crazy and that he has run off to be with her, but that this is unacceptable because he has responsibilities at home...that he needs to help farm or their settlement will starve. Despite this scathing description, his tone is one of genuine concern. The village elders offer him provisions because of this, which he gladly accepts before he and his friends head off into the wilderness to find this boy. Once they leave, the elders reveal that they were so moved
+A teenaged boy runs through your town, clearly running away from someone or something. He drops an old book, it's filled with love notes from someone, presumably to him. You find the book, and not long after, a big man comes into town with a posse asking if you've seen the boy. He explains that this boy is his son, and that he's ran away from home and that he's worried aobut him. He mentions that some girl has driven him crazy and that he has run off to be with her, but that this is unacceptable because he has responsibilities at home...that he needs to help farm or their settlement will starve. His tone is one of genuine concern. The village elders offer him provisions because of this, which he gladly accepts before he and his friends head off into the wilderness to find this boy. If you try to get more information about why the boy would run away, the man will respond that he has gone crazy about the girl. The posse are heavily armed, and if you ask about this, the response is that the world is a dangerous place and they want to be safe. 
 There is a clue in the book about where he may have gone- there is a bridge that the teens like to go to that they talk about frequently in the book. It is near the early settlement, and requires a puzzle to be solved to get in. Inside, there is a message carved into the wall, empty food packages, a beaten up book of poetry, and evidence that people have been sleeping here. The message on the wall informs the players that it's not safe to stay there and to meet at <riddle location>.
 
 Part two: The Hunt
-Upon stepping out of the bridge area, the father and his gang are outside to greet you. They mention the riddle and how they could not solve it, and ask what your intentions are snooping around here. Conversing with them, the father reveals that the girl was betrothed to another man in an arranged marriage, and the boy killed this man and also killed the father's wife, his stepmother. Having levelled up certain speech skills can help get more information out of him, and much of it paints both the boy and the girl in terrible lights.
+Upon stepping out of the bridge area, the father and his gang are outside to greet you. They mention the riddle and how they could not solve it, and ask what your intentions are snooping around here. Conversing with them, the father reveals that the girl was betrothed to another man in an arranged marriage, but that the boy and girl ran off together instead.
 
 Part three: The Girl
 Following the riddle leads to a hidden location that can only be accessed by a two player puzzle. Getting in, we have our first contact with both the boy and the girl. They are behind a destroyed wall, where the players cannot reach them, but they can converse. Here, details about the story can be heard from his perspective. His perspective paints the father as a leader of a cult that took over a nearby town and that rules it from a compound nearby, and that he is far from poor or starving. The girl does not talk this entire time (she can and does write, but she's lost her voice), but she coughs severely and seems to have an illness caught from the journey. The boy explains that she needs medical attention, but that he cannot be caught in any of the towns close by, even though they have good doctors, because his father has spies there that will get him killed (the real reason for his father's extensive journey). Here, the story starts to branch. You can either:
 -convince him it's worth the risk, in which case the two of them will go to the nearest doctor immediately
 -convince him that you are on his side and that you'll take her to a doctor, in which case she will receive medical care and he can stay away from watchful eyes
 -convince him that his father and his minions followed you here and that they'll be in any moment, and that the two of them need to make an escape someplace farther
+-bring medicine, in which case they will profusely thank you and run off into another hiding place
 
 Part four: Doctor
 If the players convince the couple to go to the nearest town together, they are caught immediately, at which point they steal medicine and run off into the wilds again.
 If the players convince the couple that they are on their side, they can take the girl (who needs to be pulled on a sled/wagon at this point) to the nearest doctor safely, or farther away, in which case she doesn't survive.
-If the player convince them to escape, the girl doesn't survive.
+If the player convinces them to escape, the girl doesn't survive.
 -If the girl survives, then she tells you about their plans and where they're going next, as well as filling in some more information about their town and what happened.
 -If she doesn't survive, the next step in the quest is to go back to town and tell her parents.
 
 Part five: Now What?
+-If the couple escaped together, you are stuck talking to the father. He is getting increasingly frustrated, and mentions something about how he's going to kill that boy. If one of the players has good enough charisma, they can get him to say that he didn't really mean it, but that the boy is derranged, dangerous, and that they need to bring him home for his own safety and so they can rehabilitate him- otherwise, he'll just say that he wasn't serious. He says that he has no idea where to go from here, no idea where they might have gone.
+-If the girl died, then the next part of the quest is to go to their town and tell her parents. 
+In either scenario, the next move is to go to the town. Arriving at the town, the gatekeeper will not let you in unless you trick him- you can steal clothes from a nearby guard patrol and disguise your way in, you can bribe the gatekeeper, or you can trick him some way into letting you in (by seduction, guilting him, scaring him, or just lying to him). Coming into the town, you find exactly what the boy described. It appears to be heavily guarded, but asking around, you can figure out which house has the girl's family. From here, you have some choices:
+If the girl is alive:
+-you can lie and say she died, which they may or may not believe
+-you can explain what happened
+If the girl is dead:
+-you can lie and say she survived, which they may or may not believe
+-you can explain what happened
+What happened, what you tell them, and whether or not they believe you affects how they react and future interactions, but no matter what, the mother (her father is too sad/stressed/angry depending on what happened to talk to you) tell you that the boy's father, the town's "mayor", had arranged a marriage between one of his supporters and their daughter. The boy killed this man, and also killed his stepmother on the way out of town. She mentions how her daughter always wanted to see the coast, and mentions that they may have gone there...that's across the entire map though, quite a trek. Prodding can get you more information, but not much useful.
+
+Part six: A Journey
+
+Part seven: A Standoff
 ...
 
-Part six: A standoff
-...
-
-Part seven: The end of the world
+Part ?: The End of the World
 The finale comes down to this- the boy (and maybe girl) are holed up safely in someplace that could be destroyed by a lot of people but is pretty much impregnable otherwise, and the father is ready to storm their hiding place and take him, but they can't find a way in. There are several possible endings:
 -Yojimbo ending: find the mysterious stranger in a tavern across the map, convince him to liberate this town from the cult. He comes in, kills the father and all of his followers with ease, and the game is settled
 -Rambo ending: Same as the yojimbo ending, but the players take matters into their own hands.
@@ -44,3 +56,5 @@ The finale comes down to this- the boy (and maybe girl) are holed up safely in s
 -Mice and Men Ending: The players trick the boy into letting them into his hiding place, at which point they kill him.
 -300 ending: The players show the father how to get into the hiding place, at which point he goes in and kills him.
 -Tough on Crime Ending: the players convince the leader of a settlement that killing this boy is in their best interest (strategic advantage, he's a menace to society, economic advantage, depends on the settlement), at which point soldiers from that settlement come in, take the boy out and kill him.
+
+Part ?+1: A Resolution
