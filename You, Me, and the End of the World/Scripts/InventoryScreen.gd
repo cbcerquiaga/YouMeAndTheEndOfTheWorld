@@ -16,7 +16,7 @@ var R
 var highlight
 var currentFrame
 var currentItem
-var topItem
+var topItem = 0 #starts at 0, goes up the more the inventory is scrolled down
 var quests
 var weaponItems
 var equippableItems
@@ -257,7 +257,7 @@ func itemSelected():
 			#TODO: change text based on whether the item is equipped
 			optionPopup.setText("equip", "stats", "repair", "give to partner", "drop")
 			print("equippable")
-		_:
+		_: #misc
 			#TODO: figure out what the 1-5 options should be
 			optionPopup.setText("use", "info", "drop", "give to partner", "")
 			print("misc item")
@@ -591,6 +591,40 @@ func isSegmentEmpty(segmentNum):
 		else:
 			return false
 			
+func canScrollDown():
+	match currentTab:
+		"map":
+			if discoveredPlaces.size() > currentItem + topItem:
+				return true
+			else:
+				return false
+		"quests":
+			if quests.size() > currentItem + topItem:
+				return true
+			else:
+				return false
+		"weapons":
+			if weaponItems.size() > currentItem + topItem:
+				return true
+			else:
+				return false
+		"consumable":
+			if consumableItems.size() > currentItem + topItem:
+				return true
+			else:
+				return false
+		"equippable":
+			if equippableItems.size() > currentItem + topItem:
+				return true
+			else:
+				return false
+		_: #misc
+			if miscItems.size() > currentItem + topItem:
+				return true
+			else:
+				return false
+		
+			
 func getCurrentItemInfo():
 	if currentItem == 0:
 		descriptionText = segment0.itemDescription()
@@ -703,18 +737,20 @@ func _process(delta):
 				print("Description text" + descriptionText)
 			if Input.is_action_just_pressed(str(upKey)):
 				if currentItem > 0 and !isSegmentEmpty(currentItem - 1): #not already the top and the next segment isn't empty
-				#if currentItem == topItem: #need to scroll up
-				#	topItem = topItem - 1
-				#	scrollUp()
 					currentItem = currentItem - 1
 					moveHighlight()
+				elif currentItem == 0 and topItem > 0: #at the top and there's more items to scroll to
+					#	topItem = topItem - 1
+					#	scrollUp()
+					topItem -= 1
 			if Input.is_action_just_pressed(str(downKey)):
 				if currentItem < 13 and !isSegmentEmpty(currentItem + 1): #not already the bottom and the next segment isn't empty
-				#if currentItem == (topItem - 13): #need to scroll down
-				#	topItem = topItem + 1
-				#	scrollDown()
 					currentItem = currentItem + 1
 					moveHighlight()
+				elif currentItem == 13 and canScrollDown(): #at the bottom and able to scroll down
+				#	topItem = topItem + 1
+				#	scrollDown()
+					topItem += 1
 			if Input.is_action_just_pressed(str(leftKey)):
 				if currentTab == "quests":
 					mapButtonPressed()
