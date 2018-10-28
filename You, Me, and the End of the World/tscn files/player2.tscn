@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/player2.gd" type="Script" id=1]
 [ext_resource path="res://Images/Player.png" type="Texture" id=2]
@@ -7,6 +7,11 @@
 
 custom_solver_bias = 0.0
 radius = 4.764
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 10.0
 
 [node name="player2" type="KinematicBody2D" index="0"]
 
@@ -51,5 +56,24 @@ text = "player2"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[node name="ItemPickup" type="Area2D" parent="." index="3"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 2
+collision_mask = 2
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemPickup" index="0"]
+
+position = Vector2( -5.95939, -8.50198 )
+scale = Vector2( 2.29306, 2.02504 )
+shape = SubResource( 2 )
 
 

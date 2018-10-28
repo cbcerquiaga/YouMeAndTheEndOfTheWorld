@@ -18,6 +18,7 @@ signal drop_item_signal
 onready var otherPlayer = get_node("../player2")
 onready var camera = get_node("../playerTracking/Camera")
 onready var screensize = Vector2(1024,600)
+onready var itemPickupSpace = get_node("ItemPickup")
 
 #Called when the player is entered into the scene
 func _ready():
@@ -66,14 +67,11 @@ func _physics_process(delta):
 			else:
 				move_and_slide(distance)
 
-	#This method ray-casts to detect any collisions with the player
-	#https://godot.readthedocs.io/en/3.0/tutorials/physics/ray-casting.html
 	if Input.is_action_pressed("p1_action1"):
-		var space = self.get_world_2d().direct_space_state
-		var collision = space.intersect_ray(self.global_position, Vector2(0,0), [self], 2)
-		if collision.empty() == false:
-			if collision.collider.has_method('handle_item_pickup'):
-				collision.collider.handle_item_pickup(self)
+		var items = itemPickupSpace.get_overlapping_bodies()
+		for i in items:
+			if i.has_method("handle_item_pickup"):
+				i.handle_item_pickup(self)
 
 	#This method will drop items from the inventory.
 	#This method can simply be modified to take into
