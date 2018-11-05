@@ -4,12 +4,17 @@ var threshold = .6
 var playerMaxSpeed = 420
 var maxDistance
 var minDistance
+var rageMinDistance = 15
+var rageMaxDistance = 30
+var rageCertainty = .45
 var middlePoint
 var speed = 1.0 #1.0 is the same as the player
 var movement
 var staticMaxDistance = 315
 var staticMinDistance = 300
 var staticCertainty = .7
+var tauntType = 3
+var rage = false
 
 onready var force = Vector2(0, GRAVITY)
 
@@ -70,41 +75,77 @@ func implementRand():
 		#Todo implement accuracy of the shots based on the AI's skill
 #
 func _physics_process(delta):
-	#Implementing random into
-	#distance Maintained, certainty required, and accuracy
-	implementRand()
-	
-	#Shooting
-	if(not bulletTimerCooldownBool):
-		bulletTimerCooldownBool = true
-		bulletTimer.wait_time = bulletCooldown
-		bulletTimer.start()
-		if(calcCertainty() > certainty + (weightPerBullet * (totalNumberOfBullets - ammoLeft)) and ammoLeft > 0):
-			shoot()
-			ammoLeft -= 1
-			ammoVal = str(ammoLeft)
-		elif (totalHealth < 25 and calcCertainty() > .7 and ammoLeft > 0): #about to die, time to get desparate
-			shoot()
-			ammoLeft -= 1
-			ammoVal = str(ammoLeft)
+	if Input.is_action_just_pressed("p2_move_left"): #TODO: implement this with signals
+		taunted()
+	if rage: #the character has become enraged and charges down the player
+		print("Prepare to die")
+		if(not bulletTimerCooldownBool):
+			bulletTimerCooldownBool = true
+			bulletTimer.wait_time = bulletCooldown
+			bulletTimer.start()
+			if(calcCertainty() > rageCertainty + (weightPerBullet * (totalNumberOfBullets - ammoLeft)) and ammoLeft > 0):
+				shoot()
+				ammoLeft -= 1
+				ammoVal = str(ammoLeft)
+			elif (totalHealth < 25 and calcCertainty() > .25 and ammoLeft > 0): #about to die, time to get desparate
+				shoot()
+				ammoLeft -= 1
+				ammoVal = str(ammoLeft)
 			
-	#Physics
-	staminaRegen()
-	self.move_and_collide(force) #GRAVITY
+		#Physics
+		staminaRegen()
+		self.move_and_collide(force) #GRAVITY
 	
-	#Maintaining distance in relation to the player
-	movement = Vector2(WALK_MAX_SPEED, 0) * speed
-	var distanceToPlayer = (self.global_position - player.global_position)
-	if(abs(distanceToPlayer.x) < minDistance):
-		if(distanceToPlayer.x > 0):
-			move_and_slide(movement)
-		else:
-			move_and_slide(-movement)
-	elif(abs(distanceToPlayer.x) > maxDistance):
-		if(distanceToPlayer.x < 0):
-			move_and_slide(movement)
-		else:
-			move_and_slide(-movement)
+		#Maintaining distance in relation to the player
+		movement = Vector2(WALK_MAX_SPEED, 0) * speed
+		var distanceToPlayer = (self.global_position - player.global_position)
+		if(abs(distanceToPlayer.x) < rageMinDistance):
+			if(distanceToPlayer.x > 0):
+				move_and_slide(movement)
+			else:
+				move_and_slide(-movement)
+		elif(abs(distanceToPlayer.x) > rageMaxDistance):
+			if(distanceToPlayer.x < 0):
+				move_and_slide(movement)
+			else:
+				move_and_slide(-movement)
+		
+	else: #normal behavior
+		#Implementing random into
+		#distance Maintained, certainty required, and accuracy
+		implementRand()
+	
+		#Shooting
+		if(not bulletTimerCooldownBool):
+			bulletTimerCooldownBool = true
+			bulletTimer.wait_time = bulletCooldown
+			bulletTimer.start()
+			if(calcCertainty() > certainty + (weightPerBullet * (totalNumberOfBullets - ammoLeft)) and ammoLeft > 0):
+				shoot()
+				ammoLeft -= 1
+				ammoVal = str(ammoLeft)
+			elif (totalHealth < 25 and calcCertainty() > .7 and ammoLeft > 0): #about to die, time to get desparate
+				shoot()
+				ammoLeft -= 1
+				ammoVal = str(ammoLeft)
+			
+		#Physics
+		staminaRegen()
+		self.move_and_collide(force) #GRAVITY
+	
+		#Maintaining distance in relation to the player
+		movement = Vector2(WALK_MAX_SPEED, 0) * speed
+		var distanceToPlayer = (self.global_position - player.global_position)
+		if(abs(distanceToPlayer.x) < minDistance):
+			if(distanceToPlayer.x > 0):
+				move_and_slide(movement)
+			else:
+				move_and_slide(-movement)
+		elif(abs(distanceToPlayer.x) > maxDistance):
+			if(distanceToPlayer.x < 0):
+				move_and_slide(movement)
+			else:
+				move_and_slide(-movement)
 
 func shoot():
 #	print("Shooting")
@@ -116,6 +157,17 @@ func shoot():
 	#Determine where the expected point of contact would be
 	#Fire bullet
 	pass
+	
+func taunted():
+	if tauntType == 0: #no response
+		print("chill out")
+	elif tauntType == 1: #taunt back
+		print("well ur mum 2 m8")
+		#TODO: add a taunt back animation
+	else: #tauntType == 2 #rage
+		print("You insult me, now preparet o die!")
+		rage = true
+	
 
 func calcCertainty():
 	#Determine distance from AI

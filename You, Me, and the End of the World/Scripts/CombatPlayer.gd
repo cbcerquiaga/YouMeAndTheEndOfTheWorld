@@ -54,7 +54,7 @@ var strength
 var maxHealth = 100
 var spread = 15
 var lastFrameEndSpeed = Vector2(0,0)
-var damageRecMultiplier = .5 #double health
+var damageRecMultiplier = .25 #quadruple health
 onready var bullet = load("res://tscn files/Bullet.tscn")
 
 func _ready():
