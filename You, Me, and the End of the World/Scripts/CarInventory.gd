@@ -1,5 +1,6 @@
 extends Popup
 
+var isPopupUp = false
 var leftKey
 var rightKey
 var upKey
@@ -29,6 +30,7 @@ onready var consumableButton = get_node("Tabs/Consumable")
 onready var equippableButton = get_node("Tabs/Equippable")
 onready var miscButton = get_node("Tabs/Misc")
 onready var carButton = get_node("Tabs/Customize car")
+onready var optionPopup = get_node("Popup")
 
 func _ready():
 	alternateSegmentFrames()
@@ -261,6 +263,19 @@ func cSegment8ButtonPressed():
 	
 func itemSelected():
 	print("item at index " + str(currentItem) + " selected from Car inventory: " + str(inCarInventory))
+	isPopupUp = true
+	if inCarInventory:
+		print("popup goes on the bottom")
+		optionPopu.show()
+		optionPopup.set_position(Vector2(385,425))
+	else:
+		print("popup goes on top")
+		optionPopup.show()
+		optionPopup.set_position(Vector2(385,135))
+	if currentTab == "car":
+		optionPopup.setText("equip to car", "detailed info", "move to other inventory", "drop", "dismantle for parts")
+	else:
+		optionPopup.setText("move to other inventory", "detailed info", "drop", "", "")
 	#TODO: if the item is chosen from the player's inventory, move it to the car's inventory
 	#TODO: if the item is chosen from the car's inventory, move it to the player's inventory
 	
