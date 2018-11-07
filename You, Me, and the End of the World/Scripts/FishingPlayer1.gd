@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var velocity = Vector2()
-const SPEED = 2
+const SPEED = 20
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -12,7 +12,7 @@ func _process(delta):
 	var left = Input.is_action_pressed("p1_move_left")
 	var right = Input.is_action_pressed("p1_move_right")
 	var up = Input.is_action_pressed("p1_move_up")
-	var down = Input.is_action_pressed("p1_move_bottom")
+	var down = Input.is_action_pressed("p1_move_down")
 	
 	if left:
 		velocity -= Vector2(SPEED,0)

@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var velocity = Vector2()
-const SPEED = 2
+const SPEED = 20
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -29,5 +29,5 @@ func _process(delta):
 		
 	if velocity != Vector2(0,0):
 		move_and_slide(velocity)
-		emit_signal("move")
+		#emit_signal("move")
 	pass

@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Images/myTiles.tres" type="TileSet" id=1]
-[ext_resource path="res://Scripts/FishingPlayer1.gd" type="Script" id=2]
-[ext_resource path="res://Images/p1Hook.png" type="Texture" id=3]
-[ext_resource path="res://Scripts/FishingPlayer2.gd" type="Script" id=4]
-[ext_resource path="res://Images/p2Hook.png" type="Texture" id=5]
+[ext_resource path="res://tscn files/BasicFish.tscn" type="PackedScene" id=2]
+[ext_resource path="res://tscn files/BasicFish.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/FishingPlayer1.gd" type="Script" id=4]
+[ext_resource path="res://Images/p1Hook.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/FishingPlayer2.gd" type="Script" id=6]
+[ext_resource path="res://Images/p2Hook.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -16,7 +18,7 @@ extents = Vector2( 10, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Fishing" type="Node2D"]
+[node name="Fishing" type="Node2D" index="0"]
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
 
@@ -42,6 +44,13 @@ tile_data = PoolIntArray( -1, 1, 0, -65536, 1, 0, -65535, 1, 0, -65534, 1, 0, -6
 
 [node name="FishEmitter" type="Node2D" parent="TileMap" index="1"]
 
+[node name="Fish" parent="TileMap/FishEmitter" index="0" instance=ExtResource( 2 )]
+
+position = Vector2( 193.545, 378.46 )
+scale = Vector2( 0.25, 0.25 )
+script = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
 [node name="Player1" type="KinematicBody2D" parent="TileMap" index="2"]
 
 position = Vector2( 318.054, 147.932 )
@@ -49,11 +58,11 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = ExtResource( 2 )
+script = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="TileMap/Player1" index="0"]
 
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Player1" index="1"]
 
@@ -66,11 +75,11 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = ExtResource( 4 )
+script = ExtResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="TileMap/Player2" index="0"]
 
-texture = ExtResource( 5 )
+texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Player2" index="1"]
 
