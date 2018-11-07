@@ -3,7 +3,7 @@
 [ext_resource path="res://Scripts/Piano.gd" type="Script" id=1]
 [ext_resource path="res://Images/grandPiano.png" type="Texture" id=2]
 
-[node name="Piano" type="StaticBody2D"]
+[node name="Piano" type="StaticBody2D" index="0"]
 
 position = Vector2( 1.15015, -6 )
 input_pickable = true

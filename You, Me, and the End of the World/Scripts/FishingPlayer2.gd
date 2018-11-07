@@ -7,6 +7,9 @@ func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
 	pass
+	
+func on_fish_caught():
+	print("We're gonna need a bigger boat")
 
 func _process(delta):
 	var left = Input.is_action_pressed("p2_move_left")
