@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=1]
 
-[node name="MainMenu" type="Control" index="0"]
+[node name="MainMenu" type="Control"]
 
 pause_mode = 2
 anchor_left = 0.0

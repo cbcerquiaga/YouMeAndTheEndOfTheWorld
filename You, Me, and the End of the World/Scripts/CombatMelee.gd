@@ -34,6 +34,7 @@ func _process(delta):
 	pass
 
 func contact(body):
-	print("Hit enemy")
-	emit_signal("hit", body.name, damage, critChance)
-	emit_signal("hitUpdate")
+	if Input.is_action_just_pressed("p2_action2") or Input.is_action_just_pressed("p2_move_right") or Input.is_action_just_pressed("Fkey"):
+		print("Hit enemy")
+		emit_signal("hit", body.name, damage, critChance)
+		emit_signal("hitUpdate")

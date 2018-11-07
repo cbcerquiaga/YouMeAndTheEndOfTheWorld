@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/CombatMelee.gd" type="Script" id=1]
-[ext_resource path="res://Images/lightsabericonblue.png" type="Texture" id=2]
+[ext_resource path="res://Images/machete.png" type="Texture" id=2]
 
 [node name="Body" type="Area2D" index="0"]
 
@@ -19,13 +19,14 @@ _sections_unfolded = [ "Collision" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-scale = Vector2( 2, 2 )
+position = Vector2( -6.84549, 12.046 )
+scale = Vector2( 0.208132, 0.21255 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
 
 build_mode = 0
-polygon = PoolVector2Array( -3.02046, -23.8812, -26.4662, 22.1419, -13.6144, 27.1784, 14.8678, -24.0549 )
+polygon = PoolVector2Array( 15.9421, -20.8228, -19.2394, 23.2412, -15.5819, 28.292, 21.6896, -10.1987 )
 
 
