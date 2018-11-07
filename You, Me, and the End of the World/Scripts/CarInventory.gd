@@ -266,7 +266,7 @@ func itemSelected():
 	isPopupUp = true
 	if inCarInventory:
 		print("popup goes on the bottom")
-		optionPopu.show()
+		optionPopup.show()
 		optionPopup.set_position(Vector2(385,425))
 	else:
 		print("popup goes on top")
