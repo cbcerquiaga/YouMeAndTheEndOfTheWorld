@@ -2,6 +2,9 @@ extends KinematicBody2D
 
 var velocity = Vector2()
 const SPEED = 20
+var hasCaughtFish = false
+
+signal p1CaughtFish
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -12,6 +15,7 @@ func on_fish_caught():
 	print("It's a big one")
 
 func _process(delta):
+	#var collideCheck = get_node("TileMap/Player1/Area2D").get_overlapping_bodies()
 	var left = Input.is_action_pressed("p1_move_left")
 	var right = Input.is_action_pressed("p1_move_right")
 	var up = Input.is_action_pressed("p1_move_up")
@@ -33,4 +37,10 @@ func _process(delta):
 	if velocity != Vector2(0,0):
 		move_and_slide(velocity)
 		#emit_signal("move")
+#	if collideCheck != null:
+#		for i in collideCheck:
+#			contact(i)
 	pass
+	
+func contact(body):
+	emit_signal("p1CaughtFish")
