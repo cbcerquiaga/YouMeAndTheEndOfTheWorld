@@ -23,3 +23,6 @@ func _on_World2_pressed():
 
 func _on_OpenWorld_pressed():
 	get_tree().change_scene("res://tscn files/OpenWorld.tscn")
+	
+func _on_Fishing_pressed():
+	get_tree().change_scene("res://tscn files/Fishing.tscn")
