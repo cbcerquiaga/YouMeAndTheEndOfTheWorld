@@ -1,8 +1,7 @@
 extends KinematicBody2D
 
 var velocity = Vector2()
-const SPEED = 20
-var hasCaughtFish = false
+const SPEED = 150
 
 signal p1CaughtFish
 
@@ -22,17 +21,17 @@ func _process(delta):
 	var down = Input.is_action_pressed("p1_move_down")
 	
 	if left:
-		velocity -= Vector2(SPEED,0)
-		pass
+		velocity.x = -SPEED
 	elif right:
-		velocity += Vector2(SPEED,0)
-		pass
-	elif down:
-		velocity += Vector2(0,SPEED)
-		pass
+		velocity.x = SPEED
+	elif !left and !right:
+		velocity.x = 0
+	if down:
+		velocity.y = SPEED
 	elif up:
-		velocity -= Vector2(0,SPEED)
-		pass
+		velocity.y = -SPEED
+	elif !down and !up:
+		velocity.y = 0
 		
 	if velocity != Vector2(0,0):
 		move_and_slide(velocity)

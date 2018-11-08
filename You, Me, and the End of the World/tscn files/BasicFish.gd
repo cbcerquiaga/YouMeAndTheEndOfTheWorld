@@ -1,9 +1,13 @@
 extends KinematicBody2D
 
+const SPEED = 150
 onready var goingLeft = false
 onready var swimTimer = 100
 onready var isCaught = false
-var isCaughtBy
+onready var velocity = Vector2(0,0)
+var bodyFollowing
+var distX
+var distY
 
 onready var player1 = get_node("../TileMap/Player1")
 onready var player2 = get_node("../TileMap/Player2")
@@ -16,26 +20,38 @@ func _ready():
 	pass
 
 func swimLeft():
-	move_and_slide(Vector2(-50, 0))
+	move_and_slide(Vector2(-SPEED, 0))
 	
 func swimRight():
-	move_and_slide(Vector2(50,0))
+	move_and_slide(Vector2(SPEED,0))
 
 func contact(body):
 	print("Hooked!")
 	print(str(body))
 	emit_signal("caught")
 	isCaught = true
-	if body == get_node("../TileMap/Player1/CollisionShape2D"): #player1's collisionShape
-		isCaughtBy = 1
-	else:
-		isCaughtBy = 2
-
+	bodyFollowing = body
+	
 func followPlayer():
-	if isCaughtBy == 1:
-		print("lead the way, player 1")
-	else:
-		print("player 2 is the player for me")
+	distX = self.get_global_position().x - bodyFollowing.get_global_position().x
+	distY = self.get_global_position().y - bodyFollowing.get_global_position().y
+	if distX < -10:
+		velocity.x = SPEED
+	elif distX < 0:
+		velocity.x = SPEED/3
+	elif distX > 10:
+		velocity.x = -SPEED
+	elif distX > 0:
+		velocity.x = -SPEED/3
+	if distY < -10:
+		velocity.y = SPEED
+	elif distY < 0:
+		velocity.y = SPEED/3
+	elif distY > 10:
+		velocity.y = -SPEED
+	elif distY > 0:
+		velocity.y = -SPEED/3
+	move_and_slide(velocity)
 
 func _process(delta):
 	var collideCheck = get_node("Area2D").get_overlapping_bodies()
