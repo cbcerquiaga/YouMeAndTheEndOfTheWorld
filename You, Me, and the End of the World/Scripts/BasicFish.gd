@@ -26,11 +26,12 @@ func swimRight():
 	move_and_slide(Vector2(SPEED,0))
 
 func contact(body):
-	print("Hooked!")
-	print(str(body))
-	emit_signal("caught")
-	isCaught = true
-	bodyFollowing = body
+	if !isCaught:
+		print("Hooked!")
+		print(str(body))
+		emit_signal("caught")
+		isCaught = true
+		bodyFollowing = body
 	
 func followPlayer():
 	distX = self.get_global_position().x - bodyFollowing.get_global_position().x

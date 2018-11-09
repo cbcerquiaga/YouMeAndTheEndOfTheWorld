@@ -3,7 +3,7 @@
 [ext_resource path="res://Images/myTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://tscn files/FishEmitter.gd" type="Script" id=2]
 [ext_resource path="res://tscn files/BasicFish.tscn" type="PackedScene" id=3]
-[ext_resource path="res://tscn files/BasicFish.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/BasicFish.gd" type="Script" id=4]
 [ext_resource path="res://Scripts/FishingPlayer1.gd" type="Script" id=5]
 [ext_resource path="res://Images/p1Hook.png" type="Texture" id=6]
 [ext_resource path="res://Scripts/FishingPlayer2.gd" type="Script" id=7]
@@ -46,11 +46,33 @@ tile_data = PoolIntArray( -1, 1, 0, -65536, 1, 0, -65535, 1, 0, -65534, 1, 0, -6
 [node name="FishEmitter" type="Node2D" parent="TileMap" index="1"]
 
 script = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Fish" parent="TileMap/FishEmitter" index="0" instance=ExtResource( 3 )]
 
 position = Vector2( 193.545, 378.46 )
 scale = Vector2( 0.25, 0.25 )
+script = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Fish2" parent="TileMap/FishEmitter" index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 851.843, 369.831 )
+scale = Vector2( 0.25, 0.25 )
+script = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Fish3" parent="TileMap/FishEmitter" index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 504.202, 469.685 )
+scale = Vector2( 0.1, 0.1 )
+script = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Fish4" parent="TileMap/FishEmitter" index="3" instance=ExtResource( 3 )]
+
+position = Vector2( 768.015, 93.6904 )
+scale = Vector2( 0.3, 0.3 )
 script = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
