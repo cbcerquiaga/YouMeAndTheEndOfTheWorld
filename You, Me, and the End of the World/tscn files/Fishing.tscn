@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/Fishing.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/FishingPlayerTracker.gd" type="Script" id=2]
@@ -21,13 +21,18 @@ extents = Vector2( 10, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Fishing" type="Node2D"]
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="Fishing" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
 [node name="PlayerTracker" type="KinematicBody2D" parent="." index="0"]
 
-visible = false
+position = Vector2( 7, 0 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -36,6 +41,7 @@ script = ExtResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="PlayerTracker" index="0"]
 
+position = Vector2( 504.202, 46.8452 )
 anchor_mode = 1
 rotating = false
 current = false
@@ -61,6 +67,7 @@ editor_draw_drag_margin = false
 
 [node name="TileMap" type="TileMap" parent="." index="1"]
 
+position = Vector2( 0, -1.23291 )
 mode = 0
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 64, 64 )
@@ -147,5 +154,24 @@ texture = ExtResource( 10 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Player2" index="1"]
 
 shape = SubResource( 2 )
+
+[node name="BottomCheck" type="Area2D" parent="." index="2"]
+
+editor/display_folded = true
+position = Vector2( 502.358, 4246.38 )
+scale = Vector2( 16.0438, 3.1732 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomCheck" index="0"]
+
+position = Vector2( 0.573343, 7.43222 )
+scale = Vector2( 3.18109, 2.42809 )
+shape = SubResource( 3 )
 
 

@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const SPEED = 150
+const SPEED = 250
 onready var goingLeft = false
 onready var swimTimer = 100
 onready var isCaught = false
