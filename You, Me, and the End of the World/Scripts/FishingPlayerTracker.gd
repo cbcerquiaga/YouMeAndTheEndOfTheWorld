@@ -6,7 +6,7 @@ var hasReachedBottom = false
 var scrollSpeed = 100
 
 func _ready():
-	$Camera2D.zoom = Vector2(1.0, 1.0)
+	$Camera2D.zoom = Vector2(1.5, 1.5)
 	pass
 
 func _process(delta):
