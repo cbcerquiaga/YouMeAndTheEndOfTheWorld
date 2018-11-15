@@ -5,7 +5,7 @@ var depth = 100
 var sceneWidth = 16
 var ecosystem = "river"
 var fishFrequency = 10
-var obstacleFrequency = 10
+var obstacleFrequency = 20
 var obstacleLength = 10
 var legendaryFishChance = 0
 var availableFish = ["bass", "goldfish", "koi"]
@@ -62,8 +62,18 @@ func createVerticalWall(currentLength):
 	var x = randi()%sceneWidth
 	for i in range(currentLength):
 		obstacles.set_cell(x, i,1)
+		
+func _pause():
+	print("Game paused")
+	get_tree().paused = true
+	#$pause_popup.update()
+	get_node("PlayerTracker/pause_popup").show()
+	
+
 
 func _process(delta):
+	if Input.is_action_pressed("pause"):
+		_pause()
 #if one player catches a fish but the other hasn't, disable its movement and let it get off screen
 	if player1.caughtFish and !player2.caughtFish:
 		print("player 1 has a fish, but let player 2 keep going")
