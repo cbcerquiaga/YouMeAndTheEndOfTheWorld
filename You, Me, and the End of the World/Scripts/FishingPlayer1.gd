@@ -1,7 +1,11 @@
 extends KinematicBody2D
 
 var velocity = Vector2()
-const SPEED = 150
+const SPEED = 250
+var scrollSpeed = 100
+var goingUp = false
+var caughtFish = false
+var isFrozen = false
 
 signal p1CaughtFish
 
@@ -19,20 +23,26 @@ func _process(delta):
 	var right = Input.is_action_pressed("p1_move_right")
 	var up = Input.is_action_pressed("p1_move_up")
 	var down = Input.is_action_pressed("p1_move_down")
-	
-	if left:
-		velocity.x = -SPEED
-	elif right:
-		velocity.x = SPEED
-	elif !left and !right:
-		velocity.x = 0
-	if down:
-		velocity.y = SPEED
-	elif up:
-		velocity.y = -SPEED
-	elif !down and !up:
-		velocity.y = 0
-		
+	if !isFrozen:
+		if goingUp:
+			velocity.y = -scrollSpeed
+		elif !goingUp:
+			velocity.y = -scrollSpeed
+		if left:
+			velocity.x = -SPEED
+		elif right:
+			velocity.x = SPEED
+		elif !left and !right:
+			velocity.x = 0
+		if down:
+			velocity.y = SPEED
+		elif up:
+			velocity.y = -SPEED
+		if !down and !up:
+			if goingUp:
+				velocity.y = -scrollSpeed
+			elif !goingUp:
+				velocity.y = scrollSpeed
 	if velocity != Vector2(0,0):
 		move_and_slide(velocity)
 		#emit_signal("move")

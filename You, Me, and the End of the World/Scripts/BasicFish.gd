@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const SPEED = 150
+const SPEED = 250
 onready var goingLeft = false
 onready var swimTimer = 100
 onready var isCaught = false
@@ -58,7 +58,7 @@ func _process(delta):
 	var collideCheck = get_node("Area2D").get_overlapping_bodies()
 	if(collideCheck != null):
 		for i in collideCheck:
-			print("Deeelicious worms")
+			#print("Deeelicious worms")
 			contact(i)
 	#movement
 	if !isCaught:
