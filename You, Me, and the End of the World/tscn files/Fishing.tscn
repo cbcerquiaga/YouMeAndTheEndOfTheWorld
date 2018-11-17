@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/Fishing.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/FishingPlayerTracker.gd" type="Script" id=2]
@@ -10,6 +10,12 @@
 [ext_resource path="res://Images/p1Hook.png" type="Texture" id=8]
 [ext_resource path="res://Scripts/FishingPlayer2.gd" type="Script" id=9]
 [ext_resource path="res://Images/p2Hook.png" type="Texture" id=10]
+
+[sub_resource type="CapsuleShape2D" id=4]
+
+custom_solver_bias = 0.0
+radius = 10.0
+height = 20.0
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -70,6 +76,11 @@ editor_draw_drag_margin = false
 visible = false
 margin_left = -7.0
 margin_right = -11.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerTracker" index="2"]
+
+shape = SubResource( 4 )
+disabled = true
 
 [node name="TileMap" type="TileMap" parent="." index="1"]
 
