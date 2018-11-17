@@ -1,7 +1,8 @@
 extends KinematicBody2D
 
-onready var player1 = get_node("/root/TileMap/Player1")
-onready var player2 = get_node("/root/TileMap/Player2")
+onready var player1 = get_node("../TileMap/Player1")
+onready var player2 = get_node("../TileMap/Player2")
+
 var hasReachedBottom = false
 var scrollSpeed = 100
 var maxScrollSpeed = 150

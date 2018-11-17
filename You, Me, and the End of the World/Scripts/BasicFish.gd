@@ -9,8 +9,8 @@ var bodyFollowing
 var distX
 var distY
 
-onready var player1 = get_node("../TileMap/Player1")
-onready var player2 = get_node("../TileMap/Player2")
+onready var player1 = get_node("../../Player1")
+onready var player2 = get_node("../../Player2")
 
 signal caught
 

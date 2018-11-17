@@ -3,7 +3,7 @@
 [ext_resource path="res://Scripts/CombatMelee.gd" type="Script" id=1]
 [ext_resource path="res://Images/machete.png" type="Texture" id=2]
 
-[node name="Body" type="Area2D" index="0"]
+[node name="Body" type="Area2D"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
