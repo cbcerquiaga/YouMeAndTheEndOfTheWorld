@@ -86,25 +86,25 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 380, 381.233 )
 scale = Vector2( 0.25, 0.25 )
-_sections_unfolded = [ "Collision", "Transform" ]
+_sections_unfolded = [ "Collision", "Transform", "collision" ]
 
 [node name="Fish2" parent="TileMap/FishEmitter" index="1" instance=ExtResource( 5 )]
 
 position = Vector2( 560, 831.233 )
 scale = Vector2( 0.25, 0.25 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Transform", "collision" ]
 
 [node name="Fish3" parent="TileMap/FishEmitter" index="2" instance=ExtResource( 5 )]
 
 position = Vector2( 504.202, 469.685 )
 scale = Vector2( 0.1, 0.1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Transform", "collision" ]
 
 [node name="Fish4" parent="TileMap/FishEmitter" index="3" instance=ExtResource( 5 )]
 
 position = Vector2( 250, 601.233 )
 scale = Vector2( 0.3, 0.3 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Transform", "collision" ]
 
 [node name="Player1" type="KinematicBody2D" parent="TileMap" index="1"]
 

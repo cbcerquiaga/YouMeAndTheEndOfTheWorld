@@ -6,8 +6,10 @@ var sceneWidth = 16
 var ecosystem = "river"
 var fishFrequency = 10
 var obstacleFrequency = 50
-var obstacleLength = 10
+var obstacleLength = 8
+var minObstacleDistance = 2
 var legendaryFishChance = 0
+var usedHeights = [0,1]
 var availableFish = ["bass", "goldfish", "koi"]
 var legendaryFish = "giant gar"
 
@@ -40,12 +42,18 @@ func generateObstacles():
 func createLeftWall(currentLength):
 	print("left wall with length " + str(currentLength))
 	var height = randi()%depth
+	while usedHeights.find_last(height) >= 0 or usedHeights.find_last(height+1) >=0 or usedHeights.find_last(height-1) >=0:
+		height = randi()%depth
+	usedHeights.append(height)
 	for i in range(currentLength):
 		obstacles.set_cell(i, height,1)
 		
 func createRightWall(currentLength):
 	print("right wall with length " + str(currentLength))
 	var height = randi()%depth
+	while usedHeights.find_last(height) >= 0 or usedHeights.find_last(height+1) >=0 or usedHeights.find_last(height-1) >=0:
+		height = randi()%depth
+	usedHeights.append(height)
 	for i in range(currentLength):
 		obstacles.set_cell(sceneWidth - i, height,1)
 		
@@ -53,15 +61,19 @@ func createRightWall(currentLength):
 func createCenterWall(currentLength):
 	print("center wall with length " + str(currentLength))
 	var height = randi()%depth
+	while usedHeights.find_last(height) >= 0 or usedHeights.find_last(height+1) >=0 or usedHeights.find_last(height-1) >=0:
+		height = randi()%depth
+	#usedHeights.append(height) #for some reason this makes the whole scene too slow to run...not sure why
 	var offset = (sceneWidth - currentLength)/2
 	for i in range(currentLength):
-		obstacles.set_cell(i, height,1)
+		obstacles.set_cell(i+offset, height,1)
 		
 func createVerticalWall(currentLength):
 	print("vertical wall with length " + str(currentLength))
 	var x = randi()%sceneWidth
+	var height = randi()%depth
 	for i in range(currentLength):
-		obstacles.set_cell(x, i,1)
+		obstacles.set_cell(x, i+ height,1)
 		
 func _pause():
 	print("Game paused")
