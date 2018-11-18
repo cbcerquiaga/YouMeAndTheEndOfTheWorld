@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var velocity = Vector2()
 const SPEED = 250
-var scrollSpeed = 0
+var scrollSpeed = 100
 var goingUp = false
 var caughtFish = false
 var isFrozen = false
