@@ -38,6 +38,7 @@ func generateObstacles():
 			createCenterWall(currentLength)
 		else: #obstacleType == 3:
 			createVerticalWall(currentLength)
+		print(str(usedHeights))
 
 func createLeftWall(currentLength):
 	print("left wall with length " + str(currentLength))
