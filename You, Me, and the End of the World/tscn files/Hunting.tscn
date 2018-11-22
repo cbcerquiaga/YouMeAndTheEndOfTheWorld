@@ -52,19 +52,19 @@ script = ExtResource( 2 )
 
 [node name="collision" type="CollisionShape2D" parent="TileMap/Creature" index="0"]
 
-position = Vector2( 23.2, 22.5 )
-scale = Vector2( 3.13846, 3.73077 )
+position = Vector2( -2.86999, 7.0167 )
+scale = Vector2( 3.05615, 3.6936 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="TileMap/Creature" index="1"]
 
-position = Vector2( 23, 21 )
+position = Vector2( -2, 6 )
 texture = ExtResource( 3 )
 
 [node name="Just right" type="Area2D" parent="TileMap/Creature" index="2"]
 
-position = Vector2( 80.4, 42.5 )
-scale = Vector2( 8.40625, 4.32812 )
+position = Vector2( 7.05055, 10.7647 )
+scale = Vector2( 5.98127, 4.85109 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -75,7 +75,7 @@ audio_bus_name = "Master"
 
 [node name="Too close" type="Area2D" parent="TileMap/Creature" index="3"]
 
-position = Vector2( 56.9, 27 )
+position = Vector2( 1.72296, 13.6764 )
 scale = Vector2( 3.70312, 3.65625 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )

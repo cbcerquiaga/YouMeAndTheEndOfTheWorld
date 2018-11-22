@@ -1,15 +1,13 @@
-#extends "res://Scripts/HuntingEnemy"
-extends Node
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+extends 'res://Scripts/HuntingEnemy.gd'
+
+#onready  var playerPos = get_node("root/Hunting/TileMap/Player").get(position)
 
 func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
+	velocityMultiplier = 5.5
 	pass
 
 func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
+	#playerPos = get_node("root/Hunting/TileMap/Player").get(position)
+	#runDirectlyAway(playerPos)
+	runDirectlyAway(Vector2(0,0))
 	pass

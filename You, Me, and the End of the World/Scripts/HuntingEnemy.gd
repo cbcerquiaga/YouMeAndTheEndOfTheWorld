@@ -1,6 +1,8 @@
 extends KinematicBody2D
 
 var velocity = Vector2()
+const SPEED = 100
+var velocityMultiplier = 1
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -11,79 +13,122 @@ func runDirectlyAway(location):
 	#figure out which way would be directly away from the location
 	if location.x - self.position.x <= -10: #leftward
 		if location.y - self.position.y <= -10:
-			print("above and to the left, need to go SE")
+			#above and to the left, need to go SE
+			velocity.x = SPEED
+			velocity.y = SPEED
 		elif location.y - self.position.y >= 10:
-			print("below and to the left, need to go NE")
+			#below and to the left, need to go NE
+			velocity.x = SPEED
+			velocity.y = -SPEED
 		else: #basically equal in height
-			print("basically due left, need to go E")
+			#basically due left, need to go E
+			velocity.x = SPEED
+			velocity.y = 0
 	elif location.x - self.position.x >= 10: #rightward
 		if location.y - self.position.y <= -10:
-			print("above and to the right, need to go SW")
+			#above and to the right, need to go SW
+			velocity.x = -SPEED
+			velocity.y = SPEED
 		elif location.y - self.position.y >= 10:
-			print("below and to the right, need to go NW")
+			#below and to the right, need to go NW
+			velocity.x = -SPEED
+			velocity.y = -SPEED
 		else: #basically equal in height
-			print("basically due right, need to go W")
+			#basically due right, need to go W
+			velocity.x = -SPEED
+			velocity.y = 0
 	else: #basically vertical
 		if location.y > self.position.y: #above
-			print("basically above, need to go S")
+			#basically above, need to go S
+			velocity.x = 0
+			velocity.y = SPEED
 		else: #below or actually in the same place
-			print("basically below, need to go N")
-	print("move directly away from the location")
+			#basically below, need to go N
+			velocity.x = 0
+			velocity.y = -SPEED
 
 func runAwayLeft(location):
 	#figure out which way is left from there
 	if location.x - self.position.x <= -10: #leftward
 		if location.y - self.position.y <= -10:
-			print("above and to the left, need to go NE")
+			#above and to the left, need to go NE
+			velocity.x = SPEED
+			velocity.y = -SPEED
 		elif location.y - self.position.y >= 10:
-			print("below and to the left, need to go NW")
+			#below and to the left, need to go NW
+			velocity.x = -SPEED
+			velocity.y = -SPEED
 		else: #basically equal in height
-			print("basically due left, need to go N")
+			#basically due left, need to go N
+			velocity.x = 0
+			velocity.y = SPEED
 	elif location.x - self.position.x >= 10: #rightward
 		if location.y - self.position.y <= -10:
-			print("above and to the right, need to go SE")
+			#above and to the right, need to go SE
+			velocity.x = SPEED
+			velocity.y = SPEED
 		elif location.y - self.position.y >= 10:
-			print("below and to the right, need to go SW")
+			#below and to the right, need to go SW
+			velocity.x = -SPEED
+			velocity.y = SPEED
 		else: #basically equal in height
-			print("basically due right, need to go S")
+			#basically due right, need to go S
+			velocity.x = 0
+			velocity.y = SPEED
 	else: #basically vertical
 		if location.y > self.position.y: #above
-			print("basically above, need to go E")
+			#basically above, need to go E
+			velocity.x = SPEED
+			velocity.y = 0
 		else: #below or actually in the same place
-			print("basically below, need to go W")
-	#go left
-	print("move hard to the left from my current location and direction")
+			#basically below, need to go W
+			velocity.x = -SPEED
+			velocity.y = 0
 	
 #go 90 degrees to the right of running directly away
 func runAwayRight(location):
 	#figure out which way is right from there
 	if location.x - self.position.x <= -10: #leftward
 		if location.y - self.position.y <= -10:
-			print("above and to the left, need to go SW")
+			#above and to the left, need to go SW
+			velocity.x = -SPEED
+			velocity.y = SPEED
 		elif location.y - self.position.y >= 10:
-			print("below and to the left, need to go SE")
+			#below and to the left, need to go SE
+			velocity.x = SPEED
+			velocity.y = SPEED
 		else: #basically equal in height
-			print("basically due left, need to go S")
+			#basically due left, need to go S
+			velocity.x = 0
+			velocity.y = SPEED
 	elif location.x - self.position.x >= 10: #rightward
 		if location.y - self.position.y <= -10:
-			print("above and to the right, need to go NW")
+			#above and to the right, need to go NW
+			velocity.x = -SPEED
+			velocity.y = -SPEED
 		elif location.y - self.position.y >= 10:
-			print("below and to the right, need to go NE")
+			#below and to the right, need to go NE
+			velocity.x = SPEED
+			velocity.y = -SPEED
 		else: #basically equal in height
-			print("basically due right, need to go N")
+			#basically due right, need to go N
+			velocity.x = 0
+			velocity.y = SPEED
 	else: #basically vertical
 		if location.y > self.position.y: #above
-			print("basically above, need to go W")
+			#basically above, need to go W
+			velocity.x = -SPEED
+			velocity.y = 0
 		else: #below or actually in the same place
-			print("basically below, need to go E")
-
-	#go right
-	print("move hard to the right from my current location and direction")
+			#basically below, need to go E
+			velocity.x = SPEED
+			velocity.y = 0
 
 func runTowards(location):
-	#figure out which way will go towards the location
-	#go that way
-	print("come at me bro")
+	#just do the opposite of runDirectlyAway
+	runDirectlyAway(location)
+	velocity.x = -velocity.x
+	velocity.y = -velocity.y
 	
 func getJitter():
 	var returnArray = []
@@ -103,3 +148,9 @@ func exectuteJitter(direction, time):
 func jitter():
 	var array = getJitter()
 	executeJitter(array[0], array[1])
+	
+func process(delta):
+	velocity.x = velocity.x * velocityMultiplier
+	velocity.y = velocity.y * velocityMultiplier
+	move_and_slide(velocity)
+	pass
