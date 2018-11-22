@@ -2,7 +2,9 @@ extends KinematicBody2D
 
 var velocity = Vector2()
 const SPEED = 600
-var health = 100
+onready var lostVal = 0
+onready var spookVal = 0
+onready var shotVal = 0
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -10,6 +12,12 @@ func _ready():
 	pass
 
 func _process(delta):
+	if lostVal < 0:
+		lostVal = 0
+	if spookVal < 0:
+		spookVal = 0
+	if shotVal < 0:
+		shotVal = 0
 	if Input.is_action_pressed("p1_move_right"):
 		velocity.x = SPEED
 	elif Input.is_action_pressed("p1_move_left"):

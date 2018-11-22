@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/Hunting.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/PreyAnimal.gd" type="Script" id=2]
@@ -6,6 +6,11 @@
 [ext_resource path="res://Scripts/HuntingPlayer.gd" type="Script" id=4]
 [ext_resource path="res://Images/troll.png" type="Texture" id=5]
 [ext_resource path="res://Images/combatHud.png" type="Texture" id=6]
+[ext_resource path="res://Images/healthBar.png" type="Texture" id=7]
+[ext_resource path="res://Scripts/LostBar.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/SpookBar.gd" type="Script" id=9]
+[ext_resource path="res://Images/carryBar.png" type="Texture" id=10]
+[ext_resource path="res://Scripts/ShotBar.gd" type="Script" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -118,8 +123,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 384.0
+margin_top = -6.0
+margin_right = 619.0
+margin_bottom = 34.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -135,10 +142,11 @@ exp_edit = false
 rounded = false
 texture_under = null
 texture_over = null
-texture_progress = null
+texture_progress = ExtResource( 7 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
+script = ExtResource( 8 )
 _sections_unfolded = [ "Textures" ]
 
 [node name="Spook Bar" type="TextureProgress" parent="HUD" index="2"]
@@ -147,8 +155,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 377.0
+margin_top = 1.0
+margin_right = 612.0
+margin_bottom = 41.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -164,10 +174,12 @@ exp_edit = false
 rounded = false
 texture_under = null
 texture_over = null
-texture_progress = null
+texture_progress = ExtResource( 7 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
+script = ExtResource( 9 )
+_sections_unfolded = [ "Textures" ]
 
 [node name="Shot Bar" type="TextureProgress" parent="HUD" index="3"]
 
@@ -175,8 +187,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 391.0
+margin_top = 13.0
+margin_right = 606.0
+margin_bottom = 53.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -192,9 +206,11 @@ exp_edit = false
 rounded = false
 texture_under = null
 texture_over = null
-texture_progress = null
+texture_progress = ExtResource( 10 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
+script = ExtResource( 11 )
+_sections_unfolded = [ "Textures" ]
 
 
