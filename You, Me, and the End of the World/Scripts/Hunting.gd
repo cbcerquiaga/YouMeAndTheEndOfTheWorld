@@ -1,18 +1,44 @@
 extends Node2D
 
+var crosshair = load("res://Images/Crosshair.png")
 onready var player = get_node("TileMap/Player")
 onready var creature = get_node("TileMap/Creature")
 
 func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
+	Input.set_custom_mouse_cursor(crosshair, 0, Vector2(15, 15))
 	pass
 	
 func checkJustRightCollision():
-	return 0
+	var bodies = get_node("TileMap/Creature/Just right").get_overlapping_areas()
+	var numBodies = 0
+	if !bodies.empty():
+		for i in bodies:
+			numBodies = numBodies+1
+			print(str(numBodies))
+	if numBodies > 2 and !checkSpookCollision() == 1:
+		return 1
+	else:
+		return 0
 	
 func checkSpookCollision():
-	return 0
+	var bodies = get_node("TileMap/Creature/Just right").get_overlapping_areas()
+	var numBodies = 0
+	if !bodies.empty():
+		for i in bodies:
+			numBodies = numBodies+1
+			print(str(numBodies) + "!")
+	if numBodies > 1:
+		return 1
+	else:
+		return 0
+	
+func createBullet(playerPosition):
+	if player.ammo > 0:
+		print("pew pew")
+		player.ammo = player.ammo - 1
+		player.shotVal = 0
+	else:
+		print("I guess you're going to have to tackle this thing")
 
 func _process(delta):
 	if player.lostVal == 100:
@@ -21,6 +47,9 @@ func _process(delta):
 		print("you scared it away")
 	elif player.shotVal == 100:
 		print("take the shot!")
+		if Input.is_action_just_pressed("click"):
+			var playerPosition = player.position
+			createBullet(playerPosition)
 	else: #regular course of play
 		if checkJustRightCollision() == 1:
 			player.shotVal+= .5

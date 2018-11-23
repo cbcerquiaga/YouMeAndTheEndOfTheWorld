@@ -12,12 +12,15 @@ Common encounters
 6. Drug atticts
 7. Fishermen/hunters- from a nearby town
 8. Monsters- mean animals
+9. Animal tracks- let you hunt
+10. 
 
 Medium encounters
 1. Soldiers- from a nearby town
 2. Sports team- after certain quests, you may run into sports teams travelling to and from events, potentially with escorts
 3. Trade Shipments- once certain settlements get developed enough, they start to trade what they have for what they need. One settlement may have wood but not enough farmland, so they trade it to someplace with not enough buildings but better soil.
 4. The nomads- a people who ride dog sleds and live off of the land, never trying to settle down anywhere, even at night.
+5. Gunslingers- these people go from town to town challenging people to duels. People bet on the duels, and the winner gets not only whatever their opponent had but also a quarter of the bets taken for their opponent.
 
 Rare encounters
 1. Working car- just sitting there. Who would leave a working car just sitting there?
