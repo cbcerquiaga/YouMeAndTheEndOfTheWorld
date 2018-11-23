@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scripts/Hunting.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/PreyAnimal.gd" type="Script" id=2]
@@ -6,11 +6,14 @@
 [ext_resource path="res://Scripts/HuntingPlayer.gd" type="Script" id=4]
 [ext_resource path="res://Images/troll.png" type="Texture" id=5]
 [ext_resource path="res://Images/combatHud.png" type="Texture" id=6]
-[ext_resource path="res://Images/healthBar.png" type="Texture" id=7]
+[ext_resource path="res://Images/huntingLostBar.png" type="Texture" id=7]
 [ext_resource path="res://Scripts/LostBar.gd" type="Script" id=8]
 [ext_resource path="res://Scripts/SpookBar.gd" type="Script" id=9]
-[ext_resource path="res://Images/carryBar.png" type="Texture" id=10]
+[ext_resource path="res://Images/huntingShotBar.png" type="Texture" id=10]
 [ext_resource path="res://Scripts/ShotBar.gd" type="Script" id=11]
+[ext_resource path="res://Images/huntingLostIcon.png" type="Texture" id=12]
+[ext_resource path="res://Images/huntingSpookIcon.png" type="Texture" id=13]
+[ext_resource path="res://Images/huntingShotIcon.png" type="Texture" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -134,21 +137,33 @@ texture = ExtResource( 5 )
 
 [node name="HUD" type="Node2D" parent="." index="1"]
 
-[node name="Sprite" type="Sprite" parent="HUD" index="0"]
+[node name="Sprite1" type="Sprite" parent="HUD" index="0"]
+
+position = Vector2( 200, 20 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite2" type="Sprite" parent="HUD" index="1"]
 
 position = Vector2( 500, 20 )
 texture = ExtResource( 6 )
 
-[node name="Lost Bar" type="TextureProgress" parent="HUD" index="1"]
+[node name="Sprite3" type="Sprite" parent="HUD" index="2"]
+
+position = Vector2( 800, 20 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Lost Bar" type="TextureProgress" parent="HUD" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 384.0
-margin_top = 10.0
-margin_right = 619.0
-margin_bottom = 50.0
+margin_left = 88.0
+margin_top = 6.0
+margin_right = 323.0
+margin_bottom = 46.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -169,18 +184,18 @@ radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
 script = ExtResource( 8 )
-_sections_unfolded = [ "Textures" ]
+_sections_unfolded = [ "Rect", "Textures" ]
 
-[node name="Spook Bar" type="TextureProgress" parent="HUD" index="2"]
+[node name="Spook Bar" type="TextureProgress" parent="HUD" index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 377.0
-margin_top = 11.0
-margin_right = 612.0
-margin_bottom = 51.0
+margin_left = 388.0
+margin_top = 6.0
+margin_right = 623.0
+margin_bottom = 46.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -201,18 +216,18 @@ radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
 script = ExtResource( 9 )
-_sections_unfolded = [ "Textures" ]
+_sections_unfolded = [ "Rect", "Textures" ]
 
-[node name="Shot Bar" type="TextureProgress" parent="HUD" index="3"]
+[node name="Shot Bar" type="TextureProgress" parent="HUD" index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 391.0
-margin_top = 37.0
-margin_right = 606.0
-margin_bottom = 77.0
+margin_left = 688.0
+margin_top = 6.0
+margin_right = 911.0
+margin_bottom = 46.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -234,5 +249,23 @@ radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
 script = ExtResource( 11 )
 _sections_unfolded = [ "Textures" ]
+
+[node name="lostIcon" type="Sprite" parent="HUD" index="6"]
+
+position = Vector2( 50, 20 )
+texture = ExtResource( 12 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="spookIcon" type="Sprite" parent="HUD" index="7"]
+
+position = Vector2( 350, 20 )
+texture = ExtResource( 13 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="shotIcon" type="Sprite" parent="HUD" index="8"]
+
+position = Vector2( 650, 20 )
+texture = ExtResource( 14 )
+_sections_unfolded = [ "Transform" ]
 
 

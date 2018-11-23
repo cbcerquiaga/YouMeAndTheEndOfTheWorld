@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 var velocity = Vector2()
+var ammoVal = 0
 const SPEED = 600
 onready var lostVal = 0
 onready var spookVal = 0
