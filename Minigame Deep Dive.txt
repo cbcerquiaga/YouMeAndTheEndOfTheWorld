@@ -67,8 +67,8 @@ Implementation: ?
 
 
 POOL
-?
-Implementation: ?
+Players can play either cooperatively (taking turns against the AI), alone (only one player vs the AI) or against one another. Rather than cutting to a different scene, I think players should navigate normally around the table, with the angle they take shooting the cue ball to change based on where they stand, and their power being based on how long they hold down the action button. This way, in a dialog-rich environment like a bar, one player could play pool while the other talks to people, and the pool experience would be more immersive.
+Implementation: pool cue item to temporarily equip, sending cueball in angular directions, measuring button hold time, pocket sinking mechanic, turn taking and rules, AI figuring out which ball to shoot at and which pocket to aim for (maybe we could find open source pool AI someplace?)
 
 LIAR'S DICE
 Players all roll dice, and can only see their hand. The first player to go needs to guess how many of a certain number were rolled by all players in the game and place a bet. The game then rotates around the table, and players have 3 choices- raise the bet and guess a higher number of dice, fold, or challenge the previous player as a liar. If the bluff is successfully called, then the player whose guess was bad is eliminated from the round. If the guess was right, and there are as many or less than the person guessed, then the person who was called out wins the money and the player who made the challenge is eliminated from the round. The last player in the game gets all of the money and then the game starts with a new round.

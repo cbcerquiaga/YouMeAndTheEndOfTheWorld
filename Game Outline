@@ -8,7 +8,7 @@ BASIC GAME MECHANICS
 -All actions in the game are either skill chacks or minigames, there is no live-action combat.
 -Players can acquire perks that improve their abilities in minigames, improve their chances in skill checks, or give them new abilities.
 -Like any open world RPG, the game is quest driven.
--The game is partially designed, but certain elements are procedurally placed and may not appear in every playthrough.
+-The game is divided into a grid made up of predesigned areas. Traveling between areas advances time in the game. The positions of areas is procedural- some locations are static, others have stationary positions but may be different in different playthroughs, and most locations are randomly placed and may not appear in every playthrough.
 -Tile-based 2d isometric view.
 
 LORE
