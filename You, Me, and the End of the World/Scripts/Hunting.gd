@@ -47,9 +47,6 @@ func _process(delta):
 		print("you scared it away")
 	elif player.shotVal == 100:
 		print("take the shot!")
-		if Input.is_action_just_pressed("click"):
-			var playerPosition = player.position
-			createBullet(playerPosition)
 	else: #regular course of play
 		if checkJustRightCollision() == 1:
 			player.shotVal+= .5

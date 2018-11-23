@@ -550,6 +550,7 @@ shape = SubResource( 4 )
 
 [node name="CombatPlayer" parent="TileMap" index="2" instance=ExtResource( 21 )]
 
+editor/display_folded = true
 position = Vector2( 215.972, 460.04 )
 
 [node name="Sword" parent="TileMap/CombatPlayer" index="4" instance=ExtResource( 22 )]
