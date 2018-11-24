@@ -1,0 +1,207 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scripts/Hockey.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/HockeyPlayerTracker.gd" type="Script" id=2]
+[ext_resource path="res://tscn files/pause_popup.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Images/myTiles.tres" type="TileSet" id=4]
+[ext_resource path="res://Images/puck.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/HockeyPlayer1.gd" type="Script" id=6]
+[ext_resource path="res://Images/riverBass.png" type="Texture" id=7]
+
+[sub_resource type="CircleShape2D" id=3]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="hockey" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+
+[node name="playerTracker" type="KinematicBody2D" parent="." index="0"]
+
+position = Vector2( 575, 900 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="pause_popup" parent="playerTracker" index="0" instance=ExtResource( 3 )]
+
+visible = false
+
+[node name="Camera2D" type="Camera2D" parent="playerTracker" index="1"]
+
+anchor_mode = 1
+rotating = false
+current = false
+zoom = Vector2( 1, 1 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = false
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerTracker" index="2"]
+
+shape = SubResource( 3 )
+
+[node name="boards" type="TileMap" parent="." index="1"]
+
+mode = 0
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 1, 4, 0, 2, 4, 0, 3, 4, 0, 4, 4, 0, 5, 4, 0, 6, 4, 0, 11, 4, 0, 12, 4, 0, 13, 4, 0, 14, 4, 0, 15, 4, 0, 16, 4, 0, 65536, 4, 0, 65553, 4, 0, 131072, 4, 0, 131089, 4, 0, 196608, 4, 0, 196625, 4, 0, 262144, 4, 0, 262161, 4, 0, 327680, 4, 0, 327697, 4, 0, 393216, 4, 0, 393233, 4, 0, 458752, 4, 0, 458769, 4, 0, 524288, 4, 0, 524305, 4, 0, 589824, 4, 0, 589841, 4, 0, 655360, 4, 0, 655377, 4, 0, 720896, 4, 0, 720913, 4, 0, 786432, 4, 0, 786449, 4, 0, 851968, 4, 0, 851985, 4, 0, 917504, 4, 0, 917521, 4, 0, 983040, 4, 0, 983057, 4, 0, 1048576, 4, 0, 1048593, 4, 0, 1114112, 4, 0, 1114129, 4, 0, 1179648, 4, 0, 1179665, 4, 0, 1245184, 4, 0, 1245201, 4, 0, 1310720, 4, 0, 1310737, 4, 0, 1376256, 4, 0, 1376273, 4, 0, 1441792, 4, 0, 1441809, 4, 0, 1507328, 4, 0, 1507345, 4, 0, 1572864, 4, 0, 1572881, 4, 0, 1638400, 4, 0, 1638417, 4, 0, 1703936, 4, 0, 1703953, 4, 0, 1769472, 4, 0, 1769489, 4, 0, 1835009, 4, 0, 1835010, 4, 0, 1835011, 4, 0, 1835012, 4, 0, 1835013, 4, 0, 1835014, 4, 0, 1835019, 4, 0, 1835020, 4, 0, 1835021, 4, 0, 1835022, 4, 0, 1835023, 4, 0, 1835024, 4, 0 )
+
+[node name="goal 1" type="Area2D" parent="boards" index="0"]
+
+position = Vector2( 467.041, -44.693 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boards/goal 1" index="0"]
+
+position = Vector2( 101.521, -0.171571 )
+scale = Vector2( 13.1071, 8.98156 )
+shape = SubResource( 1 )
+
+[node name="goal 2" type="Area2D" parent="boards" index="1"]
+
+position = Vector2( 467.041, 1895 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boards/goal 2" index="0"]
+
+position = Vector2( 101.521, -0.171571 )
+scale = Vector2( 13.1071, 8.98156 )
+shape = SubResource( 1 )
+
+[node name="puck" type="KinematicBody2D" parent="boards" index="2"]
+
+position = Vector2( 550, 900 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="boards/puck" index="0"]
+
+texture = ExtResource( 5 )
+
+[node name="playerTeam" type="Node" parent="boards" index="3"]
+
+[node name="player1" type="RigidBody2D" parent="boards/playerTeam" index="0"]
+
+position = Vector2( 404.987, 533.939 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="boards/playerTeam/player1" index="0"]
+
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boards/playerTeam/player1" index="1"]
+
+shape = SubResource( 2 )
+
+[node name="player2" type="KinematicBody2D" parent="boards/playerTeam" index="1"]
+
+position = Vector2( 434.987, 671.939 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+
+[node name="Sprite" type="Sprite" parent="boards/playerTeam/player2" index="0"]
+
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boards/playerTeam/player2" index="1"]
+
+shape = SubResource( 2 )
+
+[node name="goalie" type="KinematicBody2D" parent="boards/playerTeam" index="2"]
+
+position = Vector2( 473.987, 1733.94 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="boards/playerTeam/goalie" index="0"]
+
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boards/playerTeam/goalie" index="1"]
+
+shape = SubResource( 2 )
+
+
