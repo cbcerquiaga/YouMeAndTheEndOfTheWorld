@@ -11,7 +11,11 @@ Consumable (expiration) #maybe we can make just a consumable class and not separ
 ->FoodItem (healType1, healValue1, healType2, healValue2)
 ->RepairItem (repairType, repairValue)
 
-Equippable(type, hotVal, coldVal, charismaVal, intimidationVal, bluntResist, sharpResist, bonusEffect, durability)
+Equippable(type, durability)
+->clothes(hotVal, coldVal, charismaVal, intimidationVal, bluntResist, sharpResist, bonusEffect)
+->musicalInstrument(soundType)
+->shoes(hotVal, coldVal, speedBoost, bonusEffect)
+
 
 Misc
 ->Note (text, title)
