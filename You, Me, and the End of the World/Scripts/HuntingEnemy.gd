@@ -149,7 +149,7 @@ func jitter():
 	var array = getJitter()
 	executeJitter(array[0], array[1])
 	
-func process(delta):
+func _process(delta):
 	velocity.x = velocity.x * velocityMultiplier
 	velocity.y = velocity.y * velocityMultiplier
 	move_and_slide(velocity)
