@@ -1,0 +1,34 @@
+This is to help keep track of all the settlements in the game, for story and design purposes. 
+SettlementName [# unique characters, #generic settlers, #generic but changing passers through] (gov't type, foreign policy)
+Numbers are estimates- only have a general idea of how many named characters there should be, and no clue at all how many settlers is realistic, good, or practical.
+
+Permanently positioned settlements
+1. State Capitol [8, 30, 10] (democracy, expansionist)
+2. Peachtree [10, 15, 10] (democracy, none)
+3. Koreatown [6, 10, 5] (?, ?)
+
+Dynamically positioned settlements
+1. Starting Homestead [6, 0, 0] (communal, none)
+2. Cult Town [10, 16+, 0] (cult, isolationist)
+3. The HOA [6, 30, 5] (committee, isolationist)
+4. The Aquarium [10, 20, 10] (?, humanitarian)
+5. Shipwright High [8, 10, 5] (?, ?)
+6. Petrolia [10, 30, 0] (dictatorship, expansionist)
+7. The Greenery [5, 5, 15] (communal, mercantile)
+8. Nestor [10, 20, 10] (monarchy, ?)
+9. Queendom [10, 20, 10] (monarchy, mercantile)
+10. No Reservations [5, 15, 2] (communal, isolationist)
+11. Red hood [5, 10, 5] (dictatorship, expansionist)
+12. Blue hood [5, 10, 5] (dictatorship, expansionist)
+13. Frat Cult [10, 5, 0] (cult, expansionist)
+14. New Nassau [10, 10, 5] (?, none)
+
+Total permanent settlements: 17
+
+Sometimes Settlements (depends on the playthrough)
+1. Zoo
+2. Airport
+3. University
+
+Total possible settlements: 20
+

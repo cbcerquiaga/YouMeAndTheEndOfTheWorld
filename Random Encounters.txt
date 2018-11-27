@@ -4,7 +4,7 @@ Every time the players enter a new area, or wait, or sleep, a new chance is roll
 We need to figure out how often they should happen, and what we do with them once they go their separate ways from the players.
 
 Common encounters
-1. Travelling merchant
+1. Travelling merchant (clothes, weapons, drugs, junk, food, etc)
 2. Scavengers- people who are scraping by and either haven't found a permanent home or just squat nearby
 3. Stray dog(s)
 4. Gangs
@@ -13,7 +13,7 @@ Common encounters
 7. Fishermen/hunters- from a nearby town
 8. Monsters- mean animals
 9. Animal tracks- let you hunt
-10. 
+10.
 
 Medium encounters
 1. Soldiers- from a nearby town
@@ -21,11 +21,12 @@ Medium encounters
 3. Trade Shipments- once certain settlements get developed enough, they start to trade what they have for what they need. One settlement may have wood but not enough farmland, so they trade it to someplace with not enough buildings but better soil.
 4. The nomads- a people who ride dog sleds and live off of the land, never trying to settle down anywhere, even at night.
 5. Gunslingers- these people go from town to town challenging people to duels. People bet on the duels, and the winner gets not only whatever their opponent had but also a quarter of the bets taken for their opponent.
+6. Cowherders- people who live by taking care of a moving herd of cattle. They eat the cows and their cheese, drink their milk, and sell them to towns for goods. Cows are hardy enough to survive in both the hot and the cold and they were plentiful back in civilized time, so that's why people herd them instead of some other animal.
 
 Rare encounters
 1. Working car- just sitting there. Who would leave a working car just sitting there?
 2. Screwdriver Man- not the superhero we deserve, and not the one we needed either. He just runs up and stabs you with a screwdriver and leaves
-3. 
+3. Entertainers- small circuses who travel from town to town doing different acts (things like the trapeze, lifting heavy objects, performing plays, singing songs, or performing magic) in order to make money from locals before heading to the next town.
 
 Special Encounters (only after certain quests)
 1. Crow and his men

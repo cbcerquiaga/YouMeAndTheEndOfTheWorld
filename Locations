@@ -1,20 +1,18 @@
 LOCATIONS
 
 PERMANENT LOCATIONS- in the same place and exaclty the same every playthrough
-1. Shipwright high- a highschool-turned settlement where the people sustain themselves from the sea. They buld boats to sell to others, and they fish. They do relatively well, with much of their land being suitable for farming, and plenty of buildings for living space. Previously, the school was nowhere near water, but sea levels have risen.
-2. Downtown- full of dilapidated buildings, with some overgrown and some flooded streets. Many people still squat here, but with nowhere to farm and not much to loot, it's not much of a life.
-3. The suburbs- formerly nice houses ruined by the megastorms that came with the climate change after the asteroid struck
-4. Petrolia- a city built around controlling and refining oil. They are relatively warlike, constantly trying to conquer nearby gas stations to control more gasoline. They also havea a large oil refinery and many oil wells.
-5. The Bottling Plant- formerly a bottling plant for a major company, now it's just a husk to be looted that some squatters and raiders live in.
-6. The Aquarium- the wealthiest settlement. They have figured out how to breed fish for farming, and have an effectively unlimited supply of food because of it, as well as a huge area that they have built up into a small town. They trade with Petrolia, mostly food for oil, since petrolia needs food and The Aquarium needs oil for electricity.
-7. Small college- home of the epigenetic episode side quest
-8. The Underground- a closed down shopping center that is now full of water and mutated creatures and not much else. Niether time nor the megastorms were kind to this place.
-9.the Olympic Park- a long time ago, there was an event called the Olympics that as held here. Now, there isn't much, but it can still be explored.
-10. State Capitol- former seat of the US government, there is a small region around the capitol that is still effectively part of the "United States" or at least claims to be. a small apartment complex as well as a large number of rebuilt houses comprise the area, which has the goal of assimilating other settlements back into the US and to bring the US back to its former glory.
-11. Koreatown- a settlement of mainly Korean-Americans who live near downtown. It's a fairly normal settlement
+1. Downtown- full of dilapidated buildings, with some overgrown and some flooded streets. Many people still squat here, but with nowhere to farm and not much to loot, it's not much of a life.
+2. The suburbs- formerly nice houses ruined by the megastorms that came with the climate change after the asteroid struck
+3. The Bottling Plant- formerly a bottling plant for a major company, now it's just a husk to be looted that some squatters and raiders live in.
+4. Small college- home of the epigenetic episode side quest
+5. The Underground- a closed down shopping center that is now full of water and mutated creatures and not much else. Niether time nor the megastorms were kind to this place.
+6.the Olympic Park- a long time ago, there was an event called the Olympics that as held here. Now, there isn't much, but it can still be explored.
+7. State Capitol- former seat of the US government, there is a small region around the capitol that is still effectively part of the "United States" or at least claims to be. a small apartment complex as well as a large number of rebuilt houses comprise the area, which has the goal of assimilating other settlements back into the US and to bring the US back to its former glory.
+8. Koreatown- a settlement of mainly Korean-Americans who live near downtown. It's a fairly normal settlement
+9. Peachtree- a relatively successful settlement near downtown that has built levies to keep flood water away from their homes and their farmland (originally a park)
 
 
-MOVING LOCATIONS- locations that are the same every time the game is played, but change positions on the map
+MOVING LOCATIONS- locations that are the same every time the game is played, but change positions on the map. Settlements will be in the game every time, but some locations will not be in every playthrough.
 1. Initial spawn homestead
 2. The HOA settlement- after society collapsed, a wealthy neighborhood called <name> . They're still relatively wealthy because what was once a golf course is now excellent farmland, and the people there are the descendents of people who were wealthy before.
 3. The Frat Cult- a frathouse and nearby sorority house that will attempt to initiate you
@@ -22,35 +20,44 @@ MOVING LOCATIONS- locations that are the same every time the game is played, but
 5. Red Hood- just like the Blue Hood, but they hate each other.
 6. Raccoon's Treasure- there is a raccoon who, if you follow it, leads you to a giant load of treasure. There is no indication or hint that the players should do this, and killing the raccoon makes the entrance to the treasure seal permanently.
 7. "Captain" Crow's Lair- the lair of the notorious "land pirate" who terrorizes the nearby town of Peachtree. It is actually a pirate themed restaurant, based off of the real life Dante's Down the Hatch that was destroyed a few years ago.
-8. Peachtree- a relatively successful settlement near downtown that has built levies to keep flood water away from their homes and their farmland (originally a park)
-9. The All Star- a burger joint that for some reason never stopped doing business, even though the rest of the world fell apart. People live nearby, and they make their living by trading with travelers who come through and buy their food.
-10. Queendom of <name>- a settlement of what used to be a motel, surrounded primarily by suburban houses that were trashed by megastorms that are now farmland, perfect for a feudal society led by queen <name>.
-11. Bill's Junk Shack- a home-turned junkyard owned by none other than Old Bill. Bill sends the players on fetch quests to either find junk in his yard or to go out and find him certain rare goods. Bill has a hobby for fixing cars, and completing enough of his quests gives the players a car.
-12. The Greenery- a settlement built at a plant nursery. It has a very nice bazaar in the center of town, and is fairly prosperous, but it's also not very big and so needs to rely quite heavily on trade to survive.
-13. The Railyards- a former train station that now houses several hippie squatters and several gangs of raiders.
-14. Nestor- a settlement built around a church, whose leader is a "prestor." The prestor acts as a constitutional monarch with the "elders" acting as a legislative body. Nestor is a pacifist settlement, as their version of Christianity forbids violence- for now. This opens up several possible questlines for the players.
-15. The Black Lagoon- some of the land around the city has reverted to how it was before humans came, but one swamp in particular has become the home of mutated monstrous creatures, moreso than anywhere else.
-16. No Reservations- a hotel and surrounding land that has come under control of Cherokees. They ahve ambitions of controlling the entire country (like they originally did) and so some quests can set them off on a warlike path, ally them with another settlement, or make them open up/ isolate themselves peacefully.
-17. Rich's Sporting Goods- a huge, three story sporting goods store ripe for looting
-18. Gar Outfitters- an aztec-pyramid shaped outdoor goods store ripe for looting
-19. Dynamite Broadcasting Building- once the office of a powerful corporation that owned dozens of TV channels, it now sits as a husk of its former self.
-20. Othello's- a music store- Some say that it has a basement where the owners had a vault of rare records and instruments used by famous musicians. Others hink the place was always a dump, and that the megastorms helped clean it up.
-21. St. Adjutor's Hospital- a flooded, trashed hospital.
-22. Peachtree Medical Center- a looted, emptied hospital.
-23. Capital rehabilitation Facility- a physical therapy center for surgery patients
-24. The raccoon's stash- a hidden stash of treasures gotten by following the raccoon instead of killing it.
-25. Shiny's- a comic book shop that the players encounter in "A Conspiracy at the End of the World"
-26. Panda Theatre- formerly a baroque-like theatre for movies and performances, right in the heart of downtown
-
+8. The All Star- a burger joint that for some reason never stopped doing business, even though the rest of the world fell apart. People live nearby, and they make their living by trading with travelers who come through and buy their food.
+9. Queendom of <name>- a settlement of what used to be a motel, surrounded primarily by suburban houses that were trashed by megastorms that are now farmland, perfect for a feudal society led by queen <name>.
+10. Bill's Junk Shack- a home-turned junkyard owned by none other than Old Bill. Bill sends the players on fetch quests to either find junk in his yard or to go out and find him certain rare goods. Bill has a hobby for fixing cars, and completing enough of his quests gives the players a car.
+11. The Greenery- a settlement built at a plant nursery. It has a very nice bazaar in the center of town, and is fairly prosperous, but it's also not very big and so needs to rely quite heavily on trade to survive.
+12. The Railyards- a former train station that now houses several hippie squatters and several gangs of raiders.
+13. Nestor- a settlement built around a church, whose leader is a "prestor." The prestor acts as a constitutional monarch with the "elders" acting as a legislative body. Nestor is a pacifist settlement, as their version of Christianity forbids violence- for now. This opens up several possible questlines for the players.
+14. The Black Lagoon- some of the land around the city has reverted to how it was before humans came, but one swamp in particular has become the home of mutated monstrous creatures, moreso than anywhere else.
+15. No Reservations- a hotel and surrounding land that has come under control of Cherokees. They ahve ambitions of controlling the entire country (like they originally did) and so some quests can set them off on a warlike path, ally them with another settlement, or make them open up/ isolate themselves peacefully.
+18. Rich's Sporting Goods- a huge, three story sporting goods store ripe for looting
+19. Gar Outfitters- an aztec-pyramid shaped outdoor goods store ripe for looting
+20. Dynamite Broadcasting Building- once the office of a powerful corporation that owned dozens of TV channels, it now sits as a husk of its former self.
+21. Othello's- a music store- Some say that it has a basement where the owners had a vault of rare records and instruments used by famous musicians. Others hink the place was always a dump, and that the megastorms helped clean it up.
+22. St. Adjutor's Hospital- a flooded, trashed hospital.
+23. Peachtree Medical Center- a looted, emptied hospital.
+24. Capital rehabilitation Facility- a physical therapy center for surgery patients
+25. The raccoon's stash- a hidden stash of treasures gotten by following the raccoon instead of killing it.
+26. Shiny's- a comic book shop that the players encounter in "A Conspiracy at the End of the World"
+27. Panda Theatre- formerly a baroque-like theatre for movies and performances, right in the heart of downtown
+28. Shipwright high- a highschool-turned settlement where the people sustain themselves from the sea. They buld boats to sell to others, and they fish. They do relatively well, with much of their land being suitable for farming, and plenty of buildings for living space. Previously, the school was nowhere near water, but sea levels have risen.
+29. New Nassau- a small enclave of caribbean people that survives by fishing.
+30. Petrolia- a city built around controlling and refining oil. They are relatively warlike, constantly trying to conquer nearby gas stations to control more gasoline. They also havea a large oil refinery and many oil wells.
+31. The Aquarium- the wealthiest settlement. They have figured out how to breed fish for farming, and have an effectively unlimited supply of food because of it, as well as a huge area that they have built up into a small town. They trade with Petrolia, mostly food for oil, since petrolia needs food and The Aquarium needs oil for electricity.
+32. Pups R Us- an abandoned pet store, ripe for the looting and now the home to feral dogs who won't attack you unless you're a jerk- don't attack them or try to steal their puppies and you'll be fine.
+33. Mitchell's- a crafts store, ready to be looted.
+34. Sherman memorial- a monument to General William T. Sherman's march through Georgia in the Civil War. When you arrive, confederates will be there trying to tear it down.
+35. Phil's electronics- a huge electronics store that was heavily looted a long time ago. You might be able to find some copper wires in there, but not much else.
+36. Jerome's- a small bookstore whose bottom floor is completely flooded, but whose top floor is still full of intact books.
+37. Ultimate Auto Dealers- a car dealership that is completely trashed now. It formerly had a huge series of windows in the front that were broken by megastorms, and now there isn't much left except records of how life used to be and dozens of smashed cars.
+38. 
 
 DYNAMIC LOCATIONS- locations that stay in the same place on the map, but are different each playthrough
 1. The mall- could be filled with squatters, a standard settlement, uninhabited, or full of neonazis
 2. The airport-could be a highly successful settlement, a refuge for high-level creatures, or taken over by army remnants
 3. Zoo- could be full of wild and/or mutated animals, could have a regular settlement there that farms those animals, or a hippie collective
-4. Tech University- could be taken over by druggie gangs, communists, or a group that transformed into knowledge-seeking monks.
+4. Tech University- could be taken over by druggie gangs (escape from NY style), communists, or a group that transformed into knowledge-seeking monks.
 
 
-COMMON LOCATIONS- recurring types of places that the player might encounter. Maybe we can have them be slightly different each time?
+COMMON LOCATIONS- recurring types of places that the player might encounter. Maybe we can have them be slightly different each time? These make up the main area between locations, and will be different on every playthrough.
 1. Gas station
 2. House
 3. Prepper House- often full of hostile sons-of-preppers
@@ -71,4 +78,5 @@ COMMON LOCATIONS- recurring types of places that the player might encounter. May
 18. shopping center
 19. tranformer station
 20. Water tower
-21. 
+21. small village- a small settlement of people
+22. pawn shop
