@@ -68,6 +68,8 @@ onready var button13 = get_node("Inventory Main/Segment13/Button13")
 onready var optionPopup = get_node("Inventory Main/ItemHighlight/OptionPopup")
 onready var itemHighlight = get_node("Inventory Main/ItemHighlight")
 
+signal drop_item_signal
+
 func _ready():
 	#self.queue_free()
 	isPopupUp = false
@@ -111,7 +113,8 @@ func _ready():
 	button11.connect("pressed",self,"segment11ButtonPressed")
 	button12.connect("pressed",self,"segment12ButtonPressed")
 	button13.connect("pressed",self,"segment13ButtonPressed")
-	optionPopup.connect("drop_item_signal",self, "emit_drop_signal")
+	optionPopup.connect("dropItem",self, "emit_drop_signal")
+	
 	blankTexture = ImageTexture.new()
 	#optionPopup.setButtons(escKey, enterKey, upKey, downKey)
 	pass
@@ -237,6 +240,7 @@ func mapButtonPressed():
 func itemSelected():
 	isPopupUp = true
 	optionPopup.show()
+	optionPopup.setInventoryScreen(self)
 	match currentTab:
 		"map":
 			optionPopup.setText("set marker", "detailed info", "fast travel", "show on map", "")
@@ -517,7 +521,21 @@ func segment13ButtonPressed():
 	
 func emit_drop_signal():
 	print("emitting signal from inventory screen")
-	emit_signal("drop_item_signal", 1, 0)
+	var itemsArray
+	if currentTab == "quests":
+		itemsArray = quests
+	elif currentTab == "map":
+		itemsArray = discoveredPlaces
+	elif currentTab == "misc":
+		itemsArray = miscItems
+	elif currentTab == "consumable":
+		itemsArray = consumableItems
+	elif currentTab == "equippable":
+		itemsArray = equippableItems
+	else: #currentTab == "weapons":
+		itemsArray = weaponItems
+	var item = itemsArray[currentItem]
+	emit_signal("drop_item_signal", assignedPlayer, item)
 	
 func isSegmentEmpty(segmentNum):
 	if segmentNum == 0:
@@ -733,8 +751,8 @@ func _process(delta):
 				get_node("Item Picture").set_texture(blankTexture)
 				currentItem = 0
 				moveHighlight()
-			else:
-				print("Description text" + descriptionText)
+			#else:
+				#print("Description text: " + descriptionText)
 			if Input.is_action_just_pressed(str(upKey)):
 				if currentItem > 0 and !isSegmentEmpty(currentItem - 1): #not already the top and the next segment isn't empty
 					currentItem = currentItem - 1

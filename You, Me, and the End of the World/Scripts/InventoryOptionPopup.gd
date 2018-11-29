@@ -6,8 +6,9 @@ var upButtonPressed
 var downButtonPressed
 var exitButtonPressed
 var enterButtonPressed
+var inventoryScreen
 
-onready var player1 = get_node("/root/Root/walls/player1")
+#onready var player1 = get_node("/root/Root/walls/player1")
 onready var segment0 = get_node("Background/segment0")
 onready var segment1 = get_node("Background/segment1")
 onready var segment2 = get_node("Background/segment2")
@@ -19,7 +20,7 @@ onready var button2 = get_node("Background/segment2/Button")
 onready var button3 = get_node("Background/segment3/Button")
 onready var button4 = get_node("Background/segment4/Button")
 
-signal drop_item_signal(player1, index)
+signal dropItem
 
 func _ready():
 	currentItem = 0
@@ -30,7 +31,7 @@ func _ready():
 	button2.connect("pressed",self,"button2Pressed")
 	button3.connect("pressed",self,"button3Pressed")
 	button4.connect("pressed",self,"button4Pressed")
-	self.connect("drop_item_signal", player1, "_dropItem")
+	self.connect("dropItem", inventoryScreen, "_dropItem")
 	pass
 	
 #func setButtons(_exit, _enter, _up, _down):
@@ -46,6 +47,9 @@ func setText(option0, option1, option2, option3, option4):
 	segment3.setText(option3)
 	segment4.setText(option4)
 	pass
+	
+func setInventoryScreen(screen):
+	inventoryScreen = screen
 
 func upButtonPressed():
 	if currentItem == 4:
@@ -107,12 +111,18 @@ func enterButtonPressed():
 		print("emit signal 0")
 	elif currentItem == 1:
 		print("emit signal 1")
+		if segment1.getText() == "drop" or segment1.getText() == "drop one":
+			emit_signal("dropItem")
 	elif currentItem == 2:
 		print("emit signal 2")
+		if segment2.getText() == "drop" or segment2.getText() == "drop one":
+			emit_signal("dropItem")
 	elif currentItem == 3:
 		print("emit signal 3")
 	else: # currentItem == 4:
 		print("emit signal 4")
+		if segment4.getText() == "drop" or segment4.getText() == "drop one":
+			emit_signal("dropItem")
 	self.hide()
 
 func alternateSegmentFrames():
