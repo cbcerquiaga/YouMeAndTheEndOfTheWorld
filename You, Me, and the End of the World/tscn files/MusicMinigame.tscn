@@ -1,0 +1,131 @@
+[gd_scene load_steps=6 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="Node" type="Node" index="0"]
+
+[node name="p1Emitter" type="Node2D" parent="." index="0"]
+
+position = Vector2( 647.493, 192.9 )
+
+[node name="p2Emitter" type="Node2D" parent="." index="1"]
+
+position = Vector2( 366.653, 234.034 )
+
+[node name="tooSoon2" type="Area2D" parent="." index="2"]
+
+editor/display_folded = true
+position = Vector2( 511.961, 494.397 )
+scale = Vector2( 15.877, 0.380479 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tooSoon2" index="0"]
+
+position = Vector2( 0, -214.989 )
+scale = Vector2( 1, 1.36364 )
+shape = SubResource( 1 )
+
+[node name="tooSoon1" type="Area2D" parent="." index="3"]
+
+editor/display_folded = true
+position = Vector2( 511.061, 515.514 )
+scale = Vector2( 16.0107, 0.488381 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tooSoon1" index="0"]
+
+position = Vector2( -0.124916, -166.387 )
+scale = Vector2( 1, 1.14181 )
+shape = SubResource( 2 )
+
+[node name="justRight" type="Area2D" parent="." index="4"]
+
+editor/display_folded = true
+position = Vector2( 510.899, 537.666 )
+scale = Vector2( 16.0416, 0.51921 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="justRight" index="0"]
+
+position = Vector2( 0, -154.08 )
+shape = SubResource( 3 )
+
+[node name="tooLate1" type="Area2D" parent="." index="5"]
+
+editor/display_folded = true
+position = Vector2( 509.94, 563.321 )
+scale = Vector2( 15.9491, 1 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tooLate1" index="0"]
+
+position = Vector2( 0.0626993, -81.4866 )
+scale = Vector2( 1, 0.575895 )
+shape = SubResource( 4 )
+
+[node name="tooLate2" type="Area2D" parent="." index="6"]
+
+editor/display_folded = true
+position = Vector2( 511.42, 585.602 )
+scale = Vector2( 15.9953, 0.580868 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tooLate2" index="0"]
+
+position = Vector2( 0, -137.725 )
+shape = SubResource( 5 )
+
+
