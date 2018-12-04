@@ -6,8 +6,10 @@ func _ready():
 	friction = .2
 	bounce = .5
 	continuous_cd = CCD_MODE_CAST_SHAPE
-	set_contact_monitor(true)
+	contact_monitor = true
+	#set_contact_monitor(true)
 	set_use_custom_integrator(false) 
 	
 func _process(delta):
-	print("contacts reported: " + str(contacts_reported))
+	if contacts_reported > 0:
+		print("contacts reported: " + str(contacts_reported))
