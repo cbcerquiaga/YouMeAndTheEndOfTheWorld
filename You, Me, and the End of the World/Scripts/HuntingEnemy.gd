@@ -3,13 +3,17 @@ extends KinematicBody2D
 var velocity = Vector2()
 const SPEED = 100
 var velocityMultiplier = 1
+var location #where the player-controlled hunter is
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	pass
 
-func runDirectlyAway(location):
+func setHunterLocation(hunterLocation):
+	location = hunterLocation
+
+func runDirectlyAway():
 	#figure out which way would be directly away from the location
 	if location.x - self.position.x <= -10: #leftward
 		if location.y - self.position.y <= -10:
@@ -47,7 +51,7 @@ func runDirectlyAway(location):
 			velocity.x = 0
 			velocity.y = -SPEED
 
-func runAwayLeft(location):
+func runAwayLeft():
 	#figure out which way is left from there
 	if location.x - self.position.x <= -10: #leftward
 		if location.y - self.position.y <= -10:
@@ -86,7 +90,7 @@ func runAwayLeft(location):
 			velocity.y = 0
 	
 #go 90 degrees to the right of running directly away
-func runAwayRight(location):
+func runAwayRight():
 	#figure out which way is right from there
 	if location.x - self.position.x <= -10: #leftward
 		if location.y - self.position.y <= -10:
@@ -124,7 +128,7 @@ func runAwayRight(location):
 			velocity.x = SPEED
 			velocity.y = 0
 
-func runTowards(location):
+func runTowards():
 	#just do the opposite of runDirectlyAway
 	runDirectlyAway(location)
 	velocity.x = -velocity.x

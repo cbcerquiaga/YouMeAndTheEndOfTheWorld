@@ -41,6 +41,7 @@ func createBullet(playerPosition):
 		print("I guess you're going to have to tackle this thing")
 
 func _process(delta):
+	creature.setHunterLocation(player.position)
 	if player.lostVal == 100:
 		print("you lost the animal!")
 	elif player.spookVal == 100:

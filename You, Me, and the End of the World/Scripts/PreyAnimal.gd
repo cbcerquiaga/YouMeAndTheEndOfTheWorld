@@ -9,6 +9,6 @@ func _ready():
 func _process(delta):
 	#playerPos = get_node("root/Hunting/TileMap/Player").get(position)
 	#runDirectlyAway(playerPos)
-	runDirectlyAway(Vector2(0,0))
+	runDirectlyAway()
 	#if self.x - 
 	pass
