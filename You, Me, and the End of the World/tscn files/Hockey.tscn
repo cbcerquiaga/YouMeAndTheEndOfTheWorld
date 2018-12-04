@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Hockey.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/HockeyPlayerTracker.gd" type="Script" id=2]
@@ -7,18 +7,19 @@
 [ext_resource path="res://Images/puck.png" type="Texture" id=5]
 [ext_resource path="res://Scripts/HockeyPlayer1.gd" type="Script" id=6]
 [ext_resource path="res://Images/riverBass.png" type="Texture" id=7]
+[ext_resource path="res://Scripts/HockeyPlayer2.gd" type="Script" id=8]
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 10.0
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
@@ -68,7 +69,7 @@ editor_draw_drag_margin = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="playerTracker" index="2"]
 
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="boards" type="TileMap" parent="." index="1"]
 
@@ -105,7 +106,7 @@ audio_bus_name = "Master"
 
 position = Vector2( 101.521, -0.171571 )
 scale = Vector2( 13.1071, 8.98156 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="goal 2" type="Area2D" parent="boards" index="1"]
 
@@ -123,7 +124,7 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 101.521, -0.171571 )
 scale = Vector2( 13.1071, 8.98156 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="puck" type="KinematicBody2D" parent="boards" index="2"]
 
@@ -140,27 +141,13 @@ texture = ExtResource( 5 )
 
 [node name="playerTeam" type="Node" parent="boards" index="3"]
 
-[node name="player1" type="RigidBody2D" parent="boards/playerTeam" index="0"]
+[node name="player1" type="KinematicBody2D" parent="boards/playerTeam" index="0"]
 
 position = Vector2( 404.987, 533.939 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
-mode = 0
-mass = 1.0
-friction = 1.0
-bounce = 0.0
-gravity_scale = 1.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = true
-linear_velocity = Vector2( 0, 0 )
-linear_damp = -1.0
-angular_velocity = 0.0
-angular_damp = -1.0
+collision/safe_margin = 0.08
 script = ExtResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="boards/playerTeam/player1" index="0"]
@@ -169,7 +156,7 @@ texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boards/playerTeam/player1" index="1"]
 
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="player2" type="KinematicBody2D" parent="boards/playerTeam" index="1"]
 
@@ -178,6 +165,7 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
+script = ExtResource( 8 )
 
 [node name="Sprite" type="Sprite" parent="boards/playerTeam/player2" index="0"]
 
@@ -185,7 +173,7 @@ texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boards/playerTeam/player2" index="1"]
 
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="goalie" type="KinematicBody2D" parent="boards/playerTeam" index="2"]
 
@@ -202,6 +190,6 @@ texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boards/playerTeam/goalie" index="1"]
 
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 

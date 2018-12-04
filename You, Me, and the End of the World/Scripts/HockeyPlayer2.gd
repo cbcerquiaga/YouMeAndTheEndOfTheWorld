@@ -11,17 +11,17 @@ func _ready():
 	rotation_degrees = 0
 
 func _process(delta):
-	if Input.is_action_pressed("p1_move_left"):
+	if Input.is_action_pressed("p2_move_left"):
 		if currentSpeed > 0:
 			currentSpeed -= 300
 		rotation_degrees -= ROTATIONSPEED * delta
 		velocity = Vector2(1, 0).rotated(rotation) * currentSpeed * delta
-	if Input.is_action_pressed("p1_move_right"):
+	if Input.is_action_pressed("p2_move_right"):
 		if currentSpeed > 0:
 			currentSpeed -= 300
 		rotation_degrees += ROTATIONSPEED * delta
 		velocity = Vector2(1, 0).rotated(rotation) * currentSpeed * delta
-	if Input.is_action_pressed("p1_move_up"):
+	if Input.is_action_pressed("p2_move_up"):
 		if currentSpeed < SPEED:
 			currentSpeed += ACCELERATION
 		velocity = Vector2(1, 0).rotated(rotation) * currentSpeed * delta
