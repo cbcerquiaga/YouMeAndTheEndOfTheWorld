@@ -131,15 +131,19 @@ _sections_unfolded = [ "Transform" ]
 position = Vector2( 26.9, 5 )
 scale = Vector2( 3.57692, 4.15385 )
 shape = SubResource( 4 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="TileMap/Player" index="1"]
 
 position = Vector2( 24, 2 )
 texture = ExtResource( 5 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Bullet" parent="TileMap" index="2" instance=ExtResource( 6 )]
 
 [node name="HUD" type="Node2D" parent="." index="1"]
+
+_sections_unfolded = [ "Transform" ]
 
 [node name="Sprite1" type="Sprite" parent="HUD" index="0"]
 

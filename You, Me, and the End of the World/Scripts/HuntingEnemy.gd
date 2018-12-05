@@ -12,6 +12,17 @@ func _ready():
 
 func setHunterLocation(hunterLocation):
 	location = hunterLocation
+	
+#feed this function "left" "right" "up" and "down"
+func runDirection(direction):
+	if direction == "left":
+		velocity.x = -SPEED
+	elif direction == "right":
+		velocity.x = SPEED
+	elif direction == "up":
+		velocity.y = -SPEED
+	else: #direction == "down":
+		velocity.y = SPEED
 
 func runDirectlyAway():
 	#figure out which way would be directly away from the location
