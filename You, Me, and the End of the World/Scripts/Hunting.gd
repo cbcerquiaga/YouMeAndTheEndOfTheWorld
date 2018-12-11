@@ -14,7 +14,7 @@ func checkJustRightCollision():
 	if !bodies.empty():
 		for i in bodies:
 			numBodies = numBodies+1
-			print(str(numBodies))
+			print("just right: " + str(numBodies))
 	if numBodies > 2 and !checkSpookCollision() == 1:
 		return 1
 	else:
@@ -26,7 +26,7 @@ func checkSpookCollision():
 	if !bodies.empty():
 		for i in bodies:
 			numBodies = numBodies+1
-			print(str(numBodies) + "!")
+			print("spook: " + str(numBodies) + "!")
 	if numBodies > 1:
 		return 1
 	else:

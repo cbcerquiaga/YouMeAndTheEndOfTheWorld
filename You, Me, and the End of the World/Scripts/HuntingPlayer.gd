@@ -16,6 +16,7 @@ func _ready():
 
 func create_bullet(position):
 	var tempBullet = bullet.instance()
+	tempBullet.set_speed(500)
 	tempBullet.set_position(self.position)
 	var truePosition = get_local_mouse_position()
 	truePosition.x += 15

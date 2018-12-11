@@ -4,14 +4,17 @@ var velocity = Vector2()
 const SPEED = 100
 var velocityMultiplier = 1
 var location #where the player-controlled hunter is
+var health
 
 func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
+	health = 100
 	pass
 
 func setHunterLocation(hunterLocation):
 	location = hunterLocation
+	
+func _on_Bullet_hit(damage):
+	health = health - damage
 	
 #feed this function "left" "right" "up" and "down"
 func runDirection(direction):

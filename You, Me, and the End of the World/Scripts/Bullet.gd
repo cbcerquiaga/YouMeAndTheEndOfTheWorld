@@ -25,6 +25,9 @@ func _ready():
 	self.connect("hitUpdate", playerHealth, "hit", [])
 	self.look_at(get_viewport().get_mouse_position())
 	pass
+	
+func set_speed(value):
+	speed = value
 
 func _process(delta):
 	translate((speed * motion * delta))
