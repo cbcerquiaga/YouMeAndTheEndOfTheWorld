@@ -10,6 +10,7 @@ func _ready():
 	health = 100
 	pass
 
+#needs to be called in hunting.gd to update the location every frame
 func setHunterLocation(hunterLocation):
 	location = hunterLocation
 	
@@ -20,13 +21,18 @@ func _on_Bullet_hit(damage):
 func runDirection(direction):
 	if direction == "left":
 		velocity.x = -SPEED
+		velocity.y = 0
 	elif direction == "right":
 		velocity.x = SPEED
+		velocity.y = 0
 	elif direction == "up":
 		velocity.y = -SPEED
+		velocity.x = 0
 	else: #direction == "down":
 		velocity.y = SPEED
+		velocity.x = 0
 
+#run straight away from the player
 func runDirectlyAway():
 	#figure out which way would be directly away from the location
 	if location.x - self.position.x <= -10: #leftward
@@ -65,6 +71,7 @@ func runDirectlyAway():
 			velocity.x = 0
 			velocity.y = -SPEED
 
+#go 90 degrees to the left of running directly away
 func runAwayLeft():
 	#figure out which way is left from there
 	if location.x - self.position.x <= -10: #leftward

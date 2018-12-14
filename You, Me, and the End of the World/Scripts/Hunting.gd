@@ -14,7 +14,7 @@ func checkJustRightCollision():
 	if !bodies.empty():
 		for i in bodies:
 			numBodies = numBodies+1
-			print("just right: " + str(numBodies))
+			#print("just right: " + str(numBodies))
 	if numBodies > 2 and !checkSpookCollision() == 1:
 		return 1
 	else:
@@ -26,7 +26,7 @@ func checkSpookCollision():
 	if !bodies.empty():
 		for i in bodies:
 			numBodies = numBodies+1
-			print("spook: " + str(numBodies) + "!")
+			#print("spook: " + str(numBodies) + "!")
 	if numBodies > 1:
 		return 1
 	else:
@@ -42,12 +42,14 @@ func createBullet(playerPosition):
 
 func _process(delta):
 	creature.setHunterLocation(player.position)
+	if creature.health <= 0:
+		print("You got it!")
+		#randomize what the player actually gets
+		#leave the minigame
 	if player.lostVal == 100:
 		print("you lost the animal!")
 	elif player.spookVal == 100:
 		print("you scared it away")
-	elif player.shotVal == 100:
-		print("take the shot!")
 	else: #regular course of play
 		if checkJustRightCollision() == 1:
 			player.shotVal+= .5
@@ -55,10 +57,10 @@ func _process(delta):
 			player.lostVal-= .25
 		elif checkSpookCollision() == 1:
 			player.spookVal+= .5
-			player.shotVal-= .25
+			#player.shotVal-= .25
 			player.lostVal-= .25
 		else: #outside both collision areas
 			player.lostVal += .5
-			player.shotVal-= .25
+			#player.shotVal-= .25
 			player.spookVal-= .25
 	pass
