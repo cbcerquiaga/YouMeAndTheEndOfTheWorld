@@ -62,6 +62,10 @@ func _ready():
 	pass
 
 func _physics_process(delta):
+	#update paths
+	updateThrustPath()
+	updateSlashPath()
+	
 	# Create forces
 	var force = Vector2(0, GRAVITY)
 
@@ -247,3 +251,21 @@ func _on_Bullet_hit(bodyPart, damage, critChance):
 			totalHealth = totalHealth - ((damage*headDamageMultiplier) * 3/2)
 	print(str(totalHealth))
 	pass
+	
+#make the slash path follow the player
+func updateSlashPath():
+	var slashPath = get_node("slashPath")
+	slashPath.curve.clear_points()
+	#TODO: check which way the player is facing
+	#TODO: figure out optimal point positions
+	slashPath.curve.add_point(Vector2(position.x + 25, position.y + 40))
+	slashPath.curve.add_point(Vector2(position.x + 35, position.y + 20))
+	slashPath.curve.add_point(Vector2(position.x + 25, position.y))
+	
+func updateThrustPath():
+	var thrustPath = get_node("thrustPath")
+	thrustPath.curve.clear_points()
+	#TODO: check which way the player is facing
+	#TODO: figure out optimal point positions
+	thrustPath.curve.add_point(Vector2(position.x + 25, position.y + 20))
+	thrustPath.curve.add_point(Vector2(position.x + 55, position.y + 20))

@@ -56,7 +56,7 @@ extents = Vector2( 10, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 9.76202, 9.58755 )
 
-[node name="Combat" type="Node2D"]
+[node name="Combat" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
@@ -550,7 +550,6 @@ shape = SubResource( 4 )
 
 [node name="CombatPlayer" parent="TileMap" index="2" instance=ExtResource( 21 )]
 
-editor/display_folded = true
 position = Vector2( 215.972, 460.04 )
 
 [node name="Sword" parent="TileMap/CombatPlayer" index="4" instance=ExtResource( 22 )]

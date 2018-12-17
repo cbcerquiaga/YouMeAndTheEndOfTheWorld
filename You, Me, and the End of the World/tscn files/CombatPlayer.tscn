@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/CombatPlayer.gd" type="Script" id=1]
 [ext_resource path="res://Images/troll.png" type="Texture" id=2]
@@ -8,7 +8,33 @@
 custom_solver_bias = 0.0
 extents = Vector2( 9.7835, 0.502991 )
 
-[node name="CombatPlayer" type="KinematicBody2D"]
+[sub_resource type="Curve2D" id=2]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array(  )
+}
+
+[sub_resource type="NavigationPolygon" id=4]
+
+vertices = PoolVector2Array( 46.5903, -19.4948, 56.5645, 5.93927, 45.3436, 27.1343 )
+polygons = [ PoolIntArray( 0, 1, 2, 2 ) ]
+outlines = [ PoolVector2Array( 46.5903, -19.4948, 56.5645, 5.93927, 45.3436, 27.1343, 45.3436, 27.1343 ) ]
+
+[sub_resource type="Curve2D" id=3]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array(  )
+}
+
+[sub_resource type="NavigationPolygon" id=5]
+
+vertices = PoolVector2Array( 34.372, -5.53098, 85.2401, -4.78293, 84.9907, 0.70285, 33.6239, -0.294586 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+outlines = [ PoolVector2Array( 34.372, -5.53098, 85.2401, -4.78293, 84.9907, 0.70285, 33.6239, -0.294586 ) ]
+
+[node name="CombatPlayer" type="KinematicBody2D" index="0"]
 
 position = Vector2( 427.076, 349.132 )
 input_pickable = false
@@ -67,5 +93,30 @@ polygon = PoolVector2Array( 4.7988, -22.638, 6.98065, -22.5249, 7.013, -23.4784,
 position = Vector2( 2.79666, 35.5171 )
 scale = Vector2( 3.72205, 1 )
 shape = SubResource( 1 )
+
+[node name="slashPath" type="Path2D" parent="." index="4"]
+
+self_modulate = Color( 0.5, 0.6, 1, 0.7 )
+curve = SubResource( 2 )
+
+[node name="Navigation2D" type="Navigation2D" parent="slashPath" index="0"]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="slashPath/Navigation2D" index="0"]
+
+position = Vector2( -8.22867, -6.48318 )
+navpoly = SubResource( 4 )
+enabled = true
+
+[node name="thrustPath" type="Path2D" parent="." index="5"]
+
+self_modulate = Color( 0.5, 0.6, 1, 0.7 )
+curve = SubResource( 3 )
+
+[node name="Navigation2D" type="Navigation2D" parent="thrustPath" index="0"]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="thrustPath/Navigation2D" index="0"]
+
+navpoly = SubResource( 5 )
+enabled = true
 
 
