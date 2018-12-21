@@ -15,23 +15,24 @@ func changeSpeed(newSpeed):
 func changeTexture(value, player):
 	if player == 2:
 		if value == "A":
-			sprite.set_texture("res://Images/RhythmKeyA.png")
-		elif value == "S":
-			sprite.set_texture("res://Images/RhythmKeyS.png")
+			sprite.frame = 0
 		elif value == "D":
-			sprite.set_texture("res://Images/RhythmKeyD.png")
+			sprite.frame = 1
+		elif value == "S":
+			sprite.frame = 2
 		else: #value == "W":
-			sprite.set_texture("res://Images/RhythmKeyW.png")
+			sprite.frame = 3
 	else: #if player == 1:
 		if value == "A":
-			sprite.set_texture("res://Images/RhythmKeyLeft.png")
-		elif value == "S":
-			sprite.set_texture("res://Images/RhythmKeyDown.png")
+			sprite.frame = 4
 		elif value == "D":
-			sprite.set_texture("res://Images/RhythmKeyRight.png")
+			sprite.frame = 5
+		elif value == "S":
+			sprite.frame = 6
 		else: #value == "W":
-			sprite.set_texture("res://Images/RhythmKeyUp.png")
+			sprite.frame = 7
 
 func _process(delta):
 	move_and_slide(Vector2(0,speed))
+	#changeTexture("D",1)
 	pass

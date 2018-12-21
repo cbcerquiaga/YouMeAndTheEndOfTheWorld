@@ -27,14 +27,17 @@ func spawnNote():
 	else:
 		currentNote = 0
 	var noteVal = song[currentNote]
-	note.instance()
-	#note.changeTexture(noteVal, 1)
+	#print("Note: " + str(noteVal))
+	var tempNote = note.instance()
+	tempNote.set_position(self.position)
+	#tempNote.changeTexture(noteVal, 1)
 	
 
 func _process(delta):
-	if time == tempo:
+	if time >= tempo:
 		spawnNote()
 		time = 0
 	else:
 		time = time+1
+		print(str(time))
 	pass
