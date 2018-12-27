@@ -35,5 +35,5 @@ func _process(delta):
 			move_and_slide(Vector2(0, SLIDE_SPEED))
 		else:
 			move_and_slide(Vector2(0,0))
-	if abs(puckPosition.x - position.x) < CHALLENGE/2:
-		pokeCheck(delta)
+#	if abs(puckPosition.x - position.x) < CHALLENGE/2:
+#		pokeCheck(delta)
