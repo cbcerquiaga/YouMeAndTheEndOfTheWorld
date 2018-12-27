@@ -9,6 +9,8 @@ var playerTeamSubs
 var oppTeamSubs
 onready var arena = "pond"
 onready var gameStarted = false
+onready var playerTeamGoalie = get_node("boards/playerTeam/goalie")
+#onready var oppTeamGoalie = get_node("boards/oppTeam/goalie")
 
 func _ready():
 	camera.make_current()
@@ -29,6 +31,9 @@ func _process(delta):
 	else:
 		#check if the puck went in a net
 		#check for a fight
+		#make the goalies track the puck
+		playerTeamGoalie.setPuckPosition(get_node("boards/puck").position)
+		#oppTeamGoalie.setPuckPosition(get_node("boards/puck").position)
 		if clock.time_left == 0: #period over
 			clock.stop()
 			if period < 3:

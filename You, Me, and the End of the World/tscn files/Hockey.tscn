@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/Hockey.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/HockeyClock.gd" type="Script" id=2]
@@ -10,18 +10,19 @@
 [ext_resource path="res://Scripts/HockeyPlayer1.gd" type="Script" id=8]
 [ext_resource path="res://Images/riverBass.png" type="Texture" id=9]
 [ext_resource path="res://Scripts/HockeyPlayer2.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/hockeyGoalie.gd" type="Script" id=11]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
 radius = 231.24
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
@@ -387,7 +388,7 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( -9.9592, 21.0448 )
 scale = Vector2( 4.5317, 16.562 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="goal 2" type="Area2D" parent="boards" index="1"]
@@ -406,7 +407,7 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( -34.7202, 20.4688 )
 scale = Vector2( 4.5317, 16.562 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="puck" type="RigidBody2D" parent="boards" index="2"]
@@ -437,7 +438,7 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 position = Vector2( 0.205566, -0.0731201 )
 scale = Vector2( 0.0789733, 0.0811418 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="boards/puck" index="1"]
 
@@ -463,7 +464,7 @@ texture = ExtResource( 9 )
 
 position = Vector2( 0.148548, 26.4878 )
 scale = Vector2( 12.2991, 8.55624 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="player2" type="KinematicBody2D" parent="boards/playerTeam" index="1"]
 
@@ -480,7 +481,7 @@ texture = ExtResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boards/playerTeam/player2" index="1"]
 
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="goalie" type="KinematicBody2D" parent="boards/playerTeam" index="2"]
 
@@ -489,14 +490,16 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
+script = ExtResource( 11 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="boards/playerTeam/goalie" index="0"]
 
 texture = ExtResource( 9 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boards/playerTeam/goalie" index="1"]
 
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 
