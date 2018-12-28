@@ -25,6 +25,7 @@ var jumping = false
 var prev_jump_pressed = false
 
 #combat-affecting variables
+var isFacingRight = true
 var isCrouched = false
 var isGrappling = false #if the player and enemy are grappling,
 	#the player and enemy are stuck together with whoever has more
@@ -269,3 +270,10 @@ func updateThrustPath():
 	#TODO: figure out optimal point positions
 	thrustPath.curve.add_point(Vector2(position.x + 25, position.y + 20))
 	thrustPath.curve.add_point(Vector2(position.x + 55, position.y + 20))
+	
+func updateFacingRight(boolean):
+	isFacingRight = boolean
+	if isFacingRight:
+		get_node("Sprite").set_flip_h(false)
+	else:
+		get_node("Sprite").set_flip_h(true)

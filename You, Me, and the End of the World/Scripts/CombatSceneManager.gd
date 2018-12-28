@@ -7,6 +7,8 @@ onready var runButton = get_node("CombatHUD/Run Away Button")
 onready var enemyHealth = get_node("TileMap/Enemy").totalHealth
 onready var playerHealth = get_node("TileMap/CombatPlayer").totalHealth
 onready var defeatedDialog = get_node("DefeatedDialog")
+onready var player = get_node("TileMap/CombatPlayer")
+onready var enemy = get_node("TileMap/Enemy")
 
 func _ready():
 	#set mouse cursor to combat crosshairs
@@ -75,6 +77,10 @@ func _pause():
 func _process(delta):
 	enemyHealth = get_node("TileMap/Enemy").totalHealth
 	playerHealth = get_node("TileMap/CombatPlayer").totalHealth
+	if player.position.x > enemy.position.x:
+		player.updateFacingRight(false)
+	elif player.position.x < enemy.position.x:
+		player.updateFacingRight(true)
 	if Input.is_action_pressed("pause"):
 		_pause()
 	if playerHealth <= 0: #got rekt

@@ -26,12 +26,13 @@ extents = Vector2( 10, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Fishing" type="Node2D"]
+[node name="Fishing" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
 [node name="PlayerTracker" parent="." index="0" instance=ExtResource( 2 )]
 
+visible = false
 position = Vector2( 50, 40 )
 
 [node name="Obstacles" type="TileMap" parent="." index="1"]
