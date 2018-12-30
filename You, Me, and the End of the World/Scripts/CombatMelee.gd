@@ -7,6 +7,7 @@ var bleed = 0 #default bleed damage
 var ricochet = 0 #the number of times the bullet ricochets before destroying
 var explosion = false #default explosiveness
 var poison = false #default poison value
+var isFacingRight = true
 
 onready var enemyHealth = get_node("/root/Combat/CombatHUD/EnemyHealth")
 onready var playerHealth = get_node("/root/Combat/CombatHUD/PlayerHealth")
@@ -32,6 +33,14 @@ func _process(delta):
 			print("Ouch!")
 			contact(i)
 	pass
+	
+func updateFacingRight(boolean):
+	isFacingRight = boolean
+	if isFacingRight:
+		get_node("Sprite").set_flip_h(false)
+	else:
+		get_node("Sprite").set_flip_h(true)
+		
 
 func contact(body):
 	if Input.is_action_just_pressed("p2_action2") or Input.is_action_just_pressed("p2_move_right") or Input.is_action_just_pressed("Fkey"):

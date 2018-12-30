@@ -57,6 +57,16 @@ func on_run_pressed():
 		#TODO: apply a cooldown before another run away can be attempted
 		#maybe deplete the player's stamina?
 		
+func tagTeam():
+	print("Whose music is that?")
+	#check how many tag teams are remaining (maybe let the players have 2?)
+	#play a tag team animation
+	#switch player sprites
+	#switch player weapons
+	#switch player health
+	#make the player temporarily 
+	#print("He hits him with the chair!")
+		
 func on_enemy_defeated():
 	print("victory")
 	defeatedDialog.show()
@@ -79,8 +89,13 @@ func _process(delta):
 	playerHealth = get_node("TileMap/CombatPlayer").totalHealth
 	if player.position.x > enemy.position.x:
 		player.updateFacingRight(false)
+		get_node("TileMap/CombatPlayer/Sword").updateFacingRight(false)
 	elif player.position.x < enemy.position.x:
 		player.updateFacingRight(true)
+		get_node("TileMap/CombatPlayer/Sword").updateFacingRight(true)
+	if Input.is_action_just_pressed("p1_action1"):
+		if player.position.x < get_node("TileMap/TagTeamCheck").position.x:
+			tagTeam()
 	if Input.is_action_pressed("pause"):
 		_pause()
 	if playerHealth <= 0: #got rekt

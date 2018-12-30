@@ -9,7 +9,7 @@ func collidingWithPlayer():
 	if(collideCheck != null):
 		for i in collideCheck:
 			print(str(i))
-			if i == "CombatPlayer":
+			if i == get_node("CombatPlayer"):
 				return true
 	return false
 

@@ -15,13 +15,13 @@ _data = {
 "points": PoolVector2Array(  )
 }
 
-[sub_resource type="NavigationPolygon" id=4]
+[sub_resource type="NavigationPolygon" id=3]
 
 vertices = PoolVector2Array( 46.5903, -19.4948, 56.5645, 5.93927, 45.3436, 27.1343 )
 polygons = [ PoolIntArray( 0, 1, 2, 2 ) ]
 outlines = [ PoolVector2Array( 46.5903, -19.4948, 56.5645, 5.93927, 45.3436, 27.1343, 45.3436, 27.1343 ) ]
 
-[sub_resource type="Curve2D" id=3]
+[sub_resource type="Curve2D" id=4]
 
 bake_interval = 5.0
 _data = {
@@ -34,7 +34,7 @@ vertices = PoolVector2Array( 34.372, -5.53098, 85.2401, -4.78293, 84.9907, 0.702
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 outlines = [ PoolVector2Array( 34.372, -5.53098, 85.2401, -4.78293, 84.9907, 0.70285, 33.6239, -0.294586 ) ]
 
-[node name="CombatPlayer" type="KinematicBody2D" index="0"]
+[node name="CombatPlayer" type="KinematicBody2D"]
 
 position = Vector2( 427.076, 349.132 )
 input_pickable = false
@@ -104,13 +104,13 @@ curve = SubResource( 2 )
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="slashPath/Navigation2D" index="0"]
 
 position = Vector2( -8.22867, -6.48318 )
-navpoly = SubResource( 4 )
+navpoly = SubResource( 3 )
 enabled = true
 
 [node name="thrustPath" type="Path2D" parent="." index="5"]
 
 self_modulate = Color( 0.5, 0.6, 1, 0.7 )
-curve = SubResource( 3 )
+curve = SubResource( 4 )
 
 [node name="Navigation2D" type="Navigation2D" parent="thrustPath" index="0"]
 
