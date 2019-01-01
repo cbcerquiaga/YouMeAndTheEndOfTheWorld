@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Scripts/MusicP1Emitter.gd" type="Script" id=1]
-[ext_resource path="res://tscn files/MusicKey.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/MusicMinigameManager.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/MusicP1Emitter.gd" type="Script" id=2]
+[ext_resource path="res://tscn files/MusicKey.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -30,10 +31,12 @@ extents = Vector2( 10, 10 )
 
 [node name="Node" type="Node" index="0"]
 
+script = ExtResource( 1 )
+
 [node name="p1Emitter" type="Node2D" parent="." index="0"]
 
 position = Vector2( 664.815, 30.0764 )
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="p2Emitter" type="Node2D" parent="." index="1"]
 
@@ -132,6 +135,6 @@ audio_bus_name = "Master"
 position = Vector2( 0, -137.725 )
 shape = SubResource( 5 )
 
-[node name="MusicKey" parent="." index="7" instance=ExtResource( 2 )]
+[node name="MusicKey" parent="." index="7" instance=ExtResource( 3 )]
 
 
