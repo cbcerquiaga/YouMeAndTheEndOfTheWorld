@@ -8,9 +8,14 @@ onready var enemyHealth = get_node("TileMap/Enemy").totalHealth
 onready var playerHealth = get_node("TileMap/CombatPlayer").totalHealth
 onready var defeatedDialog = get_node("DefeatedDialog")
 onready var player = get_node("TileMap/CombatPlayer")
+onready var player2 = get_node("TileMap/CombatPlayer2")
 onready var enemy = get_node("TileMap/Enemy")
+var currentPlayer = 1
 
 func _ready():
+	#freeze player 2 to make player 1 the active player
+	player2.freeze()
+	player.unfreeze()
 	#set mouse cursor to combat crosshairs
 	Input.set_custom_mouse_cursor(crosshair, 0, Vector2(15, 15))
 	#connect button signals
@@ -61,6 +66,8 @@ func tagTeam():
 	print("Whose music is that?")
 	#check how many tag teams are remaining (maybe let the players have 2?)
 	#play a tag team animation
+	#switch the player controls and the active player
+	switchPlayer()
 	#switch player sprites
 	#switch player weapons
 	#switch player health
@@ -83,6 +90,16 @@ func _pause():
 	get_tree().paused = true
 	#$pause_popup.update()
 	$pause_popup.show()
+	
+func switchPlayer():
+	if currentPlayer == 1:
+		currentPlayer = 2
+		player.freeze()
+		player2.unfreeze()
+	else:
+		currentPlayer = 1
+		player2.freeze()
+		player.unfreeze()
 	
 func _process(delta):
 	enemyHealth = get_node("TileMap/Enemy").totalHealth

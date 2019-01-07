@@ -45,7 +45,7 @@ use_filter = false
 font_data = ExtResource( 9 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
 extents = Vector2( 9.76202, 9.58755 )
@@ -86,6 +86,7 @@ margin_bottom = 539.0
 
 [node name="CombatHUD" type="CanvasLayer" parent="." index="2"]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -520,9 +521,13 @@ _sections_unfolded = [ "Collision", "Transform" ]
 
 position = Vector2( 40, -17 )
 
-[node name="Bullet" parent="TileMap" index="2" instance=ExtResource( 22 )]
+[node name="CombatPlayer2" parent="TileMap" index="2" instance=ExtResource( 20 )]
 
-[node name="Enemy" parent="TileMap" index="3" instance=ExtResource( 23 )]
+position = Vector2( 905.788, 456.306 )
+
+[node name="Bullet" parent="TileMap" index="3" instance=ExtResource( 22 )]
+
+[node name="Enemy" parent="TileMap" index="4" instance=ExtResource( 23 )]
 
 position = Vector2( 843.072, 381.28 )
 
@@ -544,7 +549,7 @@ __meta__ = {
 
 position = Vector2( 517.385, 289.739 )
 scale = Vector2( -47.8738, -25.1606 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 __meta__ = {
 "_edit_lock_": true
 }
