@@ -92,6 +92,7 @@ func _pause():
 	$pause_popup.show()
 	
 func switchPlayer():
+	switchPlayerUI()
 	if currentPlayer == 1:
 		currentPlayer = 2
 		player.freeze()
@@ -100,6 +101,11 @@ func switchPlayer():
 		currentPlayer = 1
 		player2.freeze()
 		player.unfreeze()
+		
+func switchPlayerUI():
+	get_node("CombatHUD/PlayerAmmoNum").switchPlayer()
+	get_node("CombatHUD/PlayerHealth").switchPlayer()
+	get_node("CombatHUD/PlayerStamina").switchPlayer()
 	
 func _process(delta):
 	enemyHealth = get_node("TileMap/Enemy").totalHealth
