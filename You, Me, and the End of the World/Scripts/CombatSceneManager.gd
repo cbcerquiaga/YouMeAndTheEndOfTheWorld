@@ -2,6 +2,9 @@ extends Node2D
 
 var crosshair = load("res://Images/Crosshair.png")
 #export (NodePath) var button_path
+#var tagTeamTimer = Timer.new()
+var tagTeamCooldown = 0
+var tagTeamsRemaining = 3
 onready var surrenderButton = get_node("CombatHUD/Surrender Button")
 onready var runButton = get_node("CombatHUD/Run Away Button")
 onready var enemyHealth = get_node("TileMap/Enemy").totalHealth
@@ -63,16 +66,15 @@ func on_run_pressed():
 		#maybe deplete the player's stamina?
 		
 func tagTeam():
-	print("Whose music is that?")
-	#check how many tag teams are remaining (maybe let the players have 2?)
-	#play a tag team animation
-	#switch the player controls and the active player
-	switchPlayer()
-	#switch player sprites
-	#switch player weapons
-	#switch player health
-	#make the player temporarily 
-	#print("He hits him with the chair!")
+	if tagTeamCooldown <= 0 and tagTeamsRemaining > 0:
+		tagTeamCooldown = 85
+		tagTeamsRemaining = tagTeamsRemaining - 1
+		print("Whose music is that?")
+		#play a tag team animation
+		switchPlayer()
+		#make the player temporarily invincible?
+		#maybe force the enemy back a bit
+		#print("He hits him with the chair!")
 		
 func on_enemy_defeated():
 	print("victory")
@@ -92,6 +94,7 @@ func _pause():
 	$pause_popup.show()
 	
 func switchPlayer():
+	
 	switchPlayerUI()
 	if currentPlayer == 1:
 		currentPlayer = 2
@@ -110,6 +113,8 @@ func switchPlayerUI():
 func _process(delta):
 	enemyHealth = get_node("TileMap/Enemy").totalHealth
 	playerHealth = get_node("TileMap/CombatPlayer").totalHealth
+	if tagTeamCooldown > 0:
+		tagTeamCooldown = tagTeamCooldown - 1
 	if player.position.x > enemy.position.x:
 		player.updateFacingRight(false)
 		get_node("TileMap/CombatPlayer/Sword").updateFacingRight(false)
