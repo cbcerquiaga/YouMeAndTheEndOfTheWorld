@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/Hunting.gd" type="Script" id=1]
 [ext_resource path="res://Images/myTiles.tres" type="TileSet" id=2]
-[ext_resource path="res://Scripts/PreyAnimal.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/SpiralPatternAnimal.gd" type="Script" id=3]
 [ext_resource path="res://Images/grandPiano.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/HuntingPlayer.gd" type="Script" id=5]
 [ext_resource path="res://Images/troll.png" type="Texture" id=6]
