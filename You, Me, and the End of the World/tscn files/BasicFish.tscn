@@ -14,7 +14,7 @@ custom_solver_bias = 0.0
 radius = 10.0
 height = 17.6364
 
-[node name="Fish" type="KinematicBody2D"]
+[node name="Fish" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1

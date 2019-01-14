@@ -17,7 +17,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
 radius = 11.5
@@ -438,7 +438,7 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 position = Vector2( -0.399309, 0.125501 )
 scale = Vector2( 1.26938, 1.1557 )
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="boards/puck" index="1"]
 
