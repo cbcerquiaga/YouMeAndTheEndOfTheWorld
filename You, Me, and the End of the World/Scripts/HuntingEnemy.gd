@@ -151,7 +151,7 @@ func runAwayRight():
 
 func runTowards():
 	#just do the opposite of runDirectlyAway
-	runDirectlyAway(location)
+	runDirectlyAway()
 	velocity.x = -velocity.x
 	velocity.y = -velocity.y
 	
