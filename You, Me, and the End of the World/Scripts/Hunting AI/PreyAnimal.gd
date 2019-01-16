@@ -1,4 +1,4 @@
-extends 'res://Scripts/HuntingEnemy.gd'
+extends 'res://Scripts/Hunting AI/HuntingEnemy.gd'
 
 #onready var playerPos = get_node("root/Hunting/TileMap/Player").position
 var moveTime = 100

@@ -1,4 +1,4 @@
-extends "res://Scripts/HuntingEnemy.gd"
+extends "res://Scripts/Hunting AI/HuntingEnemy.gd"
 
 var moveTime = 61
 var lastMove

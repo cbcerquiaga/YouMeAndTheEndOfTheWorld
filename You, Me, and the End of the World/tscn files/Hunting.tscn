@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/Hunting.gd" type="Script" id=1]
 [ext_resource path="res://Images/myTiles.tres" type="TileSet" id=2]
-[ext_resource path="res://Scripts/PredatorAnimal.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Hunting AI/stutterAnimal.gd" type="Script" id=3]
 [ext_resource path="res://Images/grandPiano.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/HuntingPlayer.gd" type="Script" id=5]
 [ext_resource path="res://Images/troll.png" type="Texture" id=6]
@@ -23,7 +23,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
@@ -60,6 +60,7 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="collision" type="CollisionShape2D" parent="TileMap/Creature" index="0"]
 
@@ -71,6 +72,7 @@ shape = SubResource( 1 )
 
 position = Vector2( -2, 6 )
 texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Player" type="KinematicBody2D" parent="TileMap" index="1"]
 
@@ -86,7 +88,7 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 26.9, 5 )
 scale = Vector2( 3.57692, 4.15385 )
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="TileMap/Player" index="1"]
