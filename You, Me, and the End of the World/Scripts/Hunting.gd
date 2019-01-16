@@ -9,25 +9,14 @@ func _ready():
 	pass
 	
 func checkJustRightCollision():
-	var bodies = get_node("TileMap/Creature/Just right").get_overlapping_areas()
-	var numBodies = 0
-	if !bodies.empty():
-		for i in bodies:
-			numBodies = numBodies+1
-			#print("just right: " + str(numBodies))
-	if numBodies > 2 and !checkSpookCollision() == 1:
+	if (getXDist() < creature.justRightDist and getXDist() > (1-creature.justRightDist)) and (getYDist() < creature.justRightDist and getYDist() > (1 - creature.justRightDist)) and !checkSpookCollision() == 1:
 		return 1
 	else:
 		return 0
 	
 func checkSpookCollision():
-	var bodies = get_node("TileMap/Creature/Just right").get_overlapping_areas()
-	var numBodies = 0
-	if !bodies.empty():
-		for i in bodies:
-			numBodies = numBodies+1
-			#print("spook: " + str(numBodies) + "!")
-	if numBodies > 1:
+	if (getXDist() < creature.spookDist and getXDist() > (1-creature.spookDist)) and (getYDist() < creature.spookDist and getYDist() > (1 - creature.spookDist)):
+		print("too close")
 		return 1
 	else:
 		return 0
@@ -47,9 +36,11 @@ func _process(delta):
 		#randomize what the player actually gets
 		#leave the minigame
 	if player.lostVal == 100:
-		print("you lost the animal!")
+		lost()
+		#print("you lost the animal!")
 	elif player.spookVal == 100:
-		print("you scared it away")
+		spooked()
+		#print("you scared it away")
 	else: #regular course of play
 		if checkJustRightCollision() == 1:
 			player.shotVal+= .5
@@ -64,3 +55,17 @@ func _process(delta):
 			#player.shotVal-= .25
 			player.spookVal-= .25
 	pass
+	
+#when the animal is lost, end the game and send the player out without being able to find them again
+func lost():
+	pass
+	
+#when the animal is spooked, end the game but put the player near more footprints
+func spooked():
+	pass
+	
+func getXDist():
+	return player.position.x - creature.position.x
+	
+func getYDist():
+	return player.position.y - creature.position.y

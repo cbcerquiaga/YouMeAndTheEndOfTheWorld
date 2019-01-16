@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scripts/Hunting.gd" type="Script" id=1]
 [ext_resource path="res://Images/myTiles.tres" type="TileSet" id=2]
@@ -19,16 +19,6 @@
 [ext_resource path="res://Images/huntingShotIcon.png" type="Texture" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
-
-[sub_resource type="RectangleShape2D" id=2]
-
-custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
-
-[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
@@ -81,42 +71,6 @@ shape = SubResource( 1 )
 
 position = Vector2( -2, 6 )
 texture = ExtResource( 4 )
-
-[node name="Just right" type="Area2D" parent="TileMap/Creature" index="2"]
-
-position = Vector2( -3.54414, 9.99148 )
-scale = Vector2( 1.0286, 1.26436 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Creature/Just right" index="0"]
-
-position = Vector2( 1.01992, -0.370911 )
-scale = Vector2( 20.4258, 15.494 )
-shape = SubResource( 2 )
-
-[node name="Too close" type="Area2D" parent="TileMap/Creature" index="3"]
-
-position = Vector2( 1.72296, 13.6764 )
-scale = Vector2( 3.70312, 3.65625 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Creature/Too close" index="0"]
-
-position = Vector2( -0.345954, -2.85737 )
-scale = Vector2( 3.32922, 3.35425 )
-shape = SubResource( 3 )
 
 [node name="Player" type="KinematicBody2D" parent="TileMap" index="1"]
 
