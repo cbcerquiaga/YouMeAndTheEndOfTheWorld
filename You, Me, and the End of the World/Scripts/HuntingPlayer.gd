@@ -7,7 +7,7 @@ onready var lostVal = 0
 onready var spookVal = 0
 onready var shotVal = 0#100
 var spread = 20
-onready var bullet = load("res://tscn files/Bullet.tscn")
+onready var bullet = load("res://tscn files/HuntingBullet.tscn")
 
 func _ready():
 	# Called when the node is added to the scene for the first time.

@@ -1,22 +1,21 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scripts/Hunting.gd" type="Script" id=1]
 [ext_resource path="res://Images/myTiles.tres" type="TileSet" id=2]
-[ext_resource path="res://Scripts/Hunting AI/stutterAnimal.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Hunting AI/HuntingEnemy.gd" type="Script" id=3]
 [ext_resource path="res://Images/grandPiano.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/HuntingPlayer.gd" type="Script" id=5]
 [ext_resource path="res://Images/troll.png" type="Texture" id=6]
-[ext_resource path="res://tscn files/Bullet.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scripts/HuntingBullet.gd" type="Script" id=8]
-[ext_resource path="res://Images/combatHud.png" type="Texture" id=9]
-[ext_resource path="res://Images/huntingLostBar.png" type="Texture" id=10]
-[ext_resource path="res://Scripts/LostBar.gd" type="Script" id=11]
-[ext_resource path="res://Scripts/SpookBar.gd" type="Script" id=12]
-[ext_resource path="res://Images/huntingShotBar.png" type="Texture" id=13]
-[ext_resource path="res://Scripts/ShotBar.gd" type="Script" id=14]
-[ext_resource path="res://Images/huntingLostIcon.png" type="Texture" id=15]
-[ext_resource path="res://Images/huntingSpookIcon.png" type="Texture" id=16]
-[ext_resource path="res://Images/huntingShotIcon.png" type="Texture" id=17]
+[ext_resource path="res://tscn files/HuntingBullet.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Images/combatHud.png" type="Texture" id=8]
+[ext_resource path="res://Images/huntingLostBar.png" type="Texture" id=9]
+[ext_resource path="res://Scripts/LostBar.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/SpookBar.gd" type="Script" id=11]
+[ext_resource path="res://Images/huntingShotBar.png" type="Texture" id=12]
+[ext_resource path="res://Scripts/ShotBar.gd" type="Script" id=13]
+[ext_resource path="res://Images/huntingLostIcon.png" type="Texture" id=14]
+[ext_resource path="res://Images/huntingSpookIcon.png" type="Texture" id=15]
+[ext_resource path="res://Images/huntingShotIcon.png" type="Texture" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -99,7 +98,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Bullet" parent="TileMap" index="2" instance=ExtResource( 7 )]
 
-script = ExtResource( 8 )
+position = Vector2( 0.0400544, -0.0200042 )
 
 [node name="HUD" type="Node2D" parent="." index="1"]
 
@@ -108,18 +107,18 @@ _sections_unfolded = [ "Transform" ]
 [node name="Sprite1" type="Sprite" parent="HUD" index="0"]
 
 position = Vector2( 200, 20 )
-texture = ExtResource( 9 )
+texture = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Sprite2" type="Sprite" parent="HUD" index="1"]
 
 position = Vector2( 500, 20 )
-texture = ExtResource( 9 )
+texture = ExtResource( 8 )
 
 [node name="Sprite3" type="Sprite" parent="HUD" index="2"]
 
 position = Vector2( 800, 20 )
-texture = ExtResource( 9 )
+texture = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Lost Bar" type="TextureProgress" parent="HUD" index="3"]
@@ -147,11 +146,11 @@ exp_edit = false
 rounded = false
 texture_under = null
 texture_over = null
-texture_progress = ExtResource( 10 )
+texture_progress = ExtResource( 9 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
-script = ExtResource( 11 )
+script = ExtResource( 10 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="Spook Bar" type="TextureProgress" parent="HUD" index="4"]
@@ -179,11 +178,11 @@ exp_edit = false
 rounded = false
 texture_under = null
 texture_over = null
-texture_progress = ExtResource( 10 )
+texture_progress = ExtResource( 9 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
-script = ExtResource( 12 )
+script = ExtResource( 11 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="Shot Bar" type="TextureProgress" parent="HUD" index="5"]
@@ -211,29 +210,29 @@ exp_edit = false
 rounded = false
 texture_under = null
 texture_over = null
-texture_progress = ExtResource( 13 )
+texture_progress = ExtResource( 12 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
-script = ExtResource( 14 )
+script = ExtResource( 13 )
 _sections_unfolded = [ "Textures" ]
 
 [node name="lostIcon" type="Sprite" parent="HUD" index="6"]
 
 position = Vector2( 50, 20 )
-texture = ExtResource( 15 )
+texture = ExtResource( 14 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="spookIcon" type="Sprite" parent="HUD" index="7"]
 
 position = Vector2( 350, 20 )
-texture = ExtResource( 16 )
+texture = ExtResource( 15 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="shotIcon" type="Sprite" parent="HUD" index="8"]
 
 position = Vector2( 650, 20 )
-texture = ExtResource( 17 )
+texture = ExtResource( 16 )
 _sections_unfolded = [ "Transform" ]
 
 

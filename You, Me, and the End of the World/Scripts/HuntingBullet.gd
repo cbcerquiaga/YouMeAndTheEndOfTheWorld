@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 var damage = 100 #default damage
+var critChance = .2 #default critical chance
 var speed = 500 #default speed
 var motion = Vector2(2,0)
 
@@ -29,7 +30,7 @@ func _process(delta):
 
 func contact(body):
 	print("Hit creature")
-	emit_signal("hit", body.name, damage)
+	emit_signal("hit", body.name, damage, critChance)
 	emit_signal("hitUpdate")
 	#if ricochet < 1:
 	destroy()

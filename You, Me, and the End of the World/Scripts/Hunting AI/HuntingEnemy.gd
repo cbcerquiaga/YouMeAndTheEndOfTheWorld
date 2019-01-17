@@ -16,8 +16,13 @@ func _ready():
 func setHunterLocation(hunterLocation):
 	location = hunterLocation
 	
-func _on_Bullet_hit(damage):
-	health = health - damage
+func _on_Bullet_hit(damage, critChance):
+	var randNum = rand_range(0,1)
+	if randNum > critChance: #not a critical hit
+		health = health - damage
+	else: #critical hit, double damage
+		health = health - damage*2
+	print("Remaining health: " + str(health))
 	
 #feed this function "left" "right" "up" and "down"
 func runDirection(direction):
