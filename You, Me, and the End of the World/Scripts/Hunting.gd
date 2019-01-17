@@ -48,11 +48,11 @@ func _process(delta):
 			player.lostVal-= .25
 		elif checkSpookCollision() == 1:
 			player.spookVal+= .5
-			#player.shotVal-= .25
+			player.shotVal-= .25
 			player.lostVal-= .25
 		else: #outside both collision areas
 			player.lostVal += .5
-			#player.shotVal-= .25
+			player.shotVal-= .25
 			player.spookVal-= .25
 	pass
 	

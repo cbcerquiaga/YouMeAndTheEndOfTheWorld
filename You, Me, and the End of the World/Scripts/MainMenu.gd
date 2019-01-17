@@ -26,3 +26,6 @@ func _on_OpenWorld_pressed():
 	
 func _on_Fishing_pressed():
 	get_tree().change_scene("res://tscn files/Fishing.tscn")
+	
+func _on_Hunting_pressed():
+	get_tree().change_scene("res://tscn files/Hunting.tscn")

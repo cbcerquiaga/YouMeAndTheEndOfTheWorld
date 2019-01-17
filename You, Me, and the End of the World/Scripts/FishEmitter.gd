@@ -1,7 +1,7 @@
 extends Node2D
 
 onready var availableFish = ["bass", "trout", "eel", "mutant", "gold", "minnow"]
-onready var fish = load("res://Scripts/BasicFish.gd")
+onready var fish = load("res://tscn files/BasicFish.tscn")
 var maxDepth = 100 #default maximum depth unless a new one is given
 
 func _ready():
