@@ -42,13 +42,13 @@ func _process(delta):
 		spooked()
 		#print("you scared it away")
 	else: #regular course of play
-		if checkJustRightCollision() == 1:
-			player.shotVal+= .5
-			player.spookVal-= .25
-			player.lostVal-= .25
-		elif checkSpookCollision() == 1:
+		if checkSpookCollision() == 1:
 			player.spookVal+= .5
 			player.shotVal-= .25
+			player.lostVal-= .25
+		elif checkJustRightCollision() == 1:
+			player.shotVal+= .5
+			player.spookVal-= .25
 			player.lostVal-= .25
 		else: #outside both collision areas
 			player.lostVal += .5

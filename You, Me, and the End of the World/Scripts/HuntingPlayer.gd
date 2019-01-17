@@ -5,7 +5,7 @@ var ammoVal = 0
 const SPEED = 600
 onready var lostVal = 0
 onready var spookVal = 0
-onready var shotVal = 100
+onready var shotVal = 0#100
 var spread = 20
 onready var bullet = load("res://tscn files/Bullet.tscn")
 

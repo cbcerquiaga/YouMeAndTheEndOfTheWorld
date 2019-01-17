@@ -5,8 +5,8 @@ const SPEED = 100
 var velocityMultiplier = 1
 var location #where the player-controlled hunter is
 var health
-const spookDist = 20
-const justRightDist = 60
+const spookDist = 100
+const justRightDist = 200
 
 func _ready():
 	health = 100

@@ -76,7 +76,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Player" type="KinematicBody2D" parent="TileMap" index="1"]
 
-position = Vector2( 0, 284 )
+position = Vector2( 76.8835, 290.889 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -86,14 +86,14 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Player" index="0"]
 
-position = Vector2( 26.9, 5 )
+position = Vector2( 2.89996, 5 )
 scale = Vector2( 3.57692, 4.15385 )
 shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="TileMap/Player" index="1"]
 
-position = Vector2( 24, 2 )
+position = Vector2( 0, 2 )
 texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
