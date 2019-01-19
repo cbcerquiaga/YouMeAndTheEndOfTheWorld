@@ -32,6 +32,7 @@ func set_speed(value):
 func _process(delta):
 	translate((speed * motion * delta))
 	var collideCheck = move_and_collide(motion * delta)
+	#print(str(collideCheck))
 	if(collideCheck != null):
 		if(collideCheck.collider.name != "head" and collideCheck.collider.name != "torso"):
 			print("Ouch!")

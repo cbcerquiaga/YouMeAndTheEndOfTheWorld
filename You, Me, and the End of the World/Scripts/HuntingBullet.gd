@@ -2,10 +2,11 @@ extends KinematicBody2D
 
 var damage = 100 #default damage
 var critChance = .2 #default critical chance
-var speed = 500 #default speed
+var speed = 500 #default speed 500
 var motion = Vector2(2,0)
 
 onready var creature = self.get_parent().get_node("Creature")
+onready var creatureSprite = self.get_parent().get_node("Creature/Sprite")
 
 signal hit
 signal hitUpdate
@@ -23,9 +24,12 @@ func set_speed(value):
 func _process(delta):
 	translate((speed * motion * delta))
 	var collideCheck = move_and_collide(motion * delta)
+	print(str(collideCheck))
 	if(collideCheck != null):
-		hide()
-		queue_free()
+		contact(collideCheck.collider)
+#	if self.position.x > creature.position.x - creatureSprite.texture.get_width() and self.position.x < creature.position.x + creatureSprite.texture.get_width():
+#		if self.position.y < creature.position.y + creatureSprite.texture.get_height() and self.position.y > creature.position.y - creatureSprite.texture.get_height():
+#			contact(creature)
 	pass
 
 func contact(body):
