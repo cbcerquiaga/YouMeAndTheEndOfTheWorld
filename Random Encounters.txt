@@ -13,7 +13,10 @@ Common encounters
 7. Fishermen/hunters- from a nearby town
 8. Monsters- mean animals
 9. Animal tracks- let you hunt
-10.
+10. Wayfarers- people just going from one town to another for a short time...maybe on business, maybe to visit someone, maybe scouting for a new place to live.
+11. Migrants- people carrying a relatively large number of posessions, traveling to a certain place with the goal of living there permanently.
+12. Smoker- people who have been ditched on the side of the road by their companions for some reason or another and left to die. Often, these people have a terminal illness or broken legs. It's common practice to leave someone that can't be taken care of with cigarettes, hence why these people are called smokers.
+13.
 
 Medium encounters
 1. Soldiers- from a nearby town
@@ -22,14 +25,23 @@ Medium encounters
 4. The nomads- a people who ride dog sleds and live off of the land, never trying to settle down anywhere, even at night.
 5. Gunslingers- these people go from town to town challenging people to duels. People bet on the duels, and the winner gets not only whatever their opponent had but also a quarter of the bets taken for their opponent.
 6. Cowherders- people who live by taking care of a moving herd of cattle. They eat the cows and their cheese, drink their milk, and sell them to towns for goods. Cows are hardy enough to survive in both the hot and the cold and they were plentiful back in civilized time, so that's why people herd them instead of some other animal.
+7. Carpetbaggers- migrants from the North looking to find more fertile farmland and more populous settlements.
+8. Tutors- since organized schools are all but gone, learned people travel from town to town delivering their knowledge to people who pay them. Some tutors specialize in teaching children of certain ages, others in certain subjects.
+9. Prosthelytizers- people of various faiths travelling around trying to convert people to their religion
+10. Quarantined- people kicked out of their town for carrying contagious illnesses, and not allowed to return until they no longer show symptoms
+11. Banished- people kicked out of their towns for comitting crimes
+12. Bards- travelling musicians, poets, and writers who travel from town to town carrying news and telling stories of the past.
+13. Doctors- travelling doctors of varying qualification who go from town to town practicing or pretending to practice medicine.
 
 Rare encounters
 1. Working car- just sitting there. Who would leave a working car just sitting there?
 2. Screwdriver Man- not the superhero we deserve, and not the one we needed either. He just runs up and stabs you with a screwdriver and leaves
-3. Entertainers- small circuses who travel from town to town doing different acts (things like the trapeze, lifting heavy objects, performing plays, singing songs, or performing magic) in order to make money from locals before heading to the next town.
+3. Entertainers- small circuses who travel from town to town doing different acts (things like the trapeze, lifting heavy objects, performing plays, singing songs, reading books, or performing magic) in order to make money from locals before heading to the next town.
+4. Seafarers- people who live on boats at sea, scavenging and fishing to survive. When these people come to land to trade, it's a rare sight.
+5.
 
 Special Encounters (only after certain quests)
 1. Crow and his men
 2. The former mayor of Peachtree (if ousted)
-3. Missionaries (depending on what's going on in Nestor)
+3. Missionaries (depending on what's going on in Nestor)- people specifically sent by the city-state of Nestor to convert people to their religion and denomination.
 4. 
