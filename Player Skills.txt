@@ -1,17 +1,17 @@
 Player Skills
 
 Build (stats that are fixed when designing the character)
--Height: taller characters have more reach in melee but a larger hit box
 -Age: older characters start at a higher level but gain less experience from playing
 -Sex: in certain situations, a character may have an advantage for being male or female
--Body type: slim characters survive in the heat better, thick characters survive in the cold better.
--Metabolism: fast metabolizing characters need more food but get a strength(thick), endurance(slim), or combat quickness(medium) bonus when fully fed, while slow metabolizing characters need less food.
+-Body type: There are 5 body types: tall, short, slim, thick, and buff. Slim characters survive in the heat better, thick characters survive in the cold better, buff characters have higher base combat stats, tall characters get a bonus to barter and intimidation (but a larger hit box in combat), and short characters level up faster.
+-Metabolism: fast metabolizing characters need more food but get a bonus to strength, endurance, and combat quickness when fully fed, while slow metabolizing characters need less food to survive.
+-Face: the permanent face/head of your character.
 
 General (multipurpose skills)
 -Strength: increasess melee damage and carry weight
 -Endurance: increases combat endurance and reduced the rate at which sleepLevel falls
 -Luck: critical chance in combat and chance of finding rare encounters
--Stealth: shrinks vision cone for enemies in the exploration world.
+-Stealth: shrinks vision cone for enemies in the exploration world. Also impacts spook meter when hunting.
 
 Speech (all of the skills involved with talking to people)
 Each speech skill affects checks on certain dialog options
@@ -25,7 +25,7 @@ Each speech skill affects checks on certain dialog options
 
 Combat (all of the skills involved with combat)
 -Toughness: totalHealth
--Aim: reduces ranged weapon spread
+-Aim: reduces ranged weapon spread, also impacts hunting
 -Technique: allows the player to use higher-level melee weapons. Not having enough technique means a reduction in attack and block speed, block effectiveness, and block breaking chance with that weapon.
 -Quickness: speed, jumping, and crouching
 -Recovery: how quickly the stamina meter refills
@@ -39,5 +39,18 @@ Survival (skills used to survive)
 -Medicine: ability to heal self and/or others
 
 Minigame (skills only used in minigames)
--
-
+-Passing (basketball)- improves passing speed and quickness
+-Shooting (basketball)- increases the size of the shot timing meter
+-Stealing (basketball)- increases steal and recovery quickness
+-Blocking/Rebounding (basketball)- increases jump height and quickness
+-Reeling (fishing)- increases y-axis speed from W/S and Up/Down keys
+-Setting (fishing)- increases x-axis speed from A/D and Left/Right keys
+-Broadcasting (farming)- increases spread when throwing seeds
+-Skating speed (hockey)- increases speed and acceleration
+-Agility (hockey)- increases turn rate and backwards speed
+-Hitting (hockey)- increases chance of knocking an opposing player down with a hit and the health drain from a hit 
+-Toughness (hockey)- increases punch power and reduces the health drain from being hit
+-Agility (tennis)- increases x-axis speed
+-Service (tennis)- increases the power from the initial serve
+-Technique (cooking)- increases the movement speed of the pan
+-Star power (music)- reduces the penalty for making mistakes during gigs

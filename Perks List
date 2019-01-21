@@ -1,44 +1,53 @@
 Any ideas for perks go here. They should be realistic
 Name: effect
 *************************
-Cold blooded: lets the player attempt a first-strike skill check for combat
-Pack rat: improved carry capacity
-Did I say that?: can re-roll charisma checks
-Wild Wasteland (needs a different name): random encounters are much more likely
-Salty: lets the player sail wind-powered vehicles
-Scary: makes there a slight chance that enemies attempt to run away from combat even if they're properly equipped (and didn't bring a kinfe to a gunfight)
-Knife to a gunfight: enemies have decreased accuracy when the player equips a melee weapon and no ranged weapon
-Speedy: increased movement speed when exploring
-Iron gut: risk on all foods reduced 20%
-Double damage potion: all melee damage done will be doubled (it would make sense to be better at finding weak points on people or having good martial arts technique, but nobody shoots a bullet harder than anybody else)
-Medeival: increased damage and rate of fire with bow and throwing weapons, as well as increased first strike chance and hunting kill chance with them.
-Weakness debuff: all damage done will be halved
-Rabbies: all damage increased by 1.25, but food eatten will be halved
-StoneSkin: all damage decreased by 10% per hour, all food eatten will restore 100 - 10% * number of hours with the effect
-CementSocks: speed decreased
-Hangry: +2 charisma when over 50% fed, but -2 charisma when under 50% fed
-Red Pill: Enemy ranged weapon accuracy decreased by 20%
-It's a Dry Heat: improved heat resistance
-You should have been here last Winter: improved cold resistance
-Bear: If the player runs out of water in their inventory, they get their thirst meter refilled halfway
-An Apple a Day: The player's hygeine and illness meter goes down 50% slower
-Sweet: improved charisma with females
-Charming: improved charisma with males
-Inquisitive: more EXP from everyday actions
-Quick Parry: improved block speed in combat
-Shields for Arms: blocks absorb a higher percentage of damage in combat
-Barter Beater: sell items for an increased cost
-Senior Discount: get a reduced price on items, only if the character is old
-Safe Driver Discount: Reduced chance of being attacked by bandits or wrecking the car when fast travelling in a vehicle
-Sweaty: All athletic traits increase by 2 (quickness, endurance, strength, recovery), but water and hygiene levels go down faster
-Grapple master: immune to grab attacks from enemies
-Pitiful: Reduced chance of being robbed or maimed on a successful surrender, even if the enemy is greedy or merciless
-Guitarist: unlocks the guitar instrument as playable
-Drummer: unlocks the drum instrument as playable
-Hairy: improved cold resistance at all times, +1 to intimidation, and -1 to seduction
-Damaged but dashing: When combatHealth is below 50%, all charisma attrbutes get a +1
-Pacifist: when not carrying a weapon in the inventory, all charisma and survival stats get a +1 boost
-Craftsman: unlock all crafting blueprints
+1. Cold blooded: lets the player attempt a first-strike skill check for combat
+2. Pack rat: improved carry capacity
+3. Did I say that?: can re-roll charisma checks
+4. Wild Wasteland (needs a different name): random encounters are much more likely
+5. Salty: lets the player sail wind-powered vehicles
+6. Scary: makes there a slight chance that enemies attempt to run away from combat even if they're properly equipped
+7. Knife to a gunfight: enemies have decreased accuracy when the player equips a melee weapon and no ranged weapon
+8. Speedy: increased movement speed when exploring and in combat
+9. Iron gut: risk on all foods reduced 20%
+10. Fencer: +50% critical chance with melee weapons
+11. Berserker: when only a melee weapon is equipped, reduce enemy damage output by 25%
+12. Medeival: increased damage and rate of fire with bow and throwing weapons, as well as increased first strike chance and hunting kill chance with them.
+13. Civilized type: do 50% less melee damage, have double spread on all ranged weapons, and reduced health, but +2 to all speech skills
+14. Beefeater: do 25% more damage with melee weapons and have reduced spread with ranged weapons, but the hunger meter will drop faster
+15. Cold blooded: when it's winter/nighttime, all survival meters drop more slowly
+16. Hangry: +2 charisma when over 50% fed, but -2 charisma when under 50% fed
+17. Red Pill: Enemy ranged weapon accuracy decreased by 20%
+18. It's a Dry Heat: improved heat resistance and reduced water meter drop
+19. You should have been here last Winter: improved cold resistance
+20. Camel: If the player runs out of water in their inventory, they get their thirst meter refilled halfway. In order to do this again, the player must completely refill their water meter.
+21. An Apple a Day: The player's hygeine and illness meter goes down 50% slower
+22. Sweet: improved charisma with females
+23. Charming: improved charisma with males
+24. Inquisitive: more EXP every time the player would get EXP
+25. Quick Parry: improved block speed in combat
+26. Shields for Arms: blocks absorb a higher percentage of damage in combat
+27. Barter Beater: sell items for an increased cost
+28. Senior Discount: get a reduced price on items, only if the character has grey hair or a bald head
+29. Student discount: get a reduced price on items when between levels 10 and 20
+30. Safe Driver Discount: Reduced chance of being attacked by bandits or wrecking the car when fast travelling in a vehicle
+31. Sweaty: All athletic traits increase by 2 (quickness, endurance, strength, recovery), but water and hygiene levels go down faster
+32. Grapple master: immune to grab attacks from enemies
+33. Pitiful: Reduced chance of being robbed or maimed on a successful surrender, even if the enemy is greedy or merciless
+34. Guitarist: unlocks the guitar instrument as playable
+35. Drummer: unlocks the drum instrument as playable
+36. Hairy: improved cold resistance at all times, +1 to intimidation, and -1 to seduction
+37. Damaged but dashing: When combatHealth is below 50%, all charisma attrbutes get a +1
+38. Pacifist: when not carrying a weapon in the inventory, all charisma and survival stats get a +1 boost
+39. Craftsman: unlock all crafting blueprints
+40. Independent: increased maximum zoom distance
+41. Medic: can use medicine and bandages to heal themself or the other player to greater effect, new dialog and quest options
+42. Tracker: more animal footprints appear
+43. Fisher: more fish appear when fishing
+44. Untangler: gets a second chance when fishing and hitting obstacles
+45. Baller: lets the player play basketball competitively, and allows for certain quests and speech checks.
+46. Skater: lets the player play hockey competitively, and allows for certain quests and speech checks.
+47. 
 
 Types of values we need to implement
 Name: value range
