@@ -8,10 +8,10 @@ Build (stats that are fixed when designing the character)
 -Face: the permanent face/head of your character.
 
 General (multipurpose skills)
--Strength: increasess melee damage and carry weight
--Endurance: increases combat endurance and reduced the rate at which sleepLevel falls
--Luck: critical chance in combat and chance of finding rare encounters
--Stealth: shrinks vision cone for enemies in the exploration world. Also impacts spook meter when hunting.
+-Strength: increasess melee damage and carry weight, and helps with strength checks like breaking down a door or lifting heaving things.
+-Endurance: increases combat endurance and reduced the rate at which sleepLevel falls, but is also helpful when doing "patience" checks.
+-Luck: critical chance in combat and chance of finding rare encounters, as well as luck in gambling scenarios and when dealing with irrational NPCs.
+-Stealth: shrinks vision cone for enemies in the exploration world. Also impacts spook meter when hunting, and slight of hand checks.
 
 Speech (all of the skills involved with talking to people)
 Each speech skill affects checks on certain dialog options

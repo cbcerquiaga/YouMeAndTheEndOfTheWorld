@@ -185,7 +185,101 @@ func _process(delta):
 func p1_drop_item():
 	print("signal caught by scene manager")
 	player1.dropItem(0)
+	
+#returns true if the given player has passed a 50/50 luck check
+#stack these to do more complicated checks
+func luckCheck(player):
+	if player == 1:
+		if player1.luck == 0: #special sub-minimum luck, always fails
+			return false
+		elif player1.luck == 11: #special post-maximum luck, always succeeds
+			return true
+		else:
+			var testVal = ((player1.luck - 5) * 0.05) + 0.5 #5% increase in chance per level, from 25-75
+			var randVal = rand_range(0,1)
+			return testVal > randVal #if the player's luck multiplier is greater than the random value, it passes the luck check
+	else: #player == 2:
+		if player2.luck == 0: #special sub-minimum luck, always fails
+			return false
+		elif player2.luck == 11: #special post-maximum luck, always succeeds
+			return true
+		else:
+			var testVal = ((player2.luck - 5) * 0.05) + 0.5 #5% increase in chance per level, from 25-75
+			var randVal = rand_range(0,1)
+			return testVal > randVal #if the player's luck multiplier is greater than the random value, it passes the luck check
 
+#returns true if the given player has passed the strength check.
+#players automatically pass if their strength is above the value, and their odds of passing decrease the lower their strength value is
+func strengthCheck(player, value):
+	if player == 1:
+		if player1.strength > value:
+			return true
+		else:
+			var testVal
+			if player1.strength == value: #60% chance
+				testVal = .6
+			elif value - player1.strength == 1: #45% chance
+				testVal = .45
+			elif value - player1.strength == 2: #30% chance
+				testVal = .3
+			elif value - player1.strength == 3: #15% chance
+				testVal = .15
+			else: #.01% chance
+				testVal = .001
+			var randVal = rand_range(0,1)
+			return testVal > randVal
+	else: #player == 2:
+		if player2.strength > value:
+			return true
+		else:
+			var testVal
+			if player2.strength == value: #60% chance
+				testVal = .6
+			elif value - player2.strength == 1: #45% chance
+				testVal = .45
+			elif value - player2.strength == 2: #30% chance
+				testVal = .3
+			elif value - player2.strength == 3: #15% chance
+				testVal = .15
+			else: #.01% chance
+				testVal = .001
+			var randVal = rand_range(0,1)
+			return testVal > randVal
+			
+#tests to see if the player or the value gets worn down first
+#returns true if the player outlasts the value
+func enduranceCheck(player, value):
+	var testVal
+	var randVal
+	if player == 1:
+		testVal = player1.endurance
+	else: #player == 2
+		testVal = player2.endurance
+	while (testVal > 0 and value > 0):
+		randVal = rand_range(0,1)
+		testVal = testVal - randVal
+		randVal = randVal + rand_range(-0.5, 0.5)
+		value = value - randVal
+	#once the loop is done, one or both of the values will be 0
+	if testVal <= 0 and value > 0:
+		return false
+	else: #either testVal is greater or there is a tie
+		return true
+		
+#operates similarly to the luck check- a higher value increases the chance
+#returns true if the given player passes the check against the given value
+func stealthCheck(player, value):
+	if player == 1:
+		if player1.stealth == 0:
+			return false
+		elif player1.stealth == 11:
+			return true
+		else:
+			var testVal = (5 * ((player1.stealth - 5) * 0.1)) + 0.5 #10% increase in chance per level
+			testVal = testVal - (value/10)
+			var randVal = rand_range(0,1)
+			return testVal > randVal
+			
 #function called whenever the camera should be adjusted
 #func update_camera():
 ##	#Get the current canvas transform

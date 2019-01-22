@@ -5,10 +5,25 @@ const invWaitTime = 1
 var playerProperty = preload('res://Scripts/PlayerProperties.gd').new()
 var invCooldown = true
 var invTimer = Timer.new()
+
+#stats
 var currentEXP = 99 #EXP is out of 100
 var carryWeight = 0
 var maxCarry = 200
 var isFrozen = false
+#general skills
+var strength = 1
+var endurance = 1
+var luck = 1
+var stealth = 1
+#speech skills
+var lying = 1
+var intimidation = 1
+var seduction = 1
+var comedy = 1
+var knowledge = 1
+var barter = 1
+var charisma = 1
 
 #Signals
 signal move
