@@ -1,0 +1,73 @@
+[gd_scene format=2]
+
+[node name="Farming" type="Node2D" index="0"]
+
+[node name="ToolBench" type="Node2D" parent="." index="0"]
+
+[node name="hoe" type="KinematicBody2D" parent="ToolBench" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+
+[node name="seedBag" type="KinematicBody2D" parent="ToolBench" index="1"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+
+[node name="wateringCan" type="KinematicBody2D" parent="ToolBench" index="2"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+
+[node name="basket" type="KinematicBody2D" parent="ToolBench" index="3"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+
+[node name="TileMap" type="TileMap" parent="." index="1"]
+
+mode = 0
+tile_set = null
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray(  )
+
+[node name="FarmingPlayer1" type="KinematicBody2D" parent="TileMap" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+
+[node name="FarmingPlayer2" type="KinematicBody2D" parent="TileMap" index="1"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+
+[node name="plots" type="Node2D" parent="TileMap" index="2"]
+
+[node name="PestEmitter" type="Node2D" parent="." index="2"]
+
+
