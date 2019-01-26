@@ -1,4 +1,6 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Images/myTiles.tres" type="TileSet" id=1]
 
 [node name="Farming" type="Node2D" index="0"]
 
@@ -35,8 +37,8 @@ collision/safe_margin = 0.08
 [node name="TileMap" type="TileMap" parent="." index="1"]
 
 mode = 0
-tile_set = null
-cell_size = Vector2( 64, 64 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 50, 50 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 cell_half_offset = 2
@@ -50,7 +52,8 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray(  )
+tile_data = PoolIntArray( -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, -65527, 0, 0, -65526, 0, 0, -65525, 0, 0, -65524, 0, 0, -65523, 0, 0, -65522, 0, 0, -65521, 0, 0, -65520, 0, 0, -65519, 0, 0, -65518, 0, 0, -65517, 0, 0, -65516, 0, 0, -65515, 0, 0, 65535, 0, 0, 21, 0, 0, 131071, 0, 0, 65557, 0, 0, 196607, 0, 0, 131093, 0, 0, 262143, 0, 0, 196629, 0, 0, 327679, 0, 0, 262165, 0, 0, 393215, 0, 0, 327701, 0, 0, 458751, 0, 0, 393237, 0, 0, 524287, 0, 0, 458773, 0, 0, 589823, 0, 0, 524309, 0, 0, 655359, 0, 0, 589845, 0, 0, 720895, 0, 0, 655381, 0, 0, 786431, 0, 0, 720917, 0, 0, 851967, 0, 0, 786432, 0, 0, 786433, 0, 0, 786434, 0, 0, 786435, 0, 0, 786436, 0, 0, 786437, 0, 0, 786438, 0, 0, 786439, 0, 0, 786440, 0, 0, 786441, 0, 0, 786442, 0, 0, 786443, 0, 0, 786444, 0, 0, 786445, 0, 0, 786446, 0, 0, 786447, 0, 0, 786448, 0, 0, 786449, 0, 0, 786450, 0, 0, 786451, 0, 0, 786452, 0, 0, 786453, 0, 0 )
+_sections_unfolded = [ "Cell" ]
 
 [node name="FarmingPlayer1" type="KinematicBody2D" parent="TileMap" index="0"]
 

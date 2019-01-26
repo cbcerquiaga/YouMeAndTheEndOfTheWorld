@@ -4,11 +4,11 @@ onready var equippedPlayer = 0 #0 means not equipped, 1 is player 1, 2 is player
 onready var isFacingRight = true
 var actionKey
 var sprite
-
-func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	pass
+onready var player1 = get_node("TileMap/FarmingPlayer1")
+onready var player2 = get_node("TileMap/FarmingPlayer2")
+onready var toolBench = get_node("ToolBench")
+var toolBenchX = 0 #adjust these depending on which tool this is
+var toolBenchY = 0
 	
 func updateFacingRight(boolean):
 	isFacingRight = boolean
@@ -28,3 +28,21 @@ func equip(player):
 	
 func unEquip():
 	equippedPlayer = 0
+	
+func _process():
+	if equippedPlayer == 1: #follow player 1
+		position.y = player1.position.y
+		if isFacingRight:
+			position.x = player1.position.x + 20
+		else:
+			position.x = player1.position.x - 20
+	elif equippedPlayer == 2: #follow player 2
+		position.y = player2.position.y
+		if isFacingRight:
+			position.x = player2.position.x + 20
+		else:
+			position.x = player2.position.x - 20
+	else: #go to position on the tool bench
+		position.x = toolBench.position.x + toolBenchX
+		position.y = toolBench.position.y + toolBenchY
+	pass
