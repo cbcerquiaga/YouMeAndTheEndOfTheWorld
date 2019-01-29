@@ -4,7 +4,7 @@ var states = ["ready","planted","not ready"]
 var state = 0
 var growthRate = 0 #increases the rate at which the plant grows and wilts
 const maxGrowthRate = 15
-#var plantSprite = load...
+var plantSprite = load("PlantSprite")
 var plantLevel = 0 #0 shows no plant, 1 is a bud, 2 is small but harvestable, 3 is ripe, 4 is wilting, and 5 is wilted
 var growthXP = 0 #determines the next time the plant "levels up"
 const neededXP = 1000 #can change this for different plant types
@@ -23,7 +23,7 @@ func water():
 		if plantLevel > 3: #wilting
 			plantLevel = plantLevel - 1
 			growthXP = 0
-			#plantSprite.frame = plantLevel
+			plantSprite.frame = plantLevel
 			
 func harvest():
 	var harvest
@@ -48,7 +48,7 @@ func destroyPlant():
 	plantLevel = 0
 	growthXP = 0
 	soilSprite.frame = 3
-	#plantSprite. make invisible somehow()
+	plantSprite.set_hidden(true)
 	state = 3
 	
 func _process(delta):
@@ -57,7 +57,9 @@ func _process(delta):
 		plantLevel = plantLevel + 1
 		if plantLevel > 5: #the plant is overwilted
 			destroyPlant()
-		#else:
-			#plantSprite.frame = plantLevel
-			#growthXP = 0
+		else:
+			plantSprite.frame = plantLevel
+			if plantLevel > 0:
+				plantSprite.set_hidden(false)
+			growthXP = 0
 	pass
