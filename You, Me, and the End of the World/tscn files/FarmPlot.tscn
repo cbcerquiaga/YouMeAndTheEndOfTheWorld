@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/farmPlot.gd" type="Script" id=1]
 [ext_resource path="res://Images/farmSoil.png" type="Texture" id=2]
+[ext_resource path="res://Images/corn.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -23,6 +24,10 @@ vframes = 3
 _sections_unfolded = [ "Animation" ]
 
 [node name="PlantSprite" type="Sprite" parent="." index="1"]
+
+texture = ExtResource( 3 )
+vframes = 5
+_sections_unfolded = [ "Animation" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
 
