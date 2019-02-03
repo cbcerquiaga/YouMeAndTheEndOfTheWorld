@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Images/hoe.png" type="Texture" id=1]
+
+[node name="hoe" type="Area2D"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -33.1025, -252.264, -15.0147, -252.264, -13.8044, -247.091, -7.50577, -246.729, 16.3359, -246.564, 30.1722, -243.415, 32.547, -239.698, 33, -235, 24.1317, -239.801, 18.562, -241.279, 2.1383, -242.021, -14.8693, -237.135, -15.3251, 252.138, -32.6855, 251.944 )
+
+
