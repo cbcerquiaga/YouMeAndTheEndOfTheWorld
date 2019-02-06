@@ -20,6 +20,7 @@ position = Vector2( 1, 25 )
 
 [node name="hoe" type="KinematicBody2D" parent="ToolBench" index="0"]
 
+position = Vector2( 380, 45 )
 scale = Vector2( 0.2, 0.2 )
 input_pickable = false
 collision_layer = 1
@@ -30,7 +31,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="hoe" parent="ToolBench/hoe" index="0" instance=ExtResource( 3 )]
 
-position = Vector2( 1900, 300 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="seedBag" type="KinematicBody2D" parent="ToolBench" index="1"]
