@@ -17,6 +17,7 @@ func setHunterLocation(hunterLocation):
 	location = hunterLocation
 	
 func _on_Bullet_hit(damage, critChance):
+	print("Hit!")
 	var randNum = rand_range(0,1)
 	if randNum > critChance: #not a critical hit
 		health = health - damage
@@ -184,5 +185,5 @@ func jitter():
 func _process(delta):
 	velocity.x = velocity.x * velocityMultiplier
 	velocity.y = velocity.y * velocityMultiplier
-	move_and_slide(velocity)
+	self.move_and_collide(velocity)
 	pass

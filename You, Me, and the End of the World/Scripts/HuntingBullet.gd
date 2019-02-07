@@ -24,7 +24,7 @@ func set_speed(value):
 func _process(delta):
 	translate((speed * motion * delta))
 	var collideCheck = move_and_collide(motion * delta)
-	print(str(collideCheck))
+	#print(str(collideCheck))
 	if(collideCheck != null):
 		contact(collideCheck.collider)
 #	if self.position.x > creature.position.x - creatureSprite.texture.get_width() and self.position.x < creature.position.x + creatureSprite.texture.get_width():
