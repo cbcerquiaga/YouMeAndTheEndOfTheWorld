@@ -26,6 +26,17 @@ func getClosestTool(player):
 		else: #closest to hoe
 			return "hoe"
 			
+func isCloseToBench(player):
+	if player == 1:
+		if player1.position.x < 270 or player1.position.x > 760 or player1.position.y > 160:
+			return false
+		else:
+			return true
+	else: #player == 2:
+		if player2.position.x < 270 or player2.position.x > 760 or player2.position.y > 160:
+			return false
+		else:
+			return true
 
 func _process(delta):
 	#player 1 wants to pick up or swap tools
@@ -33,5 +44,10 @@ func _process(delta):
 		#check if the player is close enough to any tools to do this
 		var closestTool = getClosestTool(1)
 		if closestTool == "hoe":
-			get_node("ToolBench/hoe").equip(1)
+			if player1.heldItem == "hoe" and isCloseToBench(1):
+				get_node("ToolBench/hoe").unEquip()
+				player1.heldItem = "none"
+			else:
+				get_node("ToolBench/hoe").equip(1)
+				player1.heldItem = "hoe"
 	pass

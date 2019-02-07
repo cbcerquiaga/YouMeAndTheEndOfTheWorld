@@ -31,6 +31,10 @@ func equip(player):
 	
 func unEquip():
 	equippedPlayer = 0
+	position.x = toolBenchX
+	position.y = toolBenchY
+	motion = Vector2(0,0)
+	print("unEquip successful")
 	
 func _process(delta):
 	if equippedPlayer == 1: #follow player 1
