@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var states = ["ready","planted","not ready"]
-var state = 3
+onready var state = 2
 var growthRate = 0 #increases the rate at which the plant grows and wilts
 const maxGrowthRate = 15
 onready var plantSprite = get_node("PlantSprite")
@@ -48,13 +48,18 @@ func harvest():
 			rotten = true
 	#emit_signal("fill_basket", harvest, rotten)
 	
+func hoe():
+	if state == 2:
+		state = 0
+		soilSprite.frame = state
+	
 func destroyPlant():
 	growthRate = 0
 	plantLevel = 0
 	growthXP = 0
-	soilSprite.frame = 3
+	soilSprite.frame = 2
 	plantSprite.visible = false
-	state = 3
+	state = 2
 	
 func _process(delta):
 	growthXP = growthXP + growthRate
