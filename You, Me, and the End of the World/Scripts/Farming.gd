@@ -10,17 +10,19 @@ func _ready():
 	
 func getClosestTool(player):
 	if player == 1:
-		if player1.position.x < 270 or player1.position.x > 760 or player1.position.y > 160:
+		if !isCloseToBench(1):
 			return "none"
-		#elif position closest to seedbag
+		elif player1.position.x > 405: #position closest to seedbag
+			return "seedBag"
 		#elif position closest to watering can
 		#elif position closest to basket
 		else: #closest to hoe
 			return "hoe"
 	else: #if player == 2:
-		if player2.position.x < 270 or player2.position.x > 760 or player2.position.y > 160:
+		if !isCloseToBench(2):
 			return "none"
-		#elif position closest to seedbag
+		elif player2.position.x > 405: #position closest to seedbag
+			return "seedBag"
 		#elif position closest to watering can
 		#elif position closest to basket
 		else: #closest to hoe
@@ -29,6 +31,7 @@ func getClosestTool(player):
 func isCloseToBench(player):
 	if player == 1:
 		if player1.position.x < 270 or player1.position.x > 760 or player1.position.y > 160:
+			print("far from the bench")
 			return false
 		else:
 			return true
@@ -180,6 +183,13 @@ func _process(delta):
 			else:
 				get_node("ToolBench/hoe").equip(1)
 				player1.heldItem = "hoe"
+		elif closestTool == "seedBag":
+			if player1.heldItem == "seedBag" and isCloseToBench(1):
+				get_node("ToolBench/hoe").unEquip()
+				player1.heldItem = "none"
+			else:
+				get_node("ToolBench/seedBag").equip(1)
+				player1.heldItem = "seedBag"
 	if Input.is_action_just_pressed("p1_action1"):
 		#TODO: add cooldown
 		if player1.heldItem == "hoe":
