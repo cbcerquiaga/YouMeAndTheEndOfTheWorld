@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://tscn files/Seed.gd" type="Script" id=1]
+[ext_resource path="res://Images/seed.png" type="Texture" id=2]
+
+[node name="Seed" type="KinematicBody2D"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -4.93317, 2.96699, -4.96318, 0.715637, -0.946762, -4.97779, 0.994408, -4.97779, 4.96121, 0.774878, 4.90276, 3.11508, 2.26317, 5.01023, -2.13948, 5.06026 )
+
+

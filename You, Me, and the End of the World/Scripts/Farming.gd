@@ -1,7 +1,9 @@
 extends Node2D
 
 onready var player1 = get_node("TileMap/FarmingPlayer1")
+var p1LastDirection
 onready var player2 = get_node("TileMap/FarmingPlayer2")
+var p2LastDirection
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -170,6 +172,22 @@ func hoeTheLand(affectedArray):
 		get_node("TileMap/plots/plot6-4").hoe()
 	elif affectedArray.has("7-4"):
 		get_node("TileMap/plots/plot7-4").hoe()
+		
+func seedBagAction(player):
+	if player == 1:
+		create_seeds(player1.get_global_position(), p1LastDirection)
+	elif player == 2:
+		create_seeds(player2.get_global_position(), p2LastDirection)
+		
+func create_seeds(position, direction):
+	if direction == "left":
+		position.x = position.x - 10
+	elif direction == "right":
+		position.x = position.x + 10
+	elif direction == "up":
+		position.y = position.y - 10
+	elif direction == "down":
+		position.y = position.y + 10
 
 func _process(delta):
 	#player 1 wants to pick up or swap tools
@@ -196,4 +214,6 @@ func _process(delta):
 		#TODO: add cooldown
 		if player1.heldItem == "hoe":
 			hoeAction()
+		if player1.heldItem == "seedBag":
+			seedBagAction(1)
 	pass

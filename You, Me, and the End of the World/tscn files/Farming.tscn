@@ -19,6 +19,9 @@ script = ExtResource( 1 )
 [node name="ToolBench" type="Node2D" parent="." index="0"]
 
 position = Vector2( 1, 25 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="hoe" type="KinematicBody2D" parent="ToolBench" index="0"]
 
@@ -70,6 +73,9 @@ position = Vector2( 509.999, 68 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="TileMap" type="TileMap" parent="." index="1"]
 
@@ -92,12 +98,19 @@ occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, -65527, 0, 0, -65526, 0, 0, -65525, 0, 0, -65524, 0, 0, -65523, 0, 0, -65522, 0, 0, -65521, 0, 0, -65520, 0, 0, -65519, 0, 0, -65518, 0, 0, -65517, 0, 0, -65516, 0, 0, -65515, 0, 0, 65535, 0, 0, 21, 0, 0, 131071, 0, 0, 65557, 0, 0, 196607, 0, 0, 131093, 0, 0, 262143, 0, 0, 196629, 0, 0, 327679, 0, 0, 262165, 0, 0, 393215, 0, 0, 327701, 0, 0, 458751, 0, 0, 393237, 0, 0, 524287, 0, 0, 458773, 0, 0, 589823, 0, 0, 524309, 0, 0, 655359, 0, 0, 589845, 0, 0, 720895, 0, 0, 655381, 0, 0, 786431, 0, 0, 720917, 0, 0, 851967, 0, 0, 786432, 0, 0, 786433, 0, 0, 786434, 0, 0, 786435, 0, 0, 786436, 0, 0, 786437, 0, 0, 786438, 0, 0, 786439, 0, 0, 786440, 0, 0, 786441, 0, 0, 786442, 0, 0, 786443, 0, 0, 786444, 0, 0, 786445, 0, 0, 786446, 0, 0, 786447, 0, 0, 786448, 0, 0, 786449, 0, 0, 786450, 0, 0, 786451, 0, 0, 786452, 0, 0, 786453, 0, 0 )
 _sections_unfolded = [ "Cell" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="plots" type="Node2D" parent="TileMap" index="0"]
 
+editor/display_folded = true
 scale = Vector2( 0.3, 0.3 )
 z_index = -10
 _sections_unfolded = [ "Transform", "Z Index" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="plot1-1" parent="TileMap/plots" index="0" instance=ExtResource( 8 )]
 
