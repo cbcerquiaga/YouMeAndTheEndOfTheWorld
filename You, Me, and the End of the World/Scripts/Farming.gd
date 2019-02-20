@@ -174,20 +174,22 @@ func hoeTheLand(affectedArray):
 func _process(delta):
 	#player 1 wants to pick up or swap tools
 	if Input.is_action_just_pressed("p1_action2"):
-		#check if the player is close enough to any tools to do this
 		var closestTool = getClosestTool(1)
+		#check if the player is close enough to any tools to do this
 		if closestTool == "hoe":
 			if player1.heldItem == "hoe" and isCloseToBench(1):
 				get_node("ToolBench/hoe").unEquip()
 				player1.heldItem = "none"
 			else:
+				get_node("ToolBench/seedBag").unEquip()
 				get_node("ToolBench/hoe").equip(1)
 				player1.heldItem = "hoe"
 		elif closestTool == "seedBag":
 			if player1.heldItem == "seedBag" and isCloseToBench(1):
-				get_node("ToolBench/hoe").unEquip()
+				get_node("ToolBench/seedBag").unEquip()
 				player1.heldItem = "none"
 			else:
+				get_node("ToolBench/hoe").unEquip()
 				get_node("ToolBench/seedBag").equip(1)
 				player1.heldItem = "seedBag"
 	if Input.is_action_just_pressed("p1_action1"):
