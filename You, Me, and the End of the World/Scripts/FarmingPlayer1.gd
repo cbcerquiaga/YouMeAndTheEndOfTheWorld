@@ -5,6 +5,7 @@ var isFrozen = false
 const SPEED = 250
 var heldItem
 var isFacingRight= false
+var lastDirection
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -19,16 +20,20 @@ func _physics_process(delta):
 	if !isFrozen:
 		if left:
 			velocity.x = -SPEED
+			lastDirection = "left"
 			#TODO: update facing right
 		elif right:
 			velocity.x = SPEED
+			lastDirection = "right"
 			#TODO: update facing right
 		elif !left and !right:
 			velocity.x = 0
 		if down:
 			velocity.y = SPEED
+			lastDirection = "down"
 		elif up:
 			velocity.y = -SPEED
+			lastDirection = "up"
 		elif !up and !down:
 			velocity.y = 0
 	if velocity != Vector2(0,0):

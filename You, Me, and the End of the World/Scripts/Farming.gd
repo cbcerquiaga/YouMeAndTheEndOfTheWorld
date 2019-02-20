@@ -1,9 +1,8 @@
 extends Node2D
 
 onready var player1 = get_node("TileMap/FarmingPlayer1")
-var p1LastDirection
 onready var player2 = get_node("TileMap/FarmingPlayer2")
-var p2LastDirection
+onready var plantSeed = load("res://tscn files/Seed.tscn")
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -175,19 +174,55 @@ func hoeTheLand(affectedArray):
 		
 func seedBagAction(player):
 	if player == 1:
-		create_seeds(player1.get_global_position(), p1LastDirection)
+		create_seeds(player1.get_global_position(), player1.lastDirection)
 	elif player == 2:
-		create_seeds(player2.get_global_position(), p2LastDirection)
+		create_seeds(player2.get_global_position(), player2.lastDirection)
 		
 func create_seeds(position, direction):
 	if direction == "left":
-		position.x = position.x - 10
+		emitSeed("S", position)
+		emitSeed("SW", position)
+		emitSeed("W", position)
+		emitSeed("NW", position)
+		emitSeed("N", position)
 	elif direction == "right":
-		position.x = position.x + 10
+		emitSeed("S", position)
+		emitSeed("SE", position)
+		emitSeed("E", position)
+		emitSeed("NE", position)
+		emitSeed("N", position)
 	elif direction == "up":
-		position.y = position.y - 10
+		emitSeed("W", position)
+		emitSeed("NW", position)
+		emitSeed("N", position)
+		emitSeed("NE", position)
+		emitSeed("E", position)
 	elif direction == "down":
-		position.y = position.y + 10
+		emitSeed("W", position)
+		emitSeed("SW", position)
+		emitSeed("S", position)
+		emitSeed("SE", position)
+		emitSeed("E", position)
+		
+func emitSeed(direction, position):
+	var tempSeed = plantSeed.instance()
+	tempSeed.position = position
+	if direction == "N":
+		tempSeed.motion = Vector2(0,-2)
+	elif direction == "NW":
+		tempSeed.motion = Vector2(-1,-1)
+	elif direction == "W":
+		tempSeed.motion = Vector2(-2,0)
+	elif direction == "SW":
+		tempSeed.motion = Vector2(-1,1)
+	elif direction == "S":
+		tempSeed.motion = Vector2(0,2)
+	elif direction == "SE":
+		tempSeed.motion = Vector2(1,1)
+	elif direction == "E":
+		tempSeed.motion = Vector2(2,0)
+	else: #if direction == "NE":
+		tempSeed.motion = Vector2(1,1)
 
 func _process(delta):
 	#player 1 wants to pick up or swap tools
