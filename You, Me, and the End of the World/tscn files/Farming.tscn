@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/Farming.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/hoe.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Scripts/FarmingPlayer1.gd" type="Script" id=9]
 [ext_resource path="res://Images/Player.png" type="Texture" id=10]
 [ext_resource path="res://Scripts/FarmingPlayer2.gd" type="Script" id=11]
+[ext_resource path="res://tscn files/Seed.tscn" type="PackedScene" id=12]
 
 [node name="Farming" type="Node2D" index="0"]
 
@@ -348,5 +349,10 @@ audio_bus_name = "Master"
 [node name="PestEmitter" type="Node2D" parent="." index="2"]
 
 position = Vector2( -98.2365, 348.412 )
+
+[node name="Seed" parent="." index="3" instance=ExtResource( 12 )]
+
+position = Vector2( -60, -60 )
+scale = Vector2( 0.125, 0.125 )
 
 

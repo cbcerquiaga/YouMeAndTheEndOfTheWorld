@@ -5,6 +5,7 @@
 
 [node name="Seed" type="KinematicBody2D"]
 
+scale = Vector2( 0.25, 0.25 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
