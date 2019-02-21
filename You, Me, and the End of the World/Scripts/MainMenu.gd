@@ -29,3 +29,12 @@ func _on_Fishing_pressed():
 	
 func _on_Hunting_pressed():
 	get_tree().change_scene("res://tscn files/Hunting.tscn")
+	
+func _on_Farming_pressed():
+	get_tree().change_scene("res://tscn files/Farming.tscn")
+	
+func _on_Hockey_pressed():
+	get_tree().change_scene("res://tscn files/Hockey.tscn")
+	
+func _on_Music_pressed():
+	get_tree().change_scene("res://tscn files/MusicMinigame.tscn")

@@ -13,7 +13,7 @@
 [ext_resource path="res://Scripts/FarmingPlayer2.gd" type="Script" id=11]
 [ext_resource path="res://tscn files/Seed.tscn" type="PackedScene" id=12]
 
-[node name="Farming" type="Node2D" index="0"]
+[node name="Farming" type="Node2D"]
 
 script = ExtResource( 1 )
 
