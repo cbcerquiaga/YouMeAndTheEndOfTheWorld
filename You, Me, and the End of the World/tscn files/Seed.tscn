@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://tscn files/Seed.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Seed.gd" type="Script" id=1]
 [ext_resource path="res://Images/seed.png" type="Texture" id=2]
 
-[node name="Seed" type="KinematicBody2D"]
+[node name="Seed" type="KinematicBody2D" index="0"]
 
 scale = Vector2( 0.125, 0.125 )
 input_pickable = false
