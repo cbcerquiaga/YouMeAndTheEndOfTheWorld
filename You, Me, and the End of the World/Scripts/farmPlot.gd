@@ -28,6 +28,7 @@ func water():
 func plant():
 	if state == 0: #ready to plant
 		state = 1
+		soilSprite.frame = 1
 		
 			
 func harvest():

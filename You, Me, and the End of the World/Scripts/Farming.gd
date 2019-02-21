@@ -32,7 +32,7 @@ func getClosestTool(player):
 func isCloseToBench(player):
 	if player == 1:
 		if player1.position.x < 270 or player1.position.x > 760 or player1.position.y > 160:
-			print("far from the bench")
+			#print("far from the bench")
 			return false
 		else:
 			return true
@@ -173,6 +173,7 @@ func hoeTheLand(affectedArray):
 		get_node("TileMap/plots/plot7-4").hoe()
 		
 func plantSeed(plot):
+	print("plot = " + str(plot))
 	if plot == "1-1":
 		get_node("TileMap/plots/plot1-1").plant()
 	elif plot == "2-1":
@@ -237,7 +238,7 @@ func seedBagAction(player):
 		create_seeds(player2.get_global_position(), player2.lastDirection)
 		
 func create_seeds(position, direction):
-	print("create seeds in the direction of " + str(direction))
+	#print("create seeds in the direction of " + str(direction))
 	if direction == "left":
 		emitSeed("S", position)
 		emitSeed("SW", position)
@@ -293,6 +294,7 @@ func _process(delta):
 		for i in seeds:
 			if i.affectedPlot != "0-0":#affectedPlot is something othr than its default
 				plantSeed(i.affectedPlot)
+		
 	#player 1 wants to pick up or swap tools
 	if Input.is_action_just_pressed("p1_action2"):
 		var closestTool = getClosestTool(1)

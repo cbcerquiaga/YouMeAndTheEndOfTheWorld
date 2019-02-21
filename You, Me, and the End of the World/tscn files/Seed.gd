@@ -4,6 +4,8 @@ onready var motion = Vector2(0,0)
 onready var speed = 300
 onready var remainingTime = 40
 var affectedPlot
+const magicY = 50#seeds thought their position was slightly lower than what it was, this fixes that
+const magicX = 10 #seeds thought their position was slightly to the left of where it was
 
 func _ready():
 	affectedPlot = "0-0"
@@ -11,64 +13,64 @@ func _ready():
 	
 func affectPlot():
 	#print(str(hoePos))
-	if position.x > 255 and position.x < 780: #in-bounds x-wise, trying to save the computer from having to do all these conditionals if it doesn't have to
-		if position.y > 231.6 and position.y < 306.6: #first row
-			if position.x < 330:
+	if (position.x + magicX) > 255 and (position.x + magicX) < 780: #in-bounds x-wise, trying to save the computer from having to do all these conditionals if it doesn't have to
+		if (position.y + magicY) > 231.6 and (position.y + magicY) < 306.6: #first row
+			if (position.x + magicX) < 330:
 				affectedPlot = "1-1"
-			elif position.x < 405:
+			elif (position.x + magicX) < 405:
 				affectedPlot = "2-1"
-			elif position.x < 480:
+			elif (position.x + magicX) < 480:
 				affectedPlot = "3-1"
-			elif position.x < 555:
+			elif (position.x + magicX) < 555:
 				affectedPlot = "4-1"
-			elif position.x < 630:
+			elif (position.x + magicX) < 630:
 				affectedPlot = "5-1"
-			elif position.x < 705:
+			elif (position.x + magicX) < 705:
 				affectedPlot = "6-1"
 			else: #if position.x < 780:
 				affectedPlot = "7-1"
-		elif position.y > 306.6 and position.y < 381.6: #second row
-			if position.x < 330:
+		elif (position.y + magicY) > 306.6 and (position.y + magicY) < 381.6: #second row
+			if (position.x + magicX) < 330:
 				affectedPlot = "1-2"
-			elif position.x < 405:
+			elif (position.x + magicX) < 405:
 				affectedPlot = "2-2"
-			elif position.x < 480:
+			elif (position.x + magicX) < 480:
 				affectedPlot = "3-2"
-			elif position.x < 555:
+			elif (position.x + magicX) < 555:
 				affectedPlot = "4-2"
-			elif position.x < 630:
+			elif (position.x + magicX) < 630:
 				affectedPlot = "5-2"
-			elif position.x < 705:
+			elif (position.x + magicX) < 705:
 				affectedPlot = "6-2"
 			else: #if position.x < 780
 				affectedPlot = "7-2"
-		elif position.y > 381.6 and position.y < 456.6: #third row
-			if position.x < 330:
+		elif (position.y + magicY) > 381.6 and (position.y + magicY) < 456.6: #third row
+			if (position.x + magicX) < 330:
 				affectedPlot = "1-3"
-			elif position.x < 405:
+			elif (position.x + magicX) < 405:
 				affectedPlot = "2-3"
-			elif position.x < 480:
+			elif (position.x + magicX) < 480:
 				affectedPlot = "3-3"
-			elif position.x < 555:
+			elif (position.x + magicX) < 555:
 				affectedPlot = "4-3"
-			elif position.x < 630:
+			elif (position.x + magicX) < 630:
 				affectedPlot = "5-3"
-			elif position.x < 705:
+			elif (position.x + magicX) < 705:
 				affectedPlot = "6-3"
 			else: #if position.x < 780
 				affectedPlot = "7-3"
-		elif position.y > 456.6 and position.y < 531.6: #fourth row
-			if position.x < 330:
+		elif (position.y + magicY) > 456.6 and (position.y + magicY) < 531.6: #fourth row
+			if (position.x + magicX) < 330:
 				affectedPlot = "1-4"
-			elif position.x < 405:
+			elif (position.x + magicX) < 405:
 				affectedPlot = "2-4"
-			elif position.x < 480:
+			elif (position.x + magicX) < 480:
 				affectedPlot = "3-4"
-			elif position.x < 555:
+			elif (position.x + magicX) < 555:
 				affectedPlot = "4-4"
-			elif position.x < 630:
+			elif (position.x + magicX) < 630:
 				affectedPlot = "5-4"
-			elif position.x < 705:
+			elif (position.x + magicX) < 705:
 				affectedPlot = "6-4"
 			else: #if position.x < 780
 				affectedPlot = "7-4"
