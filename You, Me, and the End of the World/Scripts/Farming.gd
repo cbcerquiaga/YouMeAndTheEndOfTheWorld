@@ -179,6 +179,7 @@ func seedBagAction(player):
 		create_seeds(player2.get_global_position(), player2.lastDirection)
 		
 func create_seeds(position, direction):
+	print("create seeds in the direction of " + str(direction))
 	if direction == "left":
 		emitSeed("S", position)
 		emitSeed("SW", position)
@@ -205,8 +206,10 @@ func create_seeds(position, direction):
 		emitSeed("E", position)
 		
 func emitSeed(direction, position):
+	#print("emit that seed! " + str(direction) + str(position))
 	var tempSeed = plantSeed.instance()
 	tempSeed.position = position
+	get_node("ToolBench/seedBag").add_child(tempSeed)
 	if direction == "N":
 		tempSeed.motion = Vector2(0,-2)
 	elif direction == "NW":
@@ -222,7 +225,8 @@ func emitSeed(direction, position):
 	elif direction == "E":
 		tempSeed.motion = Vector2(2,0)
 	else: #if direction == "NE":
-		tempSeed.motion = Vector2(1,1)
+		tempSeed.motion = Vector2(1,-1)
+	#print("tempSeed: " + str(direction) +  " location: " + str(tempSeed.position) + " motion: " + str(tempSeed.motion))
 
 func _process(delta):
 	#player 1 wants to pick up or swap tools
