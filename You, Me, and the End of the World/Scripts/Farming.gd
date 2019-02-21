@@ -204,7 +204,7 @@ func plantSeed(plot):
 		get_node("TileMap/plots/plot7-2").plant()
 	elif plot == "1-3":
 		get_node("TileMap/plots/plot1-3").plant()
-	elif plot == "2-2":
+	elif plot == "2-3":
 		get_node("TileMap/plots/plot2-3").plant()
 	elif plot == "3-3":
 		get_node("TileMap/plots/plot3-3").plant()
@@ -294,7 +294,11 @@ func _process(delta):
 		for i in seeds:
 			if i.affectedPlot != "0-0":#affectedPlot is something othr than its default
 				plantSeed(i.affectedPlot)
-		
+				seeds.remove(seeds.find(i))
+				i.queue_free()
+			elif i.remainingTime < -5: #the time remaining when the plot would be affected
+				seeds.remove(seeds.find(i))
+				i.queue_free()
 	#player 1 wants to pick up or swap tools
 	if Input.is_action_just_pressed("p1_action2"):
 		var closestTool = getClosestTool(1)

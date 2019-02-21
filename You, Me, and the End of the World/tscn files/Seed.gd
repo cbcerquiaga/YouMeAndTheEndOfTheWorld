@@ -1,8 +1,8 @@
 extends KinematicBody2D
 
 onready var motion = Vector2(0,0)
-onready var speed = 300
-onready var remainingTime = 40
+onready var speed = 310
+onready var remainingTime = 16
 var affectedPlot
 const magicY = 50#seeds thought their position was slightly lower than what it was, this fixes that
 const magicX = 10 #seeds thought their position was slightly to the left of where it was
