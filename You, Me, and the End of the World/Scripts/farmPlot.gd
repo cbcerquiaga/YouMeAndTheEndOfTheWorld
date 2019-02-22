@@ -17,7 +17,7 @@ func _ready():
 
 #called when the plot is struck by water from a watering can
 func water():
-	if state >= 1: #planted
+	if state == 1: #planted
 		if growthRate < maxGrowthRate:
 			growthRate = growthRate + 1
 		if plantLevel > 3: #wilting

@@ -3,10 +3,13 @@ extends Node2D
 onready var player1 = get_node("TileMap/FarmingPlayer1")
 onready var player2 = get_node("TileMap/FarmingPlayer2")
 onready var plantSeed = load("res://tscn files/Seed.tscn")
+onready var waterDrop = load("res://tscn files/WaterDrop.tscn")
 var seeds
+var drops
 
 func _ready():
 	seeds = [] #stores the seeds so they can be looped through
+	drops = []#just like seeds but for water droplets
 	pass
 	
 func getClosestTool(player):
@@ -175,7 +178,7 @@ func hoeTheLand(affectedArray):
 		get_node("TileMap/plots/plot7-4").hoe()
 		
 func plantSeed(plot):
-	print("plot = " + str(plot))
+	#print("plot = " + str(plot))
 	if plot == "1-1":
 		get_node("TileMap/plots/plot1-1").plant()
 	elif plot == "2-1":
@@ -242,29 +245,29 @@ func seedBagAction(player):
 func create_seeds(position, direction):
 	#print("create seeds in the direction of " + str(direction))
 	if direction == "left":
-		emitSeed("S", position)
+		#emitSeed("S", position)
 		emitSeed("SW", position)
 		emitSeed("W", position)
 		emitSeed("NW", position)
-		emitSeed("N", position)
+		#emitSeed("N", position)
 	elif direction == "right":
-		emitSeed("S", position)
+		#emitSeed("S", position)
 		emitSeed("SE", position)
 		emitSeed("E", position)
 		emitSeed("NE", position)
-		emitSeed("N", position)
+		#emitSeed("N", position)
 	elif direction == "up":
-		emitSeed("W", position)
+		#emitSeed("W", position)
 		emitSeed("NW", position)
 		emitSeed("N", position)
 		emitSeed("NE", position)
-		emitSeed("E", position)
+		#emitSeed("E", position)
 	elif direction == "down":
-		emitSeed("W", position)
+		#emitSeed("W", position)
 		emitSeed("SW", position)
 		emitSeed("S", position)
 		emitSeed("SE", position)
-		emitSeed("E", position)
+		#emitSeed("E", position)
 		
 func emitSeed(direction, position):
 	#print("emit that seed! " + str(direction) + str(position))
@@ -291,7 +294,111 @@ func emitSeed(direction, position):
 	#print("tempSeed: " + str(direction) +  " location: " + str(tempSeed.position) + " motion: " + str(tempSeed.motion))
 	
 func wateringCanAction(player):
-	print("squirt squirt")
+	#print("squirt squirt")
+	if player == 1:
+		create_waterDrops(player1.get_global_position(), player1.lastDirection)
+	elif player == 2:
+		create_waterDrops(player2.get_global_position(), player2.lastDirection)
+		
+
+func create_waterDrops(position, direction):
+	if direction == "left":
+		emitDrop("SW", position)
+		emitDrop("W", position)
+		emitDrop("NW", position)
+	elif direction == "right":
+		emitDrop("SE", position)
+		emitDrop("E", position)
+		emitDrop("NE", position)
+	elif direction == "up":
+		emitDrop("NW", position)
+		emitDrop("N", position)
+		emitDrop("NE", position)
+	elif direction == "down":
+		emitDrop("SW", position)
+		emitDrop("S", position)
+		emitDrop("SE", position)
+		
+func emitDrop(direction,position):
+	var tempDrop = waterDrop.instance()
+	tempDrop.position = position
+	get_node("ToolBench").add_child(tempDrop)
+	drops.append(tempDrop)
+	if direction == "N":
+		tempDrop.motion = Vector2(0,-2)
+	elif direction == "NW":
+		tempDrop.motion = Vector2(-1,-1)
+	elif direction == "W":
+		tempDrop.motion = Vector2(-2,0)
+	elif direction == "SW":
+		tempDrop.motion = Vector2(-1,1)
+	elif direction == "S":
+		tempDrop.motion = Vector2(0,2)
+	elif direction == "SE":
+		tempDrop.motion = Vector2(1,1)
+	elif direction == "E":
+		tempDrop.motion = Vector2(2,0)
+	else: #if direction == "NE":
+		tempDrop.motion = Vector2(1,-1)
+		
+func waterPlant(plot):
+	print("plot = " + str(plot))
+	if plot == "1-1":
+		get_node("TileMap/plots/plot1-1").water()
+	elif plot == "2-1":
+		get_node("TileMap/plots/plot2-1").water()
+	elif plot == "3-1":
+		get_node("TileMap/plots/plot3-1").water()
+	elif plot == "4-1":
+		get_node("TileMap/plots/plot4-1").water()
+	elif plot == "5-1":
+		get_node("TileMap/plots/plot5-1").water()
+	elif plot == "6-1":
+		get_node("TileMap/plots/plot6-1").water()
+	elif plot == "7-1":
+		get_node("TileMap/plots/plot7-1").water()
+	elif plot == "1-2":
+		get_node("TileMap/plots/plot1-2").water()
+	elif plot == "2-2":
+		get_node("TileMap/plots/plot2-2").water()
+	elif plot == "3-2":
+		get_node("TileMap/plots/plot3-2").water()
+	elif plot == "4-2":
+		get_node("TileMap/plots/plot4-2").water()
+	elif plot == "5-2":
+		get_node("TileMap/plots/plot5-2").water()
+	elif plot == "6-2":
+		get_node("TileMap/plots/plot6-2").water()
+	elif plot == "7-2":
+		get_node("TileMap/plots/plot7-2").water()
+	elif plot == "1-3":
+		get_node("TileMap/plots/plot1-3").water()
+	elif plot == "2-3":
+		get_node("TileMap/plots/plot2-3").water()
+	elif plot == "3-3":
+		get_node("TileMap/plots/plot3-3").water()
+	elif plot == "4-3":
+		get_node("TileMap/plots/plot4-3").water()
+	elif plot == "5-3":
+		get_node("TileMap/plots/plot5-3").water()
+	elif plot == "6-3":
+		get_node("TileMap/plots/plot6-3").water()
+	elif plot == "7-3":
+		get_node("TileMap/plots/plot7-3").water()
+	elif plot == "1-4":
+		get_node("TileMap/plots/plot1-4").water()
+	elif plot == "2-4":
+		get_node("TileMap/plots/plot2-4").water()
+	elif plot == "3-4":
+		get_node("TileMap/plots/plot3-4").water()
+	elif plot == "4-4":
+		get_node("TileMap/plots/plot4-4").water()
+	elif plot == "5-4":
+		get_node("TileMap/plots/plot5-4").water()
+	elif plot == "6-4":
+		get_node("TileMap/plots/plot6-4").water()
+	elif plot == "7-4":
+		get_node("TileMap/plots/plot7-4").water()
 
 
 func _process(delta):
@@ -303,6 +410,15 @@ func _process(delta):
 				i.queue_free()
 			elif i.remainingTime < -5: #the time remaining when the plot would be affected
 				seeds.remove(seeds.find(i))
+				i.queue_free()
+	if drops.size() > 0: #there are droplets in the field
+		for i in drops:
+			if i.affectedPlot != "0-0":#affectedPlot is something othr than its default
+				waterPlant(i.affectedPlot)
+				drops.remove(drops.find(i))
+				i.queue_free()
+			elif i.remainingTime < -5: #the time remaining when the plot would be affected
+				drops.remove(drops.find(i))
 				i.queue_free()
 	#player 1 wants to pick up or swap tools
 	if Input.is_action_just_pressed("p1_action2"):

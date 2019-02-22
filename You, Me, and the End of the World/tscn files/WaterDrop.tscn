@@ -13,6 +13,8 @@ script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
+scale = Vector2( 0.125, 0.125 )
 texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
 
 
