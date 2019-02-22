@@ -1,22 +1,18 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/Seed.gd" type="Script" id=1]
-[ext_resource path="res://Images/seed.png" type="Texture" id=2]
+[ext_resource path="res://Images/waterDroplet.png" type="Texture" id=2]
 
-[node name="Seed" type="KinematicBody2D"]
+[node name="WaterDrop" type="KinematicBody2D"]
 
-scale = Vector2( 0.125, 0.125 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
 
 

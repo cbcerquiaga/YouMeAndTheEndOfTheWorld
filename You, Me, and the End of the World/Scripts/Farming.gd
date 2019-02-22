@@ -13,18 +13,20 @@ func getClosestTool(player):
 	if player == 1:
 		if !isCloseToBench(1):
 			return "none"
-		elif player1.position.x > 405: #position closest to seedbag
+		elif player1.position.x > 405 and player1.position.x < 480: #position closest to seedbag
 			return "seedBag"
-		#elif position closest to watering can
+		elif player1.position.x >= 480: #position closest to watering can
+			return "wateringCan"
 		#elif position closest to basket
 		else: #closest to hoe
 			return "hoe"
 	else: #if player == 2:
 		if !isCloseToBench(2):
 			return "none"
-		elif player2.position.x > 405: #position closest to seedbag
+		elif player2.position.x > 405 and player2.position.x < 480: #position closest to seedbag
 			return "seedBag"
-		#elif position closest to watering can
+		elif player2.position.x >= 480: #position closest to watering can
+			return "wateringCan"
 		#elif position closest to basket
 		else: #closest to hoe
 			return "hoe"
@@ -287,6 +289,9 @@ func emitSeed(direction, position):
 	else: #if direction == "NE":
 		tempSeed.motion = Vector2(1,-1)
 	#print("tempSeed: " + str(direction) +  " location: " + str(tempSeed.position) + " motion: " + str(tempSeed.motion))
+	
+func wateringCanAction(player):
+	print("squirt squirt")
 
 
 func _process(delta):
@@ -310,6 +315,7 @@ func _process(delta):
 			else:
 				get_node("ToolBench/seedBag").unEquip()
 				get_node("ToolBench/hoe").equip(1)
+				get_node("ToolBench/wateringCan").unEquip()
 				player1.heldItem = "hoe"
 		elif closestTool == "seedBag":
 			if player1.heldItem == "seedBag" and isCloseToBench(1):
@@ -318,11 +324,23 @@ func _process(delta):
 			else:
 				get_node("ToolBench/hoe").unEquip()
 				get_node("ToolBench/seedBag").equip(1)
+				get_node("ToolBench/wateringCan").unEquip()
 				player1.heldItem = "seedBag"
+		elif closestTool == "wateringCan":
+			if player1.heldItem == "wateringCan" and isCloseToBench(1):
+				get_node("ToolBench/wateringCan").unEquip()
+				player1.heldItem = "none"
+			else:
+				get_node("ToolBench/hoe").unEquip()
+				get_node("ToolBench/seedBag").unEquip()
+				get_node("ToolBench/wateringCan").equip(1)
+				player1.heldItem = "wateringCan"
 	if Input.is_action_just_pressed("p1_action1"):
 		#TODO: add cooldown
 		if player1.heldItem == "hoe":
 			hoeAction()
 		if player1.heldItem == "seedBag":
 			seedBagAction(1)
+		if player1.heldItem == "wateringCan":
+			wateringCanAction(1)
 	pass

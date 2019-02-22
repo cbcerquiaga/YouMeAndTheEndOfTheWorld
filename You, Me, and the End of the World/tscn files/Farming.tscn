@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/Farming.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/hoe.gd" type="Script" id=2]
@@ -14,10 +14,12 @@
 [ext_resource path="res://Images/Player.png" type="Texture" id=12]
 [ext_resource path="res://Scripts/FarmingPlayer2.gd" type="Script" id=13]
 [ext_resource path="res://tscn files/Seed.tscn" type="PackedScene" id=14]
+[ext_resource path="res://tscn files/WaterDrop.tscn" type="PackedScene" id=15]
 
 [node name="Farming" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="ToolBench" type="Node2D" parent="." index="0"]
 
@@ -363,5 +365,11 @@ position = Vector2( -98.2365, 348.412 )
 [node name="Seed" parent="." index="3" instance=ExtResource( 14 )]
 
 position = Vector2( -60, -60 )
+
+[node name="WaterDrop" parent="." index="4" instance=ExtResource( 15 )]
+
+position = Vector2( -46.9474, -59.6767 )
+scale = Vector2( 0.125, 0.125 )
+_sections_unfolded = [ "Transform" ]
 
 
