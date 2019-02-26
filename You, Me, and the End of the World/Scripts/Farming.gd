@@ -6,10 +6,14 @@ onready var plantSeed = load("res://tscn files/Seed.tscn")
 onready var waterDrop = load("res://tscn files/WaterDrop.tscn")
 var seeds
 var drops
+var savedHarvest
+var activeHarvest
 
 func _ready():
 	seeds = [] #stores the seeds so they can be looped through
 	drops = []#just like seeds but for water droplets
+	savedHarvest = 0
+	activeHarvest = 0
 	pass
 	
 func getClosestTool(player):
