@@ -20,21 +20,23 @@ func getClosestTool(player):
 	if player == 1:
 		if !isCloseToBench(1):
 			return "none"
-		elif player1.position.x > 405 and player1.position.x < 480: #position closest to seedbag
-			return "seedBag"
+		elif player1.position.x >= 580: #position closest to basket
+			return "basket"
 		elif player1.position.x >= 480: #position closest to watering can
 			return "wateringCan"
-		#elif position closest to basket
+		elif player1.position.x > 405: #position closest to seedbag
+			return "seedBag"
 		else: #closest to hoe
 			return "hoe"
 	else: #if player == 2:
 		if !isCloseToBench(2):
 			return "none"
-		elif player2.position.x > 405 and player2.position.x < 480: #position closest to seedbag
-			return "seedBag"
+		elif player2.position.x >= 580: #position closest to basket
+			return "basket"
 		elif player2.position.x >= 480: #position closest to watering can
 			return "wateringCan"
-		#elif position closest to basket
+		elif player2.position.x > 405: #position closest to seedbag
+			return "seedBag"
 		else: #closest to hoe
 			return "hoe"
 			
@@ -50,6 +52,162 @@ func isCloseToBench(player):
 			return false
 		else:
 			return true
+			
+func isCloseToBarrel(player):
+	if player == 1:
+		if player1.position.x < 786 or player1.position.x > 986 or player1.position.y > 120:
+			#print("far from the barrel")
+			return false
+		else:
+			return true
+	else: #player == 2:
+		if player2.position.x < 786 or player2.position.x > 986 or player2.position.y > 120:
+			return false
+		else:
+			return true
+			
+func storeHarvest():
+	print("Old stored harvest: " + str(savedHarvest))
+	savedHarvest = savedHarvest+activeHarvest
+	activeHarvest = 0
+	print("New stored harvest: " + str(savedHarvest))
+	#TODO: add an animation of storing the food
+	
+#redundant with the hoeAction and seedBagAction functions...maybe could make a single function that passes in the functions to do?
+func basketAction():
+	var basketPos = get_node("ToolBench/basket").position
+	var affectedArray = [] #TODO: add overlap so multiple plots can be farmed at once
+	if basketPos.x > 255 and basketPos.x < 780: #in-bounds x-wise, trying to save the computer from having to do all these conditionals if it doesn't have to
+		if basketPos.y > 231.6 and basketPos.y < 306.6: #first row
+			if basketPos.x < 330:
+				affectedArray.append("1-1")
+			elif basketPos.x < 405:
+				affectedArray.append("2-1")
+			elif basketPos.x < 480:
+				affectedArray.append("3-1")
+			elif basketPos.x < 555:
+				affectedArray.append("4-1")
+			elif basketPos.x < 630:
+				affectedArray.append("5-1")
+			elif basketPos.x < 705:
+				affectedArray.append("6-1")
+			else:
+				affectedArray.append("7-1")
+		elif basketPos.y > 306.6 and basketPos.y < 381.6: #second row
+			if basketPos.x < 330:
+				affectedArray.append("1-2")
+			elif basketPos.x < 405:
+				affectedArray.append("2-2")
+			elif basketPos.x < 480:
+				affectedArray.append("3-2")
+			elif basketPos.x < 555:
+				affectedArray.append("4-2")
+			elif basketPos.x < 630:
+				affectedArray.append("5-2")
+			elif basketPos.x < 705:
+				affectedArray.append("6-2")
+			else:
+				affectedArray.append("7-2")
+		elif basketPos.y > 381.6 and basketPos.y < 456.6: #third row
+			if basketPos.x < 330:
+				affectedArray.append("1-3")
+			elif basketPos.x < 405:
+				affectedArray.append("2-3")
+			elif basketPos.x < 480:
+				affectedArray.append("3-3")
+			elif basketPos.x < 555:
+				affectedArray.append("4-3")
+			elif basketPos.x < 630:
+				affectedArray.append("5-3")
+			elif basketPos.x < 705:
+				affectedArray.append("6-3")
+			else:
+				affectedArray.append("7-3")
+		elif basketPos.y > 456.6 and basketPos.y < 531.6: #fourth row
+			if basketPos.x < 330:
+				affectedArray.append("1-4")
+			elif basketPos.x < 405:
+				affectedArray.append("2-4")
+			elif basketPos.x < 480:
+				affectedArray.append("3-4")
+			elif basketPos.x < 555:
+				affectedArray.append("4-4")
+			elif basketPos.x < 630:
+				affectedArray.append("5-4")
+			elif basketPos.x < 705:
+				affectedArray.append("6-4")
+			else:
+				affectedArray.append("7-4")
+	harvest(affectedArray)
+	
+func harvest(affectedArray):
+	var harvest = [0, false]
+	if affectedArray.has("1-1"):
+		harvest = get_node("TileMap/plots/plot1-1").harvest()
+	elif affectedArray.has("2-1"):
+		harvest = get_node("TileMap/plots/plot2-1").harvest()
+	elif affectedArray.has("3-1"):
+		harvest = get_node("TileMap/plots/plot3-1").harvest()
+	elif affectedArray.has("4-1"):
+		harvest = get_node("TileMap/plots/plot4-1").harvest()
+	elif affectedArray.has("5-1"):
+		harvest = get_node("TileMap/plots/plot5-1").harvest()
+	elif affectedArray.has("6-1"):
+		harvest = get_node("TileMap/plots/plot6-1").harvest()
+	elif affectedArray.has("7-1"):
+		harvest = get_node("TileMap/plots/plot7-1").harvest()
+	elif affectedArray.has("1-2"):
+		harvest = get_node("TileMap/plots/plot1-2").harvest()
+	elif affectedArray.has("2-2"):
+		harvest = get_node("TileMap/plots/plot2-2").harvest()
+	elif affectedArray.has("3-2"):
+		harvest = get_node("TileMap/plots/plot3-2").harvest()
+	elif affectedArray.has("4-2"):
+		harvest = get_node("TileMap/plots/plot4-2").harvest()
+	elif affectedArray.has("5-2"):
+		harvest = get_node("TileMap/plots/plot5-2").harvest()
+	elif affectedArray.has("6-2"):
+		harvest = get_node("TileMap/plots/plot6-2").harvest()
+	elif affectedArray.has("7-2"):
+		harvest = get_node("TileMap/plots/plot7-2").harvest()
+	elif affectedArray.has("1-3"):
+		harvest = get_node("TileMap/plots/plot1-3").harvest()
+	elif affectedArray.has("2-3"):
+		harvest = get_node("TileMap/plots/plot2-3").harvest()
+	elif affectedArray.has("3-3"):
+		harvest = get_node("TileMap/plots/plot3-3").harvest()
+	elif affectedArray.has("4-3"):
+		harvest = get_node("TileMap/plots/plot4-3").harvest()
+	elif affectedArray.has("5-3"):
+		harvest = get_node("TileMap/plots/plot5-3").harvest()
+	elif affectedArray.has("6-3"):
+		harvest = get_node("TileMap/plots/plot6-3").harvest()
+	elif affectedArray.has("7-3"):
+		harvest = get_node("TileMap/plots/plot7-3").harvest()
+	elif affectedArray.has("1-4"):
+		harvest = get_node("TileMap/plots/plot1-4").harvest()
+	elif affectedArray.has("2-4"):
+		harvest = get_node("TileMap/plots/plot2-4").harvest()
+	elif affectedArray.has("3-4"):
+		harvest = get_node("TileMap/plots/plot3-4").harvest()
+	elif affectedArray.has("4-4"):
+		harvest = get_node("TileMap/plots/plot4-4").harvest()
+	elif affectedArray.has("5-4"):
+		harvest = get_node("TileMap/plots/plot5-4").harvest()
+	elif affectedArray.has("6-4"):
+		harvest = get_node("TileMap/plots/plot6-4").harvest()
+	elif affectedArray.has("7-4"):
+		harvest = get_node("TileMap/plots/plot7-4").harvest()
+	print("You harvested: " + str(harvest[0]) + " Rotten?: " + str(harvest[1]))
+	if harvest[1] == false: #the food harvested was not rotten
+		print("Old active harvest: " + str(activeHarvest))
+		activeHarvest = activeHarvest + harvest[0]
+		print("New active harvest: " + str(activeHarvest))
+	else: #rotten food spoils the whole basket
+		activeHarvest = 0
+		print("ONE BAD APPLE SPOILS THE WHOLE BUNCH!")
+	pass
+	
 			
 func hoeAction():
 	var hoePos = get_node("ToolBench/hoe").position
@@ -436,6 +594,7 @@ func _process(delta):
 				get_node("ToolBench/seedBag").unEquip()
 				get_node("ToolBench/hoe").equip(1)
 				get_node("ToolBench/wateringCan").unEquip()
+				get_node("ToolBench/basket").unEquip()
 				player1.heldItem = "hoe"
 		elif closestTool == "seedBag":
 			if player1.heldItem == "seedBag" and isCloseToBench(1):
@@ -445,6 +604,7 @@ func _process(delta):
 				get_node("ToolBench/hoe").unEquip()
 				get_node("ToolBench/seedBag").equip(1)
 				get_node("ToolBench/wateringCan").unEquip()
+				get_node("ToolBench/basket").unEquip()
 				player1.heldItem = "seedBag"
 		elif closestTool == "wateringCan":
 			if player1.heldItem == "wateringCan" and isCloseToBench(1):
@@ -454,13 +614,29 @@ func _process(delta):
 				get_node("ToolBench/hoe").unEquip()
 				get_node("ToolBench/seedBag").unEquip()
 				get_node("ToolBench/wateringCan").equip(1)
+				get_node("ToolBench/basket").unEquip()
 				player1.heldItem = "wateringCan"
+		elif closestTool == "basket":
+			if player1.heldItem == "basket" and isCloseToBench(1):
+				get_node("ToolBench/basket").unEquip()
+				player1.heldItem = "none"
+			else:
+				get_node("ToolBench/hoe").unEquip()
+				get_node("ToolBench/seedBag").unEquip()
+				get_node("ToolBench/wateringCan").unEquip()
+				get_node("ToolBench/basket").equip(1)
+				player1.heldItem = "basket"
 	if Input.is_action_just_pressed("p1_action1"):
 		#TODO: add cooldown
 		if player1.heldItem == "hoe":
 			hoeAction()
-		if player1.heldItem == "seedBag":
+		elif player1.heldItem == "seedBag":
 			seedBagAction(1)
-		if player1.heldItem == "wateringCan":
+		elif player1.heldItem == "wateringCan":
 			wateringCanAction(1)
+		elif player1.heldItem == "basket":
+			if isCloseToBarrel(1):
+				storeHarvest()
+			else:
+				basketAction()
 	pass

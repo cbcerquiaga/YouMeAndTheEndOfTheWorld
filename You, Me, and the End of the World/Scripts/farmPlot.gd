@@ -47,6 +47,11 @@ func harvest():
 			rotten = false
 		else:
 			rotten = true
+	var harvestArray = []
+	harvestArray.append(harvest)
+	harvestArray.append(rotten)
+	destroyPlant()
+	return harvestArray
 	#emit_signal("fill_basket", harvest, rotten)
 	
 func hoe():
