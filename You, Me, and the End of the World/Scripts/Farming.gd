@@ -6,12 +6,14 @@ onready var plantSeed = load("res://tscn files/Seed.tscn")
 onready var waterDrop = load("res://tscn files/WaterDrop.tscn")
 var seeds
 var drops
+var varmints
 var savedHarvest
 var activeHarvest
 
 func _ready():
 	seeds = [] #stores the seeds so they can be looped through
 	drops = []#just like seeds but for water droplets
+	varmints = []#keeps track of all the pests in the scene
 	savedHarvest = 0
 	activeHarvest = 0
 	pass
@@ -563,7 +565,16 @@ func waterPlant(plot):
 		get_node("TileMap/plots/plot7-4").water()
 
 
+func getPosForVarmints():
+	for i in varmints:
+		varmint.location = hoe.location
+		
+func spawnVarmints():
+	pass
+
 func _process(delta):
+	spawnVarmings()
+	getPosForVarmints()
 	if seeds.size() > 0: #there are seeds in the field
 		for i in seeds:
 			if i.affectedPlot != "0-0":#affectedPlot is something othr than its default

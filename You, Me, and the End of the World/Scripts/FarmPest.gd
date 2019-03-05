@@ -1,15 +1,14 @@
 extends "res://Scripts/HuntigEnemy.gd"
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+var state
 
 func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
+	state = "searching"
 	pass
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+func _process(delta):
+	#the hoe is too close, need to run
+	if location.x - position.x < 60 and location.x - position.x > -60:
+		if location.y - position.y < 60 and location.y - position.y > -60:
+			state = "running"
+	pass
