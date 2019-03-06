@@ -1,9 +1,19 @@
 extends "res://Scripts/HuntigEnemy.gd"
 
 var state
+var plots
 
 func _ready():
 	state = "searching"
+	pass
+	
+func setPlots(newPlots):
+	plots = newPlots
+	
+func lookForFood():
+	pass
+	
+func huntDownTheFood():
 	pass
 
 func _process(delta):
@@ -11,4 +21,10 @@ func _process(delta):
 	if location.x - position.x < 60 and location.x - position.x > -60:
 		if location.y - position.y < 60 and location.y - position.y > -60:
 			state = "running"
+	if state == "searching":
+		lookForFood()
+	elif state == "running":
+		runDirectlyAway()
+	elif state == "tracking":
+		huntDownTheFood()
 	pass

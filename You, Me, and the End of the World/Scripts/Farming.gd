@@ -9,11 +9,17 @@ var drops
 var varmints
 var savedHarvest
 var activeHarvest
+var plotStates
 
 func _ready():
 	seeds = [] #stores the seeds so they can be looped through
 	drops = []#just like seeds but for water droplets
 	varmints = []#keeps track of all the pests in the scene
+	plotStates = []
+	for x in range(7):
+    	plotStates.append([])
+    	for y in range(4):
+        	plotStates[x].append(0)
 	savedHarvest = 0
 	activeHarvest = 0
 	pass
@@ -565,16 +571,48 @@ func waterPlant(plot):
 		get_node("TileMap/plots/plot7-4").water()
 
 
-func getPosForVarmints():
+func setInfoForVarmints():
 	for i in varmints:
-		varmint.location = hoe.location
+		i.location = get_node("ToolBench/hoe/hoe").location
+		i.setPlots(plotStates)
 		
 func spawnVarmints():
 	pass
+	
+func setPlotStates():
+	plotStates[0][0] = get_node("TileMap/plots/plot1-1").state
+	plotStates[1][0] = get_node("TileMap/plots/plot2-1").state
+	plotStates[2][0] = get_node("TileMap/plots/plot3-1").state
+	plotStates[3][0] = get_node("TileMap/plots/plot4-1").state
+	plotStates[4][0] = get_node("TileMap/plots/plot5-1").state
+	plotStates[5][0] = get_node("TileMap/plots/plot6-1").state
+	plotStates[6][0] = get_node("TileMap/plots/plot7-1").state
+	plotStates[0][1] = get_node("TileMap/plots/plot1-2").state
+	plotStates[1][1] = get_node("TileMap/plots/plot2-2").state
+	plotStates[2][1] = get_node("TileMap/plots/plot3-2").state
+	plotStates[3][1] = get_node("TileMap/plots/plot4-2").state
+	plotStates[4][1] = get_node("TileMap/plots/plot5-2").state
+	plotStates[5][1] = get_node("TileMap/plots/plot6-2").state
+	plotStates[6][1] = get_node("TileMap/plots/plot7-2").state
+	plotStates[0][2] = get_node("TileMap/plots/plot1-3").state
+	plotStates[1][2] = get_node("TileMap/plots/plot2-3").state
+	plotStates[2][2] = get_node("TileMap/plots/plot3-3").state
+	plotStates[3][2] = get_node("TileMap/plots/plot4-3").state
+	plotStates[4][2] = get_node("TileMap/plots/plot5-3").state
+	plotStates[5][2] = get_node("TileMap/plots/plot6-3").state
+	plotStates[6][2] = get_node("TileMap/plots/plot7-3").state
+	plotStates[0][3] = get_node("TileMap/plots/plot1-4").state
+	plotStates[1][3] = get_node("TileMap/plots/plot2-4").state
+	plotStates[2][3] = get_node("TileMap/plots/plot3-4").state
+	plotStates[3][3] = get_node("TileMap/plots/plot4-4").state
+	plotStates[4][3] = get_node("TileMap/plots/plot5-4").state
+	plotStates[5][3] = get_node("TileMap/plots/plot6-4").state
+	plotStates[6][3] = get_node("TileMap/plots/plot7-4").state
 
 func _process(delta):
-	spawnVarmings()
-	getPosForVarmints()
+	setPlotStates()
+	spawnVarmints()
+	setInfoForVarmints()
 	if seeds.size() > 0: #there are seeds in the field
 		for i in seeds:
 			if i.affectedPlot != "0-0":#affectedPlot is something othr than its default
