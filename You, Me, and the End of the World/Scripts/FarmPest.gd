@@ -1,4 +1,4 @@
-extends "res://Scripts/HuntigEnemy.gd"
+extends "res://Scripts/Hunting AI/HuntingEnemy.gd"
 
 var state
 var plots

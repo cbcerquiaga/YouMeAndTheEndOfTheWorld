@@ -4,12 +4,16 @@ onready var player1 = get_node("TileMap/FarmingPlayer1")
 onready var player2 = get_node("TileMap/FarmingPlayer2")
 onready var plantSeed = load("res://tscn files/Seed.tscn")
 onready var waterDrop = load("res://tscn files/WaterDrop.tscn")
+onready var pest = load("res://tscn files/FarmPest.tscn")
+const maxVarmints = 8
+const varmintSpawnChance = .5
 var seeds
 var drops
 var varmints
 var savedHarvest
 var activeHarvest
 var plotStates
+var chance
 
 func _ready():
 	seeds = [] #stores the seeds so they can be looped through
@@ -570,13 +574,39 @@ func waterPlant(plot):
 	elif plot == "7-4":
 		get_node("TileMap/plots/plot7-4").water()
 
-
+#passes in information varmints need for their AI
 func setInfoForVarmints():
 	for i in varmints:
-		i.location = get_node("ToolBench/hoe/hoe").location
+		i.location = get_node("ToolBench/hoe/hoe").position
 		i.setPlots(plotStates)
 		
+#randomly spawns varmints
 func spawnVarmints():
+	if varmints.size() < maxVarmints:
+		chance = rand_range(0,1)
+		if chance < varmintSpawnChance:
+			var side = chooseRandomSide()
+			spawnVarmintAtSide(side)
+	pass
+
+#chooses a random side for varmints to spawn and returns it
+func chooseRandomSide():
+	#TODO: actually make it randomly choose a random side
+	return "W"
+	
+func spawnVarmintAtSide(side):
+	var spawnPos = Vector2()
+	#TODO: make it work with other sides
+	if side == "W":
+		spawnPos.x = 0
+		spawnPos.y = rand_range(0, 600)#range from the top to the bottom of the scene
+	initVarmint(spawnPos)
+	
+func initVarmint(spawnPos):
+	var tempPest = pest.instance()
+	tempPest.position = spawnPos
+	get_node("PestEmitter").add_child(tempPest)
+	varmints.append(tempPest)
 	pass
 	
 func setPlotStates():

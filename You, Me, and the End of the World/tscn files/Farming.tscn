@@ -45,6 +45,7 @@ __meta__ = {
 [node name="ToolBench" type="Node2D" parent="." index="1"]
 
 position = Vector2( 1, 25 )
+_sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
