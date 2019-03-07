@@ -592,6 +592,14 @@ func spawnVarmints():
 #chooses a random side for varmints to spawn and returns it
 func chooseRandomSide():
 	#TODO: actually make it randomly choose a random side
+#	var rand = randi()%4
+#	if rand == 0:
+#		return "E"
+#	elif rand == 1:
+#		return "S"
+#	elif rand == 2:
+#		return "N"#do we want them coming from the top?
+#	else:
 	return "W"
 	
 func spawnVarmintAtSide(side):
@@ -603,6 +611,7 @@ func spawnVarmintAtSide(side):
 	initVarmint(spawnPos)
 	
 func initVarmint(spawnPos):
+	print("init varmint at " + str(spawnPos))
 	var tempPest = pest.instance()
 	tempPest.position = spawnPos
 	get_node("PestEmitter").add_child(tempPest)
