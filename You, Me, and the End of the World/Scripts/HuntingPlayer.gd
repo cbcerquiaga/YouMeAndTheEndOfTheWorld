@@ -7,6 +7,7 @@ onready var lostVal = 0
 onready var spookVal = 0
 onready var shotVal = 0#100
 var spread = 20
+onready var bulletsFired = []
 onready var bullet = load("res://tscn files/HuntingBullet.tscn")
 
 func _ready():
@@ -28,6 +29,13 @@ func create_bullet(position):
 	truePosition.y += randSpread
 	tempBullet.motion = truePosition.normalized()
 	self.get_parent().add_child(tempBullet)
+	bulletsFired.append(tempBullet)
+	
+func checkAndKillBullets():
+	for i in range(0, bulletsFired.size() - 1):
+		var tempBullet = bulletsFired[i]
+		if tempBullet.distance > tempBullet.maxDistance:
+			tempBullet.destroy()
 
 func _process(delta):
 	if lostVal < 0:
@@ -53,4 +61,5 @@ func _process(delta):
 			shotVal = 0
 			create_bullet(self.position)
 	move_and_slide(velocity)
+	checkAndKillBullets()
 	pass

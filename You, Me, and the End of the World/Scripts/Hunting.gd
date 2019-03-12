@@ -31,6 +31,7 @@ func createBullet(playerPosition):
 
 func _process(delta):
 	creature.setHunterLocation(player.position)
+	passBulletsInfo()
 	if creature.health <= 0:
 		print("You got it!")
 		#randomize what the player actually gets
@@ -69,3 +70,8 @@ func getXDist():
 	
 func getYDist():
 	return player.position.y - creature.position.y
+	
+func passBulletsInfo():
+	if player.bulletsFired.size() > 0:
+		for i in range(0, player.bulletsFired.size() - 1):
+			player.bulletsFired[i].loadCreature(creature)
