@@ -8,6 +8,7 @@ var defaultSong = ["A","D","A","D","W","S"]
 #maybe we ought to have a tempoArray as well?
 var currentNote = 0
 var mostRecentNote = ""
+var notes = []
 
 func _ready():
 	time = 0
@@ -23,6 +24,7 @@ func changeTempo(tempoVal):
 	tempo = tempoVal
 	
 func spawnNote():
+	#print("spawning a new note")
 	if currentNote < song.size() - 1:
 		currentNote = currentNote + 1
 	else:
@@ -32,6 +34,8 @@ func spawnNote():
 	#print("Note: " + str(noteVal))
 	var tempNote = note.instance()
 	tempNote.set_position(self.position)
+	#tempNote.position.x = tempNote.position.x + currentNote *10
+	notes.append(tempNote)
 	#tempNote.changeTexture(noteVal, 1)
 	
 

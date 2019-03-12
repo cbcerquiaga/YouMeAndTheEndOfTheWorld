@@ -32,13 +32,15 @@ Medium encounters
 11. Banished- people kicked out of their towns for comitting crimes
 12. Bards- travelling musicians, poets, and writers who travel from town to town carrying news and telling stories of the past.
 13. Doctors- travelling doctors of varying qualification who go from town to town practicing or pretending to practice medicine.
+14. Zealots of the salt- a group of people that belive consuming salt causes autism
+15. 
 
 Rare encounters
 1. Working car- just sitting there. Who would leave a working car just sitting there?
-2. Screwdriver Man- not the superhero we deserve, and not the one we needed either. He just runs up and stabs you with a screwdriver and leaves
+2. Screwdriver Man- not the superhero we deserve, and not the one we needed either. He just runs up, stabs you with a screwdriver, and leaves
 3. Entertainers- small circuses who travel from town to town doing different acts (things like the trapeze, lifting heavy objects, performing plays, singing songs, reading books, or performing magic) in order to make money from locals before heading to the next town.
 4. Seafarers- people who live on boats at sea, scavenging and fishing to survive. When these people come to land to trade, it's a rare sight.
-5.
+5. Hoarders- like scavengers, but less picky. Instead of trying to take what they can use or what they can sell, these people just collect everything they find for no reason at all. They tend to have good stuff, if you can convince them to part with it.
 
 Special Encounters (only after certain quests)
 1. Crow and his men

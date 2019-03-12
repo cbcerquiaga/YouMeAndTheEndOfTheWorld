@@ -30,5 +30,5 @@ func _process(delta):
 		time = 0
 	else:
 		time = time+1
-		print(str(time))
+		#print(str(time))
 	pass
