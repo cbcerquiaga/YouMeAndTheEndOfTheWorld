@@ -8,8 +8,8 @@ var distance = 0
 var maxDistance = 1000
 
 onready var mySprite = get_node("Sprite")
-onready var creature = self.get_parent().get_node("Creature")
-onready var creatureSprite = load("res://Images/grandPiano.png")
+var creature
+var creatureSprite
 
 signal hit
 signal hitUpdate
@@ -50,16 +50,20 @@ func contact(body):
 	destroy()
 	
 func collideByPosition():
-	var r1from = mySprite.position
-	var r1to = Vector2()
-	r1to.x = r1from.x + mySprite.texture.get_width()
-	r1to.y = r1from.y + mySprite.texture.get_height()
-	var r2from = creature.position
-	var r2to = Vector2()
-	r2to.x = r2from.x + creatureSprite.get_width()
-	r2to.y = r2from.y + creatureSprite.get_height()
-	#thanks, kifhan from reddit
-	return !(r2from.x >= r1to.x or r2to.x <= r1from.x or r2from.y >= r1to.y or r2to.y <= r1from.y) 
+	if creature != null and creatureSprite != null:
+		var r1from = mySprite.position
+		var r1to = Vector2()
+		r1to.x = r1from.x + mySprite.texture.get_width()
+		r1to.y = r1from.y + mySprite.texture.get_height()
+		var r2from = creature.position
+		var r2to = Vector2()
+		r2to.x = r2from.x + creatureSprite.get_width()
+		r2to.y = r2from.y + creatureSprite.get_height()
+		#thanks, kifhan from reddit
+		return !(r2from.x >= r1to.x or r2to.x <= r1from.x or r2from.y >= r1to.y or r2to.y <= r1from.y) 
+	else:
+		#print("null AF")
+		return false
 	
 func loadCreature(newCreature):
 	creature = newCreature

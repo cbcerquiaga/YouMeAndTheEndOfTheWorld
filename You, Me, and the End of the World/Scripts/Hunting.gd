@@ -72,6 +72,8 @@ func getYDist():
 	return player.position.y - creature.position.y
 	
 func passBulletsInfo():
+	print("bullets are getting their info")
 	if player.bulletsFired.size() > 0:
 		for i in range(0, player.bulletsFired.size() - 1):
 			player.bulletsFired[i].loadCreature(creature)
+			player.bulletsFired[i].loadCreatureSprite(get_node("TileMap/Creature/Sprite"))
