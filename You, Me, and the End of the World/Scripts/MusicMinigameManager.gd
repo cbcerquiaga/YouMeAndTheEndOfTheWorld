@@ -16,7 +16,15 @@ func _ready():
 	#emitter2.changeSong(defaultSong)
 	pass
 
+func _pause():
+	print("Game paused")
+	get_tree().paused = true
+	#$pause_popup.update()
+	$pause_popup.show()
+
 func _process(delta):
+	if Input.is_action_pressed("pause"):
+		_pause()
 	if Input.is_action_just_pressed("p2_move_left"):
 		if keyArray1[0] == "A":
 			print("nice")

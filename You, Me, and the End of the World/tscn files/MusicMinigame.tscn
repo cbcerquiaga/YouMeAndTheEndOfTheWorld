@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/MusicMinigameManager.gd" type="Script" id=1]
-[ext_resource path="res://Scripts/MusicP1Emitter.gd" type="Script" id=2]
-[ext_resource path="res://tscn files/MusicKey.tscn" type="PackedScene" id=3]
+[ext_resource path="res://tscn files/pause_popup.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/MusicP1Emitter.gd" type="Script" id=3]
+[ext_resource path="res://tscn files/MusicKey.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -33,16 +34,20 @@ extents = Vector2( 10, 10 )
 
 script = ExtResource( 1 )
 
-[node name="p1Emitter" type="Node2D" parent="." index="0"]
+[node name="pause_popup" parent="." index="0" instance=ExtResource( 2 )]
+
+visible = false
+
+[node name="p1Emitter" type="Node2D" parent="." index="1"]
 
 position = Vector2( 664.815, 30.0764 )
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 
-[node name="p2Emitter" type="Node2D" parent="." index="1"]
+[node name="p2Emitter" type="Node2D" parent="." index="2"]
 
 position = Vector2( 441.714, 30.7931 )
 
-[node name="tooSoon2" type="Area2D" parent="." index="2"]
+[node name="tooSoon2" type="Area2D" parent="." index="3"]
 
 editor/display_folded = true
 position = Vector2( 511.961, 494.397 )
@@ -61,7 +66,7 @@ position = Vector2( 0, -214.989 )
 scale = Vector2( 1, 1.36364 )
 shape = SubResource( 1 )
 
-[node name="tooSoon1" type="Area2D" parent="." index="3"]
+[node name="tooSoon1" type="Area2D" parent="." index="4"]
 
 editor/display_folded = true
 position = Vector2( 511.061, 515.514 )
@@ -80,7 +85,7 @@ position = Vector2( -0.124916, -166.387 )
 scale = Vector2( 1, 1.14181 )
 shape = SubResource( 2 )
 
-[node name="justRight" type="Area2D" parent="." index="4"]
+[node name="justRight" type="Area2D" parent="." index="5"]
 
 editor/display_folded = true
 position = Vector2( 510.899, 537.666 )
@@ -98,7 +103,7 @@ audio_bus_name = "Master"
 position = Vector2( 0, -154.08 )
 shape = SubResource( 3 )
 
-[node name="tooLate1" type="Area2D" parent="." index="5"]
+[node name="tooLate1" type="Area2D" parent="." index="6"]
 
 editor/display_folded = true
 position = Vector2( 509.94, 563.321 )
@@ -117,7 +122,7 @@ position = Vector2( 0.0626993, -81.4866 )
 scale = Vector2( 1, 0.575895 )
 shape = SubResource( 4 )
 
-[node name="tooLate2" type="Area2D" parent="." index="6"]
+[node name="tooLate2" type="Area2D" parent="." index="7"]
 
 editor/display_folded = true
 position = Vector2( 511.42, 585.602 )
@@ -135,6 +140,6 @@ audio_bus_name = "Master"
 position = Vector2( 0, -137.725 )
 shape = SubResource( 5 )
 
-[node name="MusicKey" parent="." index="7" instance=ExtResource( 3 )]
+[node name="MusicKey" parent="." index="8" instance=ExtResource( 4 )]
 
 

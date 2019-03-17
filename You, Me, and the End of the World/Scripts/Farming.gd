@@ -647,8 +647,16 @@ func setPlotStates():
 	plotStates[4][3] = get_node("TileMap/plots/plot5-4").state
 	plotStates[5][3] = get_node("TileMap/plots/plot6-4").state
 	plotStates[6][3] = get_node("TileMap/plots/plot7-4").state
+	
+func _pause():
+	print("Game paused")
+	get_tree().paused = true
+	#$pause_popup.update()
+	$pause_popup.show()
 
 func _process(delta):
+	if Input.is_action_pressed("pause"):
+		_pause()
 	setPlotStates()
 	spawnVarmints()
 	setInfoForVarmints()

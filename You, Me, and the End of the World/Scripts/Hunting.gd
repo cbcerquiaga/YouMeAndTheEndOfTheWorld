@@ -28,8 +28,16 @@ func createBullet(playerPosition):
 		player.shotVal = 0
 	else:
 		print("I guess you're going to have to tackle this thing")
+		
+func _pause():
+	print("Game paused")
+	get_tree().paused = true
+	#$pause_popup.update()
+	$pause_popup.show()
 
 func _process(delta):
+	if Input.is_action_pressed("pause"):
+		_pause()
 	creature.setHunterLocation(player.position)
 	passBulletsInfo()
 	if creature.health <= 0:

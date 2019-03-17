@@ -20,8 +20,16 @@ func _ready():
 	playerTeamSubs = [9,12,36]
 	oppTeamSubs = [6,8,50]
 	pass
+	
+func _pause():
+	print("Game paused")
+	get_tree().paused = true
+	#$pause_popup.update()
+	$pause_popup.show()
 
 func _process(delta):
+	if Input.is_action_pressed("pause"):
+		_pause()
 	#do initial countdown
 	#start the game
 	if !gameStarted:
