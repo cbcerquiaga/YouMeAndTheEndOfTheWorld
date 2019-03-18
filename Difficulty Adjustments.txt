@@ -1,0 +1,18 @@
+DIFFICULTY ADJUSTMENTS
+At the start of each game, players should be allowed to adjust difficulty in various ways to tailor the game xperience to how they want it.
+This should involve choosing one of our preset difficulties (maybe normal and hard?) or going through each individual way to make a custom difficulty.
+GENERAL
+XP Rate: high (easy), medium (normal), low (hard)
+Luck: assisted (easy), random (normal)
+Random encounters: normal (normal), rare (normal), common (normal), friendly (easy), hostile (hard), wild- common encounters are rare, rare encounters are common (normal)
+Survival: easy (status bars deplete slower), medium (normal), hard (status bars deplete faster)
+Items: frequent (easy), infrequent (normal), rare (hard)
+MINIGAMES
+Farming: easy (lower varmint max, less chance of spoiled food), medium (normal), hard (highr varmint max cap, higher chance of spoiled food)
+Fishing: stocked (more fish), medium (normal), barren (less fish)
+Music: adagio (slow and easy), allegro (medium), presto (fast and hard)
+Combat: deadly (hard), extra dealy (very hard)
+Hunting: easy (spook and lose bars fill slower, shot bar fills faster), normal
+Hockey: easy (AI players and goalie suck), medium (AI players suck, goalie is good or players are good and goalie sucks), hard (AI players and goalies are good)
+Basketball: easy (opposing players are slower), medium (normal), hard (opposing players are faster)
+
