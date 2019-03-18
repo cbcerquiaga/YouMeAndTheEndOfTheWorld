@@ -15,7 +15,7 @@ height = 20.0
 custom_solver_bias = 0.0
 radius = 10.0
 
-[node name="PlayerTracker" type="KinematicBody2D"]
+[node name="PlayerTracker" type="KinematicBody2D" index="0"]
 
 position = Vector2( 7, 0 )
 input_pickable = false

@@ -26,7 +26,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 popup_exclusive = true
 script = ExtResource( 1 )
-_sections_unfolded = [ "Anchor", "Margin", "Material", "Pause", "Popup", "Visibility" ]
+_sections_unfolded = [ "Anchor", "Margin", "Material", "Pause", "Popup", "Rect", "Visibility" ]
 
 [node name="Resume Button" type="Button" parent="." index="0"]
 
