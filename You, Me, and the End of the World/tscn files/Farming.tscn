@@ -20,7 +20,7 @@
 [ext_resource path="res://tscn files/Seed.tscn" type="PackedScene" id=18]
 [ext_resource path="res://tscn files/WaterDrop.tscn" type="PackedScene" id=19]
 
-[node name="Farming" type="Node2D"]
+[node name="Farming" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -125,7 +125,11 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap" type="TileMap" parent="." index="3"]
+[node name="PestEmitter" type="Node2D" parent="." index="3"]
+
+position = Vector2( -98.2365, 348.412 )
+
+[node name="TileMap" type="TileMap" parent="." index="4"]
 
 position = Vector2( 0, -0.938889 )
 mode = 0
@@ -152,6 +156,7 @@ __meta__ = {
 
 [node name="plots" type="Node2D" parent="TileMap" index="0"]
 
+editor/display_folded = true
 scale = Vector2( 0.3, 0.3 )
 z_index = -10
 _sections_unfolded = [ "Transform", "Z Index" ]
@@ -301,6 +306,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="FarmingPlayer1" type="KinematicBody2D" parent="TileMap" index="1"]
 
+editor/display_folded = true
 position = Vector2( 300, 80 )
 input_pickable = false
 collision_layer = 1
@@ -348,6 +354,7 @@ audio_bus_name = "Master"
 
 [node name="FarmingPlayer2" type="KinematicBody2D" parent="TileMap" index="2"]
 
+editor/display_folded = true
 position = Vector2( 730, 80 )
 input_pickable = false
 collision_layer = 1
@@ -392,10 +399,6 @@ audio_bus_name = "Master"
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/FarmingPlayer2/pickupArea" index="0"]
-
-[node name="PestEmitter" type="Node2D" parent="." index="4"]
-
-position = Vector2( -98.2365, 348.412 )
 
 [node name="Seed" parent="." index="5" instance=ExtResource( 18 )]
 

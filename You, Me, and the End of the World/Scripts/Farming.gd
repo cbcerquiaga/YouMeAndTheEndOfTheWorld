@@ -606,7 +606,7 @@ func spawnVarmintAtSide(side):
 	var spawnPos = Vector2()
 	#TODO: make it work with other sides
 	if side == "W":
-		spawnPos.x = 0
+		spawnPos.x = 100 #0
 		spawnPos.y = rand_range(0, 600)#range from the top to the bottom of the scene
 	initVarmint(spawnPos)
 	
@@ -660,6 +660,8 @@ func _process(delta):
 	setPlotStates()
 	spawnVarmints()
 	setInfoForVarmints()
+	if varmints[0] != null:
+		varmints[0].printState()
 	if seeds.size() > 0: #there are seeds in the field
 		for i in seeds:
 			if i.affectedPlot != "0-0":#affectedPlot is something othr than its default

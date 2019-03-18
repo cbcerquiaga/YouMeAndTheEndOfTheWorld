@@ -7,6 +7,7 @@ var location #where the player-controlled hunter is
 var health
 const spookDist = 100
 const justRightDist = 200
+var slide = false
 
 func _ready():
 	health = 100
@@ -185,5 +186,8 @@ func jitter():
 func _process(delta):
 	velocity.x = velocity.x * velocityMultiplier
 	velocity.y = velocity.y * velocityMultiplier
-	self.move_and_collide(velocity)
+	if !slide:
+		self.move_and_collide(velocity)
+	elif slide:
+		move_and_slide(velocity)
 	pass

@@ -3,13 +3,14 @@ extends "res://Scripts/Hunting AI/HuntingEnemy.gd"
 var state
 var plots
 var circleDirection
-const SPEED = 20
+const SPEED = 2#20
 var moveTime = 61
 var lastMove
 var distances = [60, 20]
 
 func _ready():
 	state = "searching"
+	slide = true
 	var coin = randi()%2
 	if coin == 1:
 		circleDirection = "clock"
@@ -21,8 +22,8 @@ func setPlots(newPlots):
 	plots = newPlots
 	
 func lookForFood():
-	
-	circlePlots()
+	runDirection("right")
+	#circlePlots()
 	pass
 	
 func circlePlots():
@@ -103,6 +104,9 @@ func clockwise():
 	
 func huntDownTheFood():
 	pass
+	
+func printState():
+	print(state)
 
 func _process(delta):
 	#the hoe is too close, need to run

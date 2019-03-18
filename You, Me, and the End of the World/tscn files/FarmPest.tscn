@@ -3,7 +3,7 @@
 [ext_resource path="res://Scripts/FarmPest.gd" type="Script" id=1]
 [ext_resource path="res://Images/farmRat.png" type="Texture" id=2]
 
-[node name="FarmPest" type="KinematicBody2D" index="0"]
+[node name="FarmPest" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
