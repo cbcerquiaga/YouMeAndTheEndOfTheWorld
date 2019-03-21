@@ -26,7 +26,7 @@ extents = Vector2( 10, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Fishing" type="Node2D"]
+[node name="Fishing" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -115,6 +115,7 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="TileMap/Player1" index="0"]
 

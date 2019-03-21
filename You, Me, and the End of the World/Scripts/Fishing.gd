@@ -87,6 +87,16 @@ func _pause():
 func _process(delta):
 	if Input.is_action_pressed("pause"):
 		_pause()
+	#check if the players have gone off the top of the screen
+	if player1.position.y - get_node("PlayerTracker").position.y < -475:
+		player1.isFrozen = true
+	else:
+		player1.isFrozen = false
+	if player2.position.y - get_node("PlayerTracker").position.y < -475:
+		player2.isFrozen = true
+	else:
+		player2.isFrozen = false
+	
 #if one player catches a fish but the other hasn't, disable its movement and let it get off screen
 	if player1.caughtFish and !player2.caughtFish:
 		print("player 1 has a fish, but let player 2 keep going")
