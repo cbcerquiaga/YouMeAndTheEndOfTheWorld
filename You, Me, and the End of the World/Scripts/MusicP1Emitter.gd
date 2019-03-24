@@ -36,6 +36,8 @@ func spawnNote():
 	tempNote.set_position(self.position)
 	#tempNote.position.x = tempNote.position.x + currentNote *10
 	notes.append(tempNote)
+	tempNote.changeSpeed(tempo)
+#	print("tempNote at: " + str(tempNote.position) + " " + str())
 	#tempNote.changeTexture(noteVal, 1)
 	
 

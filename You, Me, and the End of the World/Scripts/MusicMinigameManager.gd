@@ -9,11 +9,14 @@ var song
 var defaultSong = ["A","D","A","D","W","S"]
 onready var emitter1 = get_node("p1Emitter")
 onready var emitter2 = get_node("p2Emitter")
+onready var arranger1 = get_node("p1Arranger")
 
 func _ready():
 	time = 0
-	emitter1.changeSong(defaultSong)
+	arranger1.pasSong(defaultSong)
+	#emitter1.changeSong(defaultSong)
 	#emitter2.changeSong(defaultSong)
+	
 	pass
 
 func _pause():
@@ -31,8 +34,8 @@ func _process(delta):
 		else:
 			print("not nice")
 	if time >= tempo:
-		emitter1.spawnNote()
-		keyArray1.append(emitter1.mostRecentNote)
+#		emitter1.spawnNote()
+#		keyArray1.append(emitter1.mostRecentNote)
 		#emitter2.spawnNote()
 		#keyArray2.append(emitter2.mostRecentNote)
 		time = 0
