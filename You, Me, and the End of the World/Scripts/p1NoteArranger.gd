@@ -9,6 +9,14 @@ var currentKey
 var numNotesOnscreen
 var tempo
 var time
+onready var note0 = get_node("p1Arranger/MusicKey")
+onready var note1 = get_node("p1Arranger/MusicKey2")
+onready var note2 = get_node("p1Arranger/MusicKey3")
+onready var note3 = get_node("p1Arranger/MusicKey4")
+onready var note4 = get_node("p1Arranger/MusicKey5")
+onready var note5 = get_node("p1Arranger/MusicKey6")
+onready var note6 = get_node("p1Arranger/MusicKey7")
+onready var note7 = get_node("p1Arranger/MusicKey8")
 
 
 func _ready():
@@ -26,39 +34,57 @@ func pasSong(song):
 	
 func changeTexture(note):
 	if note == 0:
-		get_node("p1Arranger/MusicKey").changeTexture(keyArray[currentKey],1)
+		note0.changeTexture(keyArray[currentKey],1)
 	elif note == 1:
-		get_node("p1Arranger/MusicKey2").changeTexture(keyArray[currentKey],1)
+		note1.changeTexture(keyArray[currentKey],1)
 	elif note == 2:
-		get_node("p1Arranger/MusicKey3").changeTexture(keyArray[currentKey],1)
+		note2.changeTexture(keyArray[currentKey],1)
 	elif note == 3:
-		get_node("p1Arranger/MusicKey4").changeTexture(keyArray[currentKey],1)
+		note3.changeTexture(keyArray[currentKey],1)
 	elif note == 4:
-		get_node("p1Arranger/MusicKey5").changeTexture(keyArray[currentKey],1)
+		note4.changeTexture(keyArray[currentKey],1)
 	elif note == 5:
-		get_node("p1Arranger/MusicKey6").changeTexture(keyArray[currentKey],1)
+		note5.changeTexture(keyArray[currentKey],1)
 	elif note == 6:
-		get_node("p1Arranger/MusicKey7").changeTexture(keyArray[currentKey],1)
+		note6.changeTexture(keyArray[currentKey],1)
 	else: #if note == 7:
-		get_node("p1Arranger/MusicKey8").changeTexture(keyArray[currentKey],1)
+		note7.changeTexture(keyArray[currentKey],1)
 	
-func setWaiting(note, val):
+func setWaiting(note):
 	if note == 0:
-		get_node("p1Arranger/MusicKey").waiting = val
+		note0.wait()
 	elif note == 1:
-		get_node("p1Arranger/MusicKey2").waiting = val
+		note1.wait()
 	elif note == 2:
-		get_node("p1Arranger/MusicKey3").waiting = val
+		note2.wait()
 	elif note == 3:
-		get_node("p1Arranger/MusicKey4").waiting = val
+		note3.wait()
 	elif note == 4:
-		get_node("p1Arranger/MusicKey5").waiting = val
+		note4.wait()
 	elif note == 5:
-		get_node("p1Arranger/MusicKey6").waiting = val
+		note5.wait()
 	elif note == 6:
-		get_node("p1Arranger/MusicKey7").waiting = val
+		note6.wait()
 	else: #if note == 7:
-		get_node("p1Arranger/MusicKey8").waiting = val
+		note7.wait()
+		
+func go(note):
+	if note == 0:
+		note0.go()
+	elif note == 1:
+		note1.go()
+	elif note == 2:
+		note2.go()
+	elif note == 3:
+		note3.go()
+	elif note == 4:
+		note4.go()
+	elif note == 5:
+		note5.go()
+	elif note == 6:
+		note6.go()
+	else: #if note == 7:
+		note7.go()
 
 func setTempo(val):
 	tempo = val
@@ -75,6 +101,8 @@ func nextNote():
 		pass
 
 func _process(delta):
+	setWaiting(1)
+	go(1)
 	if time >= tempo:
 		nextNote()
 		time = 0

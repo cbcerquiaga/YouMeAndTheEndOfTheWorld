@@ -5,15 +5,22 @@ onready var sprite = get_node("Sprite")
 var key
 var assignedPlayer
 var isLead = false
-var waiting = true
+onready var waiting
 
 func _ready():
 	set_process(true)
 	sprite.visible = true
+	waiting = true
 	pass
 	
 func changeSpeed(newSpeed):
 	speed = newSpeed
+	
+func wait():
+	waiting = true
+	
+func go():
+	waiting = false
 	
 func setLead():
 	isLead = true
