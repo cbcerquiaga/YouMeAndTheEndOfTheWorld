@@ -20,7 +20,7 @@ Common encounters
 
 Medium encounters
 1. Soldiers- from a nearby town
-2. Sports team- after certain quests, you may run into sports teams travelling to and from events, potentially with escorts
+2. Sports team- after certain quests, you may run into sports teams travelling to and from events, potentially with escorts (think like Salute of the Jugger)
 3. Trade Shipments- once certain settlements get developed enough, they start to trade what they have for what they need. One settlement may have wood but not enough farmland, so they trade it to someplace with not enough buildings but better soil.
 4. The nomads- a people who ride dog sleds and live off of the land, never trying to settle down anywhere, even at night.
 5. Gunslingers- these people go from town to town challenging people to duels. People bet on the duels, and the winner gets not only whatever their opponent had but also a quarter of the bets taken for their opponent.
@@ -29,11 +29,17 @@ Medium encounters
 8. Tutors- since organized schools are all but gone, learned people travel from town to town delivering their knowledge to people who pay them. Some tutors specialize in teaching children of certain ages, others in certain subjects.
 9. Prosthelytizers- people of various faiths travelling around trying to convert people to their religion
 10. Quarantined- people kicked out of their town for carrying contagious illnesses, and not allowed to return until they no longer show symptoms
-11. Banished- people kicked out of their towns for comitting crimes
+11. Banished- people kicked out of their towns for comitting crimes. They are often branded, and many towns will not allow people who were banished from another town in.
 12. Bards- travelling musicians, poets, and writers who travel from town to town carrying news and telling stories of the past.
 13. Doctors- travelling doctors of varying qualification who go from town to town practicing or pretending to practice medicine.
 14. Zealots of the salt- a group of people that belive consuming salt causes autism
-15. 
+15. Bounty hunters, after you- armed mercenaries hired by someone to track one or both of the players down and kill or maim them.
+16. Bounty Hunters, after someone else- armed mercenaries sent on a mission to target someone else
+17. Goons- areas with larger, more organized gangs will send out some of their men to collect money our scout out their turf. Generally, they are less violent than smaller gangs, but more dangerous if provoked.
+18. Red Lighters- practitioners of the world's oldest profession
+19. Fugitive- people on the run, either from gangs, townships, or individual people, who are actively running away. This is different from banished, who have been caught and sentenced to banishment, and may have a permanent residence outside of a town.
+20. Couriers- people who get paid to bring packages from town to town by individual people. They do this with wagons, wheelbarrows, shopping carts, pack animals, boats, and even cars.
+21. 
 
 Rare encounters
 1. Working car- just sitting there. Who would leave a working car just sitting there?
@@ -41,6 +47,7 @@ Rare encounters
 3. Entertainers- small circuses who travel from town to town doing different acts (things like the trapeze, lifting heavy objects, performing plays, singing songs, reading books, or performing magic) in order to make money from locals before heading to the next town.
 4. Seafarers- people who live on boats at sea, scavenging and fishing to survive. When these people come to land to trade, it's a rare sight.
 5. Hoarders- like scavengers, but less picky. Instead of trying to take what they can use or what they can sell, these people just collect everything they find for no reason at all. They tend to have good stuff, if you can convince them to part with it.
+6. 
 
 Special Encounters (only after certain quests)
 1. Crow and his men
