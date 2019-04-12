@@ -3,7 +3,6 @@ extends "res://Scripts/Hunting AI/HuntingEnemy.gd"
 var state
 var plots
 var circleDirection
-const SPEED = 2#20
 var moveTime = 61
 var lastMove
 var distances = [60, 20]

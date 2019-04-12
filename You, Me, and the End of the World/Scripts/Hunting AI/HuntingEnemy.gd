@@ -173,7 +173,7 @@ func getJitter():
 	return returnArray
 	
 #pass in values from the array in getJitter()
-func exectuteJitter(direction, time):
+func executeJitter(direction, time):
 	if time > 0:
 		executeJitter(direction, time-1)
 	else: #time == 0 or there was a problem

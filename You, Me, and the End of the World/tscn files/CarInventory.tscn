@@ -12,911 +12,363 @@
 [ext_resource path="res://Images/inventoryHighlight.png" type="Texture" id=10]
 [ext_resource path="res://tscn files/InventoryOptionPopup.tscn" type="PackedScene" id=11]
 
-[node name="Popup" type="Popup" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Popup" type="Popup"]
 margin_left = 24.0
 margin_top = 89.0
 margin_right = 64.0
 margin_bottom = 129.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-popup_exclusive = false
 script = ExtResource( 1 )
 
-[node name="Player inventory" type="Sprite" parent="." index="0"]
-
+[node name="Player inventory" type="Sprite" parent="."]
 position = Vector2( 380, 360 )
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Car Inventory" type="Sprite" parent="." index="1"]
-
+[node name="Car Inventory" type="Sprite" parent="."]
 position = Vector2( 380, 61 )
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Car Segments" type="Control" parent="." index="2"]
-
+[node name="Car Segments" type="Control" parent="."]
 editor/display_folded = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_right = 40.0
 margin_bottom = 40.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 
-[node name="Highlight" type="Control" parent="Car Segments" index="0"]
-
+[node name="Highlight" type="Control" parent="Car Segments"]
 editor/display_folded = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 380.0
 margin_top = -28.0
 margin_right = 420.0
 margin_bottom = 12.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 
-[node name="Sprite" type="Sprite" parent="Car Segments/Highlight" index="0"]
-
+[node name="Sprite" type="Sprite" parent="Car Segments/Highlight"]
 texture = ExtResource( 3 )
 
-[node name="cSegment0" parent="Car Segments" index="1" instance=ExtResource( 4 )]
-
+[node name="cSegment0" parent="Car Segments" instance=ExtResource( 4 )]
 editor/display_folded = true
 margin_left = 216.0
 margin_top = -40.0
 margin_right = 216.0
 margin_bottom = -40.0
 
-[node name="Button" type="Button" parent="Car Segments/cSegment0" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Button" type="Button" parent="Car Segments/cSegment0"]
 margin_top = 1.0
 margin_right = 331.0
 margin_bottom = 23.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 flat = true
-align = 1
-_sections_unfolded = [ "Rect" ]
 
-[node name="cSegment1" parent="Car Segments" index="2" instance=ExtResource( 4 )]
-
+[node name="cSegment1" parent="Car Segments" instance=ExtResource( 4 )]
 editor/display_folded = true
 margin_left = 216.0
 margin_top = -15.0
 margin_right = 216.0
 margin_bottom = -15.0
 
-[node name="Button" type="Button" parent="Car Segments/cSegment1" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Button" type="Button" parent="Car Segments/cSegment1"]
 margin_top = 1.0
 margin_right = 331.0
 margin_bottom = 23.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 flat = true
-align = 1
-_sections_unfolded = [ "Rect" ]
 
-[node name="cSegment2" parent="Car Segments" index="3" instance=ExtResource( 4 )]
-
+[node name="cSegment2" parent="Car Segments" instance=ExtResource( 4 )]
 editor/display_folded = true
 margin_left = 216.0
 margin_top = 5.0
 margin_right = 216.0
 margin_bottom = 5.0
 
-[node name="Button" type="Button" parent="Car Segments/cSegment2" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Button" type="Button" parent="Car Segments/cSegment2"]
 margin_top = 1.0
 margin_right = 331.0
 margin_bottom = 23.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 flat = true
-align = 1
-_sections_unfolded = [ "Rect" ]
 
-[node name="cSegment3" parent="Car Segments" index="4" instance=ExtResource( 4 )]
-
+[node name="cSegment3" parent="Car Segments" instance=ExtResource( 4 )]
 editor/display_folded = true
 margin_left = 216.0
 margin_top = 30.0
 margin_right = 216.0
 margin_bottom = 30.0
 
-[node name="Button" type="Button" parent="Car Segments/cSegment3" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Button" type="Button" parent="Car Segments/cSegment3"]
 margin_top = 1.0
 margin_right = 331.0
 margin_bottom = 23.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 flat = true
-align = 1
-_sections_unfolded = [ "Rect" ]
 
-[node name="cSegment4" parent="Car Segments" index="5" instance=ExtResource( 4 )]
-
+[node name="cSegment4" parent="Car Segments" instance=ExtResource( 4 )]
 editor/display_folded = true
 margin_left = 216.0
 margin_top = 55.0
 margin_right = 216.0
 margin_bottom = 55.0
 
-[node name="Button" type="Button" parent="Car Segments/cSegment4" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Button" type="Button" parent="Car Segments/cSegment4"]
 margin_top = -4.0
 margin_right = 331.0
 margin_bottom = 18.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 flat = true
-align = 1
-_sections_unfolded = [ "Rect" ]
 
-[node name="cSegment5" parent="Car Segments" index="6" instance=ExtResource( 4 )]
-
+[node name="cSegment5" parent="Car Segments" instance=ExtResource( 4 )]
 editor/display_folded = true
 margin_left = 216.0
 margin_top = 80.0
 margin_right = 216.0
 margin_bottom = 80.0
 
-[node name="Button" type="Button" parent="Car Segments/cSegment5" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Button" type="Button" parent="Car Segments/cSegment5"]
 margin_top = 1.0
 margin_right = 331.0
 margin_bottom = 23.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 flat = true
-align = 1
-_sections_unfolded = [ "Rect" ]
 
-[node name="cSegment6" parent="Car Segments" index="7" instance=ExtResource( 4 )]
-
+[node name="cSegment6" parent="Car Segments" instance=ExtResource( 4 )]
 editor/display_folded = true
 margin_left = 216.0
 margin_top = 105.0
 margin_right = 216.0
 margin_bottom = 105.0
 
-[node name="Button" type="Button" parent="Car Segments/cSegment6" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Button" type="Button" parent="Car Segments/cSegment6"]
 margin_top = 1.0
 margin_right = 331.0
 margin_bottom = 23.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 flat = true
-align = 1
-_sections_unfolded = [ "Rect" ]
 
-[node name="cSegment7" parent="Car Segments" index="8" instance=ExtResource( 4 )]
-
+[node name="cSegment7" parent="Car Segments" instance=ExtResource( 4 )]
 editor/display_folded = true
 margin_left = 216.0
 margin_top = 130.0
 margin_right = 216.0
 margin_bottom = 130.0
 
-[node name="Button" type="Button" parent="Car Segments/cSegment7" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Button" type="Button" parent="Car Segments/cSegment7"]
 margin_top = 1.0
 margin_right = 331.0
 margin_bottom = 23.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 flat = true
-align = 1
-_sections_unfolded = [ "Rect" ]
 
-[node name="cSegment8" parent="Car Segments" index="9" instance=ExtResource( 4 )]
-
+[node name="cSegment8" parent="Car Segments" instance=ExtResource( 4 )]
 editor/display_folded = true
 margin_left = 216.0
 margin_top = 155.0
 margin_right = 216.0
 margin_bottom = 155.0
 
-[node name="Button" type="Button" parent="Car Segments/cSegment8" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Button" type="Button" parent="Car Segments/cSegment8"]
 margin_top = 1.0
 margin_right = 331.0
 margin_bottom = 23.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 flat = true
-align = 1
-_sections_unfolded = [ "Rect" ]
 
-[node name="Player Segments" type="Control" parent="." index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Player Segments" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 
-[node name="pSegment0" parent="Player Segments" index="0" instance=ExtResource( 4 )]
-
+[node name="pSegment0" parent="Player Segments" instance=ExtResource( 4 )]
 editor/display_folded = true
 margin_left = 215.0
 margin_top = 259.0
 margin_right = 215.0
 margin_bottom = 259.0
 
-[node name="Button" type="Button" parent="Player Segments/pSegment0" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Button" type="Button" parent="Player Segments/pSegment0"]
 margin_right = 331.0
 margin_bottom = 22.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 flat = true
-align = 1
-_sections_unfolded = [ "Rect" ]
 
-[node name="pSegment1" parent="Player Segments" index="1" instance=ExtResource( 4 )]
-
+[node name="pSegment1" parent="Player Segments" instance=ExtResource( 4 )]
 editor/display_folded = true
 margin_left = 215.0
 margin_top = 284.0
 margin_right = 215.0
 margin_bottom = 284.0
 
-[node name="Button" type="Button" parent="Player Segments/pSegment1" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Button" type="Button" parent="Player Segments/pSegment1"]
 margin_right = 331.0
 margin_bottom = 22.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 flat = true
-align = 1
-_sections_unfolded = [ "Rect" ]
 
-[node name="pSegment2" parent="Player Segments" index="2" instance=ExtResource( 4 )]
-
+[node name="pSegment2" parent="Player Segments" instance=ExtResource( 4 )]
 editor/display_folded = true
 margin_left = 215.0
 margin_top = 309.0
 margin_right = 215.0
 margin_bottom = 309.0
 
-[node name="Button" type="Button" parent="Player Segments/pSegment2" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Button" type="Button" parent="Player Segments/pSegment2"]
 margin_right = 331.0
 margin_bottom = 22.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 flat = true
-align = 1
-_sections_unfolded = [ "Rect" ]
 
-[node name="pSegment3" parent="Player Segments" index="3" instance=ExtResource( 4 )]
-
+[node name="pSegment3" parent="Player Segments" instance=ExtResource( 4 )]
 editor/display_folded = true
 margin_left = 215.0
 margin_top = 334.0
 margin_right = 215.0
 margin_bottom = 334.0
 
-[node name="Button" type="Button" parent="Player Segments/pSegment3" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Button" type="Button" parent="Player Segments/pSegment3"]
 margin_right = 331.0
 margin_bottom = 22.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 flat = true
-align = 1
-_sections_unfolded = [ "Rect" ]
 
-[node name="pSegment4" parent="Player Segments" index="4" instance=ExtResource( 4 )]
-
+[node name="pSegment4" parent="Player Segments" instance=ExtResource( 4 )]
 editor/display_folded = true
 margin_left = 215.0
 margin_top = 359.0
 margin_right = 215.0
 margin_bottom = 359.0
 
-[node name="Button" type="Button" parent="Player Segments/pSegment4" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Button" type="Button" parent="Player Segments/pSegment4"]
 margin_right = 331.0
 margin_bottom = 22.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 flat = true
-align = 1
-_sections_unfolded = [ "Rect" ]
 
-[node name="pSegment5" parent="Player Segments" index="5" instance=ExtResource( 4 )]
-
+[node name="pSegment5" parent="Player Segments" instance=ExtResource( 4 )]
 editor/display_folded = true
 margin_left = 215.0
 margin_top = 384.0
 margin_right = 215.0
 margin_bottom = 384.0
 
-[node name="Button" type="Button" parent="Player Segments/pSegment5" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Button" type="Button" parent="Player Segments/pSegment5"]
 margin_right = 331.0
 margin_bottom = 22.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 flat = true
-align = 1
-_sections_unfolded = [ "Rect" ]
 
-[node name="pSegment6" parent="Player Segments" index="6" instance=ExtResource( 4 )]
-
+[node name="pSegment6" parent="Player Segments" instance=ExtResource( 4 )]
 editor/display_folded = true
 margin_left = 215.0
 margin_top = 409.0
 margin_right = 215.0
 margin_bottom = 409.0
 
-[node name="Button" type="Button" parent="Player Segments/pSegment6" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Button" type="Button" parent="Player Segments/pSegment6"]
 margin_right = 331.0
 margin_bottom = 22.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 flat = true
-align = 1
-_sections_unfolded = [ "Rect" ]
 
-[node name="pSegment7" parent="Player Segments" index="7" instance=ExtResource( 4 )]
-
+[node name="pSegment7" parent="Player Segments" instance=ExtResource( 4 )]
 editor/display_folded = true
 margin_left = 215.0
 margin_top = 434.0
 margin_right = 215.0
 margin_bottom = 434.0
 
-[node name="Button" type="Button" parent="Player Segments/pSegment7" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Button" type="Button" parent="Player Segments/pSegment7"]
 margin_right = 331.0
 margin_bottom = 22.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 flat = true
-align = 1
-_sections_unfolded = [ "Rect" ]
 
-[node name="pSegment8" parent="Player Segments" index="8" instance=ExtResource( 4 )]
-
+[node name="pSegment8" parent="Player Segments" instance=ExtResource( 4 )]
 editor/display_folded = true
 margin_left = 215.0
 margin_top = 459.0
 margin_right = 215.0
 margin_bottom = 459.0
 
-[node name="Button" type="Button" parent="Player Segments/pSegment8" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Button" type="Button" parent="Player Segments/pSegment8"]
 margin_right = 331.0
 margin_bottom = 22.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 flat = true
-align = 1
-_sections_unfolded = [ "Rect" ]
 
-[node name="Highlight" type="Control" parent="Player Segments" index="9"]
-
+[node name="Highlight" type="Control" parent="Player Segments"]
 editor/display_folded = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 380.0
 margin_top = 271.0
 margin_right = 420.0
 margin_bottom = 311.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 
-[node name="Sprite" type="Sprite" parent="Player Segments/Highlight" index="0"]
-
+[node name="Sprite" type="Sprite" parent="Player Segments/Highlight"]
 texture = ExtResource( 3 )
 
-[node name="Tabs" type="Control" parent="." index="4"]
-
+[node name="Tabs" type="Control" parent="."]
 editor/display_folded = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_right = 40.0
 margin_bottom = 40.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Weapons" type="Button" parent="Tabs" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Weapons" type="Button" parent="Tabs"]
 margin_left = 230.0
 margin_top = 190.0
 margin_right = 292.0
 margin_bottom = 231.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 icon = ExtResource( 5 )
 flat = true
-align = 1
-_sections_unfolded = [ "Rect" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Equippable" type="Button" parent="Tabs" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Equippable" type="Button" parent="Tabs"]
 margin_left = 290.0
 margin_top = 190.0
 margin_right = 352.0
 margin_bottom = 231.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 icon = ExtResource( 6 )
 flat = true
-align = 1
-_sections_unfolded = [ "Rect" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Consumable" type="Button" parent="Tabs" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Consumable" type="Button" parent="Tabs"]
 margin_left = 350.0
 margin_top = 190.0
 margin_right = 412.0
 margin_bottom = 231.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 icon = ExtResource( 7 )
 flat = true
-align = 1
-_sections_unfolded = [ "Rect" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Misc" type="Button" parent="Tabs" index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Misc" type="Button" parent="Tabs"]
 margin_left = 410.0
 margin_top = 190.0
 margin_right = 472.0
 margin_bottom = 231.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 icon = ExtResource( 8 )
 flat = true
-align = 1
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Customize car" type="Button" parent="Tabs" index="4"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Customize car" type="Button" parent="Tabs"]
 margin_left = 468.0
 margin_top = 190.0
 margin_right = 530.0
 margin_bottom = 231.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 icon = ExtResource( 9 )
 flat = true
-align = 1
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Highlight" type="Sprite" parent="Tabs" index="5"]
-
+[node name="Highlight" type="Sprite" parent="Tabs"]
 position = Vector2( 261, 210 )
 texture = ExtResource( 10 )
 
-[node name="Top Basic Info" type="RichTextLabel" parent="." index="5"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Top Basic Info" type="RichTextLabel" parent="."]
 margin_left = 215.0
 margin_top = -65.0
 margin_right = 545.0
 margin_bottom = -45.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-bbcode_enabled = false
-bbcode_text = ""
-visible_characters = -1
-percent_visible = 1.0
-meta_underlined = true
-tab_size = 4
-text = ""
-scroll_active = true
-scroll_following = false
-selection_enabled = false
-override_selected_font_color = false
 
-[node name="Bottom Basic Info" type="RichTextLabel" parent="." index="6"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Bottom Basic Info" type="RichTextLabel" parent="."]
 margin_left = 215.0
 margin_top = 234.0
 margin_right = 545.0
 margin_bottom = 254.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-bbcode_enabled = false
-bbcode_text = ""
-visible_characters = -1
-percent_visible = 1.0
-meta_underlined = true
-tab_size = 4
-text = ""
-scroll_active = true
-scroll_following = false
-selection_enabled = false
-override_selected_font_color = false
 
-[node name="Popup" parent="." index="7" instance=ExtResource( 11 )]
-
+[node name="Popup" parent="." instance=ExtResource( 11 )]
 margin_left = 385.0
 margin_top = 435.0
 margin_right = 425.0
 margin_bottom = 475.0
-
 

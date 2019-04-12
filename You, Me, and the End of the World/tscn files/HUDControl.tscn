@@ -6,51 +6,29 @@
 [ext_resource path="res://tscn files/pause_popup.tscn" type="PackedScene" id=4]
 
 [node name="HUDControl" type="Control"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_right = 40.0
 margin_bottom = 40.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 
-[node name="HUD" parent="." index="0" instance=ExtResource( 1 )]
+[node name="HUD" parent="." instance=ExtResource( 1 )]
 
-[node name="CarInventory" parent="." index="1" instance=ExtResource( 2 )]
+[node name="CarInventory" parent="." instance=ExtResource( 2 )]
 
-visible = false
-
-[node name="InventoryScreenP2" parent="." index="2" instance=ExtResource( 3 )]
-
-visible = false
+[node name="InventoryScreenP2" parent="." instance=ExtResource( 3 )]
 margin_left = -386.0
 margin_top = -151.0
 margin_right = -386.0
 margin_bottom = -151.0
 
-[node name="InventoryScreenP1" parent="." index="3" instance=ExtResource( 3 )]
-
-visible = false
+[node name="InventoryScreenP1" parent="." instance=ExtResource( 3 )]
 anchor_right = 1.0
 margin_left = 561.0
 margin_top = -174.0
 margin_right = 1297.0
 margin_bottom = -174.0
-_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
-[node name="pause_popup" parent="." index="4" instance=ExtResource( 4 )]
-
-visible = false
+[node name="pause_popup" parent="." instance=ExtResource( 4 )]
 margin_left = 185.0
 margin_top = 286.0
 margin_right = 1071.0
 margin_bottom = 732.0
-_sections_unfolded = [ "Anchor", "Margin", "Material", "Mouse", "Pause", "Popup", "Visibility" ]
-
 

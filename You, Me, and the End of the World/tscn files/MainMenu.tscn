@@ -2,303 +2,115 @@
 
 [ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=1]
 
-[node name="MainMenu" type="Control" index="0"]
-
+[node name="MainMenu" type="Control"]
 pause_mode = 2
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = -1.0
 margin_right = 1020.0
 margin_bottom = 599.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 script = ExtResource( 1 )
-_sections_unfolded = [ "Material", "Pause", "Popup" ]
 
-[node name="Combat" type="Button" parent="." index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Combat" type="Button" parent="."]
 margin_left = 123.0
 margin_top = 70.0
 margin_right = 533.0
 margin_bottom = 134.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
+focus_mode = 0
 action_mode = 0
 enabled_focus_mode = 0
-shortcut = null
-group = null
 text = "Combat"
-flat = false
-align = 1
 
-[node name="World1" type="Button" parent="." index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="World1" type="Button" parent="."]
 margin_left = 123.0
 margin_top = 150.0
 margin_right = 533.0
 margin_bottom = 212.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
+focus_mode = 0
 action_mode = 0
 enabled_focus_mode = 0
-shortcut = null
-group = null
 text = "World1"
-flat = false
-align = 1
-_sections_unfolded = [ "Rect" ]
 
-[node name="World2" type="Button" parent="." index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="World2" type="Button" parent="."]
 margin_left = 123.0
 margin_top = 230.0
 margin_right = 533.0
 margin_bottom = 290.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
+focus_mode = 0
 action_mode = 0
 enabled_focus_mode = 0
-shortcut = null
-group = null
 text = "World2"
-flat = false
-align = 1
-_sections_unfolded = [ "Rect" ]
 
-[node name="World3" type="Button" parent="." index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="World3" type="Button" parent="."]
 margin_left = 123.0
 margin_top = 310.0
 margin_right = 533.0
 margin_bottom = 370.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
+focus_mode = 0
 action_mode = 0
 enabled_focus_mode = 0
-shortcut = null
-group = null
 text = "OpenWorld"
-flat = false
-align = 1
-_sections_unfolded = [ "Rect" ]
 
-[node name="Fishing" type="Button" parent="." index="4"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Fishing" type="Button" parent="."]
 margin_left = 123.0
 margin_top = 390.0
 margin_right = 533.0
 margin_bottom = 450.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
+focus_mode = 0
 action_mode = 0
 enabled_focus_mode = 0
-shortcut = null
-group = null
 text = "Fishing"
-flat = false
-align = 1
-_sections_unfolded = [ "Rect" ]
 
-[node name="Hunting" type="Button" parent="." index="5"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Hunting" type="Button" parent="."]
 margin_left = 123.0
 margin_top = 465.0
 margin_right = 533.0
 margin_bottom = 525.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
+focus_mode = 0
 action_mode = 0
 enabled_focus_mode = 0
-shortcut = null
-group = null
 text = "Hunting"
-flat = false
-align = 1
-_sections_unfolded = [ "Grow Direction", "Rect" ]
 
-[node name="Farming" type="Button" parent="." index="6"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Farming" type="Button" parent="."]
 margin_left = 563.0
 margin_top = 70.0
 margin_right = 973.0
 margin_bottom = 130.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
+focus_mode = 0
 action_mode = 0
 enabled_focus_mode = 0
-shortcut = null
-group = null
 text = "Farming"
-flat = false
-align = 1
-_sections_unfolded = [ "Grow Direction", "Rect" ]
 
-[node name="Hockey" type="Button" parent="." index="7"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Hockey" type="Button" parent="."]
 margin_left = 563.0
 margin_top = 150.0
 margin_right = 973.0
 margin_bottom = 210.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
+focus_mode = 0
 action_mode = 0
 enabled_focus_mode = 0
-shortcut = null
-group = null
 text = "Hockey"
-flat = false
-align = 1
-_sections_unfolded = [ "Grow Direction", "Rect" ]
 
-[node name="Music" type="Button" parent="." index="8"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Music" type="Button" parent="."]
 margin_left = 563.0
 margin_top = 230.0
 margin_right = 973.0
 margin_bottom = 290.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
+focus_mode = 0
 action_mode = 0
 enabled_focus_mode = 0
-shortcut = null
-group = null
 text = "Music"
-flat = false
-align = 1
-_sections_unfolded = [ "Grow Direction", "Rect" ]
 
-[node name="Camera2D" type="Camera2D" parent="." index="9"]
-
+[node name="Camera2D" type="Camera2D" parent="."]
 visible = false
 position = Vector2( 510, 300 )
 scale = Vector2( 16.9062, 10.3438 )
-anchor_mode = 1
-rotating = false
-current = false
-zoom = Vector2( 1, 1 )
-limit_left = -10000000
-limit_top = -10000000
-limit_right = 10000000
-limit_bottom = 10000000
-limit_smoothed = false
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-smoothing_enabled = false
-smoothing_speed = 5.0
-offset_v = 0.0
-offset_h = 0.0
-drag_margin_left = 0.2
-drag_margin_top = 0.2
-drag_margin_right = 0.2
-drag_margin_bottom = 0.2
-editor_draw_screen = true
-editor_draw_limits = false
-editor_draw_drag_margin = false
 
 [connection signal="pressed" from="Combat" to="." method="_on_Combat_pressed"]
-
 [connection signal="pressed" from="World1" to="." method="_on_World1_pressed"]
-
 [connection signal="pressed" from="World2" to="." method="_on_World2_pressed"]
-
 [connection signal="pressed" from="World3" to="." method="_on_OpenWorld_pressed"]
-
 [connection signal="pressed" from="Fishing" to="." method="_on_Fishing_pressed"]
-
 [connection signal="pressed" from="Hunting" to="." method="_on_Hunting_pressed"]
-
 [connection signal="pressed" from="Farming" to="." method="_on_Farming_pressed"]
-
 [connection signal="pressed" from="Hockey" to="." method="_on_Hockey_pressed"]
-
 [connection signal="pressed" from="Music" to="." method="_on_Music_pressed"]
-
-

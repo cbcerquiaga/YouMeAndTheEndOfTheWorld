@@ -282,19 +282,19 @@ func itemSelected():
 #checks what tab the screen is on, and sets the inventory screen
 #accordingly
 func setInventorySegments():
-	resetSegmentText()
+	optionPopup.resetSegmentText()
 	#currentItem = 0
 	#moveHighlight()
 	if currentTab == "car":
-		setSegments(carParts)
+		optionPopup.setSegments(carParts)
 	elif currentTab == "misc":
-		setSegments(miscItems)
+		optionPopup.setSegments(miscItems)
 	elif currentTab == "consumable":
-		setSegments(consumableItems)
+		optionPopup.setSegments(consumableItems)
 	elif currentTab == "equippable":
-		setSegments(equippableItems)
+		optionPopup.setSegments(equippableItems)
 	else: #currentTab == "weapons":
-		setSegments(weaponItems)
+		optionPopup.setSegments(weaponItems)
 		
 func isSegmentEmpty(segmentNum):
 	if inCarInventory:
@@ -418,7 +418,7 @@ func _process(delta):
 		elif currentTab == "misc":
 			carButtonPressed()
 		else: #if currentTab == "car":
-			weaponsButtonPressed()
+			weaponButtonPressed()
 	if Input.is_action_just_pressed(str(upKey)):
 		if currentItem > 0 and !isSegmentEmpty(currentItem - 1): #not already the top and the next segment isn't empty
 			#if currentItem == topItem: #need to scroll up

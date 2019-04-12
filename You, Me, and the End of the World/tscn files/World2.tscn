@@ -10,86 +10,49 @@
 [ext_resource path="res://tscn files/HUDControl.tscn" type="PackedScene" id=8]
 
 [node name="Root" type="Control"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 script = ExtResource( 1 )
 
-[node name="Floor" type="TileMap" parent="." index="0"]
-
+[node name="Floor" type="TileMap" parent="."]
 position = Vector2( -122.214, -15.5546 )
 mode = 1
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 128, 64 )
-cell_quadrant_size = 16
-cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-cell_half_offset = 2
 cell_tile_origin = 1
-cell_y_sort = false
-cell_clip_uv = false
-collision_use_kinematic = false
-collision_friction = 1.0
-collision_bounce = 0.0
-collision_layer = 1
-collision_mask = 1
-occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( -327671, 0, 0, -327670, 0, 0, -327669, 0, 0, -327668, 0, 0, -327667, 0, 0, -327666, 0, 0, -262135, 0, 0, -262134, 0, 0, -262133, 0, 0, -262132, 0, 0, -262131, 0, 0, -262130, 0, 0, -196599, 0, 0, -196598, 0, 0, -196597, 0, 0, -196596, 0, 0, -196595, 0, 0, -196594, 0, 0, -131063, 0, 0, -131062, 0, 0, -131061, 0, 0, -131060, 0, 0, -131059, 0, 0, -131058, 0, 0, -65527, 0, 0, -65526, 0, 0, -65525, 0, 0, -65524, 0, 0, -65523, 0, 0, -65522, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0 )
-_sections_unfolded = [ "Cell" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="walls" type="TileMap" parent="." index="1"]
-
+[node name="walls" type="TileMap" parent="."]
 position = Vector2( 135.436, 427.861 )
 mode = 1
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 128, 64 )
-cell_quadrant_size = 16
-cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-cell_half_offset = 2
 cell_tile_origin = 1
 cell_y_sort = true
 cell_clip_uv = true
-collision_use_kinematic = false
-collision_friction = 1.0
-collision_bounce = 0.0
-collision_layer = 1
-collision_mask = 1
-occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( -589825, 2, 0, -655360, 2, 0, -655359, 2, 0, -655358, 2, 0, -655357, 2, 0, -655356, 2, 0, -655355, 2, 0, -524289, 2, 0, -589819, 2, 0, -458753, 2, 0, -524283, 2, 0, -393217, 2, 0, -458747, 2, 0, -327681, 2, 0, -393216, 2, 0, -393215, 2, 0, -393213, 2, 0, -393212, 2, 0, -393211, 2, 0, -262145, 2, 0, -327675, 2, 0, -196609, 2, 0, -262139, 2, 0, -131073, 2, 0, -196603, 2, 0, -65537, 2, 0, -131067, 2, 0, -1, 2, 0, -65531, 2, 0, 65535, 2, 0, 0, 2, 0, 1, 2, 0, 2, 2, 0, 3, 2, 0, 4, 2, 0, 5, 2, 0 )
-_sections_unfolded = [ "Cell" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="door1" parent="walls" index="0" instance=ExtResource( 3 )]
-
+[node name="door1" parent="walls" instance=ExtResource( 3 )]
 position = Vector2( 479, -109 )
-_sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="player1" parent="walls" index="1" instance=ExtResource( 4 )]
-
+[node name="player1" parent="walls" instance=ExtResource( 4 )]
 position = Vector2( 309, -39 )
 
-[node name="player2" parent="walls" index="2" instance=ExtResource( 5 )]
-
+[node name="player2" parent="walls" instance=ExtResource( 5 )]
 position = Vector2( 389, -9 )
 
-[node name="playerTracking" parent="walls" index="3" instance=ExtResource( 6 )]
+[node name="playerTracking" parent="walls" instance=ExtResource( 6 )]
 
-[node name="Gut" parent="." index="2" instance=ExtResource( 7 )]
+[node name="Gut" parent="." instance=ExtResource( 7 )]
+visible = false
+_visibility_option = false
+_yield_between_tests = false
 
-[node name="HUDControl" parent="." index="3" instance=ExtResource( 8 )]
-
+[node name="HUDControl" parent="." instance=ExtResource( 8 )]
 
