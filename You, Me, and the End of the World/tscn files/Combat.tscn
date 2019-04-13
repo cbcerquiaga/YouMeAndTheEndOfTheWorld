@@ -25,527 +25,221 @@
 [ext_resource path="res://tscn files/Raider.tscn" type="PackedScene" id=23]
 
 [sub_resource type="DynamicFontData" id=1]
-
-hinting = 2
 font_path = "res://Fonts/Telex-Regular.ttf"
 
 [sub_resource type="DynamicFont" id=2]
-
 size = 24
-use_mipmaps = false
-use_filter = false
 font_data = SubResource( 1 )
-_sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=3]
-
 size = 24
-use_mipmaps = false
-use_filter = false
 font_data = ExtResource( 9 )
-_sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="RectangleShape2D" id=4]
-
-custom_solver_bias = 0.0
 extents = Vector2( 9.76202, 9.58755 )
 
 [node name="Combat" type="Node2D"]
-
 script = ExtResource( 1 )
-_sections_unfolded = [ "Pause" ]
 
-[node name="DefeatedDialog" type="AcceptDialog" parent="." index="0"]
-
-visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="DefeatedDialog" type="AcceptDialog" parent="."]
 margin_left = 481.0
 margin_top = 322.0
 margin_right = 564.0
 margin_bottom = 380.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-popup_exclusive = false
-window_title = "Alert!"
-resizable = false
-dialog_hide_on_ok = true
 script = ExtResource( 2 )
 
-[node name="pause_popup" parent="." index="1" instance=ExtResource( 3 )]
-
-visible = false
+[node name="pause_popup" parent="." instance=ExtResource( 3 )]
 margin_right = 986.0
 margin_bottom = 539.0
 
-[node name="CombatHUD" type="CanvasLayer" parent="." index="2"]
+[node name="CombatHUD" type="CanvasLayer" parent="."]
 
-layer = 1
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-
-[node name="Player Skeleton" type="Sprite" parent="CombatHUD" index="0"]
-
+[node name="Player Skeleton" type="Sprite" parent="CombatHUD"]
 position = Vector2( 119.492, 19.2463 )
 texture = ExtResource( 4 )
-_sections_unfolded = [ "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Enemy Skeleton" type="Sprite" parent="CombatHUD" index="1"]
-
+[node name="Enemy Skeleton" type="Sprite" parent="CombatHUD"]
 position = Vector2( 903.108, 20.9885 )
 texture = ExtResource( 5 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="PlayerAmmoCounter" type="Sprite" parent="CombatHUD" index="2"]
-
+[node name="PlayerAmmoCounter" type="Sprite" parent="CombatHUD"]
 position = Vector2( 62.2234, 543.419 )
 texture = ExtResource( 6 )
 hframes = 6
 script = ExtResource( 7 )
-_sections_unfolded = [ "Animation" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="PlayerAmmoNum" type="RichTextLabel" parent="CombatHUD" index="3"]
-
+[node name="PlayerAmmoNum" type="RichTextLabel" parent="CombatHUD"]
 editor/display_folded = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 75.0
 margin_top = 521.0
 margin_right = 124.0
 margin_bottom = 535.0
-rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/normal_font = SubResource( 2 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
-bbcode_enabled = false
-bbcode_text = ""
-visible_characters = -1
-percent_visible = 1.0
-meta_underlined = true
-tab_size = 4
-text = ""
 scroll_active = false
-scroll_following = false
-selection_enabled = false
-override_selected_font_color = false
 script = ExtResource( 8 )
-_sections_unfolded = [ "custom_colors", "custom_fonts" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Outline1" type="RichTextLabel" parent="CombatHUD/PlayerAmmoNum" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Outline1" type="RichTextLabel" parent="CombatHUD/PlayerAmmoNum"]
 margin_right = 40.0
 margin_bottom = 40.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-bbcode_enabled = false
-bbcode_text = ""
-visible_characters = -1
-percent_visible = 1.0
-meta_underlined = true
-tab_size = 4
-text = ""
-scroll_active = true
-scroll_following = false
-selection_enabled = false
-override_selected_font_color = false
 
-[node name="EnemyAmmoCounter" type="Sprite" parent="CombatHUD" index="4"]
-
+[node name="EnemyAmmoCounter" type="Sprite" parent="CombatHUD"]
 position = Vector2( 965.186, 542.955 )
 texture = ExtResource( 6 )
 hframes = 6
 script = ExtResource( 7 )
-_sections_unfolded = [ "Animation" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="EnemyAmmoNum" type="RichTextLabel" parent="CombatHUD" index="5"]
-
+[node name="EnemyAmmoNum" type="RichTextLabel" parent="CombatHUD"]
 editor/display_folded = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 922.0
 margin_top = 521.0
 margin_right = 962.0
 margin_bottom = 535.0
-rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/normal_font = SubResource( 3 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
-bbcode_enabled = false
-bbcode_text = ""
-visible_characters = -1
-percent_visible = 1.0
-meta_underlined = true
-tab_size = 4
-text = ""
 scroll_active = false
-scroll_following = false
-selection_enabled = false
-override_selected_font_color = false
 script = ExtResource( 10 )
-_sections_unfolded = [ "Theme", "custom_fonts" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Outline2" type="RichTextLabel" parent="CombatHUD/EnemyAmmoNum" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Outline2" type="RichTextLabel" parent="CombatHUD/EnemyAmmoNum"]
 margin_right = 40.0
 margin_bottom = 40.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-bbcode_enabled = false
-bbcode_text = ""
-visible_characters = -1
-percent_visible = 1.0
-meta_underlined = true
-tab_size = 4
-text = ""
-scroll_active = true
-scroll_following = false
-selection_enabled = false
-override_selected_font_color = false
 
-[node name="PlayerHealth" type="TextureProgress" parent="CombatHUD" index="6"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="PlayerHealth" type="TextureProgress" parent="CombatHUD"]
 margin_left = 12.0
 margin_top = 6.0
 margin_right = 230.0
 margin_bottom = 46.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-min_value = 0.0
-max_value = 100.0
-step = 1.0
-page = 0.0
-value = 0.0
-exp_edit = false
-rounded = false
-texture_under = null
-texture_over = null
 texture_progress = ExtResource( 11 )
-radial_fill_degrees = 360.0
-radial_center_offset = Vector2( 0, 0 )
-nine_patch_stretch = false
 script = ExtResource( 12 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="EnemyHealth" type="TextureProgress" parent="CombatHUD" index="7"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="EnemyHealth" type="TextureProgress" parent="CombatHUD"]
 margin_left = 793.0
 margin_top = 8.0
 margin_right = 1011.0
 margin_bottom = 48.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-min_value = 0.0
-max_value = 100.0
-step = 1.0
-page = 0.0
-value = 0.0
-exp_edit = false
-rounded = false
-texture_under = null
-texture_over = null
 texture_progress = ExtResource( 11 )
 fill_mode = 1
-radial_fill_degrees = 360.0
-radial_center_offset = Vector2( 0, 0 )
-nine_patch_stretch = false
 script = ExtResource( 13 )
-_sections_unfolded = [ "Textures" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="PlayerStamina" type="TextureProgress" parent="CombatHUD" index="8"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="PlayerStamina" type="TextureProgress" parent="CombatHUD"]
 margin_left = 8.0
 margin_top = 21.0
 margin_right = 226.0
 margin_bottom = 61.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-min_value = 0.0
-max_value = 100.0
-step = 1.0
-page = 0.0
-value = 0.0
-exp_edit = false
-rounded = false
-texture_under = null
-texture_over = null
 texture_progress = ExtResource( 14 )
-radial_fill_degrees = 360.0
-radial_center_offset = Vector2( 0, 0 )
-nine_patch_stretch = false
 script = ExtResource( 15 )
-_sections_unfolded = [ "Textures" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="EnemyStamina" type="TextureProgress" parent="CombatHUD" index="9"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="EnemyStamina" type="TextureProgress" parent="CombatHUD"]
 margin_left = 796.0
 margin_top = 23.0
 margin_right = 1014.0
 margin_bottom = 63.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-min_value = 0.0
-max_value = 100.0
-step = 1.0
-page = 0.0
-value = 0.0
-exp_edit = false
-rounded = false
-texture_under = null
-texture_over = null
 texture_progress = ExtResource( 14 )
-radial_fill_degrees = 360.0
-radial_center_offset = Vector2( 0, 0 )
-nine_patch_stretch = false
 script = ExtResource( 16 )
-_sections_unfolded = [ "Textures" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Surrender Button" type="Button" parent="CombatHUD" index="10"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Surrender Button" type="Button" parent="CombatHUD"]
 margin_left = 325.0
 margin_top = -9.0
 margin_right = 437.0
 margin_bottom = 47.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 icon = ExtResource( 17 )
 flat = true
-align = 1
-_sections_unfolded = [ "Visibility" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Run Away Button" type="Button" parent="CombatHUD" index="11"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Run Away Button" type="Button" parent="CombatHUD"]
 margin_left = 228.0
 margin_top = -9.0
 margin_right = 340.0
 margin_bottom = 47.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 icon = ExtResource( 18 )
 flat = true
-align = 1
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Camera" type="Camera2D" parent="." index="3"]
-
+[node name="Camera" type="Camera2D" parent="."]
 position = Vector2( 525.496, 297.796 )
 scale = Vector2( 19.1919, 9.60345 )
-anchor_mode = 1
-rotating = false
-current = false
-zoom = Vector2( 1, 1 )
-limit_left = -10000000
-limit_top = -10000000
-limit_right = 10000000
-limit_bottom = 10000000
-limit_smoothed = false
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-smoothing_enabled = false
-smoothing_speed = 5.0
-offset_v = 0.0
-offset_h = 0.0
-drag_margin_left = 0.2
-drag_margin_top = 0.2
-drag_margin_right = 0.2
-drag_margin_bottom = 0.2
-editor_draw_screen = true
-editor_draw_limits = false
-editor_draw_drag_margin = false
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap" type="TileMap" parent="." index="4"]
-
-mode = 0
+[node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 19 )
 cell_size = Vector2( 50, 50 )
-cell_quadrant_size = 16
-cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-cell_half_offset = 2
-cell_tile_origin = 0
-cell_y_sort = false
-cell_clip_uv = false
 collision_use_kinematic = true
-collision_friction = 1.0
-collision_bounce = 0.0
 collision_layer = 5
 collision_mask = 5
-occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 65536, 0, 0, 65537, 4, 0, 65538, 4, 0, 65539, 4, 0, 65540, 4, 0, 65541, 4, 0, 65542, 4, 0, 65543, 4, 0, 65544, 4, 0, 65545, 4, 0, 65546, 4, 0, 65547, 4, 0, 65548, 4, 0, 65549, 4, 0, 65550, 4, 0, 65551, 4, 0, 65552, 4, 0, 65553, 4, 0, 65554, 4, 0, 65555, 4, 0, 65556, 0, 0, 131072, 0, 0, 131073, 4, 0, 131074, 4, 0, 131075, 4, 0, 131076, 4, 0, 131077, 4, 0, 131078, 4, 0, 131079, 4, 0, 131080, 4, 0, 131081, 4, 0, 131082, 4, 0, 131083, 4, 0, 131084, 4, 0, 131085, 4, 0, 131086, 4, 0, 131087, 4, 0, 131088, 4, 0, 131089, 4, 0, 131090, 4, 0, 131091, 4, 0, 131092, 0, 0, 196608, 0, 0, 196609, 4, 0, 196610, 4, 0, 196611, 4, 0, 196612, 4, 0, 196613, 4, 0, 196614, 4, 0, 196615, 4, 0, 196616, 4, 0, 196617, 4, 0, 196618, 4, 0, 196619, 4, 0, 196620, 4, 0, 196621, 4, 0, 196622, 4, 0, 196623, 4, 0, 196624, 4, 0, 196625, 4, 0, 196626, 4, 0, 196627, 4, 0, 196628, 0, 0, 262144, 0, 0, 262145, 4, 0, 262146, 4, 0, 262147, 4, 0, 262148, 4, 0, 262149, 4, 0, 262150, 4, 0, 262151, 4, 0, 262152, 4, 0, 262153, 4, 0, 262154, 4, 0, 262155, 4, 0, 262156, 4, 0, 262157, 4, 0, 262158, 4, 0, 262159, 4, 0, 262160, 4, 0, 262161, 4, 0, 262162, 4, 0, 262163, 4, 0, 262164, 0, 0, 327680, 0, 0, 327681, 4, 0, 327682, 4, 0, 327683, 4, 0, 327684, 4, 0, 327685, 4, 0, 327686, 4, 0, 327687, 4, 0, 327688, 4, 0, 327689, 4, 0, 327690, 4, 0, 327691, 4, 0, 327692, 4, 0, 327693, 4, 0, 327694, 4, 0, 327695, 4, 0, 327696, 4, 0, 327697, 4, 0, 327698, 4, 0, 327699, 4, 0, 327700, 0, 0, 393216, 0, 0, 393217, 4, 0, 393218, 4, 0, 393219, 4, 0, 393220, 4, 0, 393221, 4, 0, 393222, 4, 0, 393223, 4, 0, 393224, 4, 0, 393225, 4, 0, 393226, 4, 0, 393227, 4, 0, 393228, 4, 0, 393229, 4, 0, 393230, 4, 0, 393231, 4, 0, 393232, 4, 0, 393233, 4, 0, 393234, 4, 0, 393235, 4, 0, 393236, 0, 0, 458752, 0, 0, 458753, 4, 0, 458754, 4, 0, 458755, 4, 0, 458756, 4, 0, 458757, 4, 0, 458758, 4, 0, 458759, 4, 0, 458760, 4, 0, 458761, 4, 0, 458762, 4, 0, 458763, 4, 0, 458764, 4, 0, 458765, 4, 0, 458766, 4, 0, 458767, 4, 0, 458768, 4, 0, 458769, 4, 0, 458770, 4, 0, 458771, 4, 0, 458772, 0, 0, 524288, 0, 0, 524289, 4, 0, 524290, 4, 0, 524291, 4, 0, 524292, 4, 0, 524293, 4, 0, 524294, 4, 0, 524295, 4, 0, 524296, 4, 0, 524297, 4, 0, 524298, 4, 0, 524299, 4, 0, 524300, 4, 0, 524301, 4, 0, 524302, 4, 0, 524303, 4, 0, 524304, 4, 0, 524305, 4, 0, 524306, 4, 0, 524307, 4, 0, 524308, 0, 0, 589824, 0, 0, 589825, 4, 0, 589826, 4, 0, 589827, 4, 0, 589828, 4, 0, 589829, 4, 0, 589830, 4, 0, 589831, 4, 0, 589832, 4, 0, 589833, 4, 0, 589834, 4, 0, 589835, 4, 0, 589836, 4, 0, 589837, 4, 0, 589838, 4, 0, 589839, 4, 0, 589840, 4, 0, 589841, 4, 0, 589842, 4, 0, 589843, 4, 0, 589844, 0, 0, 655360, 0, 0, 655361, 4, 0, 655362, 4, 0, 655363, 4, 0, 655364, 4, 0, 655365, 4, 0, 655366, 4, 0, 655367, 4, 0, 655368, 4, 0, 655369, 4, 0, 655370, 4, 0, 655371, 4, 0, 655372, 4, 0, 655373, 4, 0, 655374, 4, 0, 655375, 4, 0, 655376, 4, 0, 655377, 4, 0, 655378, 4, 0, 655379, 4, 0, 655380, 0, 0, 720896, 0, 0, 720897, 1, 0, 720898, 1, 0, 720899, 1, 0, 720900, 1, 0, 720901, 1, 0, 720902, 1, 0, 720903, 1, 0, 720904, 1, 0, 720905, 1, 0, 720906, 1, 0, 720907, 1, 0, 720908, 1, 0, 720909, 1, 0, 720910, 1, 0, 720911, 1, 0, 720912, 1, 0, 720913, 1, 0, 720914, 1, 0, 720915, 1, 0, 720916, 0, 0 )
-_sections_unfolded = [ "Cell", "Collision" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TagTeamCheck" type="Sprite" parent="TileMap" index="0"]
-
+[node name="TagTeamCheck" type="Sprite" parent="TileMap"]
 position = Vector2( 100, 0 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="CombatPlayer" parent="TileMap" index="1" instance=ExtResource( 20 )]
-
+[node name="CombatPlayer" parent="TileMap" instance=ExtResource( 20 )]
 position = Vector2( 215.972, 460.04 )
-_sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="Sword" parent="TileMap/CombatPlayer" index="4" instance=ExtResource( 21 )]
-
+[node name="Sword" parent="TileMap/CombatPlayer" instance=ExtResource( 21 )]
 position = Vector2( 40, -17 )
 
-[node name="CombatPlayer2" parent="TileMap" index="2" instance=ExtResource( 20 )]
-
+[node name="CombatPlayer2" parent="TileMap" instance=ExtResource( 20 )]
 position = Vector2( 905.788, 456.306 )
 
-[node name="Bullet" parent="TileMap" index="3" instance=ExtResource( 22 )]
+[node name="Bullet" parent="TileMap" instance=ExtResource( 22 )]
 
-[node name="Enemy" parent="TileMap" index="4" instance=ExtResource( 23 )]
-
+[node name="Enemy" parent="TileMap" instance=ExtResource( 23 )]
 position = Vector2( 843.072, 381.28 )
 
-[node name="Inside" type="StaticBody2D" parent="." index="5"]
-
+[node name="Inside" type="StaticBody2D" parent="."]
 input_pickable = true
 collision_layer = 16384
 collision_mask = 16384
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-_sections_unfolded = [ "Collision", "Pickable" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Inside" index="0"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inside"]
 position = Vector2( 517.385, 289.739 )
 scale = Vector2( -47.8738, -25.1606 )
 shape = SubResource( 4 )
@@ -554,7 +248,4 @@ __meta__ = {
 }
 
 [connection signal="mouse_entered" from="Inside" to="TileMap/CombatPlayer" method="_on_Border_mouse_entered"]
-
 [connection signal="mouse_exited" from="Inside" to="TileMap/CombatPlayer" method="_on_Border_mouse_exited"]
-
-
