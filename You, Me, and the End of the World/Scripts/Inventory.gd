@@ -1,6 +1,5 @@
 var itemList = Array()
 
-#Tests completed
 func add_item(item):
 	#Gets the number in this stack
 	#Sets the items number in stack to 1 so that it would be identical to other items of the same type
@@ -12,7 +11,6 @@ func add_item(item):
 	else:
 		itemList.append(item)
 
-#Tests completed
 func remove_item(item, numberToRemove):
 	var location = getLocation(item)
 	var itemInArray = itemList[location]
@@ -24,7 +22,6 @@ func remove_item(item, numberToRemove):
 		return false
 
 
-#Tests completed
 func isEmpty():
   if(len(itemList) == 0):
     return true
@@ -36,14 +33,12 @@ func getLocation(item):
 			return i
 	return -1
 
-#Tests completed
 func hasItem(item):
 	for i in range(len(itemList)):
 		if(itemList[i].__eq__(item)):
 			return true
 	return false
 
-#Tests completed
 func getSelectedItem(numberSelected):
 	if numberSelected < 0 or numberSelected >= len(itemList):
 		return -1
@@ -55,7 +50,6 @@ func selectItemByName(name):
 			return i
 	return -1
 
-#Tests Completed
 func numberOfItems():
 	var sum = 0
 	for i in range(len(itemList)):
@@ -69,7 +63,6 @@ func getTotalWeight():
 	return sum
 
 #A string representation of the inventory
-#Not really testable, can easily change. 
 func str(name):
 	if len(itemList) == 0:
 		print(name, "\'s inventory is empty")

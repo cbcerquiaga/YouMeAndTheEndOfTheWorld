@@ -158,11 +158,12 @@ func getHealth():
 	playerProperty.calculateHealth()
 	
 func _dropItem(index):
-	print("item actually dropped: " + str(index))
+#	print("item actually dropped: " + str(index))
 	if !playerProperty.isEmpty():
 		#TODO: changed the selected item to an appropriate value
 		playerProperty.selectItemByIndex(index)
 		var item = playerProperty.getSelectedItem()
 		playerProperty.removeItem(item, "p1")
 		item.activate(self.position)
+		item.pickedUp = false
 		item.update_label()

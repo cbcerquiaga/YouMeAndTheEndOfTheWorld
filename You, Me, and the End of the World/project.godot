@@ -15,8 +15,16 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Isometric Game"
+config/name="YouMeAndTheEndOfTheWorld"
 run/main_scene="res://tscn files/MainMenu.tscn"
+
+[debug]
+
+gdscript/warnings/enable=false
+gdscript/warnings/unsafe_property_access=true
+gdscript/warnings/unsafe_method_access=true
+gdscript/warnings/unsafe_cast=true
+gdscript/warnings/unsafe_call_argument=true
 
 [display]
 
@@ -146,3 +154,7 @@ right_click={
 [rasterizer]
 
 use_pixel_snap=true
+
+[rendering]
+
+threads/thread_model=2

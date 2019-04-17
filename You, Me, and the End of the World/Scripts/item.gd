@@ -10,6 +10,7 @@ var scriptPath = ""
 var imagePath = ""
 var quantity = ""
 var description = ""
+var pickedUp = false
 
 onready var itemPopup = get_parent().get_parent().get_node("Item_popup")
 onready var itemLabel = get_node("Label")
@@ -48,8 +49,9 @@ func update_label():
 #Then we hide the item from the scene, but it is still there and inactive
 #TODO If we free the item this will not allow the player to drop it later, could be done better?
 func handle_item_pickup(player):
-	if(player.has_method('addItem')):
+	if(player.has_method('addItem') and !pickedUp):
 		player.addItem(self)
+		pickedUp = true
 		deactivate()
 		
 
@@ -95,10 +97,3 @@ func str():
 	"scriptPath: ", scriptPath, "\n",
 	"quantity: ", quantity, "\n")
 	return output
-	
-	
-	
-	
-	
-	
-	

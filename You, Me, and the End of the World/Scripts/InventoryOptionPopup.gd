@@ -31,7 +31,7 @@ func _ready():
 	button2.connect("pressed",self,"button2Pressed")
 	button3.connect("pressed",self,"button3Pressed")
 	button4.connect("pressed",self,"button4Pressed")
-	self.connect("dropItem", inventoryScreen, "_dropItem")
+#	self.connect("dropItem", inventoryScreen, "_dropItem")
 	pass
 	
 #func setButtons(_exit, _enter, _up, _down):
