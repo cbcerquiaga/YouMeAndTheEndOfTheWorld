@@ -535,7 +535,9 @@ func emit_drop_signal():
 	else: #currentTab == "weapons":
 		itemsArray = weaponItems
 	var item = itemsArray[currentItem]
-	emit_signal("drop_item_signal", assignedPlayer, item)
+	#emit_signal("drop_item_signal", assignedPlayer, item)
+	print("Item to be removed: " + str(item))
+	assignedPlayer._dropItem(assignedPlayer.playerProperty.Inventory.getLocation(item))
 	
 func isSegmentEmpty(segmentNum):
 	if segmentNum == 0:
