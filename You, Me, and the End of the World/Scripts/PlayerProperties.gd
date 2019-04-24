@@ -59,6 +59,18 @@ func removeItem(item, name):
 		print('Removed ', itemQuantity, ' ' , item.itemName , ' from ', name, '\'s inventory')
 	else:
 		print("ERROR removing", item.itemName, " from ", name, "\'s inventory'")
+		
+		
+#same as regular remove item function but lets you pass in a quantity
+func removeItemAmount(item, name, quantity):
+	if quantity > item.quantity:
+		quantity = item.quantity
+	elif quantity < 0:
+		quantity = 0
+	if(Inventory.remove_item(item, quantity)):
+		print('Removed ', quantity, ' ' , item.itemName , ' from ', name, '\'s inventory')
+	else:
+		print("ERROR removing", item.itemName, " from ", name, "\'s inventory'")
 
 #Calculates the speed the player should be moving at, this should take into account
 #perks, traits and default move speed

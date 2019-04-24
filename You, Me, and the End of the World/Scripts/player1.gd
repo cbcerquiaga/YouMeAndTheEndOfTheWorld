@@ -167,3 +167,13 @@ func _dropItem(index):
 		item.activate(self.position)
 		item.pickedUp = false
 		item.update_label()
+		
+func _drop1Item(index):
+	if !playerProperty.isEmpty():
+		#TODO: changed the selected item to an appropriate value
+		playerProperty.selectItemByIndex(index)
+		var item = playerProperty.getSelectedItem()
+		playerProperty.removeItemAmount(item, "p1", 1)
+		item.activate(self.position)
+		item.pickedUp = false
+		item.update_label()
