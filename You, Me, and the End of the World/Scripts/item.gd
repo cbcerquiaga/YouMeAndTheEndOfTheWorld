@@ -20,7 +20,7 @@ onready var itemLabel = get_node("Label")
 #numberInStack is the number that is in this item, IE 43 dollars
 #scenePath, path to the tscn file for this item, this will be assigned to the object if dropped from inventory
 #scriptPath, path to this object's script, this will be assigned to the object if dropped from inventory
-func init__(_itemName, _itemType, _worth, _weight, _quantity, _scenePath, _scriptPath, _imagePath, _description):
+func __init__(_itemName, _itemType, _worth, _weight, _quantity, _scenePath, _scriptPath, _imagePath, _description):
 	self.itemName = _itemName
 	self.itemType = _itemType
 	self.worth = _worth
@@ -30,9 +30,14 @@ func init__(_itemName, _itemType, _worth, _weight, _quantity, _scenePath, _scrip
 	self.quantity = _quantity
 	self.imagePath = _imagePath
 	self.description = _description
+	
+	self.set_collision_layer_bit(1, true)
+	self.set_collision_mask_bit(1, true)
+	
 	if(itemPopup != null):
 		self.connect("mouse_entered", itemPopup, "_mouse_entered", [self])
 		self.connect("mouse_exited", itemPopup, "_mouse_exited", [self])
+	
 	update_label()
 
 func update_label():
@@ -70,6 +75,9 @@ func getName():
 func getQuantity():
 	return quantity
 
+func getTotalWorth():
+	return quantity * worth
+	
 #Sets this item so that it can be stored in inventory and accessed in the 2D world later
 func deactivate():
 	hide()

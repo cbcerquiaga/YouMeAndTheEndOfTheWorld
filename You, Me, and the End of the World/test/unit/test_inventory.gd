@@ -14,20 +14,20 @@ var item9 = load("res://Scripts/item.gd").new()
 var item10 = load("res://Scripts/item.gd").new()
 
 func setup():
-	item1.init__('GrandPiano', "misc", 100, 1, 1,
+	item1.__init__('GrandPiano', "misc", 100, 1, 1,
 	"res://tscn files/Piano.tscn", "res://Scripts/Piano.gd", "res://Images/grandPiano.png", "An enormous, heavy musical instrument played with several black and white keys, and a traditional symbol of wealth and learned musical ability.")
-	item2.init__('Keyboard', "misc", 50, 2, 1, "", "", "", "")
-	item3.init__('Banana', "consumable", 5, 1, 1, "", "", "", "")
-	item4.init__('VR Headset', "equippable", 500, 1, 1, "", "", "", "")
-	item5.init__('Google Glass', "equippable", 5000, 5, 1, "", "", "", "")
+	item2.__init__('Keyboard', "misc", 50, 2, 1, "", "", "", "")
+	item3.__init__('Banana', "consumable", 5, 1, 1, "", "", "", "")
+	item4.__init__('VR Headset', "equippable", 500, 1, 1, "", "", "", "")
+	item5.__init__('Google Glass', "equippable", 5000, 5, 1, "", "", "", "")
 	#print("Testing loading items")
 	#Adding items to the inventory
-	item6.init__("Piano", "misc", 0, 0, 1, "", "", "", "")
-	item7.init__("banana", "consumable", 0, 0, 1, "", "", "", "")
-	item8.init__("Google Glass", "equippable", 500, 0, 1, "", "", "", "")
-	item9.init__("keyboard", "misc", 50, 0, 1, "", "", "", "")
+	item6.__init__("Piano", "misc", 0, 0, 1, "", "", "", "")
+	item7.__init__("banana", "consumable", 0, 0, 1, "", "", "", "")
+	item8.__init__("Google Glass", "equippable", 500, 0, 1, "", "", "", "")
+	item9.__init__("keyboard", "misc", 50, 0, 1, "", "", "", "")
 	
-	item10.init__('Coin', "misc", 1, 0, 5, 'res://tscn files/coins.tscn', 'res://Scripts/coins.gd', "res://Images/iur-2.png", "Formerly US quarters, these are accepted as currency in more places than any other currency.")
+	item10.__init__('Coin', "misc", 1, 0, 5, 'res://tscn files/coins.tscn', 'res://Scripts/coins.gd', "res://Images/iur-2.png", "Formerly US quarters, these are accepted as currency in more places than any other currency.")
 
 func test_loading_items():
 	Inventory.add_item(item1)
