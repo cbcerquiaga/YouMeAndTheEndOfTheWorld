@@ -104,6 +104,7 @@ text = "Music"
 visible = false
 position = Vector2( 510, 300 )
 scale = Vector2( 16.9062, 10.3438 )
+
 [connection signal="pressed" from="Combat" to="." method="_on_Combat_pressed"]
 [connection signal="pressed" from="World1" to="." method="_on_World1_pressed"]
 [connection signal="pressed" from="World2" to="." method="_on_World2_pressed"]

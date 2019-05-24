@@ -2,14 +2,21 @@ extends Node2D
 
 onready var camera = get_node("playerTracker/Camera2D")
 onready var clock = get_node("Clock")
+onready var timeLabel = get_node("HUD/timeLeftLabel")
+onready var homeScoreLabel = get_node("HUD/homeScoreLabel")
+onready var awayScoreLabel = get_node("HUD/awayScoreLabel")
 var period
 var playerTeamScore
 var oppTeamScore
 var playerTeamSubs
 var oppTeamSubs
 onready var arena = "pond"
+onready var homeTeam = "player"
 onready var gameStarted = false
 onready var playerTeamGoalie = get_node("boards/playerTeam/goalie")
+onready var puck = get_node("boards/puck")
+onready var leftGoal = get_node("boards/goal 1")
+onready var rightGoal = get_node("boards/goal 2")
 #onready var oppTeamGoalie = get_node("boards/oppTeam/goalie")
 
 func _ready():
@@ -17,6 +24,12 @@ func _ready():
 	period = 1
 	playerTeamScore = 0
 	oppTeamScore = 0
+	if homeTeam == "player":
+		homeScoreLabel.text = str(playerTeamScore)
+		awayScoreLabel.text = str(oppTeamScore)
+	else:
+		homeScoreLabel.text = str(oppTeamScore)
+		awayScoreLabel.text = str(playerTeamScore)
 	playerTeamSubs = [9,12,36]
 	oppTeamSubs = [6,8,50]
 	pass
@@ -38,6 +51,37 @@ func _process(delta):
 		gameStarted = true
 	else:
 		#check if the puck went in a net
+		if leftGoal.overlaps_body(puck):
+			if homeTeam == "player":
+				if period % 2 == 0:#player goal
+					playerTeamScore = playerTeamScore + 1
+					homeScoreLabel.text = str(playerTeamScore)
+				else:#ai goal
+					oppTeamScore = oppTeamScore + 1
+					awayScoreLabel.text = str(oppTeamScore)
+			else:#hoeTeam == "ai"
+				if period % 2 == 0:#ai goal
+					oppTeamScore = oppTeamScore + 1
+					homeScoreLabel.text = str(oppTeamScore)
+				else:
+					playerTeamScore = playerTeamScore + 1
+					awayScoreLabel.text = str(playerTeamScore)
+		elif rightGoal.overlaps_body(puck):
+			if homeTeam == "player":
+				if period % 2 == 1:#player goal
+					playerTeamScore = playerTeamScore + 1
+					homeScoreLabel.text = str(playerTeamScore)
+				else:#ai goal
+					oppTeamScore = oppTeamScore + 1
+					awayScoreLabel.text = str(oppTeamScore)
+			else:#hoeTeam == "ai"
+				if period % 2 == 1:#ai goal
+					oppTeamScore = oppTeamScore + 1
+					homeScoreLabel.text = str(oppTeamScore)
+				else:
+					playerTeamScore = playerTeamScore + 1
+					awayScoreLabel.text = str(playerTeamScore)
+			
 		#check for a fight
 		#make the goalies track the puck
 		playerTeamGoalie.setPuckPosition(get_node("boards/puck").position)
@@ -94,7 +138,7 @@ func pickPlayers():
 		#if there is a player who lost a fight in a chosen slot, grey out the OK button
 		#else let the button get clicked and start the game
 		#make an array with the 2 players who were chosen
-		var chosenPlayer1 = 3
+		var chosenPlayer1 = 8
 		var chosenPlayer2 = 19
 		#assign the players their bodies and attributes
 		substitutePlayers(chosenPlayer1, chosenPlayer2)

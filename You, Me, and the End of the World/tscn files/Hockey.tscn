@@ -30,18 +30,23 @@ margin_bottom = 286.0
 rect_scale = Vector2( 2, 2 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
+editor/display_folded = true
 
 [node name="timeLeftLabel" type="RichTextLabel" parent="HUD"]
 margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="homeScoreLabel" type="RichTextLabel" parent="HUD"]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 500.0
+margin_top = 15.0
+margin_right = 540.0
+margin_bottom = 55.0
 
 [node name="awayScoreLabel" type="RichTextLabel" parent="HUD"]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 541.068
+margin_top = 15.0
+margin_right = 581.068
+margin_bottom = 72.0
 
 [node name="periodLabel" type="RichTextLabel" parent="HUD"]
 margin_right = 40.0
