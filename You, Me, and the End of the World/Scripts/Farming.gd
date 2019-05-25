@@ -660,8 +660,8 @@ func _process(delta):
 	setPlotStates()
 	spawnVarmints()
 	setInfoForVarmints()
-	if varmints[0] != null:
-		varmints[0].printState()
+	#if varmints[0] != null:
+	#	varmints[0].printState()
 	if seeds.size() > 0: #there are seeds in the field
 		for i in seeds:
 			if i.affectedPlot != "0-0":#affectedPlot is something othr than its default

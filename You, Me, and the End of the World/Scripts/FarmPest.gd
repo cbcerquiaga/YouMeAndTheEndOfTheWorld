@@ -5,7 +5,7 @@ var plots
 var circleDirection
 var moveTime = 61
 var lastMove
-var distances = [60, 20]
+var distances = [80, 30]
 
 func _ready():
 	state = "searching"
@@ -22,7 +22,7 @@ func setPlots(newPlots):
 	
 func lookForFood():
 	runDirection("right")
-	#circlePlots()
+	circlePlots()
 	pass
 	
 func circlePlots():

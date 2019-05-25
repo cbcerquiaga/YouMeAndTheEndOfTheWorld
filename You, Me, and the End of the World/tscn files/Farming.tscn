@@ -20,394 +20,212 @@
 [ext_resource path="res://tscn files/Seed.tscn" type="PackedScene" id=18]
 [ext_resource path="res://tscn files/WaterDrop.tscn" type="PackedScene" id=19]
 
-[node name="Farming" type="Node2D" index="0"]
-
+[node name="Farming" type="Node2D"]
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="pause_popup" parent="." index="0" instance=ExtResource( 2 )]
+[node name="pause_popup" parent="." instance=ExtResource( 2 )]
 
-visible = false
-
-[node name="HarvestBarrel" type="Node2D" parent="." index="1"]
-
+[node name="HarvestBarrel" type="Node2D" parent="."]
 editor/display_folded = true
 position = Vector2( 886, 82 )
 scale = Vector2( 0.9, 0.8 )
-_sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Sprite" type="Sprite" parent="HarvestBarrel" index="0"]
-
+[node name="Sprite" type="Sprite" parent="HarvestBarrel"]
 texture = ExtResource( 3 )
-_sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="ToolBench" type="Node2D" parent="." index="2"]
-
+[node name="ToolBench" type="Node2D" parent="."]
 position = Vector2( 1, 25 )
-_sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="hoe" type="KinematicBody2D" parent="ToolBench" index="0"]
-
+[node name="hoe" type="KinematicBody2D" parent="ToolBench"]
 position = Vector2( 380, 45 )
 scale = Vector2( 0.2, 0.2 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
 script = ExtResource( 4 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="hoe" parent="ToolBench/hoe" index="0" instance=ExtResource( 5 )]
+[node name="hoe" parent="ToolBench/hoe" instance=ExtResource( 5 )]
 
-_sections_unfolded = [ "Transform" ]
-
-[node name="seedBag" type="KinematicBody2D" parent="ToolBench" index="1"]
-
+[node name="seedBag" type="KinematicBody2D" parent="ToolBench"]
 position = Vector2( 430, 40 )
 scale = Vector2( 0.125, 0.125 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="seedBag" parent="ToolBench/seedBag" index="0" instance=ExtResource( 7 )]
+[node name="seedBag" parent="ToolBench/seedBag" instance=ExtResource( 7 )]
 
-_sections_unfolded = [ "Transform" ]
-
-[node name="wateringCan" type="KinematicBody2D" parent="ToolBench" index="2"]
-
+[node name="wateringCan" type="KinematicBody2D" parent="ToolBench"]
 position = Vector2( 543.729, 38.2261 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
 script = ExtResource( 8 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="wateringCan" parent="ToolBench/wateringCan" index="0" instance=ExtResource( 9 )]
-
+[node name="wateringCan" parent="ToolBench/wateringCan" instance=ExtResource( 9 )]
 scale = Vector2( 0.25, 0.25 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="basket" type="KinematicBody2D" parent="ToolBench" index="3"]
-
+[node name="basket" type="KinematicBody2D" parent="ToolBench"]
 position = Vector2( 627, 37 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
 script = ExtResource( 10 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="basket" parent="ToolBench/basket" index="0" instance=ExtResource( 11 )]
-
+[node name="basket" parent="ToolBench/basket" instance=ExtResource( 11 )]
 scale = Vector2( 0.15, 0.125 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="benchSprite" type="Sprite" parent="ToolBench" index="4"]
-
+[node name="benchSprite" type="Sprite" parent="ToolBench"]
 position = Vector2( 509.999, 68 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 12 )
-_sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="PestEmitter" type="Node2D" parent="." index="3"]
-
+[node name="PestEmitter" type="Node2D" parent="."]
 position = Vector2( -98.2365, 348.412 )
 
-[node name="TileMap" type="TileMap" parent="." index="4"]
-
+[node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 0, -0.938889 )
-mode = 0
 tile_set = ExtResource( 13 )
 cell_size = Vector2( 50, 50 )
-cell_quadrant_size = 16
-cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-cell_half_offset = 2
-cell_tile_origin = 0
-cell_y_sort = false
-cell_clip_uv = false
-collision_use_kinematic = false
-collision_friction = 1.0
-collision_bounce = 0.0
-collision_layer = 1
-collision_mask = 1
-occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, -65527, 0, 0, -65526, 0, 0, -65525, 0, 0, -65524, 0, 0, -65523, 0, 0, -65522, 0, 0, -65521, 0, 0, -65520, 0, 0, -65519, 0, 0, -65518, 0, 0, -65517, 0, 0, -65516, 0, 0, -65515, 0, 0, 65535, 0, 0, 21, 0, 0, 131071, 0, 0, 65557, 0, 0, 196607, 0, 0, 131093, 0, 0, 262143, 0, 0, 196629, 0, 0, 327679, 0, 0, 262165, 0, 0, 393215, 0, 0, 327701, 0, 0, 458751, 0, 0, 393237, 0, 0, 524287, 0, 0, 458773, 0, 0, 589823, 0, 0, 524309, 0, 0, 655359, 0, 0, 589845, 0, 0, 720895, 0, 0, 655381, 0, 0, 786431, 0, 0, 720917, 0, 0, 851967, 0, 0, 786432, 0, 0, 786433, 0, 0, 786434, 0, 0, 786435, 0, 0, 786436, 0, 0, 786437, 0, 0, 786438, 0, 0, 786439, 0, 0, 786440, 0, 0, 786441, 0, 0, 786442, 0, 0, 786443, 0, 0, 786444, 0, 0, 786445, 0, 0, 786446, 0, 0, 786447, 0, 0, 786448, 0, 0, 786449, 0, 0, 786450, 0, 0, 786451, 0, 0, 786452, 0, 0, 786453, 0, 0 )
-_sections_unfolded = [ "Cell" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="plots" type="Node2D" parent="TileMap" index="0"]
-
+[node name="plots" type="Node2D" parent="TileMap"]
 editor/display_folded = true
 scale = Vector2( 0.3, 0.3 )
 z_index = -10
-_sections_unfolded = [ "Transform", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="plot1-1" parent="TileMap/plots" index="0" instance=ExtResource( 14 )]
-
+[node name="plot1-1" parent="TileMap/plots" instance=ExtResource( 14 )]
 position = Vector2( 964.548, 823.23 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="plot2-1" parent="TileMap/plots" index="1" instance=ExtResource( 14 )]
-
+[node name="plot2-1" parent="TileMap/plots" instance=ExtResource( 14 )]
 position = Vector2( 1214.55, 823.23 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="plot3-1" parent="TileMap/plots" index="2" instance=ExtResource( 14 )]
-
+[node name="plot3-1" parent="TileMap/plots" instance=ExtResource( 14 )]
 position = Vector2( 1464.55, 823.23 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="plot4-1" parent="TileMap/plots" index="3" instance=ExtResource( 14 )]
-
+[node name="plot4-1" parent="TileMap/plots" instance=ExtResource( 14 )]
 position = Vector2( 1714.56, 823.23 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="plot5-1" parent="TileMap/plots" index="4" instance=ExtResource( 14 )]
-
+[node name="plot5-1" parent="TileMap/plots" instance=ExtResource( 14 )]
 position = Vector2( 1964.56, 823.23 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="plot6-1" parent="TileMap/plots" index="5" instance=ExtResource( 14 )]
-
+[node name="plot6-1" parent="TileMap/plots" instance=ExtResource( 14 )]
 position = Vector2( 2214.56, 823.23 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="plot7-1" parent="TileMap/plots" index="6" instance=ExtResource( 14 )]
-
+[node name="plot7-1" parent="TileMap/plots" instance=ExtResource( 14 )]
 position = Vector2( 2464.55, 823.23 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="plot1-2" parent="TileMap/plots" index="7" instance=ExtResource( 14 )]
-
+[node name="plot1-2" parent="TileMap/plots" instance=ExtResource( 14 )]
 position = Vector2( 964.548, 1073.23 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="plot2-2" parent="TileMap/plots" index="8" instance=ExtResource( 14 )]
-
+[node name="plot2-2" parent="TileMap/plots" instance=ExtResource( 14 )]
 position = Vector2( 1214.55, 1073.23 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="plot3-2" parent="TileMap/plots" index="9" instance=ExtResource( 14 )]
-
+[node name="plot3-2" parent="TileMap/plots" instance=ExtResource( 14 )]
 position = Vector2( 1464.55, 1073.23 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="plot4-2" parent="TileMap/plots" index="10" instance=ExtResource( 14 )]
-
+[node name="plot4-2" parent="TileMap/plots" instance=ExtResource( 14 )]
 position = Vector2( 1714.56, 1073.23 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="plot5-2" parent="TileMap/plots" index="11" instance=ExtResource( 14 )]
-
+[node name="plot5-2" parent="TileMap/plots" instance=ExtResource( 14 )]
 position = Vector2( 1964.56, 1073.23 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="plot6-2" parent="TileMap/plots" index="12" instance=ExtResource( 14 )]
-
+[node name="plot6-2" parent="TileMap/plots" instance=ExtResource( 14 )]
 position = Vector2( 2214.56, 1073.23 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="plot7-2" parent="TileMap/plots" index="13" instance=ExtResource( 14 )]
-
+[node name="plot7-2" parent="TileMap/plots" instance=ExtResource( 14 )]
 position = Vector2( 2464.55, 1073.23 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="plot1-3" parent="TileMap/plots" index="14" instance=ExtResource( 14 )]
-
+[node name="plot1-3" parent="TileMap/plots" instance=ExtResource( 14 )]
 position = Vector2( 964.548, 1323.23 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="plot2-3" parent="TileMap/plots" index="15" instance=ExtResource( 14 )]
-
+[node name="plot2-3" parent="TileMap/plots" instance=ExtResource( 14 )]
 position = Vector2( 1214.55, 1323.23 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="plot3-3" parent="TileMap/plots" index="16" instance=ExtResource( 14 )]
-
+[node name="plot3-3" parent="TileMap/plots" instance=ExtResource( 14 )]
 position = Vector2( 1464.55, 1323.23 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="plot4-3" parent="TileMap/plots" index="17" instance=ExtResource( 14 )]
-
+[node name="plot4-3" parent="TileMap/plots" instance=ExtResource( 14 )]
 position = Vector2( 1714.56, 1323.23 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="plot5-3" parent="TileMap/plots" index="18" instance=ExtResource( 14 )]
-
+[node name="plot5-3" parent="TileMap/plots" instance=ExtResource( 14 )]
 position = Vector2( 1964.56, 1323.23 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="plot6-3" parent="TileMap/plots" index="19" instance=ExtResource( 14 )]
-
+[node name="plot6-3" parent="TileMap/plots" instance=ExtResource( 14 )]
 position = Vector2( 2214.56, 1323.23 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="plot7-3" parent="TileMap/plots" index="20" instance=ExtResource( 14 )]
-
+[node name="plot7-3" parent="TileMap/plots" instance=ExtResource( 14 )]
 position = Vector2( 2464.55, 1323.23 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="plot1-4" parent="TileMap/plots" index="21" instance=ExtResource( 14 )]
-
+[node name="plot1-4" parent="TileMap/plots" instance=ExtResource( 14 )]
 position = Vector2( 964.548, 1573.24 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="plot2-4" parent="TileMap/plots" index="22" instance=ExtResource( 14 )]
-
+[node name="plot2-4" parent="TileMap/plots" instance=ExtResource( 14 )]
 position = Vector2( 1214.55, 1573.24 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="plot3-4" parent="TileMap/plots" index="23" instance=ExtResource( 14 )]
-
+[node name="plot3-4" parent="TileMap/plots" instance=ExtResource( 14 )]
 position = Vector2( 1464.55, 1573.24 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="plot4-4" parent="TileMap/plots" index="24" instance=ExtResource( 14 )]
-
+[node name="plot4-4" parent="TileMap/plots" instance=ExtResource( 14 )]
 position = Vector2( 1714.56, 1573.24 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="plot5-4" parent="TileMap/plots" index="25" instance=ExtResource( 14 )]
-
+[node name="plot5-4" parent="TileMap/plots" instance=ExtResource( 14 )]
 position = Vector2( 1964.56, 1573.24 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="plot6-4" parent="TileMap/plots" index="26" instance=ExtResource( 14 )]
-
+[node name="plot6-4" parent="TileMap/plots" instance=ExtResource( 14 )]
 position = Vector2( 2214.56, 1573.24 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="plot7-4" parent="TileMap/plots" index="27" instance=ExtResource( 14 )]
-
+[node name="plot7-4" parent="TileMap/plots" instance=ExtResource( 14 )]
 position = Vector2( 2464.55, 1573.24 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="FarmingPlayer1" type="KinematicBody2D" parent="TileMap" index="1"]
-
+[node name="FarmingPlayer1" type="KinematicBody2D" parent="TileMap"]
 editor/display_folded = true
 position = Vector2( 300, 80 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
 script = ExtResource( 15 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite" type="Sprite" parent="TileMap/FarmingPlayer1" index="0"]
-
+[node name="Sprite" type="Sprite" parent="TileMap/FarmingPlayer1"]
 texture = ExtResource( 16 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/FarmingPlayer1" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/FarmingPlayer1"]
 
-[node name="Label" type="Label" parent="TileMap/FarmingPlayer1" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Label" type="Label" parent="TileMap/FarmingPlayer1"]
 margin_right = 40.0
 margin_bottom = 14.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
-[node name="pickupArea" type="Area2D" parent="TileMap/FarmingPlayer1" index="3"]
+[node name="pickupArea" type="Area2D" parent="TileMap/FarmingPlayer1"]
 
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/FarmingPlayer1/pickupArea"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/FarmingPlayer1/pickupArea" index="0"]
-
-[node name="FarmingPlayer2" type="KinematicBody2D" parent="TileMap" index="2"]
-
+[node name="FarmingPlayer2" type="KinematicBody2D" parent="TileMap"]
 editor/display_folded = true
 position = Vector2( 730, 80 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
 script = ExtResource( 17 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite" type="Sprite" parent="TileMap/FarmingPlayer2" index="0"]
-
+[node name="Sprite" type="Sprite" parent="TileMap/FarmingPlayer2"]
 texture = ExtResource( 16 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/FarmingPlayer2" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/FarmingPlayer2"]
 
-[node name="Label" type="Label" parent="TileMap/FarmingPlayer2" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Label" type="Label" parent="TileMap/FarmingPlayer2"]
 margin_right = 40.0
 margin_bottom = 14.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
-[node name="pickupArea" type="Area2D" parent="TileMap/FarmingPlayer2" index="3"]
+[node name="pickupArea" type="Area2D" parent="TileMap/FarmingPlayer2"]
 
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Transform" ]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/FarmingPlayer2/pickupArea"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/FarmingPlayer2/pickupArea" index="0"]
-
-[node name="Seed" parent="." index="5" instance=ExtResource( 18 )]
-
+[node name="Seed" parent="." instance=ExtResource( 18 )]
 position = Vector2( -60, -60 )
 
-[node name="WaterDrop" parent="." index="6" instance=ExtResource( 19 )]
-
+[node name="WaterDrop" parent="." instance=ExtResource( 19 )]
 position = Vector2( -46.9474, -59.6767 )
 scale = Vector2( 0.125, 0.125 )
-_sections_unfolded = [ "Transform" ]
-
 
