@@ -1,13 +1,13 @@
-extends KinematicBody2D
+extends Area2D
 
-onready var speed = 20
+onready var speed = 3
 onready var sprite = get_node("Sprite")
 var key
 onready var waiting
 
 func _ready():
 	set_process(true)
-	sprite.visible = true
+	#sprite.visible = true
 	waiting = false
 	pass
 	
@@ -21,7 +21,7 @@ func go():
 	waiting = false
 
 
-func drestroy(timing):
+func destroy(timing):
 	#playKillAnimation(timing)
 	queue_free()
 	
@@ -35,5 +35,5 @@ func playKillAnimation(timing):
 
 func _process(delta):
 	if !waiting:
-		move_and_slide(Vector2(0,speed))
+		position = Vector2(position.x, position.y + speed)
 	pass

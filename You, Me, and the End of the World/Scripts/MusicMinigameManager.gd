@@ -1,14 +1,16 @@
 extends Node
 
 #these keep track of the current and next key presses for each player
-var tempo = 10 #time between note spawns
+var tempo = 100 #time between note spawns
 var time #tracks time for tempo
 var song #the actual song being played
 var currentNote = 0 #index in the song where we are now
 #var loops = 2 #number of times we loop through the song before completion
 var defaultSong = ["L","C","L","R","C","R"] #default song if song isn't changed
 var p1Score = 0
+var p1streak = 0 #the number of successful catches in a row for player 1
 var p2Score = 0
+var p2streak = 0 #the number of successful catches in a row for player 2
 onready var p1Pos = "L"
 onready var p2Pos = "C"
 onready var note = load("res://tscn files/MusicKey.tscn")
@@ -64,6 +66,7 @@ func initNote(spawnPos):
 	print("initialize it, do it now! " + str(spawnPos))
 	var tempNote = note.instance()
 	tempNote.position = spawnPos
+	get_node("noteEmitter").add_child(tempNote)
 	notes.append(tempNote)
 	pass
 	
@@ -90,6 +93,7 @@ func spawnNote():
 	pass
 
 func _process(delta):
+	#print("notes: " + str(notes))
 	if Input.is_action_pressed("pause"):
 		_pause()
 	if Input.is_action_just_pressed("p1_move_left"):
@@ -106,4 +110,40 @@ func _process(delta):
 		time = 0
 		#print("it's time")
 		spawnNote()
+	if notes.size() > 0:
+		for i in range (0, notes.size() - 1):
+			var nextNote = notes[i]
+			if get_node("p1Catcher").overlaps_area(nextNote):
+				p1Score = p1Score - 2
+				p1streak = 0
+				notes.remove(i)
+				nextNote.destroy(false)
+			elif get_node("p2Catcher").overlaps_area(nextNote):
+				p2Score = p2Score - 2
+				p2streak = 0
+				notes.remove(i)
+				nextNote.destroy(false)
+			elif nextNote.overlaps_area(player1):
+				p1streak = p1streak + 1
+				if p1streak > 30:
+					p1Score = p1Score + 10
+				elif p1streak > 20:
+					p1Score = p1Score + 5
+				elif p1streak > 10:
+					p1Score = p1Score + 2
+				else:
+					p1Score = p1Score + 1
+				notes.remove(i)
+				nextNote.destroy(true)
+#			elif player2.overlaps_area(nextNote):
+#				p2streak = p2streak + 1
+#				if p2streak > 30:
+#					p2Score = p1Score + 10
+#				elif p2streak > 20:
+#					p2Score = p1Score + 5
+#				elif p2streak > 10:
+#					p2Score = p2Score + 2
+#				else:
+#					p2Score = p2Score + 1
+			print(str(p1Score))
 	pass
