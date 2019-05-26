@@ -20,225 +20,94 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 
-custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
-
 [sub_resource type="RectangleShape2D" id=2]
 
-custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
-
-[node name="Hunting" type="Node2D" index="0"]
-
+[node name="Hunting" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="pause_popup" parent="." index="0" instance=ExtResource( 2 )]
+[node name="pause_popup" parent="." instance=ExtResource( 2 )]
 
-visible = false
-
-[node name="TileMap" type="TileMap" parent="." index="1"]
-
-mode = 0
+[node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 3 )
-cell_size = Vector2( 64, 64 )
-cell_quadrant_size = 16
-cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-cell_half_offset = 2
-cell_tile_origin = 0
-cell_y_sort = false
-cell_clip_uv = false
-collision_use_kinematic = false
-collision_friction = 1.0
-collision_bounce = 0.0
-collision_layer = 1
-collision_mask = 1
-occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( -1, 3, 0, -65536, 3, 0, -65535, 3, 0, -65534, 3, 0, -65533, 3, 0, -65532, 3, 0, -65531, 3, 0, -65530, 3, 0, -65529, 3, 0, -65528, 3, 0, -65527, 3, 0, -65526, 3, 0, -65525, 3, 0, -65524, 3, 0, -65523, 3, 0, -65522, 3, 0, -65521, 3, 0, -65520, 3, 0, 65535, 3, 0, 16, 3, 0, 131071, 3, 0, 65552, 3, 0, 196607, 3, 0, 131088, 3, 0, 262143, 3, 0, 196624, 3, 0, 327679, 3, 0, 262160, 3, 0, 393215, 3, 0, 327696, 3, 0, 458751, 3, 0, 393232, 3, 0, 524287, 3, 0, 458768, 3, 0, 589823, 3, 0, 524304, 3, 0, 655359, 3, 0, 589840, 3, 0, 720895, 3, 0, 655360, 3, 0, 655361, 3, 0, 655362, 3, 0, 655363, 3, 0, 655364, 3, 0, 655365, 3, 0, 655366, 3, 0, 655367, 3, 0, 655368, 3, 0, 655369, 3, 0, 655370, 3, 0, 655371, 3, 0, 655372, 3, 0, 655373, 3, 0, 655374, 3, 0, 655375, 3, 0, 655376, 3, 0 )
 
-[node name="Creature" type="KinematicBody2D" parent="TileMap" index="0"]
-
+[node name="Creature" type="KinematicBody2D" parent="TileMap"]
 position = Vector2( 189, 105 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
 script = ExtResource( 4 )
-_sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="collision" type="CollisionShape2D" parent="TileMap/Creature" index="0"]
-
+[node name="collision" type="CollisionShape2D" parent="TileMap/Creature"]
 position = Vector2( -2.86999, 7.0167 )
 scale = Vector2( 3.05615, 3.6936 )
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="TileMap/Creature" index="1"]
-
+[node name="Sprite" type="Sprite" parent="TileMap/Creature"]
 position = Vector2( -2, 6 )
 texture = ExtResource( 5 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Player" type="KinematicBody2D" parent="TileMap" index="1"]
-
+[node name="Player" type="KinematicBody2D" parent="TileMap"]
 position = Vector2( 76.8835, 290.889 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
 script = ExtResource( 6 )
-_sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Player" index="0"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Player"]
 position = Vector2( 2.89996, 5 )
 scale = Vector2( 3.57692, 4.15385 )
 shape = SubResource( 2 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite" type="Sprite" parent="TileMap/Player" index="1"]
-
+[node name="Sprite" type="Sprite" parent="TileMap/Player"]
 position = Vector2( 0, 2 )
 texture = ExtResource( 7 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Bullet" parent="TileMap" index="2" instance=ExtResource( 8 )]
-
+[node name="Bullet" parent="TileMap" instance=ExtResource( 8 )]
 position = Vector2( 0.0400544, -0.0200042 )
-_sections_unfolded = [ "Collision", "Z Index" ]
 
-[node name="HUD" type="Node2D" parent="." index="2"]
+[node name="HUD" type="Node2D" parent="."]
 
-_sections_unfolded = [ "Transform" ]
-
-[node name="Sprite1" type="Sprite" parent="HUD" index="0"]
-
+[node name="Sprite1" type="Sprite" parent="HUD"]
 position = Vector2( 200, 20 )
 texture = ExtResource( 9 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite2" type="Sprite" parent="HUD" index="1"]
-
+[node name="Sprite2" type="Sprite" parent="HUD"]
 position = Vector2( 500, 20 )
 texture = ExtResource( 9 )
 
-[node name="Sprite3" type="Sprite" parent="HUD" index="2"]
-
+[node name="Sprite3" type="Sprite" parent="HUD"]
 position = Vector2( 800, 20 )
 texture = ExtResource( 9 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Lost Bar" type="TextureProgress" parent="HUD" index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Lost Bar" type="TextureProgress" parent="HUD"]
 margin_left = 88.0
 margin_top = 6.0
 margin_right = 323.0
 margin_bottom = 46.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-min_value = 0.0
-max_value = 100.0
-step = 1.0
-page = 0.0
-value = 0.0
-exp_edit = false
-rounded = false
-texture_under = null
-texture_over = null
 texture_progress = ExtResource( 10 )
-radial_fill_degrees = 360.0
-radial_center_offset = Vector2( 0, 0 )
-nine_patch_stretch = false
 script = ExtResource( 11 )
-_sections_unfolded = [ "Rect", "Textures" ]
 
-[node name="Spook Bar" type="TextureProgress" parent="HUD" index="4"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Spook Bar" type="TextureProgress" parent="HUD"]
 margin_left = 388.0
 margin_top = 6.0
 margin_right = 623.0
 margin_bottom = 46.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-min_value = 0.0
-max_value = 100.0
-step = 1.0
-page = 0.0
-value = 0.0
-exp_edit = false
-rounded = false
-texture_under = null
-texture_over = null
 texture_progress = ExtResource( 10 )
-radial_fill_degrees = 360.0
-radial_center_offset = Vector2( 0, 0 )
-nine_patch_stretch = false
 script = ExtResource( 12 )
-_sections_unfolded = [ "Rect", "Textures" ]
 
-[node name="Shot Bar" type="TextureProgress" parent="HUD" index="5"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Shot Bar" type="TextureProgress" parent="HUD"]
 margin_left = 688.0
 margin_top = 6.0
 margin_right = 911.0
 margin_bottom = 46.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-min_value = 0.0
-max_value = 100.0
-step = 1.0
-page = 0.0
-value = 0.0
-exp_edit = false
-rounded = false
-texture_under = null
-texture_over = null
 texture_progress = ExtResource( 13 )
-radial_fill_degrees = 360.0
-radial_center_offset = Vector2( 0, 0 )
-nine_patch_stretch = false
 script = ExtResource( 14 )
-_sections_unfolded = [ "Textures" ]
 
-[node name="lostIcon" type="Sprite" parent="HUD" index="6"]
-
+[node name="lostIcon" type="Sprite" parent="HUD"]
 position = Vector2( 50, 20 )
 texture = ExtResource( 15 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="spookIcon" type="Sprite" parent="HUD" index="7"]
-
+[node name="spookIcon" type="Sprite" parent="HUD"]
 position = Vector2( 350, 20 )
 texture = ExtResource( 16 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="shotIcon" type="Sprite" parent="HUD" index="8"]
-
+[node name="shotIcon" type="Sprite" parent="HUD"]
 position = Vector2( 650, 20 )
 texture = ExtResource( 17 )
-_sections_unfolded = [ "Transform" ]
-
 

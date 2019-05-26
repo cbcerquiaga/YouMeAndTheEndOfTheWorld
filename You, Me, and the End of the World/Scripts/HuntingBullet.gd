@@ -40,7 +40,7 @@ func _process(delta):
 	pass
 	
 func loadCreatureSprite(res):
-	creatureSprite = load(res)
+	creatureSprite = load(str(res))
 
 func contact(body):
 	print("Hit creature")
