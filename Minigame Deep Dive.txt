@@ -45,16 +45,17 @@ Pong/air hockey. We could have doubles or singles. The players move with the key
 
 Implementation: player or players that move around, ball collision and bouncing off the walls, scoreboard and scoring from ball crossing into collision area, AI (should be easy), meter and function for special shots.
 
-BASKETBALL
+Basketball
+There are two baskets on opposide sides of the screen, viewed from the side. Near each basket is one player from each team. Each team gets a turn trying to score on both baskets. Team A's left player shoots at the right basket, then Team A's right player shoots at the left basket, then Team B's left player shoots on the right basket, then Team B's right player shoots on the left basket, and this repeats. Players need to aim the direction and power of their shot, taking wind into account. The other 3 players on the court that aren't shooting can slide laterally and jump, which lets them deflect shots and passes. The defender on the near side can't get too close to the shooter, but players on the opposite side can go all the way to half-court. The game then becomes about timing (avoiding getting your shot blocked) but also skill (aiming shots and getting to rebounds). Once the ball touches the ground, it's dead and the next shooter takes their turn.
+Teams get 3 poins for directly scoring in the far basket and 2 for the near player putting it in, either from deflecting the initial shot or from a rebound. The game ends when one team reaches 21 (win by 2), but if the team that went first reaches it the team that goes second gets to take their turn to try and even the score (or bring it within 1).
+
+Implementation: turn rotation mechanic, players that move around (just like our combat), ball aiming and physics, wind, scorekeeping, simple AI, difficulty scaling
+
+ALT: BASKETBALL
+If we decide that the other way isn't fun, then we can do it this way.
 Essentialyly a simplified blood bowl. Both teams have 3 players, and take turns moving their players around in order to score. Games are played to 21, with shots being worth 2 or 3 points. Each player has 6 skills: how far they can move, how far they can pass, how good they are at shooting from range, how good they are at shooting up close, how good they are at stealing, and how good they are at blocking shots. Once a player has passed, shot, or attempted a steal, he can no longer move. To pass, the player selects whoever is controlling the ball, the spaces where he can pass are highlighted, and the ball goes to the selected space. If no player is in that space, then the ball sits there, uncontrolled. If someone is there, they have the ball. Players can always shoot, and depending on their stats and their defenders, there is a percentage chance of the shot going in and a chance of it getting blocked. In order to try to steal the ball, a defensive player must be moved to the space adjacent to the ball carrier. If a player gets his shot blocked, he becomes demoralized and all of his skills go down by one. Stealing is also a percentage chance, based on the defender's steal rating. A player's turn ends if they score a basket, if all three of their players have exhausted all their actions, or if they choose to end their turn.
 
 Implementation: Turn system, grid mechanics, skill checks and skills, scoreboard, player models (probably not many animations), AI.
-
-ALT: Basketball
-In case we don't like the turn based style, or it's too hard to make, we can do it this way.
-The game is played in a side view on half a court, with the basket on the right side. Each team has 2 players- a guard who stands far away from the basket, and a center who stands near the basket. Players don't move their characters around the court- their action buttons correlate to skills and the game is entirely based on timing. If a player has the ball, they have 4 moves they can do: shoot it (which requires a timing meter), pass it to their teammate, fake shooting it, or fake passing it. The player guarding them can attempt to block the passing lane or jump to block a shot- both leave the player exposed to the other action though. The two players away from the ball have 3 choices (that act as a sort of rock-paper-scissors): jump for a rebound, shove the other player, and dodge away. If the defensive team gets the ball, the guard needs to touch the ball in order to "take it back". Whether or not a shot goes in should depend on a skill check, it not getting blocked, the timing of the shot, whether or not the shot was almost blocked (contesting it should hurt its chances of going in), and a bit of random chance. Games should be played to 11 or 21. Shots from the guards should be worth 2 points, but harder to make, and shots from the center should be 1 point but easier to make (though then you have to get past both players instead of just one).
-
-Implementation: ball possession mechanic, shot timing meter, shot sccoring mechanic, timing and collisions, scoreboard, player models (not many animations), basic AI, 
 
 MUSIC
 Guitar hero style timing-based game. P1 and P2 both have 4 keys to press in time (because they play "different instruments"). Having a higher score makes the gig go better, which results in more pay for paid gigs or a successful event in certain quests.
@@ -77,7 +78,7 @@ In order for the game to work, we need different personalities for AIs, otherwis
 Implementation: scene, dice-hand UI, elimination mechanic, AI, dice rolling, assets
 
 DICE AND SHOVE
-Each player has two pieces- an X and an O. They take turns rolling a 6-sided die to decide how far they can move their X, and the goal of both players is to push the opponent's O off the 10x5 board. The more speed an X builds up by moving in the same direction longer, the farther it can shove the opposing O.
+Each player has two pieces- an X and an O. They take turns rolling a 6-sided die to decide how far they can move their X, and the goal of both players is to push the opponent's O off the 11x5 board. The more speed an X builds up by moving in the same direction longer, the farther it can shove the opposing O.
 Because of the luck involved, this makes for a natural gambling game, though strategy does play a role and players could potentially beat the odds with skilled planning.
 
 Implementation: scene, shoving mechanic, AI, dice rolling, assets
