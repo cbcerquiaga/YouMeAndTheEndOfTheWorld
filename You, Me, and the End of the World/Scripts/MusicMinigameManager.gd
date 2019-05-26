@@ -1,13 +1,16 @@
 extends Node
 
 #these keep track of the current and next key presses for each player
-var tempo = 100 #time between note spawns
+var speedArray1 #array to keep track of various speeds for player 1's song
+var speedArray2 #same but for player 2
+var tempo = 1 #time between note spawns
+var defaultSpeed = 3 #default speed if not using the speed array
 var time #tracks time for tempo
 var song1 #the actual song being played for player 1
 var song2 #song for player 2
 var currentNote1 = 0 #index in the song where p1 is now
 var currentNote2 = 0 #index for player 2
-#var loops = 2 #number of times we loop through the song before completion
+var loops = 2 #number of times we loop through the song before completion
 var defaultSong = ["L","C","L","R","C","R"] #default song if song isn't changed
 var p1Score = 0
 var p1streak = 0 #the number of successful catches in a row for player 1
@@ -25,9 +28,12 @@ onready var scoreLabel2 = get_node("HUD/p2ScoreLabel2")
 
 func _ready():
 	time = 0
-	song1 = defaultSong
+	#song1 = defaultSong
+	song1 = randSong(18)
 	song2 = ["L", "L", "L", "R", "R", "R", "L", "R"]
 	notes = []
+	speedArray1 = randSpeeds(song1)
+	speedArray2 = constSpeeds(song2, defaultSpeed)
 	pass
 
 func _pause():
@@ -72,6 +78,7 @@ func initNote1(spawnPos):
 	#print("initialize it, do it now! " + str(spawnPos))
 	var tempNote = note.instance()
 	tempNote.position = spawnPos
+	tempNote.changeSpeed(speedArray1[currentNote1])
 	get_node("noteEmitter").add_child(tempNote)
 	notes.append(tempNote)
 	pass
@@ -102,6 +109,7 @@ func initNote2(spawnPos):
 	#print("initialize it, do it now! " + str(spawnPos))
 	var tempNote = note.instance()
 	tempNote.position = spawnPos
+	tempNote.changeSpeed(speedArray2[currentNote2])
 	get_node("noteEmitter").add_child(tempNote)
 	notes.append(tempNote)
 	pass
@@ -127,9 +135,46 @@ func spawnNote2():
 	#print("side: " + str(side))
 	spawnNoteAtSide2(side)
 	pass
+	
+func randSong(length):
+	var newSong = []
+	var randInt
+	for i in range(0, length):
+		randInt = randi()%3
+		if randInt == 0:
+			newSong.append("L")
+		elif randInt == 1:
+			newSong.append("C")
+		else: #if randInt == 2:
+			newSong.append("R")
+	return newSong
+	
+func randTempo(startTempo, slowChance, fastChance):
+	var check = randi()%10
+	if check < slowChance:
+		tempo = startTempo * 1.2
+	elif check > fastChance:
+		tempo = startTempo * .8
+	else:
+		tempo = startTempo
+		
+func randSpeeds(song):
+	var newArray = []
+	var randSpeed
+	for i in range (0, song.size()):
+		randSpeed = randi() % 16 + 1
+		newArray.append(randSpeed)
+	return newArray
+	
+func constSpeeds(song, speed):
+	var newArray = []
+	for i in range (0, song.size()):
+		newArray.append(speed)
+	return newArray
 
 func _process(delta):
 	#print("notes: " + str(notes))
+	randTempo(100, 2, 2)
 	if Input.is_action_pressed("pause"):
 		_pause()
 	if Input.is_action_just_pressed("p1_move_left"):
