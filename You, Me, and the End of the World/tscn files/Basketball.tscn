@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://tscn files/pause_popup.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Images/myTiles.tres" type="TileSet" id=2]
+[ext_resource path="res://Images/hoop.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/basketballLiteralBall.gd" type="Script" id=4]
+[ext_resource path="res://Images/basketball.png" type="Texture" id=5]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 22.2996
+
+[node name="Basketball" type="Node2D"]
+
+[node name="pause_popup" parent="." instance=ExtResource( 1 )]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 525.496, 297.796 )
+scale = Vector2( 19.192, 9.603 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 50, 50 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 20, 0, 0, 65536, 0, 0, 65556, 0, 0, 131072, 0, 0, 131092, 0, 0, 196608, 0, 0, 196628, 0, 0, 262144, 0, 0, 262164, 0, 0, 327680, 0, 0, 327700, 0, 0, 393216, 0, 0, 393236, 0, 0, 458752, 0, 0, 458772, 0, 0, 524288, 0, 0, 524308, 0, 0, 589824, 0, 0, 589844, 0, 0, 655360, 0, 0, 655380, 0, 0, 720896, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 720915, 0, 0, 720916, 0, 0 )
+
+[node name="left hoop" type="RigidBody2D" parent="TileMap"]
+position = Vector2( 100, 220 )
+mode = 1
+
+[node name="Sprite" type="Sprite" parent="TileMap/left hoop"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/left hoop"]
+polygon = PoolVector2Array( 47.4427, 39.6244, 47.4875, 44.9558, -47.6118, 45.006, -47.4243, -44.9381, -41.0609, -45.0051, -41.0208, 39.5402 )
+
+[node name="right hoop" type="RigidBody2D" parent="TileMap"]
+position = Vector2( 950, 220 )
+mode = 1
+
+[node name="Sprite" type="Sprite" parent="TileMap/right hoop"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 3 )
+flip_h = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/right hoop"]
+polygon = PoolVector2Array( -47.4966, 39.5847, -47.4767, 44.9739, 47.4818, 44.9707, 47.4941, -45.0853, 41.0618, -45.0445, 41.0533, 39.6862 )
+
+[node name="ball" type="RigidBody2D" parent="TileMap"]
+position = Vector2( 500, 30 )
+gravity_scale = 2.0
+script = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="TileMap/ball"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/ball"]
+shape = SubResource( 1 )
+
