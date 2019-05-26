@@ -1,181 +1,48 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/MusicMinigameManager.gd" type="Script" id=1]
 [ext_resource path="res://tscn files/pause_popup.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/MusicP1Emitter.gd" type="Script" id=3]
-[ext_resource path="res://Scripts/p1NoteArranger.gd" type="Script" id=4]
-[ext_resource path="res://tscn files/MusicKey.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Images/guitar1.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
-custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
-
 [sub_resource type="RectangleShape2D" id=2]
 
-custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
-
-[sub_resource type="RectangleShape2D" id=3]
-
-custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
-
-[sub_resource type="RectangleShape2D" id=4]
-
-custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
-
-[sub_resource type="RectangleShape2D" id=5]
-
-custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
-
-[node name="Node" type="Node" index="0"]
-
+[node name="Node" type="Node"]
 script = ExtResource( 1 )
 
-[node name="pause_popup" parent="." index="0" instance=ExtResource( 2 )]
+[node name="pause_popup" parent="." instance=ExtResource( 2 )]
 
-visible = false
-
-[node name="p1Emitter" type="Node2D" parent="." index="1"]
-
+[node name="p1Emitter" type="Node2D" parent="."]
 position = Vector2( 664.815, 30.0764 )
 script = ExtResource( 3 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="p1Arranger" type="Node2D" parent="." index="2"]
-
-script = ExtResource( 4 )
-
-[node name="MusicKey" parent="p1Arranger" index="0" instance=ExtResource( 5 )]
-
-position = Vector2( 411.112, 0 )
-
-[node name="MusicKey2" parent="p1Arranger" index="1" instance=ExtResource( 5 )]
-
-position = Vector2( 411.112, 0 )
-
-[node name="MusicKey3" parent="p1Arranger" index="2" instance=ExtResource( 5 )]
-
-position = Vector2( 411.112, 0 )
-
-[node name="MusicKey4" parent="p1Arranger" index="3" instance=ExtResource( 5 )]
-
-position = Vector2( 411.112, 0 )
-
-[node name="MusicKey5" parent="p1Arranger" index="4" instance=ExtResource( 5 )]
-
-position = Vector2( 411.112, 0 )
-
-[node name="MusicKey6" parent="p1Arranger" index="5" instance=ExtResource( 5 )]
-
-position = Vector2( 411.112, 0 )
-
-[node name="MusicKey7" parent="p1Arranger" index="6" instance=ExtResource( 5 )]
-
-position = Vector2( 411.112, 0 )
-
-[node name="MusicKey8" parent="p1Arranger" index="7" instance=ExtResource( 5 )]
-
-position = Vector2( 411.112, 0 )
-
-[node name="p2Emitter" type="Node2D" parent="." index="3"]
-
+[node name="p2Emitter" type="Node2D" parent="."]
 position = Vector2( 441.714, 30.7931 )
 
-[node name="tooSoon2" type="Area2D" parent="." index="4"]
+[node name="p2Catcher" type="Area2D" parent="."]
+position = Vector2( 200, 590 )
 
-editor/display_folded = true
-position = Vector2( 511.961, 494.397 )
-scale = Vector2( 15.877, 0.380479 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="tooSoon2" index="0"]
-
-position = Vector2( 0, -214.989 )
-scale = Vector2( 1, 1.36364 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="p2Catcher"]
+scale = Vector2( 20, 1 )
 shape = SubResource( 1 )
 
-[node name="tooSoon1" type="Area2D" parent="." index="5"]
+[node name="p1Catcher" type="Area2D" parent="."]
+position = Vector2( 800, 590 )
 
-editor/display_folded = true
-position = Vector2( 511.061, 515.514 )
-scale = Vector2( 16.0107, 0.488381 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
+[node name="CollisionShape2D" type="CollisionShape2D" parent="p1Catcher"]
+scale = Vector2( 20, 1 )
+shape = SubResource( 1 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="tooSoon1" index="0"]
+[node name="player1" type="Area2D" parent="."]
+position = Vector2( 630, 450 )
 
-position = Vector2( -0.124916, -166.387 )
-scale = Vector2( 1, 1.14181 )
+[node name="Sprite" type="Sprite" parent="player1"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player1"]
+scale = Vector2( 3, 5 )
 shape = SubResource( 2 )
-
-[node name="justRight" type="Area2D" parent="." index="6"]
-
-editor/display_folded = true
-position = Vector2( 510.899, 537.666 )
-scale = Vector2( 16.0416, 0.51921 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="justRight" index="0"]
-
-position = Vector2( 0, -154.08 )
-shape = SubResource( 3 )
-
-[node name="tooLate1" type="Area2D" parent="." index="7"]
-
-editor/display_folded = true
-position = Vector2( 509.94, 563.321 )
-scale = Vector2( 15.9491, 1 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="tooLate1" index="0"]
-
-position = Vector2( 0.0626993, -81.4866 )
-scale = Vector2( 1, 0.575895 )
-shape = SubResource( 4 )
-
-[node name="tooLate2" type="Area2D" parent="." index="8"]
-
-editor/display_folded = true
-position = Vector2( 511.42, 585.602 )
-scale = Vector2( 15.9953, 0.580868 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="tooLate2" index="0"]
-
-position = Vector2( 0, -137.725 )
-shape = SubResource( 5 )
-
 
