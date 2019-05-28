@@ -538,6 +538,7 @@ func emit_drop_signal():
 	#emit_signal("drop_item_signal", assignedPlayer, item)
 	print("Item to be removed: " + str(item))
 	assignedPlayer._dropItem(assignedPlayer.playerProperty.Inventory.getLocation(item))
+	itemsArray.remove(itemsArray.find(item))
 	
 func isSegmentEmpty(segmentNum):
 	if segmentNum == 0:

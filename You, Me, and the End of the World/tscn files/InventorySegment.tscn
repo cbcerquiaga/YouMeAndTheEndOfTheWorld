@@ -4,69 +4,26 @@
 [ext_resource path="res://Images/inventoryTexture.png" type="Texture" id=2]
 
 [sub_resource type="DynamicFontData" id=1]
-
-hinting = 2
 font_path = "res://Fonts/Telex-Regular.ttf"
 
 [sub_resource type="DynamicFont" id=2]
-
 size = 20
-use_mipmaps = false
-use_filter = false
 font_data = SubResource( 1 )
-_sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Root" type="Control"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 script = ExtResource( 1 )
-_sections_unfolded = [ "Rect" ]
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
-
+[node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 165, 12 )
 texture = ExtResource( 2 )
 vframes = 2
-_sections_unfolded = [ "Animation" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
 margin_right = 331.0
 margin_bottom = 24.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 custom_fonts/normal_font = SubResource( 2 )
-bbcode_enabled = false
-bbcode_text = ""
-visible_characters = -1
-percent_visible = 1.0
-meta_underlined = true
-tab_size = 4
-text = ""
 scroll_active = false
-scroll_following = false
-selection_enabled = false
-override_selected_font_color = false
-_sections_unfolded = [ "Rect", "Visibility", "custom_fonts" ]
-
 
