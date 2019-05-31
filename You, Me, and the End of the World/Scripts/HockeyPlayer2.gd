@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends 'res://Scripts/hockey_player.gd'
 
 const SPEED = 50000
 const ROTATIONSPEED = 200
