@@ -112,12 +112,17 @@ func _physics_process(delta):
 		if head_attack:
 			if stamina > 10: #enough for a head attack
 				stamina -= 10
+				
+				var weapon = get_node("../../TileMap/CombatPlayer/Sword")
+				weapon.slashUp(10)
 				#TODO: raycast to see what enemy body part is damaged
 				#TODO: head attack animation
 
 		if body_attack:
 			if stamina > 10: #enough for a body attack
 				stamina -= 10
+				var weapon = get_node("../../TileMap/CombatPlayer/Sword")
+				weapon.slashDown(10)
 				#TODO: raycast to see what enemy body part is damaged
 				#TODO: body attack animation
 

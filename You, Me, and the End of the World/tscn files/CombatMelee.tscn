@@ -4,29 +4,15 @@
 [ext_resource path="res://Images/machete.png" type="Texture" id=2]
 
 [node name="Body" type="Area2D"]
-
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 9
 collision_mask = 9
-audio_bus_override = false
-audio_bus_name = "Master"
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision" ]
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
-
+[node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -6.84549, 12.046 )
 scale = Vector2( 0.208132, 0.21255 )
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( 15.9421, -20.8228, -19.2394, 23.2412, -15.5819, 28.292, 21.6896, -10.1987 )
-
 

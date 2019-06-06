@@ -8,6 +8,9 @@ var ricochet = 0 #the number of times the bullet ricochets before destroying
 var explosion = false #default explosiveness
 var poison = false #default poison value
 var isFacingRight = true
+var velocity = Vector2()
+var currentSpeed = 0
+var rotationMod = 1
 
 onready var enemyHealth = get_node("/root/Combat/CombatHUD/EnemyHealth")
 onready var playerHealth = get_node("/root/Combat/CombatHUD/PlayerHealth")
@@ -40,6 +43,19 @@ func updateFacingRight(boolean):
 		get_node("Sprite").set_flip_h(false)
 	else:
 		get_node("Sprite").set_flip_h(true)
+		
+func slashUp(speed):
+	for i in range (0, speed):
+		rotation = rotation - 1
+	pass
+	
+func slashDown(speed):
+	for i in range (0, speed):
+		rotation = rotation + 1
+	pass
+	
+func thrust(speed):
+	pass
 		
 
 func contact(body):
