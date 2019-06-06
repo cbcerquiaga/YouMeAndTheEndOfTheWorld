@@ -45,13 +45,17 @@ func updateFacingRight(boolean):
 		get_node("Sprite").set_flip_h(true)
 		
 func slashUp(speed):
-	for i in range (0, speed):
-		rotation = rotation - 1
+	var wait = (100 - speed)/100
+	for i in range (0, 20):
+		yield(get_tree().create_timer(wait), "timeout")
+		rotation = rotation + 0.25
 	pass
 	
 func slashDown(speed):
-	for i in range (0, speed):
-		rotation = rotation + 1
+	var wait = (100 - speed)/100
+	for i in range (0, 20):
+		yield(get_tree().create_timer(wait), "timeout")
+		rotation = rotation - 0.25
 	pass
 	
 func thrust(speed):
