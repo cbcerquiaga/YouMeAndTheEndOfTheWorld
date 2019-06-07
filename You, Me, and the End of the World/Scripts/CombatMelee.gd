@@ -46,16 +46,24 @@ func updateFacingRight(boolean):
 		
 func slashUp(speed):
 	var wait = (100 - speed)/100
-	for i in range (0, 20):
+	for i in range (0, 10):
 		yield(get_tree().create_timer(wait), "timeout")
 		rotation = rotation + 0.25
+	wait = (100 - speed/2)/98
+	for i in range (0, 10):
+		yield(get_tree().create_timer(wait), "timeout")
+		rotation = rotation - 0.25
 	pass
 	
 func slashDown(speed):
 	var wait = (100 - speed)/100
-	for i in range (0, 20):
+	for i in range (0, 10):
 		yield(get_tree().create_timer(wait), "timeout")
 		rotation = rotation - 0.25
+	wait = (100 - speed/2)/98
+	for i in range (0, 10):
+		yield(get_tree().create_timer(wait), "timeout")
+		rotation = rotation + 0.25
 	pass
 	
 func thrust(speed):
