@@ -1,6 +1,6 @@
-extends Area2D
+extends KinematicBody2D
 
-onready var speed = 3
+var speed
 onready var sprite = get_node("Sprite")
 var key
 onready var waiting
@@ -35,5 +35,5 @@ func playKillAnimation(timing):
 
 func _process(delta):
 	if !waiting:
-		position = Vector2(position.x, position.y + speed)
+		move_and_slide(Vector2(0, speed))
 	pass

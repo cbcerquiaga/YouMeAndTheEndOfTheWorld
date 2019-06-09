@@ -4,7 +4,7 @@ extends Node
 var speedArray1 #array to keep track of various speeds for player 1's song
 var speedArray2 #same but for player 2
 var tempo = 1 #time between note spawns
-var defaultSpeed = 3 #default speed if not using the speed array
+var defaultSpeed = 300 #default speed if not using the speed array
 var time #tracks time for tempo
 var song1 #the actual song being played for player 1
 var song2 #song for player 2
@@ -162,7 +162,7 @@ func randSpeeds(song):
 	var newArray = []
 	var randSpeed
 	for i in range (0, song.size()):
-		randSpeed = randi() % 16 + 1
+		randSpeed = randi() % 500 + 30
 		newArray.append(randSpeed)
 	return newArray
 	
@@ -195,17 +195,17 @@ func _process(delta):
 	if notes.size() > 0:
 		for i in range (0, notes.size() - 1):
 			var nextNote = notes[i]
-			if get_node("p1Catcher").overlaps_area(nextNote):
+			if get_node("p1Catcher").overlaps_body(nextNote):
 				p1Score = p1Score - 2
 				p1streak = 0
 				notes.remove(i)
 				nextNote.destroy(false)
-			elif get_node("p2Catcher").overlaps_area(nextNote):
+			elif get_node("p2Catcher").overlaps_body(nextNote):
 				p2Score = p2Score - 2
 				p2streak = 0
 				notes.remove(i)
 				nextNote.destroy(false)
-			if nextNote.overlaps_area(player1):
+			if player1.overlaps_body(nextNote):
 				p1streak = p1streak + 1
 				if p1streak > 30:
 					p1Score = p1Score + 10
@@ -217,7 +217,7 @@ func _process(delta):
 					p1Score = p1Score + 1
 				notes.remove(i)
 				nextNote.destroy(true)
-			if nextNote.overlaps_area(player2):
+			if player2.overlaps_body(nextNote):
 				p2streak = p2streak + 1
 				if p2streak > 30:
 					p2Score = p2Score + 10
