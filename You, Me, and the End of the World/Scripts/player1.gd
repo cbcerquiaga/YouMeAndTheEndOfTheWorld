@@ -82,7 +82,7 @@ func _physics_process(delta):
 			else:
 				move_and_slide(distance)
 
-	if Input.is_action_pressed("p1_action1"):
+	if Input.is_action_pressed("p1_action1") && !isFrozen:
 		var items = itemPickupSpace.get_overlapping_bodies()
 		for i in items:
 			if i.has_method("handle_item_pickup"):
@@ -92,7 +92,8 @@ func _physics_process(delta):
 	#This method can simply be modified to take into
 	#account the selectedItem, but for now I just used 0
 	if Input.is_action_pressed("p1_action2"):
-		_dropItem(0)
+		#_dropItem(0)
+		pass
 
 	#playerProperty.getSpeed() calculates the default speed times any perks or trait bonuses
 	motion = motion.normalized() * playerProperty.getSpeed()
