@@ -1,0 +1,13 @@
+2 Player Puzzles
+
+1. Distraction puzzle
+Someone is guarding something you need to get to- a door, a safe, something. One player goes to the person and talks to them to distract them, the other person goes and tries to pick the lock/find the item/destroy the thing/whatever before the guard gets bored or suspicious and returns to their job.
+
+2. Buttons puzzle
+The classic two-player puzzle. Standing in one place opens a path for another player at some other location. Players need to figure out who has to stand where and when to get where they need to go.
+
+3. Riddle
+We give the players vague directins about where something is, and rely on them working together (or googling it if somebody takes the time to write a wiki for our game) tofigure out where to go
+
+4. Good cop/bad cop puzzle
+Similar to the distraction puzzle, this puzzle requires two players to take turns talking to an NPC to try and wear them down to get information out of them. This involves striking a balance of building trust with the good cop player and intimidating with the bad cop player, without going overboard on either to arouse suspicion or hatred.
