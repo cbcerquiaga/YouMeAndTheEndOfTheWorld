@@ -7,13 +7,13 @@
 [ext_resource path="res://Scripts/basketballLiteralBall.gd" type="Script" id=5]
 [ext_resource path="res://Images/basketball.png" type="Texture" id=6]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 43.9323, 2.07031 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 5.69652, 6.07489 )
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=3]
 radius = 22.2996
 
 [node name="Basketball" type="Node2D"]
@@ -49,7 +49,7 @@ position = Vector2( 0, 43 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/left hoop/net"]
 position = Vector2( 3.25, -1 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="front rim" type="KinematicBody2D" parent="TileMap/left hoop"]
 position = Vector2( 44.5, 42.5 )
@@ -57,10 +57,9 @@ position = Vector2( 44.5, 42.5 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/left hoop/front rim"]
 position = Vector2( 0.2, 0 )
 scale = Vector2( 0.5, 0.5 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="right hoop" type="RigidBody2D" parent="TileMap"]
-editor/display_folded = true
 position = Vector2( 950, 220 )
 mode = 1
 
@@ -72,8 +71,24 @@ flip_h = true
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/right hoop"]
 polygon = PoolVector2Array( 47.4818, 44.9707, 47.4941, -45.0853, 41.0618, -45.0445, 41.0533, 39.6862 )
 
+[node name="net" type="Area2D" parent="TileMap/right hoop"]
+editor/display_folded = true
+position = Vector2( -6, 43 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/right hoop/net"]
+position = Vector2( 3.25, -1 )
+shape = SubResource( 1 )
+
+[node name="front rim" type="KinematicBody2D" parent="TileMap/right hoop"]
+position = Vector2( -44.5, 42.5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/right hoop/front rim"]
+position = Vector2( 0.2, 0 )
+scale = Vector2( 0.5, 0.5 )
+shape = SubResource( 2 )
+
 [node name="ball" type="RigidBody2D" parent="TileMap"]
-position = Vector2( 126, 30 )
+position = Vector2( 930, 30 )
 gravity_scale = 2.0
 script = ExtResource( 5 )
 
@@ -82,5 +97,5 @@ scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/ball"]
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
