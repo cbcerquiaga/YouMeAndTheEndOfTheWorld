@@ -1,11 +1,13 @@
 
-MAIN QUESTLINE
--The players are the main characters but not the protagonists of the main plot. This means that it doesn't matter so much who they are and then players can create whoever they want in order to fill in the gaps and role play as much or as little as they want.
--The main story  needs to be driven by exploring and solving the puzzle, not by following people, fighting, or anything else.
+MAIN QUESTLINES
+-Instead of one main story, we have several depending on which the players want to play through. They can choose to not do any if they want.
+-The players are the main characters but not the protagonists of the plot. This means that it doesn't matter so much who they are and then players can create whoever they want in order to fill in the gaps and role play as much or as little as they want.
+-The story needs to be driven by exploring and solving the puzzle, not by following people, fighting, or anything else.
 -The story needs to emphasize the theme that people are capable of more together than alone. We need to have puzzles that can only be solved by 2 people, go to places where people are thriving despite the situation because they're working togehter or failing because they're going it alone or turning on one another.
 -The story needs to be able to be completed in a number of different ways to make different builds viable.
 
-Main objective: Find the boy, either take him to his father to be killed or kill his father.
+MAIN QUEST: FIRST AND ONLY
+Objective: Find the boy, either take him to his father to be killed or kill his father.
 
 Part one: The Chase
 A teenaged boy runs through your town, clearly running away from someone or something. He drops an old book, it's filled with love notes from someone, presumably to him. You find the book, and not long after, a big man comes into town with a posse asking if you've seen the boy. He explains that this boy is his son, and that he's ran away from home and that he's worried aobut him. He mentions that some girl has driven him crazy and that he has run off to be with her, but that this is unacceptable because he has responsibilities at home...that he needs to help farm or their settlement will starve. His tone is one of genuine concern. The village elders offer him provisions because of this, which he gladly accepts before he and his friends head off into the wilderness to find this boy. If you try to get more information about why the boy would run away, the man will respond that he has gone crazy about the girl. The posse are heavily armed, and if you ask about this, the response is that the world is a dangerous place and they want to be safe. 
@@ -47,14 +49,46 @@ Part seven: A Standoff
 
 Part ?: The End of the World
 The finale comes down to this- the boy (and maybe girl) are holed up safely in someplace that could be destroyed by a lot of people but is pretty much impregnable otherwise, and the father is ready to storm their hiding place and take him, but they can't find a way in. There are several possible endings:
--Yojimbo ending: find the mysterious stranger in a tavern across the map, convince him to liberate this town from the cult. He comes in, kills the father and all of his followers with ease, and the game is settled
--Rambo ending: Same as the yojimbo ending, but the players take matters into their own hands.
 -Robespierre ending: the players convince the townspeople to rise up and kill their oppressors, letting the boy go free
 -Moderator ending A: The players convince the boy to come out and face his father, and kills him.
 -Moderator ending B: The players convince the boy to come out and face his father, and gets killed by him.
 -Frankenstein ending: The players convince the townspeople to kill the boy.
 -Mice and Men Ending: The players trick the boy into letting them into his hiding place, at which point they kill him.
 -300 ending: The players show the father how to get into the hiding place, at which point he goes in and kills him.
--Tough on Crime Ending: the players convince the leader of a settlement that killing this boy is in their best interest (strategic advantage, he's a menace to society, economic advantage, depends on the settlement), at which point soldiers from that settlement come in, take the boy out and kill him.
+-Tough on Crime Ending: the players convince the leader of a nearby settlement that killing this boy is in their best interest (strategic advantage, he's a menace to society, economic advantage, depends on the settlement), at which point soldiers from that settlement come in, take the boy out and kill him.
 
 Part ?+1: A Resolution
+
+MAIN QUEST: 
+Objective: Save the town from being raided by gangsters
+
+Part One: Arrival
+This story begins with the players arriving in what appears to be a normal settlement. There are shops, people have set up houses, and it's generally a nicer place to be than the squatting semi-settlements so many people seem to live in. But once the players come in and start walking around, all the settlers start buttoning up the town and hiding. If either player tries to talk to any townsperson, they make it clear that there is no time to talk. Then, a gang rolls into town. They don't notice you, but they find and beat a single straggler, and old man, and head for the center of town where the townspeople have set up an offering for them- a hefty amount of goods both farmed and scavenged. The gangsters don't notice the players and leave town. Talking to the townspeople, the players can learn that this has been going on for years, and that this year's harvest was poor and delivering enough grain for the offering will mean that people in town will starve. They plead with you to go to the next town over to get them food.
+
+Part Two: Seaside
+Heading to the next town, the players meet the mayor, and can make one of the following deals:
+-the town takes out a loan to pay for the food
+-the mayor gives them food out of kindness but only this once
+-the mayro will let some of the other townspeople come and sharecrop their land
+-the players aggrivate the mayor and don't get anything
+The mayor knows about hwat is happening the next town over, but doesn't want to intervene directly because of how powerful that gang is. On your way out of town, there is a standoff- a local merchant and one of the gangsters from the next town. It turns out that the gang was actually hired by the merchant to help him get a monopoly in that town so his rival couldn't. The merchant is mad that the gangsters are causing too much havoc and so the people are too poor to buy his goods. As they fight, they tumble into a bar, where local tough guy <NAME> stares them down and they both leave.
+
+Part Three: Help
+The townspeople desperately ask for help as their condition gets worse
+
+Part Four: Convince Somebody
+In order to help, the players have to pick a way to accomplish that:
+-convince the townspeople to run away and hope that the gang won't go after them
+-convincethe townspeople to try and fight the gang
+-convince the gangsters to leave the people alone
+-convince somebody to stop the gangsters
+-convince the rival merchant to go after the one you saw in town
+Alternatively, the players can choose to make things worse:
+-convince the gang that they could get more stuff by not doing what the merchant told them to do
+
+Part Five: Assistance
+Depending on the players' choice, they have to try and help whoever they chose to deal with
+
+Part Six: Climax
+
+Part Seven: Resolution
