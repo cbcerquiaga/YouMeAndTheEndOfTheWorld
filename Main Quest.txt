@@ -6,11 +6,46 @@ MAIN QUESTLINES
 -The story needs to emphasize the theme that people are capable of more together than alone. We need to have puzzles that can only be solved by 2 people, go to places where people are thriving despite the situation because they're working togehter or failing because they're going it alone or turning on one another.
 -The story needs to be able to be completed in a number of different ways to make different builds viable.
 
+MAIN QUEST: FRIENDS IN LOW PLACES
+Objective: Either grow as powerful as Louie or take him down
+Part One: Assistance
+Your village is running low on supplies. Very little food, crops are failing, and houses are falling apart. It's not good. But
+a helpful stranger in a disheveled suit offers assistance. He arrives in a car, which is very unusual, and offers a loan- he will
+feed your village for 2 months, rebuild the fallen houses, and even offers to build a water distillery for clean drinking water.
+The conditions? He wants 2 employees to work off the debt. Naturally, the two players get roped into this and make a deal. As a condition of this deal, Louie demands a handshake and gives each player a necklace, symbolizing their debt owed.
+
+Part one: Pony Express
+At first, the missions Louie sends the player on are routine. He operates a large business empire across the whole city, and 
+needs packages delivered between his many offices. He never mentions what these packages are, and the issue is only that they
+need to be delivered through dangerous areas. Almost every other person the players encounter at these offices wears a debt
+necklace too. Odd, that...
+
+Part two: Repo men
+As Louie gains trust in the players, he tells them that they can pay off their debt faster by taking repo jobs instead of
+delivery ones. The players can also try to just acquire enough money to buy their way out of the debt directly. If they choose to
+do the repo missions, they are given the location and description of a person, and told to bring back their debt necklace. There
+Are no restrictions on how to accomplish this- players can just murder everyone, but depending on where people live and who they
+know, you could suffer consequences for that. No ones willingly complies and gives their necklaces back, and people are desparate
+to hang onto them-running away, hiding, and fighting to hang onto them if you can't convince them to hand them over. Eventually,
+the players run into an emplyee on their way out to one of these missions, who explains that in the conditions of a contract with
+Louie, he owns your soul if he reclaims the necklace before your debt is paid off or if you don't have it on your person when you
+pay off the debt. You can dismiss this as superstitious hogwash, or you can ask him to fill you in more. Either way, he tells you
+To talk to the king of Nestor about it, and to just pay attention to how Louie acts in private.
+
+Part three: Nestor
+?
+
+Part four: Rise to Power
+?
+
+Part five: A choice
+In the final act, the players have to make a choice- confront Louie with the intent of killing him, or join him as partners.
+
 MAIN QUEST: FIRST AND ONLY
 Objective: Find the boy, either take him to his father to be killed or kill his father.
 
 Part one: The Chase
-A teenaged boy runs through your town, clearly running away from someone or something. He drops an old book, it's filled with love notes from someone, presumably to him. You find the book, and not long after, a big man comes into town with a posse asking if you've seen the boy. He explains that this boy is his son, and that he's ran away from home and that he's worried aobut him. He mentions that some girl has driven him crazy and that he has run off to be with her, but that this is unacceptable because he has responsibilities at home...that he needs to help farm or their settlement will starve. His tone is one of genuine concern. The village elders offer him provisions because of this, which he gladly accepts before he and his friends head off into the wilderness to find this boy. If you try to get more information about why the boy would run away, the man will respond that he has gone crazy about the girl. The posse are heavily armed, and if you ask about this, the response is that the world is a dangerous place and they want to be safe. 
+A teenaged boy runs through your town, clearly running away from someone or something. He drops an old book, it's filled with love notes from someone, presumably to him. You find the book, and not long after, a big man comes into town with a posse asking if you've seen the boy. He explains that this boy is his son, and that he's ran away from home and that he's worried aobut him. He mentions that some girl has driven him crazy and that he has run off to be with her, but that this is unacceptable because he has responsibilities at home...that he needs to help farm or their settlement will starve. His tone is one of genuine concern. The village elders offer him a small amount of provisions because of this, which he gladly accepts before he and his friends head off into the wilderness to find this boy. If you try to get more information about why the boy would run away, the man will respond that he has gone crazy about the girl. The posse are heavily armed, and if you ask about this, the response is that the world is a dangerous place and they want to be safe. 
 There is a clue in the book about where he may have gone- there is a bridge that the teens like to go to that they talk about frequently in the book. It is near the early settlement, and requires a puzzle to be solved to get in. Inside, there is a message carved into the wall, empty food packages, a beaten up book of poetry, and evidence that people have been sleeping here. The message on the wall informs the players that it's not safe to stay there and to meet at <riddle location>.
 
 Part two: The Hunt
@@ -63,7 +98,12 @@ MAIN QUEST:
 Objective: Save the town from being raided by gangsters
 
 Part One: Arrival
-This story begins with the players arriving in what appears to be a normal settlement. There are shops, people have set up houses, and it's generally a nicer place to be than the squatting semi-settlements so many people seem to live in. But once the players come in and start walking around, all the settlers start buttoning up the town and hiding. If either player tries to talk to any townsperson, they make it clear that there is no time to talk. Then, a gang rolls into town. They don't notice you, but they find and beat a single straggler, and old man, and head for the center of town where the townspeople have set up an offering for them- a hefty amount of goods both farmed and scavenged. The gangsters don't notice the players and leave town. Talking to the townspeople, the players can learn that this has been going on for years, and that this year's harvest was poor and delivering enough grain for the offering will mean that people in town will starve. They plead with you to go to the next town over to get them food.
+This story begins with the players arriving in what appears to be a normal settlement. There are shops, people have set up houses, and it's generally a nicer place to be than the squatting semi-settlements so many people seem to live in. But once the players come in and start walking around, all the settlers start buttoning up the town and hiding. If either player tries to talk to any townsperson, they make it clear that there is no time to talk. Then, a gang rolls into town. They don't notice you, but they find and beat a single straggler, and old man, and head for the center of town where the townspeople have set up an 
+ing for them- a hefty amount of goods both farmed and scavenged. The gangsters don't notice the players and leave town. Talking to the townspeople, the players can learn that this has been going on for years, and that this year's harvest was poor and delivering enough grain for the offering will mean that people in town will starve. They
+
+
+
+plead with you to go to the next town over to get them food.
 
 Part Two: Seaside
 Heading to the next town, the players meet the mayor, and can make one of the following deals:
