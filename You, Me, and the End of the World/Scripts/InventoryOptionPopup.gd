@@ -21,6 +21,8 @@ onready var button3 = get_node("Background/segment3/Button")
 onready var button4 = get_node("Background/segment4/Button")
 
 signal dropItem
+signal giveAll
+signal giveOne
 
 func _ready():
 	currentItem = 0
@@ -119,10 +121,16 @@ func enterButtonPressed():
 			emit_signal("dropItem")
 	elif currentItem == 3:
 		print("emit signal 3")
+		if segment3.getText() == "give to partner" or segment3.getText() == "give all to partner":
+			emit_signal("giveAll")
+		elif segment3.getText() == "give one to partner":
+			emit_signal("giveOne")
 	else: # currentItem == 4:
 		print("emit signal 4")
 		if segment4.getText() == "drop" or segment4.getText() == "drop one":
 			emit_signal("dropItem")
+		if segment4.getText() == "give to partner" or segment4.getText() == "give all to partner":
+			emit_signal("giveAll")
 	self.hide()
 
 func alternateSegmentFrames():

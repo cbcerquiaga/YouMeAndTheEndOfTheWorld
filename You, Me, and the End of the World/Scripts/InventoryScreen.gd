@@ -10,6 +10,7 @@ var escKey
 var closeKey
 var justOpened
 var assignedPlayer
+var otherPlayer
 var L
 var C
 var R
@@ -114,6 +115,8 @@ func _ready():
 	button12.connect("pressed",self,"segment12ButtonPressed")
 	button13.connect("pressed",self,"segment13ButtonPressed")
 	optionPopup.connect("dropItem",self, "emit_drop_signal")
+	optionPopup.connect("giveAll", self, "emit_giveAll_signal")
+	optionPopup.connect("giveOne", self, "emit_giveOne_signal")
 	
 	blankTexture = ImageTexture.new()
 	#optionPopup.setButtons(escKey, enterKey, upKey, downKey)
@@ -131,6 +134,9 @@ func setKeys(_leftKey, _rightKey, _upKey, _downKey, _enterKey, _escKey, _closeKe
 	
 func assignPlayer(_player):
 	assignedPlayer = _player
+	
+func assignOther(_player):
+	otherPlayer = _player
 
 #initializes the segment frames so that they alternate in color
 func alternateSegmentFrames():
@@ -540,6 +546,29 @@ func emit_drop_signal():
 	assignedPlayer._dropItem(assignedPlayer.playerProperty.Inventory.getLocation(item))
 	itemsArray.remove(itemsArray.find(item))
 	
+func emit_giveAll_signal():
+	print("emitting signal from inventory screen")
+	var itemsArray
+	if currentTab == "quests":
+		itemsArray = quests
+	elif currentTab == "map":
+		itemsArray = discoveredPlaces
+	elif currentTab == "misc":
+		itemsArray = miscItems
+	elif currentTab == "consumable":
+		itemsArray = consumableItems
+	elif currentTab == "equippable":
+		itemsArray = equippableItems
+	else: #currentTab == "weapons":
+		itemsArray = weaponItems
+	var item = itemsArray[currentItem]
+	#emit_signal("drop_item_signal", assignedPlayer, item)
+	print("Item to be removed: " + str(item))
+	#assignedPlayer._dropItem(assignedPlayer.playerProperty.Inventory.getLocation(item))
+	itemsArray.remove(itemsArray.find(item))
+	otherPlayer.addItem(item)
+		
+	
 func isSegmentEmpty(segmentNum):
 	if segmentNum == 0:
 		if segment0.getText() == "":
@@ -691,7 +720,7 @@ func getCurrentItemInfo():
 		itemPicture = segment0.getImage()
 	get_node("Item Description").text = descriptionText
 	var imageTexture = ImageTexture.new()
-	imageTexture.load(itemPicture)
+	imageTexture.load(itemPicture) #TODO: this is a deprecated, need to replace with new function
 	get_node("Item Picture").set_texture(imageTexture)
 	var size = imageTexture.get_size() #image size
 	#shrinks or grows the image to fit into the inventroy UI properly
