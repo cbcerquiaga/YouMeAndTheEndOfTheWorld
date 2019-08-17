@@ -141,6 +141,7 @@ func _inventory2():
 		inventoryScreenP2.set_scale(Vector2(1.05,1.05))
 	if(!player2.isFrozen):
 		inventoryScreenP2.show()
+		inventoryScreenP2.loadInventory(player2.getInventory().itemList)
 	else:
 		inventoryScreenP2.hide()
 	player2.isFrozen = !player2.isFrozen
