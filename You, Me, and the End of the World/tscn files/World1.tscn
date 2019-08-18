@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scripts/sceneManager.gd" type="Script" id=1]
 [ext_resource path="res://tscn files/Item_popup.tscn" type="PackedScene" id=2]
@@ -19,6 +19,9 @@
 [ext_resource path="res://tscn files/coins.tscn" type="PackedScene" id=17]
 [ext_resource path="res://tscn files/Gut.tscn" type="PackedScene" id=18]
 [ext_resource path="res://tscn files/HUDControl.tscn" type="PackedScene" id=19]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 63.9393
 
 [node name="Root" type="Control"]
 script = ExtResource( 1 )
@@ -70,6 +73,11 @@ position = Vector2( 807.15, 309 )
 
 [node name="Car" parent="walls" instance=ExtResource( 7 )]
 position = Vector2( -506.272, -243.148 )
+
+[node name="Pickup_area" type="Area2D" parent="walls/Car"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/Car/Pickup_area"]
+shape = SubResource( 1 )
 
 [node name="player1" parent="walls" instance=ExtResource( 8 )]
 position = Vector2( 380, 320 )
