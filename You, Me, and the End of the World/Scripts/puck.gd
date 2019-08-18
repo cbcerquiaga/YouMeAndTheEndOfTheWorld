@@ -12,4 +12,5 @@ func _ready():
 	
 func _process(delta):
 	if contacts_reported > 0:
+		linear_velocity.bounce(linear_velocity)
 		print("contacts reported: " + str(contacts_reported))

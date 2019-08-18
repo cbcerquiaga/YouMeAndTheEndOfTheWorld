@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/Hockey.gd" type="Script" id=1]
 [ext_resource path="res://tscn files/pause_popup.tscn" type="PackedScene" id=2]
@@ -7,10 +7,12 @@
 [ext_resource path="res://Images/hockeyTiles.tres" type="TileSet" id=5]
 [ext_resource path="res://Scripts/puck.gd" type="Script" id=6]
 [ext_resource path="res://Images/puck.png" type="Texture" id=7]
-[ext_resource path="res://Scripts/HockeyPlayer1.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/hockeyGoalie.gd" type="Script" id=8]
 [ext_resource path="res://Images/riverBass.png" type="Texture" id=9]
-[ext_resource path="res://Scripts/HockeyPlayer2.gd" type="Script" id=10]
-[ext_resource path="res://Scripts/hockeyGoalie.gd" type="Script" id=11]
+[ext_resource path="res://Scripts/HockeyPlayer1.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/HockeyPlayer2.gd" type="Script" id=11]
+
+[sub_resource type="RectangleShape2D" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -30,11 +32,12 @@ margin_bottom = 286.0
 rect_scale = Vector2( 2, 2 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
-editor/display_folded = true
 
 [node name="timeLeftLabel" type="RichTextLabel" parent="HUD"]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 520.0
+margin_top = 15.0
+margin_right = 560.0
+margin_bottom = 55.0
 
 [node name="homeScoreLabel" type="RichTextLabel" parent="HUD"]
 margin_left = 500.0
@@ -43,42 +46,16 @@ margin_right = 540.0
 margin_bottom = 55.0
 
 [node name="awayScoreLabel" type="RichTextLabel" parent="HUD"]
-margin_left = 541.068
+margin_left = 560.0
 margin_top = 15.0
-margin_right = 581.068
+margin_right = 600.0
 margin_bottom = 72.0
 
 [node name="periodLabel" type="RichTextLabel" parent="HUD"]
-margin_right = 40.0
-margin_bottom = 40.0
-
-[node name="homeSubs" type="Sprite" parent="HUD"]
-
-[node name="awaySubs" type="Sprite" parent="HUD"]
-
-[node name="homeSubNum1" type="RichTextLabel" parent="HUD"]
-margin_right = 40.0
-margin_bottom = 40.0
-
-[node name="homeSubNum2" type="RichTextLabel" parent="HUD"]
-margin_right = 40.0
-margin_bottom = 40.0
-
-[node name="homeSubNum3" type="RichTextLabel" parent="HUD"]
-margin_right = 40.0
-margin_bottom = 40.0
-
-[node name="awaySubNum1" type="RichTextLabel" parent="HUD"]
-margin_right = 40.0
-margin_bottom = 40.0
-
-[node name="awaySubNum2" type="RichTextLabel" parent="HUD"]
-margin_right = 40.0
-margin_bottom = 40.0
-
-[node name="awaySubNum3" type="RichTextLabel" parent="HUD"]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 528.0
+margin_top = 30.0
+margin_right = 568.0
+margin_bottom = 70.0
 
 [node name="Clock" type="Timer" parent="."]
 script = ExtResource( 3 )
@@ -98,8 +75,15 @@ collision_bounce = 0.5
 format = 1
 tile_data = PoolIntArray( 196595, 3, 0, 196596, 3, 0, 196597, 3, 0, 196598, 3, 0, 196599, 3, 0, 196600, 3, 0, 196601, 3, 0, 196602, 3, 0, 196603, 3, 0, 196604, 3, 0, 196605, 3, 0, 196606, 3, 0, 196607, 3, 0, 131072, 3, 0, 131073, 3, 0, 131074, 3, 0, 131075, 3, 0, 131076, 3, 0, 131077, 3, 0, 131078, 3, 0, 131079, 3, 0, 131080, 3, 0, 131081, 3, 0, 131082, 3, 0, 131083, 3, 0, 131084, 3, 0, 131085, 3, 0, 131086, 3, 0, 131087, 3, 0, 131088, 3, 0, 131089, 3, 0, 131090, 3, 0, 131091, 3, 0, 131092, 3, 0, 131093, 3, 0, 131094, 3, 0, 131095, 3, 0, 131096, 3, 0, 131097, 3, 0, 131098, 3, 0, 131099, 3, 0, 131100, 3, 0, 131101, 3, 0, 131102, 3, 0, 262131, 3, 0, 196638, 3, 0, 327667, 3, 0, 262174, 3, 0, 393203, 3, 0, 327710, 3, 0, 458739, 3, 0, 393246, 3, 0, 524275, 3, 0, 458782, 3, 0, 589811, 3, 0, 524318, 3, 0, 655347, 3, 0, 589854, 3, 0, 720883, 3, 0, 655390, 3, 0, 786418, 1, 0, 786419, 1, 0, 720926, 1, 0, 720927, 1, 0, 851954, 1, 0, 786463, 1, 0, 917490, 1, 0, 851999, 1, 0, 983026, 1, 0, 917535, 1, 0, 1048562, 1, 0, 983071, 1, 0, 1114098, 1, 0, 1048607, 1, 0, 1179634, 1, 0, 1179635, 1, 0, 1114142, 1, 0, 1114143, 1, 0, 1245171, 3, 0, 1179678, 3, 0, 1310707, 3, 0, 1245214, 3, 0, 1376243, 3, 0, 1310750, 3, 0, 1441779, 3, 0, 1376286, 3, 0, 1507315, 3, 0, 1441822, 3, 0, 1572851, 3, 0, 1507358, 3, 0, 1638387, 3, 0, 1572894, 3, 0, 1703923, 3, 0, 1638430, 3, 0, 1769459, 3, 0, 1769460, 3, 0, 1769461, 3, 0, 1769462, 3, 0, 1769463, 3, 0, 1769464, 3, 0, 1769465, 3, 0, 1769466, 3, 0, 1769467, 3, 0, 1769468, 3, 0, 1769469, 3, 0, 1769470, 3, 0, 1769471, 3, 0, 1703936, 3, 0, 1703937, 3, 0, 1703938, 3, 0, 1703939, 3, 0, 1703940, 3, 0, 1703941, 3, 0, 1703942, 3, 0, 1703943, 3, 0, 1703944, 3, 0, 1703945, 3, 0, 1703946, 3, 0, 1703947, 3, 0, 1703948, 3, 0, 1703949, 3, 0, 1703950, 3, 0, 1703951, 3, 0, 1703952, 3, 0, 1703953, 3, 0, 1703954, 3, 0, 1703955, 3, 0, 1703956, 3, 0, 1703957, 3, 0, 1703958, 3, 0, 1703959, 3, 0, 1703960, 3, 0, 1703961, 3, 0, 1703962, 3, 0, 1703963, 3, 0, 1703964, 3, 0, 1703965, 3, 0, 1703966, 3, 0 )
 
-[node name="goal 1" type="Area2D" parent="boards"]
+[node name="in play" type="Area2D" parent="boards"]
 editor/display_folded = true
+position = Vector2( 570, 928 )
+scale = Vector2( 138, 78 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boards/in play"]
+shape = SubResource( 4 )
+
+[node name="goal 1" type="Area2D" parent="boards"]
 position = Vector2( -817, 900 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boards/goal 1"]
@@ -129,11 +113,25 @@ shape = SubResource( 2 )
 [node name="Sprite" type="Sprite" parent="boards/puck"]
 texture = ExtResource( 7 )
 
+[node name="AITeam" type="Node" parent="boards"]
+
+[node name="goalie" type="KinematicBody2D" parent="boards/AITeam"]
+editor/display_folded = true
+position = Vector2( 1800, 920 )
+rotation = 3.14159
+script = ExtResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="boards/AITeam/goalie"]
+texture = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boards/AITeam/goalie"]
+shape = SubResource( 3 )
+
 [node name="playerTeam" type="Node" parent="boards"]
 
 [node name="player1" type="KinematicBody2D" parent="boards/playerTeam"]
 position = Vector2( 341.987, 662.939 )
-script = ExtResource( 8 )
+script = ExtResource( 10 )
 
 [node name="Sprite" type="Sprite" parent="boards/playerTeam/player1"]
 texture = ExtResource( 9 )
@@ -145,7 +143,7 @@ shape = SubResource( 3 )
 
 [node name="player2" type="KinematicBody2D" parent="boards/playerTeam"]
 position = Vector2( 348.987, 1058.94 )
-script = ExtResource( 10 )
+script = ExtResource( 11 )
 
 [node name="Sprite" type="Sprite" parent="boards/playerTeam/player2"]
 texture = ExtResource( 9 )
@@ -157,7 +155,7 @@ shape = SubResource( 3 )
 [node name="goalie" type="KinematicBody2D" parent="boards/playerTeam"]
 editor/display_folded = true
 position = Vector2( -650, 920 )
-script = ExtResource( 11 )
+script = ExtResource( 8 )
 
 [node name="Sprite" type="Sprite" parent="boards/playerTeam/goalie"]
 texture = ExtResource( 9 )
