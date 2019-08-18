@@ -47,9 +47,11 @@ func _ready():
 	_start_p1_Inventory_Cooldown()
 	_start_p2_Inventory_Cooldown()
 	
-	#connect car inventory to players
+	#connect car inventory to players and their inventories
 	get_node("walls/Car").setPlayer1(player1)
 	get_node("walls/Car").setPlayer2(player2)
+	get_node("walls/Car").setInventory1(get_node("/root/Root/HUDControl/InventoryScreenP1"))
+	get_node("walls/Car").setInventory2(get_node("/root/Root/HUDControl/InventoryScreenP2"))
 
 	#connect to inventory signals
 #	inventoryScreenP1.connect("drop_item_signal", self, "p1_drop_item")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scripts/sceneManager.gd" type="Script" id=1]
 [ext_resource path="res://tscn files/Item_popup.tscn" type="PackedScene" id=2]
@@ -7,18 +7,19 @@
 [ext_resource path="res://tscn files/door1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://tscn files/AreaDoor.tscn" type="PackedScene" id=6]
 [ext_resource path="res://tscn files/Car.tscn" type="PackedScene" id=7]
-[ext_resource path="res://tscn files/player1.tscn" type="PackedScene" id=8]
-[ext_resource path="res://tscn files/player2.tscn" type="PackedScene" id=9]
-[ext_resource path="res://tscn files/playerTracking.tscn" type="PackedScene" id=10]
-[ext_resource path="res://tscn files/WorldEnemy.tscn" type="PackedScene" id=11]
-[ext_resource path="res://tscn files/NPC.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Scripts/NPC.gd" type="Script" id=13]
-[ext_resource path="res://tscn files/Piano.tscn" type="PackedScene" id=14]
-[ext_resource path="res://tscn files/DollHead.tscn" type="PackedScene" id=15]
-[ext_resource path="res://tscn files/LightSaber.tscn" type="PackedScene" id=16]
-[ext_resource path="res://tscn files/coins.tscn" type="PackedScene" id=17]
-[ext_resource path="res://tscn files/Gut.tscn" type="PackedScene" id=18]
-[ext_resource path="res://tscn files/HUDControl.tscn" type="PackedScene" id=19]
+[ext_resource path="res://tscn files/CarInventory.tscn" type="PackedScene" id=8]
+[ext_resource path="res://tscn files/player1.tscn" type="PackedScene" id=9]
+[ext_resource path="res://tscn files/player2.tscn" type="PackedScene" id=10]
+[ext_resource path="res://tscn files/playerTracking.tscn" type="PackedScene" id=11]
+[ext_resource path="res://tscn files/WorldEnemy.tscn" type="PackedScene" id=12]
+[ext_resource path="res://tscn files/NPC.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scripts/NPC.gd" type="Script" id=14]
+[ext_resource path="res://tscn files/Piano.tscn" type="PackedScene" id=15]
+[ext_resource path="res://tscn files/DollHead.tscn" type="PackedScene" id=16]
+[ext_resource path="res://tscn files/LightSaber.tscn" type="PackedScene" id=17]
+[ext_resource path="res://tscn files/coins.tscn" type="PackedScene" id=18]
+[ext_resource path="res://tscn files/Gut.tscn" type="PackedScene" id=19]
+[ext_resource path="res://tscn files/HUDControl.tscn" type="PackedScene" id=20]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 63.9393
@@ -79,36 +80,38 @@ position = Vector2( -506.272, -243.148 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="walls/Car/Pickup_area"]
 shape = SubResource( 1 )
 
-[node name="player1" parent="walls" instance=ExtResource( 8 )]
+[node name="Popup" parent="walls/Car" instance=ExtResource( 8 )]
+
+[node name="player1" parent="walls" instance=ExtResource( 9 )]
 position = Vector2( 380, 320 )
 
-[node name="player2" parent="walls" instance=ExtResource( 9 )]
+[node name="player2" parent="walls" instance=ExtResource( 10 )]
 
-[node name="playerTracking" parent="walls" instance=ExtResource( 10 )]
+[node name="playerTracking" parent="walls" instance=ExtResource( 11 )]
 visible = false
 
-[node name="CombatEnemy" parent="walls" instance=ExtResource( 11 )]
+[node name="CombatEnemy" parent="walls" instance=ExtResource( 12 )]
 position = Vector2( 655.256, -293.595 )
 
-[node name="NPC" parent="walls" instance=ExtResource( 12 )]
+[node name="NPC" parent="walls" instance=ExtResource( 13 )]
 position = Vector2( -122.425, -299.026 )
-script = ExtResource( 13 )
+script = ExtResource( 14 )
 
-[node name="Piano" parent="walls" instance=ExtResource( 14 )]
+[node name="Piano" parent="walls" instance=ExtResource( 15 )]
 
-[node name="Piano2" parent="walls" instance=ExtResource( 14 )]
+[node name="Piano2" parent="walls" instance=ExtResource( 15 )]
 position = Vector2( 119.866, -30.1142 )
 
-[node name="DollHead" parent="walls" instance=ExtResource( 15 )]
+[node name="DollHead" parent="walls" instance=ExtResource( 16 )]
 position = Vector2( 315.989, 257.372 )
 
-[node name="LightSaber" parent="walls" instance=ExtResource( 16 )]
+[node name="LightSaber" parent="walls" instance=ExtResource( 17 )]
 position = Vector2( 326.471, 203.025 )
 
-[node name="coins" parent="walls" instance=ExtResource( 17 )]
+[node name="coins" parent="walls" instance=ExtResource( 18 )]
 position = Vector2( 387.029, 231.751 )
 
-[node name="Gut" parent="." instance=ExtResource( 18 )]
+[node name="Gut" parent="." instance=ExtResource( 19 )]
 visible = false
 _visibility_option = false
 _should_maximize = false
@@ -128,7 +131,7 @@ _directory4 = ""
 _directory5 = ""
 _directory6 = ""
 
-[node name="HUDControl" parent="." instance=ExtResource( 19 )]
+[node name="HUDControl" parent="." instance=ExtResource( 20 )]
 margin_left = -64.0
 margin_top = -81.0
 margin_right = -24.0

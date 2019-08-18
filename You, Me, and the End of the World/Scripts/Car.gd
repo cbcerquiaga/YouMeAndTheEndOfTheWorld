@@ -1,9 +1,11 @@
 extends KinematicBody2D
 
-var Inventory = preload("res://Scripts/Inventory.gd").new()
+onready var carInventory = get_node("root/walls/Car/Popup")
 onready var area = get_node("Pickup_area")
 var player1
 var player2
+var inventory1
+var inventory2
 
 func _ready():
 	pass
@@ -16,10 +18,18 @@ func setPlayer2(player):
 	self.player2 = player
 	pass
 
+func setInventory1(inventory):
+	self.inventory1 = inventory
+	pass
+	
+func setInventory2(inventory):
+	self.inventory2 = inventory
+	pass
+
 func _process(delta):
 	if area.overlaps_body(player1) and Input.is_action_just_pressed("p1_action1"):
-		#if the player's inventory isn't already open:
-			#freeze the player, pop up their inventory
+		inventory1.show()
+		carInventory.show()
 		#popup the player's inventory
 		#popup the car inventory
 		print("Houston, we have car touch")
