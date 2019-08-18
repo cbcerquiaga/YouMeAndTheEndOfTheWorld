@@ -561,12 +561,14 @@ func emit_giveAll_signal():
 		itemsArray = equippableItems
 	else: #currentTab == "weapons":
 		itemsArray = weaponItems
-	var item = itemsArray[currentItem]
-	#emit_signal("drop_item_signal", assignedPlayer, item)
-	print("Item to be removed: " + str(item))
-	#assignedPlayer._dropItem(assignedPlayer.playerProperty.Inventory.getLocation(item))
-	itemsArray.remove(itemsArray.find(item))
-	otherPlayer.addItem(item)
+	if itemsArray.size() > 0:
+		var item = itemsArray[currentItem]
+		#emit_signal("drop_item_signal", assignedPlayer, item)
+		print("Item to be removed: " + str(item))
+		#assignedPlayer._dropItem(assignedPlayer.playerProperty.Inventory.getLocation(item))
+		itemsArray.remove(itemsArray.find(item))
+		otherPlayer.addItem(item)
+		#refresh the other inventory popup if it's up
 		
 	
 func isSegmentEmpty(segmentNum):
