@@ -23,6 +23,7 @@ onready var player2 = get_node("walls/player2")
 onready var screensize = Vector2(get_viewport().size.x, get_viewport().size.y)
 
 onready var inventoryScreenP1 = get_node("/root/Root/HUDControl/InventoryScreenP1")
+onready var inventoryScreenP2 = get_node("/root/Root/HUDControl/InventoryScreenP2")
 
 signal drop_item_signal
 
@@ -50,8 +51,11 @@ func _ready():
 	#connect car inventory to players and their inventories
 	get_node("walls/Car").setPlayer1(player1)
 	get_node("walls/Car").setPlayer2(player2)
-	get_node("walls/Car").setInventory1(get_node("/root/Root/HUDControl/InventoryScreenP1"))
-	get_node("walls/Car").setInventory2(get_node("/root/Root/HUDControl/InventoryScreenP2"))
+	get_node("walls/Car").setInventory1(inventoryScreenP1)
+	get_node("walls/Car").setInventory2(inventoryScreenP2)
+	#catch car signals
+	get_node("walls/Car").connect("carInventory1", self, "openCloseCarInventory1")
+	get_node("walls/Car").connect("carInventory2", self, "openCloseCarInventory2")
 
 	#connect to inventory signals
 #	inventoryScreenP1.connect("drop_item_signal", self, "p1_drop_item")
@@ -134,7 +138,6 @@ func _inventory1():
 #Handles showing/hiding player2's inventory and freezing the player
 func _inventory2():
 	var zoomedOut = player1.getZoom()
-	var inventoryScreenP2 = get_node("/root/Root/HUDControl/InventoryScreenP2")
 	inventoryScreenP2.setKeys("p2_move_left","p2_move_right","p2_move_up","p2_move_down", "p2_action1", "p2_action2", "p2_inventory")
 	inventoryScreenP2.assignPlayer(player2)
 	if !zoomedOut:
@@ -149,6 +152,17 @@ func _inventory2():
 	else:
 		inventoryScreenP2.hide()
 	player2.isFrozen = !player2.isFrozen
+	
+func openCloseCarInventory1():
+	#print("Yeehaw")
+	inventoryScreenP1.show()
+	player1.frozen = !player1.frozen
+	get_node("walls/car").popup.show()
+	
+func openCloseCarInventory2():
+	inventoryScreenP2.show()
+	player2.frozen = !player2.frozen
+	get_node("walls/car").popup.show()
 
 func _process(delta):
 
