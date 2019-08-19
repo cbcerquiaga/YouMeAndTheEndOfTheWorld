@@ -134,9 +134,7 @@ func setKeys(_leftKey, _rightKey, _upKey, _downKey, _enterKey, _escKey, _closeKe
 	
 func assignPlayer(_player):
 	assignedPlayer = _player
-	
-func assignOther(_player):
-	otherPlayer = _player
+	otherPlayer = assignedPlayer.otherPlayer
 
 #initializes the segment frames so that they alternate in color
 func alternateSegmentFrames():
@@ -567,8 +565,9 @@ func emit_giveAll_signal():
 		print("Item to be removed: " + str(item))
 		#assignedPlayer._dropItem(assignedPlayer.playerProperty.Inventory.getLocation(item))
 		itemsArray.remove(itemsArray.find(item))
+		assignedPlayer.playerProperty.removeItem(item, item.name)
 		otherPlayer.addItem(item)
-		#refresh the other inventory popup if it's up
+		#TODO: refresh the other inventory popup if it's up
 		
 	
 func isSegmentEmpty(segmentNum):
