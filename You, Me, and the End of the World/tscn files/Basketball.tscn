@@ -89,7 +89,7 @@ scale = Vector2( 0.5, 0.5 )
 shape = SubResource( 2 )
 
 [node name="ball" type="RigidBody2D" parent="TileMap"]
-position = Vector2( 930, 30 )
+position = Vector2( 496, 34 )
 gravity_scale = 2.0
 script = ExtResource( 5 )
 
@@ -101,5 +101,5 @@ texture = ExtResource( 6 )
 shape = SubResource( 3 )
 
 [node name="player1" parent="TileMap" instance=ExtResource( 7 )]
-position = Vector2( 166.168, 469.402 )
+position = Vector2( 167.168, 469.402 )
 

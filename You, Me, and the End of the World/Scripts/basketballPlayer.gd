@@ -29,8 +29,9 @@ var prev_jump_pressed = false
 
 onready var frozen = false
 
-#combat-affecting variables
+#basketball-affecting variables
 var isFacingRight = true
+var canCatchBall = true #turned off when the player shoots the ball, turned back on later
 
 #player status variables
 var stamina = 100 #the player's current stamina level

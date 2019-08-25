@@ -41,9 +41,8 @@ func _process(delta):
 		#if ball is moving down:
 			print("Scoar!")
 	#check who can catch the ball
-	if player1.catchArea.overlaps_body(ball):
+	if player1.catchArea.overlaps_body(ball) and player1.canCatchBall:
 		if !ball.isHeld:
 			ball.isHeld = true
 			ball.holdingPlayer = player1
-	
 	pass
