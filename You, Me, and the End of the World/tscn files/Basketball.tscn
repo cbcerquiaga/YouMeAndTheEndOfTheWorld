@@ -100,6 +100,6 @@ texture = ExtResource( 6 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/ball"]
 shape = SubResource( 3 )
 
-[node name="Node2D" parent="TileMap" instance=ExtResource( 7 )]
+[node name="player1" parent="TileMap" instance=ExtResource( 7 )]
 position = Vector2( 166.168, 469.402 )
 

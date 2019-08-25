@@ -16,6 +16,9 @@ const JUMP_MAX_AIRBORNE_TIME = .4
 const SLIDE_STOP_VELOCITY = 1.0 # one pixel/second
 const SLIDE_STOP_MIN_TRAVEL = 1.0 # one pixel
 
+onready var catchArea = get_node("catchArea")
+onready var holdArea = get_node("holdArea")
+
 var isMouseNull = false
 
 var velocity = Vector2()

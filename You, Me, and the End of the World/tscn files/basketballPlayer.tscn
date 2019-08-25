@@ -1,10 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/basketballPlayer.gd" type="Script" id=1]
 [ext_resource path="res://Images/Player.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30.4734, 45.053 )
+
+[sub_resource type="CircleShape2D" id=3]
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 63.0136
@@ -17,6 +19,12 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
+
+[node name="holdArea" type="Area2D" parent="."]
+position = Vector2( 39, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="holdArea"]
+shape = SubResource( 3 )
 
 [node name="catchArea" type="Area2D" parent="."]
 

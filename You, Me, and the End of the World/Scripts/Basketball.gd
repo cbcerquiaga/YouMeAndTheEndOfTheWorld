@@ -7,6 +7,10 @@ extends Node2D
 onready var ball = get_node("TileMap/ball")
 onready var leftNet = get_node("TileMap/left hoop/net")
 onready var rightNet = get_node("TileMap/right hoop/net")
+onready var player1 = get_node("TileMap/player1")
+#onready var playe2 = get_node("TileMap/player2")
+#onready var ai1 = get_node("TileMap/ai1")
+#onready var ai2 = get_node("TileMap/ai2")
 
 #point values for the game. These can be adjusted to 2pters and 1pters and a longer or shorter game if we want
 const targetScore = 21
@@ -36,4 +40,10 @@ func _process(delta):
 	elif isLeftShooting and rightNet.overlaps_body(ball):
 		#if ball is moving down:
 			print("Scoar!")
+	#check who can catch the ball
+	if player1.catchArea.overlaps_body(ball):
+		if !ball.isHeld:
+			ball.isHeld = true
+			ball.holdingPlayer = player1
+	
 	pass

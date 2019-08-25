@@ -4,119 +4,81 @@
 [ext_resource path="res://Images/troll.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
 extents = Vector2( 9.7835, 0.502991 )
 
 [sub_resource type="Curve2D" id=2]
-
-bake_interval = 5.0
 _data = {
 "points": PoolVector2Array(  )
 }
 
 [sub_resource type="NavigationPolygon" id=3]
-
 vertices = PoolVector2Array( 46.5903, -19.4948, 56.5645, 5.93927, 45.3436, 27.1343 )
 polygons = [ PoolIntArray( 0, 1, 2, 2 ) ]
 outlines = [ PoolVector2Array( 46.5903, -19.4948, 56.5645, 5.93927, 45.3436, 27.1343, 45.3436, 27.1343 ) ]
 
 [sub_resource type="Curve2D" id=4]
-
-bake_interval = 5.0
 _data = {
 "points": PoolVector2Array(  )
 }
 
 [sub_resource type="NavigationPolygon" id=5]
-
 vertices = PoolVector2Array( 34.372, -5.53098, 85.2401, -4.78293, 84.9907, 0.70285, 33.6239, -0.294586 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 outlines = [ PoolVector2Array( 34.372, -5.53098, 85.2401, -4.78293, 84.9907, 0.70285, 33.6239, -0.294586 ) ]
 
 [node name="CombatPlayer" type="KinematicBody2D"]
-
 position = Vector2( 427.076, 349.132 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
-
+[node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -2.27094, -4.47815 )
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Animation", "Region", "Visibility" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="torso" type="KinematicBody2D" parent="." index="1"]
-
-input_pickable = false
+[node name="torso" type="KinematicBody2D" parent="."]
 collision_layer = 20
 collision_mask = 20
-collision/safe_margin = 0.08
-_sections_unfolded = [ "Collision", "collision" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="torso" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="torso"]
 polygon = PoolVector2Array( -5.21179, -28.4351, 4.71939, -22.531, 6.04086, -21.9487, 6.22003, -19.9329, 9.31091, -16.4164, 11.3491, -15.1622, 14.0592, -14.4902, 15.4479, -13.7959, 16.9933, -13.3031, 18.5388, -13.124, 18.718, -12.3401, 20.25, -11.7084, 28.1788, -11.6636, 29.2315, -10.5662, 30.3514, -9.37909, 31.3593, -8.46078, 31.4713, -4.47397, 30.5439, -2.22971, 28.3938, -2.22971, 27.1395, -4.93982, 25.3029, -5.05182, 24.4294, -3.34958, 21.9432, -3.34958, 20.0842, -5.54456, 18.8524, -8.41147, 13.6561, -9.0834, 12.3122, -9.73294, 8.19101, -10.0241, 3.62189, -14.8172, 3.15152, -14.3245, 7.74307, -9.55377, 8.59418, -7.85153, 10.5652, -6.55246, 11.9762, -5.47739, 11.7075, -3.52878, 14.0816, -2.00574, 14.1264, -0.393097, 15.3359, 0.726807, 17.8444, 4.04611, 17.7996, 7.27139, 16.2542, 8.03293, 16.8589, 9.62317, 17.0068, 14.3132, 23.7261, 14.7388, 25.1819, 17.0682, 27.8249, 18.5912, 27.2426, 21.3685, 22.2926, 22.242, 13.6247, 22.242, 13.6561, 25.8436, 12.357, 27.3219, 8.50461, 28.1282, 1.69571, 27.4114, -5.71796, 21.9464, -7.06183, 25.1269, -1.44894, 33.1901, -2.45685, 35.0491, -9.60175, 35.0356, -12.1103, 33.6022, -13.2302, 24.3967, -12.0431, 23.5904, -12.0655, 18.1925, -11.08, 17.3638, -14.2381, 14.8553, -16.3704, 16.3604, -18.0726, 15.0613, -21.0067, 15.0613, -21.8802, 16.0692, -24.1872, 13.6503, -24.1469, 9.09457, -32.098, 4.83899, -32.2548, 2.01688, -30.575, 1.38974, -23.5869, 3.18158, -22.6238, 2.82321, -22.579, -2.55225, -23.4749, -3.76172, -23.3181, -8.55484, -20.1556, -10.2794, -16.5272, -16.0133, -15.5417, -19.4849, -11.6355, -22.5266 )
 
-[node name="head" type="KinematicBody2D" parent="." index="2"]
-
-input_pickable = false
+[node name="head" type="KinematicBody2D" parent="."]
 collision_layer = 20
 collision_mask = 20
-collision/safe_margin = 0.08
-_sections_unfolded = [ "Collision" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="head" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="head"]
 polygon = PoolVector2Array( 4.7988, -22.638, 6.98065, -22.5249, 7.013, -23.4784, 8.7908, -23.5269, 8.82312, -25.3047, 9.55038, -25.2885, 11.1181, -24.1087, 12.3787, -25.3209, 12.2333, -29.9917, 9.48575, -32.3513, 9.48575, -33.6442, 10.5363, -34.7594, 8.9007, -37.1352, 8.9007, -39.7534, 9.38556, -41.1433, 7.33301, -43.907, 6.78351, -40.7393, 5.9754, -39.6888, 2.242, -40.9494, -1.29742, -40.5615, -3.8187, -37.5716, -7.82684, -39.4948, -9.31372, -39.0099, -9.20059, -34.8079, -8.63492, -32.7876, -7.34198, -31.8987, -6.25912, -30.8805, -5.14395, -29.7169, -5.24094, -28.5694 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 2.79666, 35.5171 )
 scale = Vector2( 3.72205, 1 )
 shape = SubResource( 1 )
 
-[node name="slashPath" type="Path2D" parent="." index="4"]
-
-self_modulate = Color( 0.5, 0.6, 1, 0.7 )
+[node name="slashPath" type="Path2D" parent="."]
 curve = SubResource( 2 )
 
-[node name="Navigation2D" type="Navigation2D" parent="slashPath" index="0"]
+[node name="Navigation2D" type="Navigation2D" parent="slashPath"]
 
-[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="slashPath/Navigation2D" index="0"]
-
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="slashPath/Navigation2D"]
 position = Vector2( -8.22867, -6.48318 )
 navpoly = SubResource( 3 )
-enabled = true
 
-[node name="thrustPath" type="Path2D" parent="." index="5"]
-
-self_modulate = Color( 0.5, 0.6, 1, 0.7 )
+[node name="thrustPath" type="Path2D" parent="."]
 curve = SubResource( 4 )
 
-[node name="Navigation2D" type="Navigation2D" parent="thrustPath" index="0"]
+[node name="Navigation2D" type="Navigation2D" parent="thrustPath"]
 
-[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="thrustPath/Navigation2D" index="0"]
-
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="thrustPath/Navigation2D"]
 navpoly = SubResource( 5 )
-enabled = true
-
 

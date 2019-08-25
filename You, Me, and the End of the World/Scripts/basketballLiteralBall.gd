@@ -11,6 +11,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if isHeld:
+		self.position.x = holdingPlayer.holdArea.global_position.x
+		self.position.y = holdingPlayer.holdArea.global_position.y
 	#if mouse clicked and isHeld:
 		#check mouse position
 		#get distance from ball
@@ -20,4 +23,7 @@ func _process(delta):
 		#isHeld = false
 	#if held but not clicked:
 		#snap to position for heldPlayer
+	#else:
+		#check if close enough to be held
+			#if yes, set held to be true
 	pass
