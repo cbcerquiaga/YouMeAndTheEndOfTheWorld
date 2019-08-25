@@ -3,8 +3,8 @@ extends RigidBody2D
 onready var isHeld #if the ball is held, it can be thrown. If not, it's free
 var holdingPlayer
 
-const minPower = .2
-const maxPower = .6
+const minPower = 22
+const maxPower = 107
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,17 +15,18 @@ func _ready():
 func shoot_ball():
 	var mousePos = get_local_mouse_position()
 	var selfPos = self.get_global_position()
-	var power = (selfPos - mousePos).normalized()
-	power.x = power.x/2
-	power.y = power.y/2
-	if power.y < minPower:
-		power.y = minPower
-	elif power.y > maxPower:
-		power.y = maxPower
-	if power.x < -maxPower:
-		power.x = -maxPower
-	elif power.x > maxPower:
-		power.x = maxPower
+#	var power = Vector2(selfPos.x - mousePos.x, selfPos.y - mousePos.y)
+#	power.x = power.x/12
+#	power.y = power.y/6
+#	if power.y < minPower:
+#		power.y = minPower
+#	elif power.y > maxPower:
+#		power.y = maxPower
+#	if power.x < -maxPower:
+#		power.x = -maxPower
+#	elif power.x > maxPower:
+#		power.x = maxPower
+	var power = Vector2(1, 0)
 	#add spread to mouse position
 	var randSpread = int(rand_range(-holdingPlayer.spread,holdingPlayer.spread))
 	mousePos.x += randSpread
@@ -37,7 +38,8 @@ func shoot_ball():
 	#launch the ball
 	isHeld = false
 	holdingPlayer.canCatchBall = false
-	apply_impulse(offset, power)
+	print("offset: " + str(offset) + " power: " + str(power))
+	apply_impulse(Vector2(0,0), power)
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
