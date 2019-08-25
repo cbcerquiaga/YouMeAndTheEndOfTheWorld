@@ -95,10 +95,22 @@ margin_left = 563.0
 margin_top = 230.0
 margin_right = 973.0
 margin_bottom = 290.0
+rect_pivot_offset = Vector2( 233.878, 34.8905 )
 focus_mode = 0
 action_mode = 0
 enabled_focus_mode = 0
 text = "Music"
+
+[node name="Basketball" type="Button" parent="."]
+margin_left = 563.0
+margin_top = 311.0
+margin_right = 973.0
+margin_bottom = 371.0
+rect_pivot_offset = Vector2( 233.878, 34.8905 )
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+text = "Basketball"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 visible = false
@@ -114,3 +126,4 @@ scale = Vector2( 16.9062, 10.3438 )
 [connection signal="pressed" from="Farming" to="." method="_on_Farming_pressed"]
 [connection signal="pressed" from="Hockey" to="." method="_on_Hockey_pressed"]
 [connection signal="pressed" from="Music" to="." method="_on_Music_pressed"]
+[connection signal="pressed" from="Basketball" to="." method="_on_Basketball_pressed"]

@@ -39,3 +39,7 @@ func _on_Hockey_pressed():
 	
 func _on_Music_pressed():
 	error = get_tree().change_scene("res://tscn files/MusicMinigame.tscn")
+	
+
+func _on_Basketball_pressed():
+	error = get_tree().change_scene("res://tscn files/Basketball.tscn")
