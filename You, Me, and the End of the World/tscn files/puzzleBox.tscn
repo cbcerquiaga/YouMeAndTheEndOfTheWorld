@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/puzzleBox.gd" type="Script" id=1]
+[ext_resource path="res://Images/box_placeholder.png" type="Texture" id=2]
+
+[node name="box" type="KinematicBody2D"]
+scale = Vector2( 0.25, 0.25 )
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 154.895, -39.6647, 155.904, 102.161, 26.696, 169.289, -155.508, 106.704, -156.012, -25.0278, 14.179, -117.795, 153.986, -40.5732 )
+
