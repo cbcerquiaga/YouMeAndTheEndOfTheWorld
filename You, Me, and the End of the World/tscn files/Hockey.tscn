@@ -100,7 +100,7 @@ position = Vector2( -34.7202, 20.4688 )
 scale = Vector2( 4.5317, 16.562 )
 shape = SubResource( 2 )
 
-[node name="puck" type="RigidBody2D" parent="boards"]
+[node name="puck" type="KinematicBody2D" parent="boards"]
 editor/display_folded = true
 position = Vector2( 550, 900 )
 script = ExtResource( 6 )
