@@ -3,6 +3,7 @@ extends KinematicBody2D
 #boolean player states for both AI and human controlled players
 var isStanding #true for standing, false for fallen
 var isFighting #true for fighting, false for playing
+var playable = true #whether or not the player can play in the current game
 #the 3 player skills
 var speedTrait
 var hittingTrait
@@ -17,6 +18,8 @@ var defense_tendency #desire to stay back on defense
 const BIGHITSPEED = 100 #arbitrary for now
 const RATTLECHANCE = 5 #arbitrary for now
 
+onready var health = 100
+var playerFighting #the player actively being fought
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
