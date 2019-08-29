@@ -27,7 +27,7 @@ func _process(delta):
 			velocity.y = -SPEED
 		elif collision_point.y < position.y:
 			velocity.y = SPEED
-	else:
+	elif isInArea: #no collision but in the area
 		if velocity.x > 10:
 			velocity.x = velocity.x - 10
 		elif velocity.x < -10:
@@ -44,4 +44,7 @@ func _process(delta):
 			velocity.y = velocity.y - 1
 		elif velocity.y < 0:
 			velocity.y = velocity.y + 1
+	else: #not in the area
+		velocity.x = 0
+		velocity.y = 0
 	pass

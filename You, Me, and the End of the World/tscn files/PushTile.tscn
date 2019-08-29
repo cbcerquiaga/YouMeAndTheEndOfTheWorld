@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://tscn files/tileset.tres" type="TileSet" id=1]
+
+[node name="PushTile" type="Area2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2( 0.75, 0.75 )
+mode = 1
+tile_set = ExtResource( 1 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 0 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2( 1.5, 1.5 )
+polygon = PoolVector2Array( 16.3677, -2.67642, -14.8037, 13.8721, -46.3001, -2.67645, -15.0083, -19.1648 )
+
