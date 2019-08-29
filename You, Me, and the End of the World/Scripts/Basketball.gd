@@ -12,6 +12,8 @@ onready var player1 = get_node("TileMap/player1")
 #onready var ai1 = get_node("TileMap/ai1")
 #onready var ai2 = get_node("TileMap/ai2")
 
+var hoopMouse = load("res://Images/bballCrosshair.png")
+
 #point values for the game. These can be adjusted to 2pters and 1pters and a longer or shorter game if we want
 const targetScore = 21
 const longShot = 3
@@ -28,6 +30,7 @@ var alreadyScored = false #this will let us have a complete ball passing through
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Input.set_custom_mouse_cursor(hoopMouse)
 	#flip a coin to see who shoots first
 	#start the game
 	pass
