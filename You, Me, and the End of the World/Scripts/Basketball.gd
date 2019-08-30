@@ -8,7 +8,7 @@ onready var ball = get_node("TileMap/ball")
 onready var leftNet = get_node("TileMap/left hoop/net")
 onready var rightNet = get_node("TileMap/right hoop/net")
 onready var player1 = get_node("TileMap/player1")
-#onready var playe2 = get_node("TileMap/player2")
+onready var player2 = get_node("TileMap/player2")
 #onready var ai1 = get_node("TileMap/ai1")
 #onready var ai2 = get_node("TileMap/ai2")
 
@@ -31,6 +31,9 @@ var alreadyScored = false #this will let us have a complete ball passing through
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_custom_mouse_cursor(hoopMouse)
+	#make the players fac the right way
+	player1.updateFacingRight(false)
+	player2.updateFacingRight(true)
 	#flip a coin to see who shoots first
 	#start the game
 	pass
@@ -46,6 +49,21 @@ func _process(delta):
 	#check who can catch the ball
 	if player1.catchArea.overlaps_body(ball) and player1.canCatchBall:
 		if !ball.isHeld:
+			if ball.holdingPlayer != null:
+				ball.holdingPlayer.canCatchBall = true
 			ball.isHeld = true
 			ball.holdingPlayer = player1
+	if player2.catchArea.overlaps_body(ball) and player2.canCatchBall:
+		if !ball.isHeld:
+			if ball.holdingPlayer != null:
+				ball.holdingPlayer.canCatchBall = true
+			ball.isHeld = true
+			ball.holdingPlayer = player2
+			
+	#left team 1 turn, right team 1 turn, left team 2 turn, right team 2 turn
+	#shot clock goes
+	#if shot clock doesn't expire, ball is shot or stolen
+	#live ball timer goes
+	#next turn
+	#repeat
 	pass

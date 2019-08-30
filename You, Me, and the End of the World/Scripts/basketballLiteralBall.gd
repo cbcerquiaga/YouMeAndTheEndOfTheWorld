@@ -11,8 +11,9 @@ const goalPower = 798 #tested that this is the best power for getting the ball i
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	self.set_bounce(.6)
-	self.mass = 1.2
-	self.friction = 1
+	self.set_mass(1.2)
+	self.set_friction(1)
+	mode = RigidBody2D.MODE_RIGID
 	isHeld = false
 	pass
 	
@@ -40,20 +41,21 @@ func shoot_ball():
 	holdingPlayer.canCatchBall = false
 	print(" power: " + str(power))
 	apply_impulse(Vector2(mousePos.x,mousePos.y),Vector2 (0, power).rotated(rotation))
-	set_applied_torque(0)
+	self.set_inertia(2000000)
 	
 func timeout():
+	print("you're in time out")
 	rotation = 0
+	set_applied_torque(0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if isHeld:
-		self.position.x = holdingPlayer.holdArea.global_position.x
-		self.position.y = holdingPlayer.holdArea.global_position.y
+		self.position.x = holdingPlayer.currentHoldArea.global_position.x
+		self.position.y = holdingPlayer.currentHoldArea.global_position.y
 		if Input.is_action_just_pressed("click") and !holdingPlayer.isMouseNull:
 			shoot_ball()
 			#short delay, then stop spinning
-			yield(get_tree().create_timer(0.5), "timeout")
 	#if mouse clicked and isHeld:
 		#check mouse position
 		#get distance from ball

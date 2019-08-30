@@ -30,7 +30,7 @@ var prev_jump_pressed = false
 onready var frozen = false
 
 #basketball-affecting variables
-var isFacingRight = true
+var isFacingRight = false
 var canCatchBall = true #turned off when the player shoots the ball, turned back on later
 
 #player status variables
@@ -53,12 +53,12 @@ func _physics_process(delta):
 		# Create forces
 		var force = Vector2(0, GRAVITY)
 
-		var walk_left = Input.is_action_pressed("p1_move_left")
-		var walk_right = Input.is_action_pressed("p1_move_right")
-		var block = Input.is_action_just_pressed("p1_action1")
-		var steal = Input.is_action_just_pressed("p1_action2")
-		var jump = Input.is_action_pressed("p1_move_up")
-		var crouch = Input.is_action_pressed("p1_move_down")
+		var walk_left = Input.is_action_pressed("p2_move_left")
+		var walk_right = Input.is_action_pressed("p2_move_right")
+		var block = Input.is_action_just_pressed("p2_action1")
+		var steal = Input.is_action_just_pressed("p2_action2")
+		var jump = Input.is_action_pressed("p2_move_up")
+		var crouch = Input.is_action_pressed("p2_move_down")
 		
 
 		var stop = true
@@ -132,7 +132,6 @@ func updateFacingRight(boolean):
 	else:
 		get_node("Sprite").set_flip_h(true)
 		currentHoldArea = get_node("holdAreaR")
-		
 		
 func freeze():
 	frozen = true
