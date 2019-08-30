@@ -10,7 +10,7 @@ func _ready():
 	#set_contact_monitor(true)
 	set_use_custom_integrator(false) 
 	
-func _process(delta):
+func _physics_process(delta):
 	if contacts_reported > 0:
 		linear_velocity.bounce(linear_velocity)
 		print("contacts reported: " + str(contacts_reported))

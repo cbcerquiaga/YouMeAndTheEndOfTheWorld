@@ -39,7 +39,7 @@ var maxStamina = 100 #the maximum stamina the player can have with their current
 var staminaRegen = .15 #how quickly the player's stamina regenerates
 var agility
 var jump
-var spread = 15
+var spread = 5
 var lastFrameEndSpeed = Vector2(0,0)
 
 
@@ -91,13 +91,9 @@ func _physics_process(delta):
 		if is_on_floor():
 			on_air_time = 0
 			if crouch:
-				print("DUCK!")
-				stamina -= staminaRegen/2 #stamina regenerates at half speed
-				#TODO: play crouch animation
-				#TODO: reduce hitbox size
+				pass
 		else:
 			if crouch:
-				print("cannonball!")
 				velocity.y += CROUCH_GRAVITY
 
 		if jumping and velocity.y > 0:
