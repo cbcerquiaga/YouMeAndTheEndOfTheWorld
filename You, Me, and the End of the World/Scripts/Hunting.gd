@@ -67,10 +67,16 @@ func _process(delta):
 	
 #when the animal is lost, end the game and send the player out without being able to find them again
 func lost():
+	#TODO: show the player some kind of text explaining what happened
+	#TODO: transfer back to the world the player was in and keep persistent changes
+	get_tree().change_scene("res://tscn files/World1.tscn")
 	pass
 	
 #when the animal is spooked, end the game but put the player near more footprints
 func spooked():
+	#TODO: show the player some kind of text explaining what happened
+	#TODO: transfer back to the world the player was in and keep persistent changes
+	get_tree().change_scene("res://tscn files/World1.tscn")
 	pass
 	
 func getXDist():
