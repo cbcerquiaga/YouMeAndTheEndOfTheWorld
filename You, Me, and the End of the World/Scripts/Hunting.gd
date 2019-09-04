@@ -3,9 +3,11 @@ extends Node2D
 var crosshair = load("res://Images/Crosshair.png")
 onready var player = get_node("TileMap/Player")
 onready var creature = get_node("TileMap/Creature")
+onready var creatureArea = get_node("TileMap/Creature/KillArea")
 
 func _ready():
 	Input.set_custom_mouse_cursor(crosshair, 0, Vector2(15, 15))
+	player.setCreature(creatureArea)
 	pass
 	
 func checkJustRightCollision():
@@ -40,6 +42,7 @@ func _process(delta):
 		_pause()
 	creature.setHunterLocation(player.position)
 	passBulletsInfo()
+			
 	if creature.health <= 0:
 		print("You got it!")
 		#randomize what the player actually gets
@@ -86,8 +89,12 @@ func getYDist():
 	return player.position.y - creature.position.y
 	
 func passBulletsInfo():
-	print("bullets are getting their info")
+	#print("bullets are getting their info")
 	if player.bulletsFired.size() > 0:
+		#print("bullet fired")
 		for i in range(0, player.bulletsFired.size() - 1):
-			player.bulletsFired[i].loadCreature(creature)
-			player.bulletsFired[i].loadCreatureSprite(get_node("TileMap/Creature/Sprite"))
+			var bullet = player.bulletsFired[i]
+			#print(str(bullet))
+			if get_node("TileMap/Creature/KillArea").overlaps_body(bullet):
+				print("Get it!")
+				bullet.destroy()

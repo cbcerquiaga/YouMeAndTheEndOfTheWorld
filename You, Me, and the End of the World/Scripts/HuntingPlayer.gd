@@ -9,11 +9,15 @@ onready var shotVal = 0#100
 var spread = 20
 onready var bulletsFired = []
 onready var bullet = load("res://tscn files/HuntingBullet.tscn")
+var creature
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	pass
+	
+func setCreature(newCreature):
+	creature = newCreature
 
 func create_bullet(position):
 	var tempBullet = bullet.instance()
@@ -29,6 +33,7 @@ func create_bullet(position):
 	truePosition.y += randSpread
 	tempBullet.motion = truePosition.normalized()
 	self.get_parent().add_child(tempBullet)
+	tempBullet.creature = creature
 	bulletsFired.append(tempBullet)
 	
 func checkAndKillBullets():

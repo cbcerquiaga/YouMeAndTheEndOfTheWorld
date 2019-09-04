@@ -36,6 +36,14 @@ tile_data = PoolIntArray( -1, 3, 0, -65536, 3, 0, -65535, 3, 0, -65534, 3, 0, -6
 position = Vector2( 189, 105 )
 script = ExtResource( 4 )
 
+[node name="KillArea" type="Area2D" parent="TileMap/Creature"]
+position = Vector2( -189, -105 )
+
+[node name="collision" type="CollisionShape2D" parent="TileMap/Creature/KillArea"]
+position = Vector2( 186.13, 112.017 )
+scale = Vector2( 3.05615, 3.6936 )
+shape = SubResource( 1 )
+
 [node name="collision" type="CollisionShape2D" parent="TileMap/Creature"]
 position = Vector2( -2.86999, 7.0167 )
 scale = Vector2( 3.05615, 3.6936 )

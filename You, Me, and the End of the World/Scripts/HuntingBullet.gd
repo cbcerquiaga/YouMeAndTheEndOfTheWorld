@@ -16,8 +16,8 @@ signal hitUpdate
 
 func _ready():
 	set_process(true)
-	if(!self.is_connected("hit", creature, "_on_Bullet_hit")):
-		self.connect("hit", creature, "_on_Bullet_hit", [])
+#	if(!self.is_connected("hit", creature, "_on_Bullet_hit")):
+#		self.connect("hit", creature, "_on_Bullet_hit", [])
 	self.look_at(get_viewport().get_mouse_position())
 	pass
 	
@@ -26,16 +26,20 @@ func set_speed(value):
 
 func _process(delta):
 	translate((speed * motion * delta))
-	var collideCheck = move_and_collide(motion * delta)
-	#print(str(collideCheck))
-	if(collideCheck != null):
-		contact(collideCheck.collider)
-	var collideCheck2 = collideByPosition()
-	if collideCheck2:
-		print(str(collideCheck2))
-#	if self.position.x > creature.position.x - creatureSprite.texture.get_width() and self.position.x < creature.position.x + creatureSprite.texture.get_width():
-#		if self.position.y < creature.position.y + creatureSprite.texture.get_height() and self.position.y > creature.position.y - creatureSprite.texture.get_height():
-#			contact(creature)
+#	var collideCheck = move_and_collide(motion * delta)
+#	#print(str(collideCheck))
+#	if(collideCheck != null):
+#		contact(collideCheck.collider)
+#	var collideCheck2 = collideByPosition()
+#	if collideCheck2:
+#		print(str(collideCheck2))
+##	if self.position.x > creature.position.x - creatureSprite.texture.get_width() and self.position.x < creature.position.x + creatureSprite.texture.get_width():
+##		if self.position.y < creature.position.y + creatureSprite.texture.get_height() and self.position.y > creature.position.y - creatureSprite.texture.get_height():
+##			contact(creature)
+	if creature != null:
+		if creature.overlaps_body(self):
+			print("Well this sucks")
+			destroy()
 	distance = distance + 1
 	pass
 	
